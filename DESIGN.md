@@ -32,3 +32,7 @@ Static HTML, CSS and JavaScript. Content is built ahead of time from a public-on
 ## Revision after Michael’s feedback
 
 Michael said the explicit “I’m Michael Jabbour” introduction and the link at the bottom felt too formal, and asked for the approach to move up a notch. The revision removes the repeated self-introduction, brings the already-developed “Good work has a next day” story into the hero, uses conversational task names, and replaces the formal closing/footer with a simple invitation. A small “Start anywhere” note and a gently arranged film board bring the work forward without inventing an identity or adding automatic motion. The baseline source and screenshots are retained locally for comparison. Capability names, actual functions, installation destinations and accessibility checks stay intact.
+
+## Revision: film stills and the overview film
+
+The end-card posters made 26 of 33 thumbnails near-identical green cards, so each film's own personality never reached the library. Thumbnails and player posters now use a single unedited frame from each film (`assets/stills/`), falling back to the original poster where no film still exists. The portfolio film's on-screen chapter words use the site's seven navigation names, and its "Start here" note uses the site's yellow, so the film and the site show the same object.

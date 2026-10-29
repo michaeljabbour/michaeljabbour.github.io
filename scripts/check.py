@@ -357,7 +357,7 @@ def main() -> int:
                 f"{ident}: video source differs from media.json",
             )
             expected_poster = (
-                metadata.get("local_poster") or metadata.get("poster") or ""
+                metadata.get("still") or metadata.get("local_poster") or metadata.get("poster") or ""
             )
             if expected_poster and not expected_poster.startswith("http"):
                 expected_poster = "/" + expected_poster.lstrip("/")

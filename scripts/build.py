@@ -38,7 +38,7 @@ def main():
 
     def poster(p, loading="lazy", cls=""):
         m = film(p)
-        src = m.get("local_poster") or m.get("poster")
+        src = m.get("still") or m.get("local_poster") or m.get("poster")
         if src:
             src = "/" + src.lstrip("/") if not src.startswith("http") else src
             return f'<img class="{cls}" src="{E(src)}" width="960" height="540" loading="{loading}" alt="{E(p["title"])} artwork">'
@@ -196,7 +196,7 @@ def main():
         m = film(p)
         watch = ""
         if m.get("available") and m.get("src"):
-            poster_path = m.get("local_poster") or m.get("poster") or ""
+            poster_path = m.get("still") or m.get("local_poster") or m.get("poster") or ""
             if poster_path and not poster_path.startswith("http"):
                 poster_path = "/" + poster_path.lstrip("/")
             caption = (

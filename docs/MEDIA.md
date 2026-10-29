@@ -34,3 +34,7 @@ Where a transcript exists inline, its URL points to the observed transcript elem
 - The user reports the film checks passed, including narration/music targets and scripted-word recognition. Those reports do not substitute for an independent listening review here.
 - Build with Tauri still merits a pronunciation listen: recognition heard “Tauri” as “Tari.” A re-voice may be considered after listening.
 - Imagen Provider’s end card crops Otto the octopus at the bottom edge. The user identifies it as cosmetic; correcting it requires a re-render. No poster or media crop was changed by this portfolio work.
+
+## Film stills
+
+`assets/stills/` holds one frame from each of the 28 capability films produced in October 2026, taken unchanged from the film's own master render at a representative moment (usually the showpiece). `content/media.json` names each one as `still`; the build uses it for thumbnails and as the player poster, and falls back to the copied end-card poster for the five entries without one (Market Fit, Decisioncraft, Taste × Elegance, Worth Using, Sizzle). No still is generated, retouched or composited.
