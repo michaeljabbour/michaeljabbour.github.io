@@ -4,18 +4,36 @@
 from __future__ import annotations
 
 import json
+import math
 import re
 import sys
 from collections import Counter
 from html import unescape
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import unquote, urlsplit
+from urllib.parse import parse_qs, unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "dist"
 ORIGIN = "https://michaeljabbour.github.io"
 FORMATS = {"Skill", "Smart tool", "Library", "Tool"}
+STAGE_ORDER = [
+    "understand",
+    "choose",
+    "build",
+    "improve",
+    "create",
+    "adapt",
+    "continue",
+]
+CHAPTER_OPENINGS = {
+    "understand": "You find the question nobody asked.",
+    "choose": "You decide who it’s for, and what shape it should take.",
+    "build": "Then you build it, and you check what it can do, and where it has to stop.",
+    "improve": "You make it easier to use.",
+    "create": "You show it in pictures, in film, and in the product itself.",
+    "continue": "And you keep the record, so the next person has somewhere to start.",
+}
 FIELDS = {
     "id",
     "title",
@@ -67,6 +85,62 @@ class Document(HTMLParser):
         ]
 
 
+class JourneyMarkup(HTMLParser):
+    """Keep ancestry and readable text for guide-to-stage membership checks."""
+
+    VOID = {
+        "area",
+        "base",
+        "br",
+        "col",
+        "embed",
+        "hr",
+        "img",
+        "input",
+        "link",
+        "meta",
+        "param",
+        "source",
+        "track",
+        "wbr",
+    }
+
+    def __init__(self, source):
+        super().__init__(convert_charrefs=True)
+        self.nodes = []
+        self.stack = []
+        self.feed(source)
+
+    def handle_starttag(self, tag, attrs):
+        node = {
+            "tag": tag,
+            "attrs": dict(attrs),
+            "parents": tuple(self.stack),
+            "text": "",
+        }
+        self.nodes.append(node)
+        if tag not in self.VOID:
+            self.stack.append(node)
+
+    def handle_endtag(self, tag):
+        for index in range(len(self.stack) - 1, -1, -1):
+            if self.stack[index]["tag"] == tag:
+                del self.stack[index:]
+                break
+
+    def handle_data(self, value):
+        for node in self.stack:
+            node["text"] += value
+
+    def descendants(self, parent, attribute):
+        return [
+            node
+            for node in self.nodes
+            if attribute in node["attrs"]
+            and any(ancestor is parent for ancestor in node["parents"])
+        ]
+
+
 def main() -> int:
     errors: list[str] = []
     checked_links: set[tuple[str, str]] = set()
@@ -85,6 +159,7 @@ def main() -> int:
 
     catalogue = load_json(ROOT / "content/portfolio.json")
     media = load_json(ROOT / "content/media.json")
+    journey = load_json(ROOT / "content/journey.json")
     projects = catalogue.get("projects", [])
     categories = catalogue.get("categories", [])
     ids = [p.get("id") for p in projects]
@@ -100,6 +175,10 @@ def main() -> int:
     require(
         len(category_ids) == len(set(category_ids)) == 7,
         "Seven unique work categories are required",
+    )
+    require(
+        category_ids == STAGE_ORDER,
+        "Catalogue category order must match the journey order",
     )
     for project in projects:
         ident = project.get("id", "<missing>")
@@ -153,8 +232,8 @@ def main() -> int:
     documents = {path: Document(path.read_text()) for path in html_files}
     overview_pages = int((OUT / "assets/overview/transcript/index.html").exists())
     require(
-        len(html_files) == 38 + overview_pages,
-        "Build must contain 38 HTML pages (33 capability pages, four index pages and 404), plus the overview film transcript when one is configured",
+        len(html_files) == 39 + overview_pages,
+        "Build must contain 39 HTML pages (33 capability pages, five index pages and 404), plus the overview film transcript when one is configured",
     )
     expected_routes = {
         OUT / "capabilities" / ident / "index.html"
@@ -331,6 +410,10 @@ def main() -> int:
             f"{ident}: source, guide and installation links are required",
         )
         require(
+            "/journey/#stage-" + project["category"] in links,
+            f"{ident}: detail page needs its primary journey-stage destination",
+        )
+        require(
             "first-prompt" in doc.ids
             and project["first_prompt"] in unescape(path.read_text()),
             f"{ident}: reviewed first-use text must appear on the page",
@@ -358,7 +441,10 @@ def main() -> int:
                 f"{ident}: video source differs from media.json",
             )
             expected_poster = (
-                metadata.get("still") or metadata.get("local_poster") or metadata.get("poster") or ""
+                metadata.get("still")
+                or metadata.get("local_poster")
+                or metadata.get("poster")
+                or ""
             )
             if expected_poster and not expected_poster.startswith("http"):
                 expected_poster = "/" + expected_poster.lstrip("/")
@@ -463,6 +549,293 @@ def main() -> int:
             "No overview player may appear before a source is configured",
         )
 
+    # A guide is a sequence of human questions, with every tool in its actual stage.
+    stages = journey.get("stages", [])
+    stage_ids = [stage.get("id") for stage in stages if isinstance(stage, dict)]
+    require(
+        stage_ids == STAGE_ORDER,
+        "Journey stage order must keep visibility before adaptation and continuation last",
+    )
+    require(
+        set(stage_ids) == set(category_ids),
+        "Journey stages must cover exactly the seven catalogue categories",
+    )
+    require(
+        all(
+            isinstance(journey.get(key), str) and journey[key].strip()
+            for key in ("title", "intro")
+        ),
+        "Journey needs a title and introduction",
+    )
+    by_stage = {stage.get("id"): stage for stage in stages if isinstance(stage, dict)}
+    by_project = {project["id"]: project for project in projects}
+    expected_chapters = {}
+    for stage in stages:
+        if not isinstance(stage, dict):
+            errors.append("Journey stages must be objects")
+            continue
+        ident = stage.get("id", "<missing>")
+        for field in ("title", "question", "description", "output", "reflection"):
+            require(
+                isinstance(stage.get(field), str)
+                and len(stage.get(field, "").strip()) >= 8,
+                f"{ident}: journey {field} needs meaningful text",
+            )
+        leads = stage.get("lead_ids", [])
+        require(
+            isinstance(leads, list) and bool(leads) and len(leads) == len(set(leads)),
+            f"{ident}: recommended starting tools must be a unique nonempty list",
+        )
+        require(
+            all(
+                lead in by_project and by_project[lead]["category"] == ident
+                for lead in leads
+            ),
+            f"{ident}: starting tool belongs to a different or unknown stage",
+        )
+        start = stage.get("film_start")
+        if start is not None:
+            valid = (
+                type(start) in (int, float) and math.isfinite(start) and 0 < start < 90
+            )
+            require(
+                valid,
+                f"{ident}: story moment needs a positive time within the 90-second film",
+            )
+            if valid:
+                expected_chapters[ident] = float(start)
+    require(
+        len(set(expected_chapters.values())) == len(expected_chapters),
+        "Story chapters must not share one moment under different stages",
+    )
+    require(
+        set(expected_chapters) == set(CHAPTER_OPENINGS),
+        "Only the six narrated moments may have story chapters; adaptation has no narrated chapter",
+    )
+    require(
+        by_stage.get("adapt", {}).get("film_start") is None,
+        "Adaptation must not receive an invented film timestamp",
+    )
+    require(
+        list(expected_chapters.values()) == sorted(expected_chapters.values()),
+        "Spoken story chapters must follow the journey order",
+    )
+    captions_file = ROOT / "assets/overview/portfolio.vtt"
+    if captions_file.exists():
+        cue_starts = set()
+        cue_texts = {}
+        for stamp, text in re.findall(
+            r"(?m)^(\d{2}:\d{2}:\d{2}\.\d{3})\s+-->[^\n]*\n(.+?)(?=\n\s*\n|\Z)",
+            captions_file.read_text(),
+            flags=re.DOTALL,
+        ):
+            hour, minute, second = stamp.split(":")
+            start = int(hour) * 3600 + int(minute) * 60 + float(second)
+            cue_starts.add(start)
+            cue_texts[start] = " ".join(text.split())
+        for ident, start in expected_chapters.items():
+            matching_cues = [cue for cue in cue_starts if abs(start - cue) < 0.05]
+            require(
+                bool(matching_cues),
+                f"{ident}: story moment must bind to an actual overview-caption cue",
+            )
+            require(
+                ident in CHAPTER_OPENINGS
+                and any(
+                    cue_texts[cue] == CHAPTER_OPENINGS.get(ident)
+                    for cue in matching_cues
+                ),
+                f"{ident}: story moment must bind to its narrated meaning, not another valid cue",
+            )
+    else:
+        require(
+            not expected_chapters, "Story chapters need their actual caption source"
+        )
+    require(
+        load_json(OUT / "journey.json") == journey,
+        "Public journey differs from its reviewed source",
+    )
+    require(OUT / "journey/index.html" in documents, "Missing dedicated journey page")
+    guides_checked = journey_tools_checked = chapter_links_checked = 0
+    for guide_path in (OUT / "index.html", OUT / "journey/index.html"):
+        if guide_path not in documents:
+            continue
+        markup = JourneyMarkup(guide_path.read_text())
+        guides = [node for node in markup.nodes if "data-journey" in node["attrs"]]
+        require(
+            len(guides) == 1,
+            f"{guide_path.relative_to(OUT)}: exactly one complete journey guide is required",
+        )
+        for guide in guides:
+            guides_checked += 1
+            navs = markup.descendants(guide, "data-journey-nav")
+            require(
+                len(navs) == 1 and navs[0]["tag"] == "nav",
+                f"{guide_path.relative_to(OUT)}: journey needs a navigation landmark",
+            )
+            links = markup.descendants(guide, "data-stage-link")
+            panels = markup.descendants(guide, "data-stage-panel")
+            require(
+                [node["attrs"].get("data-stage-link") for node in links] == stage_ids,
+                f"{guide_path.relative_to(OUT)}: stage navigation differs from journey order",
+            )
+            require(
+                [node["attrs"].get("data-stage-panel") for node in panels] == stage_ids,
+                f"{guide_path.relative_to(OUT)}: stage panels differ from journey order",
+            )
+            controls = markup.descendants(guide, "data-journey-controls")
+            require(
+                len(controls) == 1 and "hidden" in controls[0]["attrs"],
+                f"{guide_path.relative_to(OUT)}: enhanced journey controls must wait for JavaScript",
+            )
+            if controls:
+                for attribute in ("data-journey-previous", "data-journey-next"):
+                    buttons = markup.descendants(controls[0], attribute)
+                    require(
+                        len(buttons) == 1
+                        and buttons[0]["tag"] == "button"
+                        and buttons[0]["attrs"].get("type") == "button"
+                        and bool(buttons[0]["text"].strip()),
+                        f"{guide_path.relative_to(OUT)}: journey needs a labeled {attribute} control",
+                    )
+            for node in links:
+                attrs = node["attrs"]
+                ident = attrs.get("data-stage-link")
+                require(
+                    node["tag"] == "a"
+                    and attrs.get("id") == "step-" + str(ident)
+                    and attrs.get("href") == "#stage-" + str(ident),
+                    f"{guide_path.relative_to(OUT)}: stage link does not point to its panel",
+                )
+                require(
+                    ident in by_stage
+                    and by_stage[ident]["title"] in " ".join(node["text"].split()),
+                    f"{guide_path.relative_to(OUT)}: stage navigation label differs from its stage",
+                )
+                require(
+                    bool(navs) and any(parent is navs[0] for parent in node["parents"]),
+                    f"{guide_path.relative_to(OUT)}: stage link is outside the journey navigation",
+                )
+            all_tools = markup.descendants(guide, "data-journey-tool")
+            require(
+                Counter(node["attrs"].get("data-journey-tool") for node in all_tools)
+                == Counter(ids),
+                f"{guide_path.relative_to(OUT)}: each of the 33 tools must appear exactly once in the guide",
+            )
+            journey_tools_checked += len(all_tools)
+            for panel in panels:
+                ident = panel["attrs"].get("data-stage-panel")
+                stage = by_stage.get(ident, {})
+                require(
+                    panel["tag"] == "section"
+                    and panel["attrs"].get("id") == "stage-" + str(ident),
+                    f"{guide_path.relative_to(OUT)}: stage panel needs the correct section anchor",
+                )
+                require(
+                    "hidden" not in panel["attrs"]
+                    and panel["attrs"].get("aria-hidden") != "true",
+                    f"{guide_path.relative_to(OUT)}: {ident} must remain available without JavaScript",
+                )
+                heading_id = "question-" + str(ident)
+                headings = [
+                    node
+                    for node in markup.nodes
+                    if any(parent is panel for parent in node["parents"])
+                    and node["attrs"].get("id") == heading_id
+                ]
+                require(
+                    panel["attrs"].get("aria-labelledby") == heading_id
+                    and len(headings) == 1
+                    and headings[0]["tag"] in {"h2", "h3"}
+                    and " ".join(headings[0]["text"].split())
+                    == " ".join(stage.get("question", "").split()),
+                    f"{guide_path.relative_to(OUT)}: {ident} must be labeled by its actual question heading",
+                )
+                text = " ".join(panel["text"].split())
+                for field in ("question", "output"):
+                    require(
+                        " ".join(stage.get(field, "").split()) in text
+                        and bool(stage.get(field)),
+                        f"{guide_path.relative_to(OUT)}: {ident} must expose its human question and output",
+                    )
+                actual_tools = markup.descendants(panel, "data-journey-tool")
+                expected_tools = {
+                    project["id"]
+                    for project in projects
+                    if project["category"] == ident
+                }
+                require(
+                    {node["attrs"].get("data-journey-tool") for node in actual_tools}
+                    == expected_tools,
+                    f"{guide_path.relative_to(OUT)}: {ident} tool membership differs from the catalogue",
+                )
+                for node in actual_tools:
+                    tool_id = node["attrs"].get("data-journey-tool")
+                    require(
+                        node["tag"] == "a"
+                        and node["attrs"].get("href")
+                        == "/capabilities/" + str(tool_id) + "/",
+                        f"{guide_path.relative_to(OUT)}: journey tool must open its matching capability",
+                    )
+                    tool_titles = [
+                        child["text"].strip()
+                        for child in markup.nodes
+                        if child["tag"] == "strong"
+                        and any(parent is node for parent in child["parents"])
+                    ]
+                    require(
+                        tool_id in by_project
+                        and tool_titles == [by_project.get(tool_id, {}).get("title")],
+                        f"{guide_path.relative_to(OUT)}: journey tool label must name its actual capability",
+                    )
+            chapter_links = markup.descendants(guide, "data-story-moment")
+            require(
+                Counter(
+                    node["attrs"].get("data-story-moment") for node in chapter_links
+                )
+                == Counter(expected_chapters.keys()),
+                f"{guide_path.relative_to(OUT)}: spoken story moments must match the available chapters",
+            )
+            for node in chapter_links:
+                attrs = node["attrs"]
+                ident = attrs.get("data-story-moment")
+                parsed = urlsplit(attrs.get("href", ""))
+                try:
+                    start = float(attrs.get("data-film-start", ""))
+                except (TypeError, ValueError):
+                    start = float("nan")
+                require(
+                    ident in expected_chapters
+                    and math.isfinite(start)
+                    and abs(start - expected_chapters.get(ident, -1)) < 0.001,
+                    f"{guide_path.relative_to(OUT)}: {ident} chapter time differs from its stage",
+                )
+                require(
+                    node["tag"] == "a"
+                    and parsed.path == "/"
+                    and parse_qs(parsed.query).get("moment") == [ident]
+                    and parsed.fragment == "story",
+                    f"{guide_path.relative_to(OUT)}: {ident} chapter link points to the wrong story destination",
+                )
+                visible_times = re.findall(r"\b(\d+):(\d{2})\b", node["text"])
+                require(
+                    len(visible_times) == 1
+                    and ident in expected_chapters
+                    and abs(
+                        int(visible_times[0][0]) * 60
+                        + int(visible_times[0][1])
+                        - expected_chapters.get(ident, -100)
+                    )
+                    < 1,
+                    f"{guide_path.relative_to(OUT)}: {ident} visible chapter time must match its destination",
+                )
+                chapter_links_checked += 1
+    if expected_chapters:
+        require(
+            bool(home) and "story" in home.ids,
+            "Chapter navigation needs the homepage story anchor",
+        )
+
     # Check local CSS references too: an HTML-only walk misses missing background/font assets.
     for css in OUT.rglob("*.css"):
         for match in re.finditer(
@@ -514,11 +887,12 @@ def main() -> int:
     if sitemap.exists():
         sitemap_urls = set(re.findall(r"<loc>([^<]+)</loc>", sitemap.read_text()))
         expected_urls = {
-            ORIGIN + route for route in ["/", "/about/", "/capabilities/", "/films/"]
+            ORIGIN + route
+            for route in ["/", "/about/", "/capabilities/", "/films/", "/journey/"]
         } | {ORIGIN + "/capabilities/" + ident + "/" for ident in ids}
         require(
             sitemap_urls == expected_urls,
-            "Sitemap must cover the 37 public content routes exactly",
+            "Sitemap must cover the 38 public content routes exactly",
         )
     else:
         errors.append("Missing sitemap.xml")
@@ -528,6 +902,9 @@ def main() -> int:
         "pages": len(documents),
         "projects": len(projects),
         "categories": len(categories),
+        "journey_guides": guides_checked,
+        "journey_tool_links": journey_tools_checked,
+        "story_chapter_links": chapter_links_checked,
         "local_references": len(checked_links),
         "local_assets": len(checked_assets),
         "players": media_players,

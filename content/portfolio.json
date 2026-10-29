@@ -26,14 +26,14 @@
       "description": "Get another look at the experience, the design or the thing that broke."
     },
     {
-      "id": "adapt",
-      "title": "Take it somewhere new",
-      "description": "A different language, another host, a release that needs a plan."
-    },
-    {
       "id": "create",
       "title": "Make it visible",
       "description": "Find the image. Tell the story. Show the product."
+    },
+    {
+      "id": "adapt",
+      "title": "Take it somewhere new",
+      "description": "A different language, another host, a release that needs a plan."
     },
     {
       "id": "continue",
@@ -463,66 +463,6 @@
       ]
     },
     {
-      "id": "migrate",
-      "title": "Migrate",
-      "summary": "Change the language and preserve the experience.",
-      "description": "Observe an existing application and turn its behavior into sequenced stories and acceptance checks. Rebuild complete slices in the target language, including data, failures and recovery.",
-      "audience": "Developers rebuilding a whole application in another language or runtime.",
-      "category": "adapt",
-      "format": "Skill",
-      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-migrate",
-      "site_url": "https://michaeljabbour.github.io/amplifier-skill-migrate/",
-      "install_url": "https://michaeljabbour.github.io/amplifier-skill-migrate/#install",
-      "first_prompt": "Use Migrate to inventory this fictional terminal editor for a Rust rebuild. Keep the Python source read-only. Start with open, edit, save and failed-save recovery; write dependency-ordered story cards and acceptance probes before implementation.",
-      "output": "A fictional application migration plan with source-derived stories, parity checks and a rollback boundary.",
-      "limitations": "A completion ledger is not behavioral parity; data safety and real-surface acceptance require separate checks.",
-      "related": [
-        "transfer",
-        "pipeline",
-        "forge"
-      ]
-    },
-    {
-      "id": "transfer",
-      "title": "Transfer",
-      "summary": "Bring useful behavior to the app you use.",
-      "description": "Understand an observed donor capability and check what the target host already provides. Re-express the missing behavior through the host’s own contracts and conventions.",
-      "audience": "Developers bringing an observed donor capability into one or more existing hosts.",
-      "category": "adapt",
-      "format": "Skill",
-      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-transfer",
-      "site_url": "https://michaeljabbour.github.io/amplifier-skill-transfer/",
-      "install_url": "https://michaeljabbour.github.io/amplifier-skill-transfer/#install",
-      "first_prompt": "Use Transfer to compare pause/resume behavior in this fictional donor with two host clients. Keep donor source read-only. Identify current host overlap and shared runtime prerequisites, then propose one donor-derived acceptance probe per slice.",
-      "output": "A fictional capability-transfer brief with donor behavior, host prerequisites and independent acceptance checks.",
-      "limitations": "The donor stays read-only; declared completion does not establish that the transferred behavior works in the host.",
-      "related": [
-        "migrate",
-        "build-amplifier",
-        "constraint-builder"
-      ]
-    },
-    {
-      "id": "pipeline",
-      "title": "Pipeline",
-      "summary": "Build a pipeline you can explain and release deliberately.",
-      "description": "Start with the project’s real commands, dependencies and artifact consumers. Generate configuration for the selected platform and separate validation from release acceptance.",
-      "audience": "Developers creating or migrating CI/CD workflows.",
-      "category": "adapt",
-      "format": "Skill",
-      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-pipeline",
-      "site_url": "https://michaeljabbour.github.io/amplifier-skill-pipeline/",
-      "install_url": "https://michaeljabbour.github.io/amplifier-skill-pipeline/#install",
-      "first_prompt": "Use Pipeline to inspect a fictional Python project and propose a test-and-wheel pipeline for GitHub Actions. Name the real commands and artifact consumer. Include timeouts and minimal permissions. Do not add deployment, secrets or publishing.",
-      "output": "A fictional CI plan connecting jobs, artifacts, checks and an explicit release boundary.",
-      "limitations": "A generated file or structural validator pass is not a green native CI run or a deployed release.",
-      "related": [
-        "intent-to-plan",
-        "migrate",
-        "build-with-torque"
-      ]
-    },
-    {
       "id": "imagen-studio",
       "title": "Imagen Studio",
       "summary": "Take the image from brief to chosen file.",
@@ -600,6 +540,66 @@
         "sizzle",
         "desktop-tasks",
         "pipeline"
+      ]
+    },
+    {
+      "id": "migrate",
+      "title": "Migrate",
+      "summary": "Change the language and preserve the experience.",
+      "description": "Observe an existing application and turn its behavior into sequenced stories and acceptance checks. Rebuild complete slices in the target language, including data, failures and recovery.",
+      "audience": "Developers rebuilding a whole application in another language or runtime.",
+      "category": "adapt",
+      "format": "Skill",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-migrate",
+      "site_url": "https://michaeljabbour.github.io/amplifier-skill-migrate/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-skill-migrate/#install",
+      "first_prompt": "Use Migrate to inventory this fictional terminal editor for a Rust rebuild. Keep the Python source read-only. Start with open, edit, save and failed-save recovery; write dependency-ordered story cards and acceptance probes before implementation.",
+      "output": "A fictional application migration plan with source-derived stories, parity checks and a rollback boundary.",
+      "limitations": "A completion ledger is not behavioral parity; data safety and real-surface acceptance require separate checks.",
+      "related": [
+        "transfer",
+        "pipeline",
+        "forge"
+      ]
+    },
+    {
+      "id": "transfer",
+      "title": "Transfer",
+      "summary": "Bring useful behavior to the app you use.",
+      "description": "Understand an observed donor capability and check what the target host already provides. Re-express the missing behavior through the host’s own contracts and conventions.",
+      "audience": "Developers bringing an observed donor capability into one or more existing hosts.",
+      "category": "adapt",
+      "format": "Skill",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-transfer",
+      "site_url": "https://michaeljabbour.github.io/amplifier-skill-transfer/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-skill-transfer/#install",
+      "first_prompt": "Use Transfer to compare pause/resume behavior in this fictional donor with two host clients. Keep donor source read-only. Identify current host overlap and shared runtime prerequisites, then propose one donor-derived acceptance probe per slice.",
+      "output": "A fictional capability-transfer brief with donor behavior, host prerequisites and independent acceptance checks.",
+      "limitations": "The donor stays read-only; declared completion does not establish that the transferred behavior works in the host.",
+      "related": [
+        "migrate",
+        "build-amplifier",
+        "constraint-builder"
+      ]
+    },
+    {
+      "id": "pipeline",
+      "title": "Pipeline",
+      "summary": "Build a pipeline you can explain and release deliberately.",
+      "description": "Start with the project’s real commands, dependencies and artifact consumers. Generate configuration for the selected platform and separate validation from release acceptance.",
+      "audience": "Developers creating or migrating CI/CD workflows.",
+      "category": "adapt",
+      "format": "Skill",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-pipeline",
+      "site_url": "https://michaeljabbour.github.io/amplifier-skill-pipeline/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-skill-pipeline/#install",
+      "first_prompt": "Use Pipeline to inspect a fictional Python project and propose a test-and-wheel pipeline for GitHub Actions. Name the real commands and artifact consumer. Include timeouts and minimal permissions. Do not add deployment, secrets or publishing.",
+      "output": "A fictional CI plan connecting jobs, artifacts, checks and an explicit release boundary.",
+      "limitations": "A generated file or structural validator pass is not a green native CI run or a deployed release.",
+      "related": [
+        "intent-to-plan",
+        "migrate",
+        "build-with-torque"
       ]
     },
     {

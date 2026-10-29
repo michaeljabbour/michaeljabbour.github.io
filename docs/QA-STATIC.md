@@ -9,7 +9,7 @@ python3 scripts/check.py
 
 The checker uses the Python standard library and makes no network calls. It checks the generated public output against the reviewed content and media catalogues rather than treating a successful build as sufficient.
 
-## Recorded result — October 29, 2026
+## Initial portfolio baseline — October 29, 2026
 
 The built portfolio passed with:
 
@@ -33,3 +33,7 @@ This is static output validation. It does not establish visual quality, filter i
 Media URL availability comes from the dated public observations in `content/media.json`; this checker preserves consistency with that record without re-requesting every external file. Public installation fragments were independently read from the destination HTML while preparing the catalogue. Neither record implies that all external destinations stay unchanged indefinitely.
 
 The credential scan checks recognizable token and private-key patterns, not every possible form of secret or personal information. Public output is deliberately assembled from a small reviewed catalogue and local artwork rather than exporting the private owner workbook.
+
+## Current journey update
+
+The site now has 40 HTML pages including the overview transcript and journey page. Current journey order, membership, chapter and regression checks are recorded in `QA-JOURNEY-STATIC.md`; browser behavior and local range playback are in `QA-JOURNEY-BROWSER.md`. The initial numbers above describe the earlier baseline.

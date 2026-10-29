@@ -36,3 +36,9 @@ Michael said the explicit “I’m Michael Jabbour” introduction and the link 
 ## Revision: film stills and the overview film
 
 The end-card posters made 26 of 33 thumbnails near-identical green cards, so each film's own personality never reached the library. Thumbnails and player posters now use a single unedited frame from each film (`assets/stills/`), falling back to the original poster where no film still exists. The portfolio film's on-screen chapter words use the site's seven navigation names, and its "Start here" note uses the site's yellow, so the film and the site show the same object.
+
+## Revision: follow the work
+
+Michael liked the overview film’s sequence and asked to navigate the site around that kind of human-centered story. The homepage and a dedicated journey page now start from a person’s question, the artifact they are trying to leave with, and the tools that can help. Visitors can enter any moment, go back, or return to a new question. All 33 capabilities keep their own names and jobs.
+
+The same stage IDs drive order, tool membership, deep links and film chapters. “Make it visible” is fifth and “Take it somewhere new” is sixth. The film does not narrate adaptation as a separate beat, so that stage has no fabricated chapter. The film’s existing final-board animation is a separate production issue, recorded in `docs/FILM-CORRECTION.md`; site work leaves media bytes intact.

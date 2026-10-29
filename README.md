@@ -12,27 +12,28 @@ Requires Python 3.10+ and Node.js for the JavaScript syntax check. The site itse
 python3 scripts/build.py
 python3 scripts/check.py
 node --check assets/site.js
-python3 -m http.server 8781 --directory dist
+python3 scripts/serve.py
 ```
 
-Open `http://localhost:8781/`. The build writes `dist/`, which is the deployment artifact. All routes use the root of `michaeljabbour.github.io`; preview the site at a server root, not a repository subpath.
+Open `http://127.0.0.1:8781/`. The read-only local preview server supports byte ranges so chapter links can seek into the film; a basic HTTP server may not. This helper is not part of the deployed site. The build writes `dist/`, which is the deployment artifact. All routes use the root of `michaeljabbour.github.io`; preview the site at a server root, not a repository subpath.
 
 ## Content
 
 - `content/portfolio.json`: owner introduction, seven task categories and 33 capability entries.
+- `content/journey.json`: the seven human questions, their order, outcomes, tool selections and actual film chapter times.
 - `content/media.json`: verified media destinations, local poster paths and observation scope.
 - `assets/`: site styling, behavior and poster artwork.
-- `scripts/build.py`: generates the homepage, library, films, About, 33 detail pages, 404 and sitemap.
+- `scripts/build.py`: generates the homepage, journey, library, films, About, 33 detail pages, 404 and sitemap.
 - `scripts/check.py`: checks routes, metadata, assets, media consistency and public-only content.
 - `DESIGN.md`: design direction and rationale.
 
 Edit the catalogue to change copy or related capabilities. Keep intended functions distinct from proven outcomes. Fictional outputs are labeled. Preserve each capability’s actual installation anchor, meaningful prerequisites and limits.
 
-[Add the portfolio overview film](docs/OVERVIEW-FILM.md) when its final assets are ready. The build supports it without displaying an unfinished player.
+The overview film is now on the homepage. [Film setup notes](docs/OVERVIEW-FILM.md) describe its assets; [journey notes](docs/JOURNEY.md) explain how the human questions and tools connect. The sequence is: figure it out, make a call, build, improve, make it visible, take it somewhere new, pick it up again. Visitors can start anywhere and loop back. Chapter links use stage IDs and actual caption times; the unspoken adaptation moment has no invented timestamp.
 
 ## GitHub Pages
 
-The intended repository is `michaeljabbour/michaeljabbour.github.io`, with GitHub Pages configured to use GitHub Actions. `.github/workflows/pages.yml` builds and checks pull requests, then publishes reviewed changes on `main`. The workflow is prepared locally; repository creation, remote setup and the first publication are separate actions.
+The target repository is `michaeljabbour/michaeljabbour.github.io`, with GitHub Pages configured to use GitHub Actions. `.github/workflows/pages.yml` builds and checks pull requests, then publishes reviewed changes on `main`. The public repository and Pages setting have been created. This local checkout has no remote configured; connecting and publishing its source remain separate actions.
 
 It uploads only `dist/`. The public site contains no private audit, owner workbook, research records or local filesystem references. See GitHub’s [custom Pages workflow guide](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages) for the hosting contract. Actions are pinned to official repository commits verified October 29, 2026.
 

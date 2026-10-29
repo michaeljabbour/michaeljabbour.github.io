@@ -1,0 +1,76 @@
+{
+  "title": "Find your way through the work.",
+  "intro": "Start with the person who needs the thing. Follow the question into a choice, a first version and something they can use. Pick up the part you need today, and come back when the work sends you somewhere else.",
+  "stages": [
+    {
+      "id": "understand",
+      "title": "Figure it out",
+      "question": "Who is this for, and what do we need to learn?",
+      "description": "Look at the situation before settling on an answer. Find the consequential question, follow the sources and make the assumptions visible.",
+      "output": "A question worth investigating, the evidence behind it and the gaps still open.",
+      "reflection": "New information can change the question. Come back when an assumption stops holding.",
+      "lead_ids": ["unknowns", "research", "knowledge"],
+      "film_start": 28.87
+    },
+    {
+      "id": "choose",
+      "title": "Make a call",
+      "question": "What is worth making, for whom, and in what form?",
+      "description": "Put the options and tradeoffs where you can see them. Choose a direction, a shape that fits and a next step you can explain.",
+      "output": "One clear choice, its reasons and the next test or plan.",
+      "reflection": "If the options all feel wrong, go back to the person and the question before choosing again.",
+      "lead_ids": ["market-fit", "decisioncraft", "right-shape"],
+      "film_start": 34.86
+    },
+    {
+      "id": "build",
+      "title": "Build something",
+      "question": "What is the first version we can put in front of someone?",
+      "description": "Turn the plan into parts with clear responsibilities. Choose the building guide and tools that fit, then make their behavior and limits inspectable.",
+      "output": "A first version with clear responsibilities, boundaries and checks.",
+      "reflection": "What you discover while building may change the plan. Bring that evidence back into the next choice.",
+      "lead_ids": ["build-amplifier", "constraint-builder", "forge"],
+      "film_start": 40.61
+    },
+    {
+      "id": "improve",
+      "title": "Make it better",
+      "question": "Where does the experience get in someone’s way?",
+      "description": "Look at the experience, the design and the parts that failed. Make a deliberate revision and name the evidence that would show it helped.",
+      "output": "One intentional improvement and a way to check its usefulness.",
+      "reflection": "A new observation may call for a small revision, another prototype or a different direction.",
+      "lead_ids": ["ux-ergonomics", "taste-elegance", "worth-using"],
+      "film_start": 46.88
+    },
+    {
+      "id": "create",
+      "title": "Make it visible",
+      "question": "How can someone see what this is and why it matters?",
+      "description": "Find the visual direction, tell the story and show the real product. Bring images, films and demonstrations through review with their purpose still clear.",
+      "output": "A visual direction, image, film or product demonstration ready for review.",
+      "reflection": "If the story is hard to tell, revisit who the work serves and the choice you made.",
+      "lead_ids": ["imagen-studio", "sizzle", "teaserkit"],
+      "film_start": 51.08
+    },
+    {
+      "id": "adapt",
+      "title": "Take it somewhere new",
+      "question": "What needs to carry over when the setting changes?",
+      "description": "Move an application into another language, bring a capability to another host or plan its release. Make the behavior to preserve and the checks for that move explicit.",
+      "output": "A move or release plan, with checks for what must carry over.",
+      "reflection": "A move can reveal a new constraint. Return to the choice, build or improvement that needs another look.",
+      "lead_ids": ["migrate", "transfer", "pipeline"],
+      "film_start": null
+    },
+    {
+      "id": "continue",
+      "title": "Pick it up again",
+      "question": "What will the next person need to keep this going?",
+      "description": "Keep the source record, explain the current state and leave a useful next step. Bring the right people in with the context and access they need.",
+      "output": "An inspectable record, clear ownership and a place for someone to begin.",
+      "reflection": "The next person may be you next week. What they find can become the beginning of another question.",
+      "lead_ids": ["project-handoff", "memory", "good-teammate"],
+      "film_start": 58.44
+    }
+  ]
+}

@@ -27,6 +27,8 @@ The introduction describes the work rather than inventing a job title, customer 
 
 Formats: 26 skill, 4 smart tool, 1 library, 2 tool.
 
-Films and their current assets are maintained separately from this catalogue. The owner’s unpublished overview film has no pretend play button or invented release claim here. Private experiments and owner-only audit data are excluded.
+Films and their current assets are maintained separately from this catalogue. The completed overview film is embedded on the homepage with its supplied captions and transcript. Private experiments and owner-only audit data are excluded.
 
 Michael’s design feedback removed the formal self-introduction and changed the navigation/task copy to a more conversational voice. Capability names, jobs and destinations are preserved. The homepage now uses the already-developed “Good work has a next day” story.
+
+The journey presents human questions and intended takeaways before the tools. Its order lives in `content/journey.json`: create precedes adapt, followed by continuation. The full library remains available for visitors who already know what they need.
