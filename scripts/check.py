@@ -151,9 +151,10 @@ def main() -> int:
     require(OUT.is_dir(), "Build dist before running the checker")
     html_files = sorted(OUT.rglob("*.html")) if OUT.exists() else []
     documents = {path: Document(path.read_text()) for path in html_files}
+    overview_pages = int((OUT / "assets/overview/transcript/index.html").exists())
     require(
-        len(html_files) == 38,
-        "Build must contain 38 HTML pages (33 capability pages, four index pages and 404)",
+        len(html_files) == 38 + overview_pages,
+        "Build must contain 38 HTML pages (33 capability pages, four index pages and 404), plus the overview film transcript when one is configured",
     )
     expected_routes = {
         OUT / "capabilities" / ident / "index.html"
