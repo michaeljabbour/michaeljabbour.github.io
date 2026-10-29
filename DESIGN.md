@@ -42,3 +42,7 @@ The end-card posters made 26 of 33 thumbnails near-identical green cards, so eac
 Michael liked the overview film’s sequence and asked to navigate the site around that kind of human-centered story. The homepage and a dedicated journey page now start from a person’s question, the artifact they are trying to leave with, and the tools that can help. Visitors can enter any moment, go back, or return to a new question. All 33 capabilities keep their own names and jobs.
 
 The same stage IDs drive order, tool membership, deep links and film chapters. “Make it visible” is fifth and “Take it somewhere new” is sixth. The film does not narrate adaptation as a separate beat, so that stage has no fabricated chapter. The film’s existing final-board animation is a separate production issue, recorded in `docs/FILM-CORRECTION.md`; site work leaves media bytes intact.
+
+## Make the categories visible on arrival
+
+Michael could not see the updated categories on the live homepage. Current HTTP responses contained the journey, but the full hero and film pushed the controls below the first screen. A compact, ordinary-link category launcher now sits immediately below the header and above the hero. It derives its seven destinations from the same journey source and keeps the full interactive guide below. The main category call to action names categories explicitly. This improves discovery without adding a second interactive state machine or relying on a cache explanation.

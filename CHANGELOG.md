@@ -1,5 +1,11 @@
 # Changelog
 
+## Homepage category discovery — October 29, 2026
+
+- Put all seven category links directly under the homepage header, before the intro and film.
+- Keep the category order and destinations derived from the same journey source.
+- Name the category action explicitly so visitors can find the guide.
+
 ## Initial publication — October 29, 2026
 
 - Publish the full 33-capability portfolio and human work journey through GitHub Pages.

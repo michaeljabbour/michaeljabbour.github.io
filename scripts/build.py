@@ -146,7 +146,12 @@ def main():
         "project-handoff",
         "research",
     ]
-    home = f"""<section class="hero wrap"><div class="hero-copy"><p class="intro-line">A few useful things for working with AI.</p><h1>Good work<br>has a next day.</h1><p class="hero-description">Skills and tools for thinking things through, making things, and picking up where you left off.<br><span class="hero-invitation">Take what’s useful. Make it yours.</span></p><div class="button-row"><a class="button primary" href="#journey">Find your place</a><a class="button secondary" href="/films/">Watch the films</a></div></div>{hero_art}</section>
+    category_links = "".join(
+        f"""<li><a href="/journey/#stage-{E(stage["id"])}"><span aria-hidden="true">{index + 1}</span>{E(stage["title"])}</a></li>"""
+        for index, stage in enumerate(stages)
+    )
+    category_launcher = f"""<nav class="category-launcher wrap" aria-label="Work categories" data-category-launcher><div class="category-launcher-head"><p>Where are you starting?</p><a href="/capabilities/" aria-label="Browse all 33 capabilities">All 33</a></div><ol class="category-links">{category_links}</ol></nav>"""
+    home = f"""{category_launcher}<section class="hero wrap"><div class="hero-copy"><p class="intro-line">A few useful things for working with AI.</p><h1>Good work<br>has a next day.</h1><p class="hero-description">Skills and tools for thinking things through, making things, and picking up where you left off.<br><span class="hero-invitation">Take what’s useful. Make it yours.</span></p><div class="button-row"><a class="button primary" href="#journey">Browse categories</a><a class="button secondary" href="/films/">Watch the films</a></div></div>{hero_art}</section>
 {journey_guide(home=True)}
 <section class="selected-section wrap section-space"><div class="section-heading"><div><h2>A few things to try.</h2><p>Pick one up. See what it opens.</p></div><a class="text-link" href="/capabilities/">See all 33</a></div><div class="feature-grid">{"".join(feature(by_id[i], n < 2) for n, i in enumerate(selected))}</div></section>
 <section class="point-of-view wrap section-space"><div class="pov-title"><span class="thought-mark" aria-hidden="true">↳</span><h2>Bring your<br>own judgment.</h2></div><div class="pov-copy"><p>Follow the source. Look at the alternatives. Ask what would make the thing more useful.</p><p>That’s the thread here. Each capability has its own job, guide and source. Bring one into your work when it has something to offer.</p><a class="text-link" href="/about/">A little of the thinking behind it</a></div></section>
