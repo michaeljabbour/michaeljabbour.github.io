@@ -33,7 +33,10 @@ The overview film is now on the homepage. [Film setup notes](docs/OVERVIEW-FILM.
 
 ## GitHub Pages
 
-The target repository is `michaeljabbour/michaeljabbour.github.io`, with GitHub Pages configured to use GitHub Actions. `.github/workflows/pages.yml` builds and checks pull requests, then publishes reviewed changes on `main`. The public repository and Pages setting have been created. This local checkout has no remote configured; connecting and publishing its source remain separate actions.
+The target repository is `michaeljabbour/michaeljabbour.github.io`, with GitHub Pages configured to use GitHub Actions. `.github/workflows/pages.yml` builds and checks pull requests, then publishes reviewed changes on `main`. The public repository uses GitHub Actions for Pages. The workflow checks the build before publishing the static artifact from `main`.
+
+- Portfolio: [michaeljabbour.github.io](https://michaeljabbour.github.io/)
+- Source: [michaeljabbour/michaeljabbour.github.io](https://github.com/michaeljabbour/michaeljabbour.github.io)
 
 It uploads only `dist/`. The public site contains no private audit, owner workbook, research records or local filesystem references. See GitHub’s [custom Pages workflow guide](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages) for the hosting contract. Actions are pinned to official repository commits verified October 29, 2026.
 
