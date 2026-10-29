@@ -1,0 +1,706 @@
+{
+  "owner": {
+    "name": "Michael Jabbour",
+    "github": "https://github.com/michaeljabbour",
+    "intro": "Skills and tools for thinking things through, making things, and picking up where you left off."
+  },
+  "categories": [
+    {
+      "id": "understand",
+      "title": "Figure it out",
+      "description": "Find the question, read the sources and see what’s missing."
+    },
+    {
+      "id": "choose",
+      "title": "Make a call",
+      "description": "Put the options on the table. Work out what to make and who it’s for."
+    },
+    {
+      "id": "build",
+      "title": "Build something",
+      "description": "Turn a plan into parts that work together."
+    },
+    {
+      "id": "improve",
+      "title": "Make it better",
+      "description": "Get another look at the experience, the design or the thing that broke."
+    },
+    {
+      "id": "adapt",
+      "title": "Take it somewhere new",
+      "description": "A different language, another host, a release that needs a plan."
+    },
+    {
+      "id": "create",
+      "title": "Make it visible",
+      "description": "Find the image. Tell the story. Show the product."
+    },
+    {
+      "id": "continue",
+      "title": "Pick it up again",
+      "description": "Keep the thread, bring someone in and leave a useful next step."
+    }
+  ],
+  "projects": [
+    {
+      "id": "unknowns",
+      "title": "Unknowns",
+      "summary": "Find the question that could change your plan.",
+      "description": "Make facts, assumptions and unanswered questions visible before committing to a plan. Choose a consequential next inquiry and keep the evidence behind its classification.",
+      "audience": "People planning work in uncertain or unfamiliar territory.",
+      "category": "understand",
+      "format": "Skill",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-unknowns",
+      "site_url": "https://michaeljabbour.github.io/amplifier-skill-unknowns/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-skill-unknowns/#install",
+      "first_prompt": "Use Unknowns to review a fictional export migration plan. Separate established requirements from compatibility assumptions, attach an evidence basis and choose the one unanswered question most likely to change the plan. Keep possible blind spots labeled as hypotheses.",
+      "output": "A fictional project’s question map, with evidence, open assumptions and one next inquiry.",
+      "limitations": "A proposed blind spot is a hypothesis to investigate, not proof that the problem exists.",
+      "related": [
+        "research",
+        "right-shape",
+        "intent-to-plan"
+      ]
+    },
+    {
+      "id": "research",
+      "title": "Research",
+      "summary": "Build the answer from evidence you can inspect.",
+      "description": "Connect a focused question to sources, methods and the claims they can support. Keep contradictions, uncertainty and the next useful check alongside the conclusion.",
+      "audience": "People and agents doing evidence synthesis, experiments, or scientific writing.",
+      "category": "understand",
+      "format": "Skill",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-research",
+      "site_url": "https://michaeljabbour.github.io/amplifier-skill-research/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-skill-research/#install",
+      "first_prompt": "Use Research to assess whether the fictional document-retrieval change improves source coverage. First propose a bounded question, treatment and baseline, coverage measure, error handling, budget and stop rule. Prepare a protocol; do not run paid calls.",
+      "output": "A fictional research brief with a claim-to-source table, competing explanations and a bounded study protocol.",
+      "limitations": "A literature review or model judgment does not establish a measured treatment effect or an outside-user outcome.",
+      "related": [
+        "long-read",
+        "knowledge",
+        "cognitive-simulation"
+      ]
+    },
+    {
+      "id": "long-read",
+      "title": "Long Read",
+      "summary": "Read toward a question without losing the source.",
+      "description": "Find exact passages across long documents or collections and retain their locations. Record what was inspected so an unfinished job can resume against the same source revision.",
+      "audience": "People and agents examining long documents or collections.",
+      "category": "understand",
+      "format": "Skill",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-long-read",
+      "site_url": "https://michaeljabbour.github.io/amplifier-skill-long-read/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-skill-long-read/#install",
+      "first_prompt": "Use Long Read on a fictional long specification to find where an export format is defined. Set an explicit chunk budget, keep exact passages and locations, and report the inspected coverage. If the budget ends, save the job rather than claiming the full document was reviewed.",
+      "output": "A fictional specification answer with exact excerpts, source locations and an explicit coverage record.",
+      "limitations": "The independent helper is extractive and lexical; retrieved passages do not establish semantic completeness.",
+      "related": [
+        "research",
+        "knowledge",
+        "memory"
+      ]
+    },
+    {
+      "id": "knowledge",
+      "title": "Knowledge",
+      "summary": "Follow a claim back to its evidence.",
+      "description": "Connect claims, sources and relationships in an inspectable graph. Trace an apparent contradiction or a changing account without discarding where each assertion came from.",
+      "audience": "Researchers and agents connecting evidence across documents.",
+      "category": "understand",
+      "format": "Smart tool",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-smart-tool-knowledge",
+      "site_url": "https://michaeljabbour.github.io/amplifier-smart-tool-knowledge/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-smart-tool-knowledge/#install",
+      "first_prompt": "Use Knowledge to show how two fictional project notes support or challenge the same claim. Start with deterministic ingestion or structured additions. Trace each relationship to its source and distinguish an asserted fact from a candidate contradiction. Do not configure an external provider.",
+      "output": "A fictional project graph linking two conflicting notes to the claim they support or challenge.",
+      "limitations": "Cooccurrence, centrality and candidate contradictions do not prove that a claim is true.",
+      "related": [
+        "research",
+        "long-read",
+        "memory"
+      ]
+    },
+    {
+      "id": "cognitive-simulation",
+      "title": "Cognitive Simulation",
+      "summary": "Explore a behavioral hypothesis before the study.",
+      "description": "Define an explicit choice or learning task and examine what a configured model predicts. Use the comparison to sharpen the observations a real study would need.",
+      "audience": "Researchers and product teams exploring explicit choice and learning hypotheses.",
+      "category": "understand",
+      "format": "Skill",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-cognitive-simulation",
+      "site_url": "https://michaeljabbour.github.io/amplifier-skill-cognitive-simulation/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-skill-cognitive-simulation/#install",
+      "first_prompt": "Use Cognitive Simulation to frame a fictional kiosk confirmation study. Compare a single confirm button with a review-then-confirm flow. State task fit, counterbalance response labels, prepare exact prompts and define the observed-user check. Do not run an endpoint.",
+      "output": "A fictional choice-task plan separating a model prediction from the observations needed to test it.",
+      "limitations": "Model predictions are not participant evidence, population percentages, consent or clinical advice.",
+      "related": [
+        "research",
+        "unknowns",
+        "ux-ergonomics"
+      ]
+    },
+    {
+      "id": "market-fit",
+      "title": "Market Fit",
+      "summary": "Shape one clear offer for one customer.",
+      "description": "Work from the evidence you have toward an offer a specific customer can understand. Practice naming, explaining and defending the choices so the judgment remains yours.",
+      "audience": "Builders working toward one clear offer for one customer.",
+      "category": "choose",
+      "format": "Skill",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-market-fit",
+      "site_url": "https://michaeljabbour.github.io/amplifier-skill-market-fit/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-skill-market-fit/#use-skill",
+      "first_prompt": "Use Market Fit to help me turn this fictional project into one clear offer for one customer. Ask me to make and defend the choices, and separate what I know from what still needs customer evidence.",
+      "output": "A fictional offer brief naming one customer, one problem, a clear promise and the evidence still needed.",
+      "limitations": "Coaching and a launch checklist do not establish customer demand, adoption or revenue.",
+      "related": [
+        "worth-using",
+        "decisioncraft",
+        "right-shape"
+      ]
+    },
+    {
+      "id": "decisioncraft",
+      "title": "Decisioncraft",
+      "summary": "See the choices and the reasoning on one map.",
+      "description": "Point at a codebase, notes, a process or a question to map the current and proposed state. Keep gaps, options and role perspectives visible while you decide.",
+      "audience": "People comparing options or mapping how work happens.",
+      "category": "choose",
+      "format": "Smart tool",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-smart-tool-decisioncraft",
+      "site_url": "https://michaeljabbour.github.io/amplifier-smart-tool-decisioncraft/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-smart-tool-decisioncraft/#install",
+      "first_prompt": "Use Decisioncraft to map this fictional workshop’s current booking process and one proposed change. Keep the source for each claim, show the gaps and compare the perspectives of the visitor and the person doing the work.",
+      "output": "A fictional decision map connecting source evidence, alternatives, gaps and qualified role notes.",
+      "limitations": "A map clarifies the supplied material; it does not turn unsupported assumptions into facts.",
+      "related": [
+        "market-fit",
+        "right-shape",
+        "intent-to-plan"
+      ]
+    },
+    {
+      "id": "right-shape",
+      "title": "Right Shape",
+      "summary": "Choose the smallest AI shape that fits the job.",
+      "description": "Compare a skill, tool, agent, service or other extension against the work it must do. Name the boundaries and the test that would justify the chosen shape.",
+      "audience": "People and agents choosing how to extend AI capabilities.",
+      "category": "choose",
+      "format": "Skill",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-right-shape",
+      "site_url": "https://michaeljabbour.github.io/amplifier-skill-right-shape/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-skill-right-shape/#use-skill",
+      "first_prompt": "Use Right Shape to assess this proposed AI capability. Compare the smallest sufficient shapes, explain any limiting gate and name the next test before recommending an implementation.",
+      "output": "A fictional capability placement with its rationale, limiting gate and next acceptance check.",
+      "limitations": "Placement depends on the available evidence and failed gates; a recommendation is not proof of deployed behavior.",
+      "related": [
+        "market-fit",
+        "worth-using",
+        "build-amplifier"
+      ]
+    },
+    {
+      "id": "intent-to-plan",
+      "title": "Intent to Plan",
+      "summary": "Turn the request into work someone can follow.",
+      "description": "Separate the goal, people, inputs, working rules and timing of a complex request. Connect them into a plan with explicit dependencies and acceptance checks.",
+      "audience": "People and agents coordinating work whose goal, inputs, responsibilities, and timing can drift apart.",
+      "category": "choose",
+      "format": "Skill",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-intent-to-plan",
+      "site_url": "https://michaeljabbour.github.io/amplifier-skill-intent-to-plan/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-skill-intent-to-plan/#install",
+      "first_prompt": "Use Intent to Plan on this request: improve our fictional onboarding flow and prepare a release. Separate explicit requirements from assumptions, identify missing baseline evidence, order design before implementation and make the release authority visible. Produce a plan only.",
+      "output": "A fictional project plan with responsibilities, dependencies, decisions and completion criteria.",
+      "limitations": "The planning grammar is a design aid; generated dependencies and host-specific recipes still need review.",
+      "related": [
+        "unknowns",
+        "decisioncraft",
+        "project-handoff"
+      ]
+    },
+    {
+      "id": "build-amplifier",
+      "title": "Build with Amplifier",
+      "summary": "Extend Amplifier in the right place.",
+      "description": "Find the right home for a feature in an Amplifier application, bundle, tool, hook or provider. Build one useful slice against the contracts of the host you actually use.",
+      "audience": "People building Amplifier applications, bundles, tools, hooks, and providers.",
+      "category": "build",
+      "format": "Skill",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-build-amplifier",
+      "site_url": "https://michaeljabbour.github.io/amplifier-skill-build-amplifier/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-skill-build-amplifier/#install",
+      "first_prompt": "Use Build with Amplifier to inspect this repository. I want a progress panel for a long-running tool. Decide where the feature belongs, identify the actual event contract, and propose one slice with cancellation and cleanup checks.",
+      "output": "A fictional extension plan showing the host seam, interface contract and first real-host acceptance check.",
+      "limitations": "The portable guide installs without Amplifier; executing an extension requires a configured runtime and current contracts.",
+      "related": [
+        "right-shape",
+        "constraint-builder",
+        "forge"
+      ]
+    },
+    {
+      "id": "build-tauri",
+      "title": "Build with Tauri",
+      "summary": "Make the desktop app work beyond the dev server.",
+      "description": "Define how a Tauri 2 webview, Rust shell and optional companion process communicate. Make readiness, permissions, failure and shutdown behavior explicit.",
+      "audience": "Developers working across a Tauri webview, Rust shell, and optional companion process.",
+      "category": "build",
+      "format": "Skill",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-build-tauri",
+      "site_url": "https://michaeljabbour.github.io/amplifier-skill-build-tauri/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-skill-build-tauri/#install",
+      "first_prompt": "Use Build with Tauri on this Tauri 2 app. Its import sidecar starts slowly and the first request fails. Trace startup, define readiness and shutdown ownership, and propose the smallest fix with target-OS checks.",
+      "output": "A fictional desktop import contract covering sidecar readiness, retry, cancellation and cleanup.",
+      "limitations": "No desktop application ships with this skill; source or mocked IPC checks do not establish OS packaging behavior.",
+      "related": [
+        "constraint-builder",
+        "desktop-tasks",
+        "session-doctor"
+      ]
+    },
+    {
+      "id": "build-with-torque",
+      "title": "Build with Torque",
+      "summary": "Add a domain without tangling the application.",
+      "description": "Give a Torque bundle a clear responsibility and declared interfaces and events. Plan integration and data changes before they reach an existing application.",
+      "audience": "Developers composing domain bundles into a Torque application.",
+      "category": "build",
+      "format": "Skill",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-build-torque",
+      "site_url": "https://michaeljabbour.github.io/amplifier-skill-build-torque/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-skill-build-torque/#install",
+      "first_prompt": "Use Build with Torque to design a maintenance-task bundle. It should react to asset changes without reading another bundle’s private tables. Inspect this host first, then propose its manifest, public interfaces, events and migration checks.",
+      "output": "A fictional task-domain bundle plan with interfaces, events, migration steps and rollback checks.",
+      "limitations": "Installing the guide installs no Torque runtime; framework contracts and registry versions must be checked in the target project.",
+      "related": [
+        "intent-to-plan",
+        "constraint-builder",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "constraint-builder",
+      "title": "Constraint Builder",
+      "summary": "Turn a task rule into a checkable boundary.",
+      "description": "Translate permitted and forbidden actions into an action specification and checker. Test both rejected actions and useful paths through the allowed space.",
+      "audience": "People building agent tools, action validators and bounded environments.",
+      "category": "build",
+      "format": "Skill",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-constraint-builder",
+      "site_url": "https://michaeljabbour.github.io/amplifier-skill-constraint-builder/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-skill-constraint-builder/#install",
+      "first_prompt": "Use Constraint Builder to specify a file-reading tool that may read project files but may not escape its root. Show legal reads, traversal attempts, symlink cases and false rejections before proposing a checker. Do not execute the proposed actions.",
+      "output": "A fictional file-action specification with allowed examples, rejected examples and a checker contract.",
+      "limitations": "A written skill does not enforce a sandbox or establish legal compliance; enforcement belongs in the runtime.",
+      "related": [
+        "right-shape",
+        "build-amplifier",
+        "desktop-tasks"
+      ]
+    },
+    {
+      "id": "forge",
+      "title": "Forge",
+      "summary": "Keep terminal work visible and testable.",
+      "description": "Give persistent terminal sessions a name and inspect their rendered state and output. Use explicit acceptance checks and cleanup when driving CLIs, TUIs or coordinated workers.",
+      "audience": "People and agents operating CLIs and TUIs.",
+      "category": "build",
+      "format": "Skill",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-forge",
+      "site_url": "https://michaeljabbour.github.io/amplifier-skill-forge/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-skill-forge/#install",
+      "first_prompt": "Use Forge to plan a disposable TUI smoke test. Check daemon availability first, create one named session, wait for the ready screen, capture the observed state and close only the session created for this test. Do not change permissions or launch additional agents.",
+      "output": "A fictional TUI smoke-test record with a named session, observed ready screen, assertion and cleanup.",
+      "limitations": "Real operations require a reachable Forge daemon; fixture checks are not daemon acceptance.",
+      "related": [
+        "desktop-tasks",
+        "build-amplifier",
+        "project-handoff"
+      ]
+    },
+    {
+      "id": "desktop-tasks",
+      "title": "Desktop Tasks",
+      "summary": "Finish the desktop step and verify the result.",
+      "description": "Work from observed application controls within a clear task and action budget. Inspect the resulting screen before recording the task as complete.",
+      "audience": "People and agents operating desktop applications.",
+      "category": "build",
+      "format": "Skill",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-desktop-tasks",
+      "site_url": "https://michaeljabbour.github.io/amplifier-skill-desktop-tasks/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-skill-desktop-tasks/#install",
+      "first_prompt": "Use Desktop Tasks to change the sort order in a fictional task app to newest first. First name the visible success condition. Use fresh observed controls, verify the resulting order and report any step you cannot confirm.",
+      "output": "A fictional desktop task record linking the requested action to the observed final state.",
+      "limitations": "Real execution needs a host desktop tool and platform permissions; pretend-desktop tests do not prove real app behavior.",
+      "related": [
+        "forge",
+        "ux-ergonomics",
+        "good-teammate"
+      ]
+    },
+    {
+      "id": "ux-ergonomics",
+      "title": "UX Ergonomics",
+      "summary": "Make the next step easier to understand and do.",
+      "description": "Trace the task people are trying to complete and locate points of confusion or repeated effort. Turn findings into specific changes and evidence that could show whether they helped.",
+      "audience": "Teams designing or reviewing digital workflows and human-agent experiences.",
+      "category": "improve",
+      "format": "Skill",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-ux-ergonomics",
+      "site_url": "https://michaeljabbour.github.io/amplifier-skill-ux-ergonomics/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-skill-ux-ergonomics/#install",
+      "first_prompt": "Use UX Ergonomics to review this fictional batch-import failure flow. The analyst loses entered mappings after an error. Separate observation, inference and recommendation; propose recovery behavior and keyboard/task checks without claiming a measured improvement.",
+      "output": "A fictional task review with friction points, proposed changes and a user-check plan.",
+      "limitations": "Expert inspection is not observed-user evidence; accessibility and prevalence claims need appropriate verification.",
+      "related": [
+        "taste-elegance",
+        "worth-using",
+        "cognitive-simulation"
+      ]
+    },
+    {
+      "id": "taste-elegance",
+      "title": "Taste × Elegance",
+      "summary": "Make it more intentional while keeping it yours.",
+      "description": "Refine writing, design or code through concrete comparisons and small deliberate changes. Preserve the purpose and voice while removing what gets in their way.",
+      "audience": "Authors and builders refining work while preserving intent.",
+      "category": "improve",
+      "format": "Skill",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-taste",
+      "site_url": "https://michaeljabbour.github.io/amplifier-skill-taste/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-skill-taste/#use-skill",
+      "first_prompt": "Use Taste × Elegance to refine this fictional project page. Show the original, a worse version and a better version against the same brief, and explain the changes while preserving its voice.",
+      "output": "A fictional before-and-after refinement with the intended effect, tradeoff and check for each change.",
+      "limitations": "Taste is a craft lens; it does not outrank the user’s intent, task evidence or observed usability.",
+      "related": [
+        "ux-ergonomics",
+        "worth-using",
+        "imagen-studio"
+      ]
+    },
+    {
+      "id": "worth-using",
+      "title": "Worth Using",
+      "summary": "Find what helps someone who did not build it.",
+      "description": "Assess a tool against a specific outside user’s job and first useful outcome. Put evidence behind each rating and choose which gap to close next.",
+      "audience": "Builders checking whether a tool helps someone outside its team.",
+      "category": "improve",
+      "format": "Skill",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-worth-using",
+      "site_url": "https://michaeljabbour.github.io/amplifier-skill-worth-using/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-skill-worth-using/#use-skill",
+      "first_prompt": "Use Worth Using to assess this fictional tool for a person who did not build it. Keep evidence behind each rating and identify the smallest useful next improvement.",
+      "output": "A fictional usefulness review showing the evidence behind each rating and one next improvement.",
+      "limitations": "A rubric score or passing component check does not establish adoption, repeat use or customer benefit.",
+      "related": [
+        "market-fit",
+        "ux-ergonomics",
+        "preceptor"
+      ]
+    },
+    {
+      "id": "preceptor",
+      "title": "Preceptor",
+      "summary": "Keep agent guidance that earns its place.",
+      "description": "Turn recurring corrections into small cues and compare the same task with and without them. Keep inconclusive results visible and make removal reversible.",
+      "audience": "People evaluating and improving recurring agent behavior.",
+      "category": "improve",
+      "format": "Skill",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-preceptor",
+      "site_url": "https://michaeljabbour.github.io/amplifier-skill-preceptor/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-skill-preceptor/#install",
+      "first_prompt": "Use Preceptor to assess a proposed cue for a fictional agent that repeatedly omits a requested source reference. Define the opportunity and violation, a cue/no-cue probe and a task-quality check. Keep it a candidate until the native evidence gate is satisfied.",
+      "output": "A fictional cue comparison recording treatment, baseline, errors and a reversible keep-or-remove decision.",
+      "limitations": "A minimum sample count or passing gate is not independent proof of efficacy or generalization.",
+      "related": [
+        "worth-using",
+        "research",
+        "session-doctor"
+      ]
+    },
+    {
+      "id": "session-doctor",
+      "title": "Session Doctor",
+      "summary": "Understand a broken session before repairing it.",
+      "description": "Inspect supported transcript structure and identify the smallest justified repair. Keep the original and prepare a separate repair copy with a rollback path.",
+      "audience": "People repairing transcripts and provider/session integration.",
+      "category": "improve",
+      "format": "Skill",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-session-doctor",
+      "site_url": "https://michaeljabbour.github.io/amplifier-skill-session-doctor/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-skill-session-doctor/#install",
+      "first_prompt": "Use Session Doctor to inspect a disposable direct role/content JSONL transcript. Diagnose before changing anything. If a missing tool result is unambiguous, prepare a new repair copy that marks the result unavailable, preserve the original and explain the remaining host-resume check.",
+      "output": "A fictional transcript diagnosis with the fault, repair-copy path and remaining resume check.",
+      "limitations": "The helper supports direct role/content JSONL; a repaired file does not establish live provider or resume acceptance.",
+      "related": [
+        "forge",
+        "preceptor",
+        "project-handoff"
+      ]
+    },
+    {
+      "id": "fast-decisions",
+      "title": "Fast Decisions",
+      "summary": "Measure which agent decisions are worth changing.",
+      "description": "Inspect recorded agent traces and propose a narrow routing intervention. Compare the intervention with an unchanged baseline using both execution and task outcomes.",
+      "audience": "Developers measuring agent cost, latency and bounded routing.",
+      "category": "improve",
+      "format": "Smart tool",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-smart-tool-fast-decisions",
+      "site_url": "https://michaeljabbour.github.io/amplifier-smart-tool-fast-decisions/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-smart-tool-fast-decisions/#install",
+      "first_prompt": "Use Fast Decisions to inspect the installed CLI and run its deterministic doctor. Explain what is available without a scoring provider. Propose one bounded read/list choice and a matched comparison that would test whether it helps; do not enable a hook or start a model service.",
+      "output": "A fictional routing comparison plan with one bounded choice, matched baseline and retained errors.",
+      "limitations": "Offline replay and packaging checks do not establish speed, quality or cost savings; scoring may need a configured provider.",
+      "related": [
+        "research",
+        "preceptor",
+        "build-amplifier"
+      ]
+    },
+    {
+      "id": "migrate",
+      "title": "Migrate",
+      "summary": "Change the language and preserve the experience.",
+      "description": "Observe an existing application and turn its behavior into sequenced stories and acceptance checks. Rebuild complete slices in the target language, including data, failures and recovery.",
+      "audience": "Developers rebuilding a whole application in another language or runtime.",
+      "category": "adapt",
+      "format": "Skill",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-migrate",
+      "site_url": "https://michaeljabbour.github.io/amplifier-skill-migrate/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-skill-migrate/#install",
+      "first_prompt": "Use Migrate to inventory this fictional terminal editor for a Rust rebuild. Keep the Python source read-only. Start with open, edit, save and failed-save recovery; write dependency-ordered story cards and acceptance probes before implementation.",
+      "output": "A fictional application migration plan with source-derived stories, parity checks and a rollback boundary.",
+      "limitations": "A completion ledger is not behavioral parity; data safety and real-surface acceptance require separate checks.",
+      "related": [
+        "transfer",
+        "pipeline",
+        "forge"
+      ]
+    },
+    {
+      "id": "transfer",
+      "title": "Transfer",
+      "summary": "Bring useful behavior to the app you use.",
+      "description": "Understand an observed donor capability and check what the target host already provides. Re-express the missing behavior through the host’s own contracts and conventions.",
+      "audience": "Developers bringing an observed donor capability into one or more existing hosts.",
+      "category": "adapt",
+      "format": "Skill",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-transfer",
+      "site_url": "https://michaeljabbour.github.io/amplifier-skill-transfer/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-skill-transfer/#install",
+      "first_prompt": "Use Transfer to compare pause/resume behavior in this fictional donor with two host clients. Keep donor source read-only. Identify current host overlap and shared runtime prerequisites, then propose one donor-derived acceptance probe per slice.",
+      "output": "A fictional capability-transfer brief with donor behavior, host prerequisites and independent acceptance checks.",
+      "limitations": "The donor stays read-only; declared completion does not establish that the transferred behavior works in the host.",
+      "related": [
+        "migrate",
+        "build-amplifier",
+        "constraint-builder"
+      ]
+    },
+    {
+      "id": "pipeline",
+      "title": "Pipeline",
+      "summary": "Build a pipeline you can explain and release deliberately.",
+      "description": "Start with the project’s real commands, dependencies and artifact consumers. Generate configuration for the selected platform and separate validation from release acceptance.",
+      "audience": "Developers creating or migrating CI/CD workflows.",
+      "category": "adapt",
+      "format": "Skill",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-pipeline",
+      "site_url": "https://michaeljabbour.github.io/amplifier-skill-pipeline/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-skill-pipeline/#install",
+      "first_prompt": "Use Pipeline to inspect a fictional Python project and propose a test-and-wheel pipeline for GitHub Actions. Name the real commands and artifact consumer. Include timeouts and minimal permissions. Do not add deployment, secrets or publishing.",
+      "output": "A fictional CI plan connecting jobs, artifacts, checks and an explicit release boundary.",
+      "limitations": "A generated file or structural validator pass is not a green native CI run or a deployed release.",
+      "related": [
+        "intent-to-plan",
+        "migrate",
+        "build-with-torque"
+      ]
+    },
+    {
+      "id": "imagen-studio",
+      "title": "Imagen Studio",
+      "summary": "Take the image from brief to chosen file.",
+      "description": "Clarify the image brief, compare concrete drafts and refine the file you selected. Keep review, artifact checks and delivery details attached to the work.",
+      "audience": "People and agents creating or refining visual assets with explicit artifact review.",
+      "category": "create",
+      "format": "Skill",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-imagen-studio",
+      "site_url": "https://michaeljabbour.github.io/amplifier-skill-imagen-studio/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-skill-imagen-studio/#install",
+      "first_prompt": "Use Imagen Studio in Guided mode to prepare a fictional product-card illustration. It needs a 4:3 composition, room for a heading and no text inside the image. Draft the brief and acceptance checks first; show the provider and cost before any generation.",
+      "output": "A fictional image brief, draft-selection rationale and delivery checklist for the chosen asset.",
+      "limitations": "Generation requires an available provider and applicable approval; installing the skill makes no paid call or upload.",
+      "related": [
+        "image-provider",
+        "taste-elegance",
+        "sizzle"
+      ]
+    },
+    {
+      "id": "image-provider",
+      "title": "Imagen Provider",
+      "summary": "Use one image interface across configured providers.",
+      "description": "Expose image generation through a library, CLI or MCP interface. Match the request’s requirements to an available provider and return artifact paths and metadata.",
+      "audience": "Agents and people needing image generation from a stable CLI or MCP tool.",
+      "category": "create",
+      "format": "Tool",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-tool-imagen-provider",
+      "site_url": "https://michaeljabbour.github.io/amplifier-tool-imagen-provider/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-tool-imagen-provider/#install",
+      "first_prompt": "Install in a virtual environment, inspect the library, CLI or MCP interface and check which configured provider meets a request’s requirements before making an approved generation call.",
+      "output": "A fictional provider-qualification result for a reference-image request, including setup needs and output requirements.",
+      "limitations": "Provider calls require approved credentials and can cost money; mock checks do not generate images.",
+      "related": [
+        "imagen-studio",
+        "build-amplifier",
+        "constraint-builder"
+      ]
+    },
+    {
+      "id": "sizzle",
+      "title": "Sizzle",
+      "summary": "Direct the film before generating it.",
+      "description": "Turn a brief into a story, script and storyboard for a short film. After approval, produce and check the picture, narration, music and cut-downs.",
+      "audience": "People making a short brand film, opener or product reel.",
+      "category": "create",
+      "format": "Skill",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-sizzle",
+      "site_url": "https://michaeljabbour.github.io/amplifier-skill-sizzle/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-skill-sizzle/#use-skill",
+      "first_prompt": "Use Sizzle to develop a short film for this fictional workshop. Start with the audience, story, script and storyboard for my review before generating any media.",
+      "output": "A fictional film treatment with a script, storyboard, sound direction and delivery checks.",
+      "limitations": "A person approves the storyboard and script before generation; production requires the relevant media tools and providers.",
+      "related": [
+        "imagen-studio",
+        "teaserkit",
+        "taste-elegance"
+      ]
+    },
+    {
+      "id": "teaserkit",
+      "title": "TeaserKit",
+      "summary": "Re-shoot the product from the same storyboard.",
+      "description": "Record a real web interface with clicks, framing, captions and timing defined in a shared storyboard. Build landscape, vertical and square versions from that source.",
+      "audience": "People and agents producing repeatable videos of real web interfaces.",
+      "category": "create",
+      "format": "Smart tool",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-smart-tool-teaserkit",
+      "site_url": "https://michaeljabbour.github.io/amplifier-smart-tool-teaserkit/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-smart-tool-teaserkit/#install",
+      "first_prompt": "Inspect the command help and validate the included fictional storyboard. Review browser and ffmpeg requirements before recording a real product or building a film.",
+      "output": "A fictional web-product storyboard specifying shots, actions, timing, captions and three output formats.",
+      "limitations": "Browser and ffmpeg prerequisites are explicit; optional AI planning or review can incur provider costs.",
+      "related": [
+        "sizzle",
+        "desktop-tasks",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "data-substrate",
+      "title": "Amplifier Data",
+      "summary": "Keep the evidence and change the view.",
+      "description": "Store exact source bytes in an append-only log with content references and provenance. Let multiple capabilities derive their own views without making Memory the owner of the store.",
+      "audience": "Developers building evidence, memory or artifact tools that need a shared durable substrate.",
+      "category": "continue",
+      "format": "Library",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-tool-data",
+      "site_url": "https://michaeljabbour.github.io/amplifier-tool-data/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-tool-data/#install",
+      "first_prompt": "Follow the native installation guide in a fresh environment, run the doctor against its temporary test store, then try the two-consumer example before connecting real data.",
+      "output": "A fictional two-consumer storage example linking a source note to a next-action artifact and retrieving the same bytes after restart.",
+      "limitations": "Alpha library: durable storage needs the native Rust kernel, one writer owns a file, and invalidation does not physically erase log bytes.",
+      "related": [
+        "memory",
+        "knowledge",
+        "project-handoff"
+      ]
+    },
+    {
+      "id": "memory",
+      "title": "Memory",
+      "summary": "Pick up the evidence, not just the summary.",
+      "description": "Keep scoped project notes and retrieve the original record in a later session. Separate evidence from derived claims and review what may have changed before relying on it.",
+      "audience": "People and agents who need inspectable, durable project memory.",
+      "category": "continue",
+      "format": "Skill",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-memory",
+      "site_url": "https://michaeljabbour.github.io/amplifier-skill-memory/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-skill-memory/#install",
+      "first_prompt": "Use Memory to review this project note. Preserve the exact source, its project scope and the date. Separate observed evidence from any derived claim. Show what needs rechecking before we rely on it today.",
+      "output": "A fictional retrieved project note with its exact text, provenance, scope and current recheck.",
+      "limitations": "The portable method installs independently; native persistence uses the separate Data library and supported adapters.",
+      "related": [
+        "data-substrate",
+        "project-handoff",
+        "knowledge"
+      ]
+    },
+    {
+      "id": "project-handoff",
+      "title": "Project Handoff",
+      "summary": "Pick up where the work left off.",
+      "description": "Capture the current state, adopted decisions, evidence and next useful action in a plain record. Resume from that record without treating a later suggestion as an approved decision.",
+      "audience": "People returning to a project or transferring it to another collaborator.",
+      "category": "continue",
+      "format": "Skill",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-project-handoff",
+      "site_url": "https://michaeljabbour.github.io/amplifier-skill-project-handoff/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-skill-project-handoff/#use-skill",
+      "first_prompt": "Use Project Handoff to capture this fictional project’s current state, adopted decisions, evidence and next safe action. Distinguish proposals from approvals and do not begin implementation.",
+      "output": "A fictional handoff separating the adopted local-file plan, a proposed cloud idea and an unrun export check.",
+      "limitations": "Handoff installs without Memory, a database or a daemon; a record does not itself approve implementation or make old evidence current.",
+      "related": [
+        "memory",
+        "intent-to-plan",
+        "good-teammate"
+      ]
+    },
+    {
+      "id": "good-teammate",
+      "title": "Good Teammate",
+      "summary": "Get the right help and keep the meaning intact.",
+      "description": "Decide what to look up, whom to ask and what knowledge to leave behind. Preserve qualifications, attribution and authority as work moves between collaborators.",
+      "audience": "People and agents coordinating bounded work across a shared project.",
+      "category": "continue",
+      "format": "Skill",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-skill-good-teammate",
+      "site_url": "https://michaeljabbour.github.io/amplifier-skill-good-teammate/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-skill-good-teammate/#install",
+      "first_prompt": "Use Good Teammate to draft a local request for a specialist review. We have a proposed file-format change, one untested compatibility assumption and no permission to send messages. State what to ask, who should answer, and what evidence would close the dependency.",
+      "output": "A fictional coordination note keeping a specialist’s untested answer tentative and naming the next verification.",
+      "limitations": "Installing the method enrolls no project and contacts no one; communication stays within the user’s existing authorization.",
+      "related": [
+        "project-handoff",
+        "team-access",
+        "memory"
+      ]
+    },
+    {
+      "id": "team-access",
+      "title": "Team Access",
+      "summary": "See who has access before applying the roster.",
+      "description": "Compare a declared YAML roster with repository collaborators and invitations. Preview the differences and apply only the exact changes the owner authorizes.",
+      "audience": "Repository owners administering collaborator access from a declared roster.",
+      "category": "continue",
+      "format": "Tool",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-tool-team-access",
+      "site_url": "https://michaeljabbour.github.io/amplifier-tool-team-access/",
+      "install_url": "https://michaeljabbour.github.io/amplifier-tool-team-access/#install",
+      "first_prompt": "Install the addteam command in an isolated environment, inspect its help and prepare a dry-run against one explicitly selected repository. Review additions, permission changes and removals before authorizing any change.",
+      "output": "A fictional roster review separating proposed additions, permission changes, removals and unresolved names.",
+      "limitations": "The addteam tool can change real GitHub access; a dry-run or circuit breaker does not authorize those changes.",
+      "related": [
+        "good-teammate",
+        "pipeline",
+        "project-handoff"
+      ]
+    }
+  ]
+}
