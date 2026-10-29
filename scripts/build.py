@@ -4,6 +4,7 @@
 from pathlib import Path
 from html import escape
 import json
+import hashlib
 import shutil
 from datetime import date
 
@@ -23,6 +24,14 @@ def main():
     stages = journey["stages"]
     stage_by_id = {s["id"]: s for s in stages}
     stage_index = {s["id"]: n for n, s in enumerate(stages)}
+    style_url = (
+        "/assets/site.css?v="
+        + hashlib.sha256((ROOT / "assets/site.css").read_bytes()).hexdigest()[:12]
+    )
+    behavior_url = (
+        "/assets/site.js?v="
+        + hashlib.sha256((ROOT / "assets/site.js").read_bytes()).hexdigest()[:12]
+    )
     projects = data["projects"]
     by_id = {p["id"]: p for p in projects}
     groups = {c["id"]: c for c in data["categories"]}
@@ -66,7 +75,7 @@ def main():
 <title>{E(title)} · Michael Jabbour</title><meta name="description" content="{E(description)}">
 <meta name="theme-color" content="#f5f7fa"><meta property="og:title" content="{E(title)} · Michael Jabbour"><meta property="og:description" content="{E(description)}"><meta property="og:type" content="website"><meta property="og:url" content="https://michaeljabbour.github.io{E(path)}">
 <meta property="og:image" content="https://michaeljabbour.github.io/assets/social.png"><link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link rel="canonical" href="https://michaeljabbour.github.io{E(path)}">
-<link rel="stylesheet" href="/assets/site.css"><script src="/assets/site.js" defer></script>{extra_head}</head>
+<link rel="stylesheet" href="{style_url}"><script src="{behavior_url}" defer></script>{extra_head}</head>
 <body><a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header wrap"><a class="identity" href="/" aria-label="Michael Jabbour home"><span class="monogram" aria-hidden="true">mj</span><span>michael jabbour</span></a>
 <nav aria-label="Main navigation">{nav_html}</nav><a class="source-link" href="https://github.com/michaeljabbour">GitHub <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M5 5h10v10"/></svg></a></header>

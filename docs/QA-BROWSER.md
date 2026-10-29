@@ -18,3 +18,5 @@ The checks cover these observed flows and layouts. They do not constitute a comp
 Fresh normal and query-varied live HTTP responses both contained the seven journey stages. The user could not find them, and inspection showed the full hero/player and guide introduction put the category tabs below the first screen. This establishes a discoverability issue; it does not diagnose the user's existing tab cache.
 
 The homepage now places seven native category links directly under the header, before the hero. At 1280px all seven appear in a single row. At 390px and 320px they wrap into two columns; the category area ends at 421px and 444px respectively, inside the first screen. Document width equals viewport width. The fifth link opens Create and the sixth opens Adapt with the correct selected journey panel. The full guide and existing library remain available.
+
+The live host sends a ten-minute cache lifetime for HTML, CSS and JavaScript. Shared page asset links now include a content hash so a newly loaded page requests its matching style and behavior. This does not force-reload an already open document.
