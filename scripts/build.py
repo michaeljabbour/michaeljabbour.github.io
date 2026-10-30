@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Build the static portfolio from its public-only catalogue."""
 
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from html import escape
 import json
 import hashlib
 import shutil
+import re
 from datetime import date
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -15,6 +16,51 @@ E = lambda v: escape(str(v), quote=True)
 
 def link(url, label, cls=""):
     return f'<a href="{E(url)}" class="{E(cls)}">{label}</a>'
+
+
+def checked_compatibility_sites():
+    """Return only complete, hash-pinned public snapshots from the manifest."""
+    manifest = ROOT / "compatibility/manifest.json"
+    if not manifest.exists():
+        return []
+    for parent in (ROOT / "compatibility", manifest):
+        if parent.is_symlink():
+            raise ValueError("Compatibility source must not contain symlinks")
+    data = json.loads(manifest.read_text())
+    if data.get("schema_version") != "static-compatibility/v1":
+        raise ValueError("Unsupported compatibility manifest")
+    sites = []
+    prefixes = set()
+    for site in data["sites"]:
+        prefix = site["prefix"]
+        if not re.fullmatch(r"amplifier-[a-z0-9-]+", prefix) or prefix in prefixes:
+            raise ValueError("Invalid or duplicate compatibility prefix")
+        prefixes.add(prefix)
+        source = ROOT / "compatibility/sites" / prefix
+        if any(p.is_symlink() for p in [source.parent, source, *source.rglob("*")]):
+            raise ValueError("Compatibility source must not contain symlinks")
+        expected = {}
+        for entry in site["files"]:
+            name = entry["path"]
+            path = PurePosixPath(name)
+            if (
+                path.is_absolute() or ".." in path.parts or "\\" in name
+                or path.as_posix() != name or name in expected or name == "."
+            ):
+                raise ValueError("Invalid or duplicate compatibility path")
+            expected[name] = entry
+        actual = {p.relative_to(source).as_posix() for p in source.rglob("*") if p.is_file()}
+        if not expected or actual != set(expected):
+            raise ValueError(f"Compatibility file list differs: {prefix}")
+        for name, entry in expected.items():
+            content = (source / name).read_bytes()
+            if len(content) != entry["bytes"] or hashlib.sha256(content).hexdigest() != entry["sha256"]:
+                raise ValueError(f"Compatibility content differs: {prefix}/{name}")
+        sites.append((prefix, source, expected))
+    actual_prefixes = {p.name for p in (ROOT / "compatibility/sites").iterdir()}
+    if actual_prefixes != prefixes:
+        raise ValueError("Unlisted compatibility source directory")
+    return sites
 
 
 def main():
@@ -42,6 +88,8 @@ def main():
     OUT.mkdir()
     shutil.copytree(ROOT / "assets", OUT / "assets")
     (OUT / ".nojekyll").touch()
+    for prefix, source, _ in checked_compatibility_sites():
+        shutil.copytree(source, OUT / prefix)
 
     def project_url(p):
         return "/capabilities/" + p["id"] + "/"

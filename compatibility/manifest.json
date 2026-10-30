@@ -1,0 +1,155 @@
+{
+  "schema_version": "static-compatibility/v1",
+  "sites": [
+    {
+      "prefix": "amplifier-skill-market-fit",
+      "source_repository": "https://github.com/michaeljabbour/amplifier-skill-market-fit",
+      "public_source_commit": "1a16404f20babb1832cda117e162ebe6020b7e6d",
+      "reviewed_export_commit": "890803900378400963fa2f74c2fc84689a40c087",
+      "source_equivalence": "Published static payload verified unchanged from the public source; only .gitignore, AGENTS.md and capability.json differ outside the export.",
+      "purpose": "Retain existing Pages HTML, assets, docs and skill downloads through the capability repository rename.",
+      "files": [
+        {
+          "path": ".nojekyll",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "CHANGELOG.md",
+          "bytes": 1678,
+          "sha256": "370a47edd021f5a77bf895d0e3a18de473774c7621ad33d0fb5ace6b2548fc42"
+        },
+        {
+          "path": "LICENSE",
+          "bytes": 1221,
+          "sha256": "449dfff7faa2de4bf5f8947f065f2fb58e76e0bf3316470e7fc22bb7aa264f96"
+        },
+        {
+          "path": "LICENSE.md",
+          "bytes": 1221,
+          "sha256": "449dfff7faa2de4bf5f8947f065f2fb58e76e0bf3316470e7fc22bb7aa264f96"
+        },
+        {
+          "path": "README.md",
+          "bytes": 8680,
+          "sha256": "4e36f5822fe2b6f0d5983a264c924193e5fa4c4c43705ac60a7f9a08eb20f39f"
+        },
+        {
+          "path": "SKILL.md",
+          "bytes": 6802,
+          "sha256": "3a899de81d1cceb2939626135b5f10edf8008b544228183d93b73eb57bda3624"
+        },
+        {
+          "path": "assets/family-LICENSE.txt",
+          "bytes": 1141,
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383"
+        },
+        {
+          "path": "assets/family.css",
+          "bytes": 22688,
+          "sha256": "794600af68c7fc2af0340a5acc13051886441aca4f58870e7d4d110168638d20"
+        },
+        {
+          "path": "assets/favicon.svg",
+          "bytes": 447,
+          "sha256": "9d09a123965f05cfbe9c0202054a36b2b9f6991fec14ed745a08c64e1252fbd3"
+        },
+        {
+          "path": "assets/market-fit-film-poster.jpg",
+          "bytes": 24897,
+          "sha256": "fc61d43c73ba063652d3d662ab538d99769d44aa35674654db65d5395c7eff9c"
+        },
+        {
+          "path": "assets/market-fit-film.mp4",
+          "bytes": 6848498,
+          "sha256": "ac9eeecc9bbe771766a2a221e97623aa9124d45ab47e0d19484b342779edc93e"
+        },
+        {
+          "path": "assets/market-fit-film.vtt",
+          "bytes": 1210,
+          "sha256": "38fd5e4ffe0d859c14e30860d01230ca5cda619ede7aef591e957c222830ec8f"
+        },
+        {
+          "path": "assets/market-fit-film.webm",
+          "bytes": 3407598,
+          "sha256": "db62b2fcd1ce77b854f0896d3148d7d024209d1dbc7afdfe33d2845fe2e37433"
+        },
+        {
+          "path": "assets/site.js",
+          "bytes": 2022,
+          "sha256": "cb871c35ca6b6e04fece8b6d9959eec8e59287e4de863c1c9446aa1e454c026b"
+        },
+        {
+          "path": "assets/social-card.svg",
+          "bytes": 1532,
+          "sha256": "f72e4335ec406d143c92cc2330a3494c80a05e9f6ed951260cc2e75bdaeb4491"
+        },
+        {
+          "path": "assets/style.css",
+          "bytes": 20164,
+          "sha256": "9e37e82baf5c0a3b1aae11039afefdfa9f3d8a1d891088e148e2626042e72a63"
+        },
+        {
+          "path": "docs/BENCHMARK.md",
+          "bytes": 3066,
+          "sha256": "5c164e6a885dbf02e2b1e00bab1c7d833a8414562b807c2c382050de75aefb0c"
+        },
+        {
+          "path": "docs/CONSOLIDATION.md",
+          "bytes": 746,
+          "sha256": "967f19607dab75fd2b5dce3324bfb090ae316b77365d0e3a3c62ea9818d7ff6b"
+        },
+        {
+          "path": "docs/EXAMPLES.md",
+          "bytes": 5629,
+          "sha256": "ac64fbfb0706fe3451ad62453ba617aa3b7c1c3f0b58a7bc0a5dd15984f4e2d8"
+        },
+        {
+          "path": "docs/INSTALL.md",
+          "bytes": 1569,
+          "sha256": "856d80abb58f3281687670f26164c9ee8d1d25f4bb8263f39dd183190a388a03"
+        },
+        {
+          "path": "index.html",
+          "bytes": 58286,
+          "sha256": "52f47a8cb017da40ca53e242e833c6a5c90a3db2bc8786b6b3c9ffaf11886f0d"
+        },
+        {
+          "path": "market-fit.zip",
+          "bytes": 6439,
+          "sha256": "f6bfbba82eb4a53e49c6e5b05273c59006be12206b95748963353a4023ddadbf"
+        },
+        {
+          "path": "references/coaching.md",
+          "bytes": 5066,
+          "sha256": "e2f7e504c535b2cb77a213b367ba449bd4e061a558e30328e0e956706d3dd38b"
+        },
+        {
+          "path": "site/README.md",
+          "bytes": 2298,
+          "sha256": "f262ee7ebc3d00ca9ca2b882e147ad6acf664db3a7d818f9386fcaf766553846"
+        },
+        {
+          "path": "site/theme/LICENSE",
+          "bytes": 1141,
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383"
+        },
+        {
+          "path": "skills/market-fit/LICENSE.md",
+          "bytes": 1221,
+          "sha256": "449dfff7faa2de4bf5f8947f065f2fb58e76e0bf3316470e7fc22bb7aa264f96"
+        },
+        {
+          "path": "skills/market-fit/SKILL.md",
+          "bytes": 6802,
+          "sha256": "3a899de81d1cceb2939626135b5f10edf8008b544228183d93b73eb57bda3624"
+        },
+        {
+          "path": "skills/market-fit/references/coaching.md",
+          "bytes": 5066,
+          "sha256": "e2f7e504c535b2cb77a213b367ba449bd4e061a558e30328e0e956706d3dd38b"
+        }
+      ]
+    }
+  ]
+}

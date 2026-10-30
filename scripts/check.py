@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 import math
 import re
 import sys
@@ -12,6 +13,7 @@ from html import unescape
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import parse_qs, unquote, urlsplit
+from build import checked_compatibility_sites
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "dist"
@@ -228,11 +230,33 @@ def main() -> int:
         )
 
     require(OUT.is_dir(), "Build dist before running the checker")
+    legacy_paths = set()
+    try:
+        compatibility_sites = checked_compatibility_sites()
+    except (OSError, ValueError, KeyError, TypeError) as exc:
+        errors.append(f"Invalid compatibility source: {exc}")
+        compatibility_sites = []
+    for prefix, _, expected in compatibility_sites:
+        destination = OUT / prefix
+        actual = {p.relative_to(destination).as_posix() for p in destination.rglob("*") if p.is_file()}
+        require(actual == set(expected), f"{prefix}: copied compatibility file list differs")
+        require(
+            not any(p.is_symlink() for p in [destination, *destination.rglob("*")]),
+            f"{prefix}: copied compatibility symlink is forbidden",
+        )
+        for name, entry in expected.items():
+            path = destination / name
+            legacy_paths.add(path)
+            require(
+                path.is_file() and path.stat().st_size == entry["bytes"]
+                and hashlib.sha256(path.read_bytes()).hexdigest() == entry["sha256"],
+                f"{prefix}/{name}: copied compatibility content differs",
+            )
     html_files = sorted(OUT.rglob("*.html")) if OUT.exists() else []
     documents = {path: Document(path.read_text()) for path in html_files}
     overview_pages = int((OUT / "assets/overview/transcript/index.html").exists())
     require(
-        len(html_files) == 39 + overview_pages,
+        len([p for p in html_files if p not in legacy_paths]) == 39 + overview_pages,
         "Build must contain 39 HTML pages (33 capability pages, five index pages and 404), plus the overview film transcript when one is configured",
     )
     expected_routes = {
@@ -296,7 +320,7 @@ def main() -> int:
         relative = path.relative_to(OUT)
         raw = path.read_text()
         require(
-            doc.title.strip() and "Michael Jabbour" in doc.title,
+            doc.title.strip() and (path in legacy_paths or "Michael Jabbour" in doc.title),
             f"{relative}: meaningful owner-attributed title required",
         )
         descriptions = doc.select("meta", name="description")
@@ -312,10 +336,11 @@ def main() -> int:
         )
         if path.name == "404.html":
             route = "/"  # The error page intentionally points visitors back to the homepage.
-        require(
-            len(canonical) == 1 and canonical[0].get("href") == ORIGIN + route,
-            f"{relative}: canonical does not match its public route",
-        )
+        if path not in legacy_paths:
+            require(
+                len(canonical) == 1 and canonical[0].get("href") == ORIGIN + route,
+                f"{relative}: canonical does not match its public route",
+            )
         require(
             len(doc.select("h1")) == 1, f"{relative}: exactly one page heading required"
         )
@@ -341,6 +366,11 @@ def main() -> int:
                 and attributes.get("content", "").startswith(ORIGIN + "/")
             ):
                 check_reference(attributes["content"][len(ORIGIN) :], path, asset=True)
+            elif (
+                path in legacy_paths and tag == "meta"
+                and attributes.get("property") == "og:image" and attributes.get("content")
+            ):
+                check_reference(attributes["content"], path, asset=True)
             if tag in {"video", "audio"}:
                 require(
                     "autoplay" not in attributes,
@@ -868,9 +898,15 @@ def main() -> int:
     }
     for path in public_text_files:
         raw = path.read_text()
+        # The hash-pinned legacy README documents this literal placeholder,
+        # not an actual machine path. Real file URLs remain forbidden.
+        private_text = (
+            raw.replace("file:///<path-to-checkout>/", "LOCAL_CHECKOUT_PLACEHOLDER/")
+            if path in legacy_paths else raw
+        )
         for marker in private_markers:
             require(
-                marker not in raw,
+                marker not in private_text,
                 f"{path.relative_to(OUT)}: private-workspace or excluded-project marker found",
             )
         for label, pattern in secret_patterns.items():
