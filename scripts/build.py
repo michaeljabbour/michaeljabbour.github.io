@@ -113,7 +113,7 @@ def main():
             ("capabilities", "/capabilities/", "All capabilities"),
             ("films", "/films/", "Films & demos"),
             ("about", "/about/", "About"),
-            ("status", "/reports/capabilities/", "Status"),
+            ("blog", "https://www.michaeljabbour.com/", "Blog"),
         ]
         nav_html = "".join(
             f'<a href="{url}" aria-label="{label}"'
@@ -131,7 +131,7 @@ def main():
 <header class="site-header wrap"><a class="identity" href="/" aria-label="Michael Jabbour home"><span class="monogram" aria-hidden="true">mj</span><span>michael jabbour</span></a>
 <nav aria-label="Main navigation">{nav_html}</nav><a class="source-link" href="https://github.com/michaeljabbour">GitHub <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M5 5h10v10"/></svg></a></header>
 <main id="main">{body}</main>
-<footer class="site-footer wrap"><div><h2 class="footer-name">Take it from here.</h2><p>Built by Michael. Here to pick up and make your own.</p></div><nav aria-label="Footer navigation"><a href="/#journey">Follow the work</a><a href="/capabilities/">All capabilities</a><a href="/films/">The films & demos</a><a href="/reports/capabilities/">Current checks</a><a href="https://github.com/michaeljabbour">GitHub</a></nav></footer>
+<footer class="site-footer wrap"><div><h2 class="footer-name">Take it from here.</h2><p>Here to pick up and make your own.</p></div><nav aria-label="Footer navigation"><a href="/#journey">Follow the work</a><a href="/capabilities/">All capabilities</a><a href="/films/">The films & demos</a><a href="https://www.michaeljabbour.com/">Blog</a><a href="https://github.com/michaeljabbour">GitHub</a></nav></footer>
 </body></html>'''
 
     def write(path, text):
@@ -164,7 +164,7 @@ def main():
                 if overview.get("transcript")
                 else ""
             )
-            hero_art = f'''<div class="hero-story" id="story"><h2>{E(overview.get("title", "Good Work Has a Next Day"))}</h2><p class="publication-label">Published cut · ending-board revision planned</p><video controls playsinline preload="none" crossorigin="anonymous" poster="{E(asset_url(overview["poster"]))}" aria-label="Portfolio overview film" data-overview-video><source src="{E(asset_url(overview["src"]))}" type="video/mp4"><track kind="captions" srclang="en" label="English" src="{E(asset_url(overview["caption"]))}"></video>{transcript_link}<a class="story-to-journey" href="#journey">Find your place in the story</a></div>'''
+            hero_art = f'''<div class="hero-story" id="story"><h2>{E(overview.get("title", "Good Work Has a Next Day"))}</h2><video controls playsinline preload="none" crossorigin="anonymous" poster="{E(asset_url(overview["poster"]))}" aria-label="Portfolio overview film" data-overview-video><source src="{E(asset_url(overview["src"]))}" type="video/mp4"><track kind="captions" srclang="en" label="English" src="{E(asset_url(overview["caption"]))}"></video>{transcript_link}<a class="story-to-journey" href="#journey">Find your place in the story</a></div>'''
 
     def journey_guide(home=False):
         intro = (
@@ -273,7 +273,7 @@ def main():
         film_tiles.append(
             f'''<article class="film-card"><a class="film-art" href="{project_url(p)}#watch">{poster(p)}<span class="play-disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 5 11 7-11 7z"/></svg></span></a><div class="film-card-copy"><h2><a href="{project_url(p)}#watch">{E(p["title"])}</a></h2><p>{E(p["summary"])}</p><a class="text-link" href="{project_url(p)}#watch">{E(label)}</a></div></article>'''
         )
-    films_html = f"""<section class="page-intro wrap"><a class="back-link" href="/">Home</a><h1>See the work<br>in motion.</h1><p>Captioned films, lessons and a visual demo that introduce the capabilities. Pick one to see its purpose and approach.</p><p class="media-review-note">Published and playable does not mean final creative review. The overview ending board has a planned revision; individual films remain available while review continues.</p></section><section class="wrap film-library"><div class="film-grid">{"".join(film_tiles)}</div><p class="library-footnote">Media is hosted on each capability’s own site. The individual page links its transcript and short cut when available.</p></section>"""
+    films_html = f"""<section class="page-intro wrap"><a class="back-link" href="/">Home</a><h1>See the work<br>in motion.</h1><p>Captioned films, lessons and a visual demo that introduce the capabilities. Pick one to see its purpose and approach.</p></section><section class="wrap film-library"><div class="film-grid">{"".join(film_tiles)}</div><p class="library-footnote">Media is hosted on each capability’s own site. The individual page links its transcript and short cut when available.</p></section>"""
     write(
         "films",
         shell(
@@ -285,7 +285,7 @@ def main():
         ),
     )
 
-    about = """<section class="page-intro wrap about-intro"><a class="back-link" href="/">Home</a><h1>A little of the<br>thinking behind it.</h1><p>Skills, tools and experiments in making AI useful. Keep the thinking visible, make the thing with care, and leave someone a way in.</p></section><section class="about-body wrap"><div class="about-statement"><h2>Good work has<br>a next day.</h2><p>A first draft gives you something to react to. The next questions matter too: where the evidence came from, why a choice was made, what was checked, and how someone else can continue.</p><p>I build capabilities around those moments. Some help with research and judgment. Some help build software or direct creative work. Others keep the evidence, decisions and next steps close to the project.</p><p>They have different jobs and different shapes. You can start with one that fits the work in front of you.</p></div><div class="principles"><article><h3>Keep the evidence close.</h3><p>Make it possible to return to a source, inspect a claim and see what remains uncertain.</p></article><article><h3>Choose a shape that fits.</h3><p>A useful extension can be a small skill, a tool or a shared library. Let the job decide.</p></article><article><h3>Improve with a reason.</h3><p>Make the change intentional. Explain what it should help, and what would show that it did.</p></article><article><h3>Make the next step clear.</h3><p>A person returning tomorrow should have a place to begin, with the current state and the important decisions visible.</p></article></div></section><section class="closing-section"><div class="wrap closing-content"><h2>Take what’s useful.<br>Make it yours.</h2><div class="button-row"><a class="button dark" href="/capabilities/">Browse the capabilities</a><a class="text-link" href="https://github.com/michaeljabbour">Find me on GitHub</a></div></div></section>"""
+    about = """<section class="page-intro wrap about-intro"><a class="back-link" href="/">Home</a><h1>A little of the<br>thinking behind it.</h1><p>Skills, tools and experiments in making AI useful. Keep the thinking visible, make the thing with care, and leave someone a way in.</p></section><section class="about-body wrap"><div class="about-statement"><h2>Good work has<br>a next day.</h2><p>A first draft gives you something to react to. The next questions matter too: where the evidence came from, why a choice was made, what was checked, and how someone else can continue.</p><p>I build capabilities around those moments. Some help with research and judgment. Some help build software or direct creative work. Others keep the evidence, decisions and next steps close to the project.</p><p>They have different jobs and different shapes. You can start with one that fits the work in front of you.</p><p>For writing and notes, visit <a href="https://www.michaeljabbour.com/">my blog</a>.</p></div><div class="principles"><article><h3>Keep the evidence close.</h3><p>Make it possible to return to a source, inspect a claim and see what remains uncertain.</p></article><article><h3>Choose a shape that fits.</h3><p>A useful extension can be a small skill, a tool or a shared library. Let the job decide.</p></article><article><h3>Improve with a reason.</h3><p>Make the change intentional. Explain what it should help, and what would show that it did.</p></article><article><h3>Make the next step clear.</h3><p>A person returning tomorrow should have a place to begin, with the current state and the important decisions visible.</p></article></div></section><section class="closing-section"><div class="wrap closing-content"><h2>Take what’s useful.<br>Make it yours.</h2><div class="button-row"><a class="button dark" href="/capabilities/">Browse the capabilities</a><a class="text-link" href="https://github.com/michaeljabbour">Find me on GitHub</a></div></div></section>"""
     write(
         "about",
         shell(
@@ -380,7 +380,7 @@ def main():
             notfound,
         )
     )
-    urls = ["", "journey/", "capabilities/", "films/", "about/", "capabilities/categories/", "journey/knowledge/", "reports/capabilities/", "reports/capability-installer/"] + [
+    urls = ["", "journey/", "capabilities/", "films/", "about/", "capabilities/categories/", "journey/knowledge/", "reports/capability-installer/"] + [
         "capabilities/" + p["id"] + "/" for p in projects
     ]
     (OUT / "sitemap.xml").write_text(

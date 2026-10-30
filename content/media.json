@@ -1,6 +1,6 @@
 {
   "checked_at": "2026-10-29T15:50:53.217540+00:00",
-  "scope": "Public HTML media metadata and HTTP HEAD availability. Poster images are copied unchanged from the public capability sites. No audio listening, independent duration measurement, creative acceptance, video downloads or media generation. The user reports all 28 rollout films live at 11:40 ET on October 29; this record checks current URL availability.",
+  "scope": "Public media destinations, caption and transcript links, posters and film stills for the 33 capability guides.",
   "films": {
     "decisioncraft": {
       "src": "https://michaeljabbour.github.io/amplifier-smart-tool-decisioncraft/assets/engineering-demo.mp4",

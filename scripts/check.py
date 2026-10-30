@@ -261,7 +261,7 @@ def main() -> int:
     overview_pages = int((OUT / "assets/overview/transcript/index.html").exists())
     require(
         len([p for p in html_files if p not in legacy_paths]) == 44 + overview_pages,
-        "Build must contain44 base HTML pages including33 capabilities, category/knowledge/status routes, the category alias and404, plus the configured overview transcript",
+        "Build must contain44 base HTML pages including33 capabilities, category/knowledge/installer routes and the legacy blog redirect, the category alias and404, plus the configured overview transcript",
     )
     expected_routes = {
         OUT / "capabilities" / ident / "index.html"
@@ -348,7 +348,7 @@ def main() -> int:
             route = "/"  # The error page intentionally points visitors back to the homepage.
         if homepage_template:
             require(
-                len(canonical) == 1 and canonical[0].get("href") == ORIGIN + route,
+                len(canonical) == 1 and canonical[0].get("href") == ("https://www.michaeljabbour.com/" if path == OUT/"reports/capabilities/index.html" else ORIGIN + route),
                 f"{relative}: canonical does not match its public route",
             )
         if path in legacy_paths and len(doc.select("h1")) != 1:
@@ -941,13 +941,21 @@ def main() -> int:
     require(knowledge_doc is not None, "Missing proposed knowledge journey")
     if knowledge_doc:
         require(not any(attrs.get("data-film-start") for _, attrs in knowledge_doc.elements), "Proposed knowledge journey must not invent narrated timestamps")
-    from public_views import validate_status,validate_csv
-    try:
-        public_status=validate_status(load_json(OUT / "reports/capabilities/status.json"), set(ids))
-        validate_csv((OUT / "reports/capabilities/capability-status.csv").read_text(),public_status)
-        require(public_status==load_json(ROOT / "content/public-capability-status.json"),"Served status differs from validated source")
-    except (KeyError, TypeError, ValueError) as exc:
-        errors.append("Invalid public status projection: " + str(exc))
+    # Owner-facing readiness inputs and reports are deliberately private.
+    for name in ['content/public-capability-status.json','content/public-capability-status.csv','content/public-status-scope.json']:
+        require(not (ROOT/name).exists(),'Retired internal status input must stay outside public source')
+    require(not (OUT/'reports/capabilities/status.json').exists() and not (OUT/'reports/capabilities/capability-status.csv').exists(),'Internal status downloads must not be published')
+    for path in html_files:
+        if path in legacy_paths:continue
+        raw=path.read_text();doc=documents[path]
+        for phrase in ['Built by Michael.','All 33 prepared source releases','current source builds/checks','Finite finding triage','ending-board revision planned','Published and playable does not mean final creative review']:
+            require(phrase not in raw,f'{path.relative_to(OUT)}: internal presentation note must not return')
+        if doc.select('nav',**{'aria-label':'Main navigation'}):
+            blog=doc.select('a',**{'aria-label':'Blog'})
+            require(len(blog)==1 and blog[0].get('href')=='https://www.michaeljabbour.com/',f'{path.relative_to(OUT)}: primary Blog link must be direct')
+            require(not doc.select('a',**{'aria-label':'Status'}),f'{path.relative_to(OUT)}: internal Status navigation must not return')
+    old_status=documents.get(OUT/'reports/capabilities/index.html')
+    require(old_status is not None and old_status.select('meta',**{'http-equiv':'refresh'})==[{'http-equiv':'refresh','content':'0; url=https://www.michaeljabbour.com/'}],'Old status HTML route must be only the blog redirect/fallback')
     # The download is the reviewed package, with an exact build-time commit pin.
     try:
         import os,subprocess
@@ -966,11 +974,11 @@ def main() -> int:
         sitemap_urls = set(re.findall(r"<loc>([^<]+)</loc>", sitemap.read_text()))
         expected_urls = {
             ORIGIN + route
-            for route in ["/", "/about/", "/capabilities/", "/films/", "/journey/", "/capabilities/categories/", "/journey/knowledge/", "/reports/capabilities/", "/reports/capability-installer/"]
+            for route in ["/", "/about/", "/capabilities/", "/films/", "/journey/", "/capabilities/categories/", "/journey/knowledge/", "/reports/capability-installer/"]
         } | {ORIGIN + "/capabilities/" + ident + "/" for ident in ids}
         require(
             sitemap_urls == expected_urls,
-            "Sitemap must cover the42 public content routes exactly",
+            "Sitemap must cover the41 public content routes exactly",
         )
     else:
         errors.append("Missing sitemap.xml")

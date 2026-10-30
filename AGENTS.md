@@ -11,4 +11,4 @@
 
 - Use `python3 scripts/serve.py` for local preview with seekable video. The helper binds only to loopback and is not part of the deployed static artifact.
 
-- `content/knowledge-journey.json` is a separate, explicitly proposed navigation through existing public capabilities. It has no narration timestamps and does not change the seven-stage build journey. Public status data must match the same 33 IDs and contain only public fields; the full owner audit stays outside this repository.
+- `content/knowledge-journey.json` is a separate, explicitly proposed navigation through existing public capabilities. It has no narration timestamps and does not change the seven-stage build journey. Keep research and review records outside the public source. The public pages introduce capabilities and link to the blog.

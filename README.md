@@ -38,19 +38,16 @@ The target repository is `michaeljabbour/michaeljabbour.github.io`, with GitHub 
 - Portfolio: [michaeljabbour.github.io](https://michaeljabbour.github.io/)
 - Source: [michaeljabbour/michaeljabbour.github.io](https://github.com/michaeljabbour/michaeljabbour.github.io)
 
-It uploads only `dist/`. The public site contains no private audit, owner workbook, research records or local filesystem references. See GitHub’s [custom Pages workflow guide](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages) for the hosting contract. Actions are pinned to official repository commits verified October 29, 2026.
+It uploads only `dist/`. See GitHub’s [custom Pages workflow guide](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages) for the hosting contract.
 
-## Media and scope
+## Media
 
-All 28 rollout films were observed available on October 29. The collection also includes two earlier films, Sizzle’s reel, Taste’s lesson and Decisioncraft’s visual demo. Their formats are labeled individually. Media availability does not establish creative acceptance or capability effectiveness.
+Films stay on their capability sites. Local posters and stills preserve the supplied artwork. Captions, transcripts and short cuts appear where available. [Media notes](docs/MEDIA.md) describe the assets; [content notes](docs/CONTENT.md) describe the catalogue. Site source is MIT licensed; media retain their original notices.
 
-[Media provenance and observation notes](docs/MEDIA.md) distinguish direct URL checks from the producer’s report. [Content notes](docs/CONTENT.md) explain the catalogue’s scope. Site source is MIT licensed; existing film artwork and media retain the notices of their original repositories.
+## Navigation and shared installation
 
+The grouped catalogue keeps 33 capabilities distinct. The proposed knowledge journey is separate from the build journey. Writing and notes are on [Michael Jabbour’s blog](https://www.michaeljabbour.com/).
 
-## Public checks and shared installation
+The shared installer lives in `tools/` and is served at `/reports/capability-installer/`. Its download manifest records the exact committed source revision and file hashes. For local editing, prefix build/check commands with `CAPABILITY_INSTALLER_PREVIEW=1`; commit before a production build.
 
-The grouped catalogue keeps the same 33 public capabilities. `/journey/knowledge/` is a proposed route through existing research and creative methods; the narrated build journey stays separate. `/reports/capabilities/` publishes a bounded public status snapshot and its matching JSON/CSV downloads. Raw audit findings and research stores are not part of this repository.
-
-The one shared installer lives in `tools/` and is served at `/reports/capability-installer/`. The download manifest records the exact committed build revision and hashes. Normal publication requires committed package bytes; during local editing, use `CAPABILITY_INSTALLER_PREVIEW=1 python3 scripts/build.py` and the same prefix for `scripts/check.py`. This preview explicitly claims no immutable source pin. Commit before the normal production build.
-
-Run `python3 -m unittest discover -s tests -v` and `python3 -m unittest discover -s tools -p test_capability.py -v` before building. The checker verifies all compatibility payload hashes and links, the new public metadata boundaries and the shared download. Hash-pinned legacy examples retain their original document heading structures; homepage template requirements apply to the owner pages.
+Run `python3 -m unittest discover -s tests -v` and `python3 -m unittest discover -s tools -p test_capability.py -v` before building.

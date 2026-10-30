@@ -9,15 +9,18 @@ The implementation is maintained once in [the public catalog's tools directory](
 The [download manifest](https://michaeljabbour.github.io/reports/capability-installer/manifest.json) records the exact 40-character `source_commit` and each download's SHA256. Use that commit when obtaining this installer; do not infer a release from a moving branch.
 
 ```sh
-git clone https://github.com/michaeljabbour/michaeljabbour.github.io.git capability-catalog
+git clone --filter=blob:none --sparse https://github.com/michaeljabbour/michaeljabbour.github.io.git capability-catalog
+git -C capability-catalog sparse-checkout set tools
 # Replace the value below with source_commit from the published download manifest.
 installer_revision=FULL_40_CHARACTER_SOURCE_COMMIT
-git -C capability-catalog checkout "$installer_revision"
+git -C capability-catalog checkout --detach "$installer_revision"
 ```
+
+The sparse clone obtains the installer without the compatibility media. A full clone is optional.
 
 You can also download `capability.py`, `contract.schema.json` and the license from the [installer downloads](https://michaeljabbour.github.io/reports/capability-installer/). Compare their SHA256 values with that manifest before use.
 
-This complete public Market Fit example is pinned to the verified rename pilot:
+This Market Fit example uses a complete method pinned to a public source revision:
 
 ```sh
 git clone https://github.com/michaeljabbour/amplifier-capability-market-fit.git market-fit-source
@@ -57,14 +60,12 @@ python3 capability-catalog/tools/capability.py rollback --transaction /path/to/p
 
 Rollback refuses intervening edits and restores the previous copy or absence. Backups remain available. The installer does not edit Git ignore/configuration files.
 
-## Verification and harness evidence
+## Check the installer
 
-The 25 deterministic boundary tests cover pin drift, untracked content, symlinks, path/receipt traversal, foreign/edited copies, legacy names, deduplicated locations, interrupted transactions, doctor status and rollback:
+Run the boundary tests before changing the installer:
 
 ```sh
 python3 -m unittest discover -s capability-catalog/tools -p test_capability.py -v
 ```
 
-The current small Market Fit behavioral pilot is narrower than installation coverage. Codex passed one opening turn. Another local model run through OpenCode read the method but asked five questions and failed its instruction-following requirement. Other live harness routes remain unrun or unverified. These bounded observations do not establish behavior across every capability, model or host.
-
-Read the dated public acceptance summary for later results. Contract `version: null` means no recorded release version; it is preserved rather than invented. Every installation still requires an exact Git revision.
+Contract `version: null` means no recorded release version. Every installation through this shared portable installer requires an exact Git revision.

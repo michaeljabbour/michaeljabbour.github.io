@@ -44,7 +44,6 @@ The supplied overview captions are the evidence for the six narrated moments:
 
 “Take it somewhere new” has no distinct narrated beat in the supplied captions. Its `film_start` is deliberately `null`; the site must not invent a matching film timestamp or imply that this timing corrects the end-card animation. These values can support optional jumps to the actual narrated moments. They do not require automatic playback or a time-driven change to the visitor’s selected task.
 
-The owner reported an ending highlight/order error around “Take it somewhere…” in the film. This content pass establishes one explicit website order. It does not alter, revoice or re-render the film, and it does not claim that the reported animation issue has been fixed.
 
 ## Scope of the language
 

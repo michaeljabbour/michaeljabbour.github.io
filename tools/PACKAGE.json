@@ -30,18 +30,18 @@
     },
     {
       "path": "README.md",
-      "sha256": "b2e4662fa89314b0cdeb6c40039129b43a7ef7985205b7e8f7f17cc6e3260d62",
-      "bytes": 5397
+      "sha256": "954b8c246ae80398b90203f8226d22a1d67dfd09a42034fa44d1bd986d2cd135",
+      "bytes": 4945
     },
     {
       "path": "PROVENANCE.md",
-      "sha256": "9781661ff334dc413f74623076adea83e7ea7e0e20439ab0d11eeb3e0e422da1",
-      "bytes": 1442
+      "sha256": "aec13c3af11fd3c4323f80188b46ef796ccbf1d765b72624dc0cf3d17ed82bd6",
+      "bytes": 1088
     },
     {
       "path": "index.html",
-      "sha256": "e97c387c30245345db2bc33c09fd80b91298b3112232d1144560aa5a612031a7",
-      "bytes": 1406
+      "sha256": "d39701caa9f5aa97a04421b4e8287698a5dfb88b303791efbd46076b8ffb4b8e",
+      "bytes": 1336
     }
   ],
   "runtime_source_unchanged": true,
