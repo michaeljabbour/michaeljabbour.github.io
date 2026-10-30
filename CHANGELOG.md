@@ -6,3 +6,5 @@
 - Link writing and notes through Blog navigation and a short About link.
 - Keep 33 capability guides, the grouped catalogue, proposed knowledge journey and existing media.
 - Publish one shared installer with a pinned source manifest, previewed writes and rollback.
+
+- Add a source migration guide and downloadable repository map.

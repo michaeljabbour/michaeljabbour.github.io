@@ -1,0 +1,2135 @@
+{
+  "schema_version": "amplifier-repository-migration/v1",
+  "updated_date": "2026-10-30",
+  "owner": "michaeljabbour",
+  "identity_policy": "Repository branding changes. Existing bundle names, namespaces, installed method folders, CLI commands, module IDs, Python distributions/imports and MCP tool IDs remain as declared by each capability.",
+  "url_rewrite_policy": "Replace only the repository segment for a listed old_url. Preserve the selected @revision and #fragment; choose a newer reviewed code revision separately.",
+  "version_policy": "A repository rename does not change an existing tag or commit pin and does not create a package release. A previous pin can still select older code.",
+  "github_redirects": {
+    "documentation_url": "https://docs.github.com/en/repositories/creating-and-managing-repositories/renaming-a-repository",
+    "git_and_repository_web": "GitHub redirects old repository locations while the old names remain reserved. Update local remotes explicitly.",
+    "pages": "Project Pages URLs do not receive repository rename redirects. The listed Pages paths identify old and canonical locations; use the portfolio capability guide if a project Pages location is unavailable.",
+    "hosted_actions": "Workflow uses references to an action hosted in a renamed repository require explicit updates."
+  },
+  "not_repository_rename_aliases": [
+    {
+      "repository": "amplifier-smart-tool-visualizer",
+      "repository_id": 1408655099,
+      "reason": "Still a separate archived repository. Review its source selection explicitly; it is not a Knowledge rename alias."
+    }
+  ],
+  "repositories": [
+    {
+      "id": "decisioncraft",
+      "display_name": "Decisioncraft",
+      "repository_id": 1400904845,
+      "old_repository": "amplifier-smart-tool-decisioncraft",
+      "new_repository": "amplifier-capability-decisioncraft",
+      "old_url": "https://github.com/michaeljabbour/amplifier-smart-tool-decisioncraft",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-decisioncraft",
+      "additional_repository_aliases": [],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-smart-tool-decisioncraft/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-decisioncraft/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/decisioncraft/",
+      "unchanged": {
+        "portable_method": {
+          "name": "decisioncraft",
+          "source_path": "skills/decisioncraft",
+          "installed_folder": "decisioncraft"
+        },
+        "root_bundle": null,
+        "bundle_and_behavior_entries": [],
+        "declared_module_ids": [],
+        "recipes": [],
+        "python_distribution": "amplifier-smart-tool-decisioncraft",
+        "python_import_roots_from_cli_entrypoints": [
+          "decisioncraft"
+        ],
+        "cli_entrypoints": {
+          "decisioncraft": "decisioncraft.cli:main"
+        }
+      },
+      "source_identity_evidence": {
+        "commit": "7c8c47e22064e23db8afa4c2543a19135d2afad1",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-decisioncraft/blob/7c8c47e22064e23db8afa4c2543a19135d2afad1/capability.json",
+        "bundle_metadata_urls": [],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin."
+      }
+    },
+    {
+      "id": "market-fit",
+      "display_name": "Market Fit",
+      "repository_id": 1430169917,
+      "old_repository": "amplifier-skill-market-fit",
+      "new_repository": "amplifier-capability-market-fit",
+      "old_url": "https://github.com/michaeljabbour/amplifier-skill-market-fit",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-market-fit",
+      "additional_repository_aliases": [],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-skill-market-fit/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-market-fit/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/market-fit/",
+      "unchanged": {
+        "portable_method": {
+          "name": "market-fit",
+          "source_path": "skills/market-fit",
+          "installed_folder": "market-fit"
+        },
+        "root_bundle": {
+          "name": "market-fit",
+          "source_path": "bundle.md"
+        },
+        "bundle_and_behavior_entries": [
+          {
+            "path": "behaviors/market-fit.yaml",
+            "bundle_name": "market-fit-behavior",
+            "module_ids": [
+              "hooks-mode",
+              "tool-recipes",
+              "tool-skills"
+            ]
+          },
+          {
+            "path": "bundle.md",
+            "bundle_name": "market-fit",
+            "module_ids": []
+          }
+        ],
+        "declared_module_ids": [
+          "hooks-mode",
+          "tool-recipes",
+          "tool-skills"
+        ],
+        "recipes": [
+          {
+            "path": "recipes/market-fit-round.yaml",
+            "name": "market-fit-round"
+          }
+        ],
+        "python_distribution": null,
+        "python_import_roots_from_cli_entrypoints": [],
+        "cli_entrypoints": {}
+      },
+      "source_identity_evidence": {
+        "commit": "194cad6f2b7419113ea76fdcd6e269a4b3594208",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-market-fit/blob/194cad6f2b7419113ea76fdcd6e269a4b3594208/capability.json",
+        "bundle_metadata_urls": [
+          "https://github.com/michaeljabbour/amplifier-capability-market-fit/blob/194cad6f2b7419113ea76fdcd6e269a4b3594208/behaviors/market-fit.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-market-fit/blob/194cad6f2b7419113ea76fdcd6e269a4b3594208/bundle.md"
+        ],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin."
+      }
+    },
+    {
+      "id": "right-shape",
+      "display_name": "Right Shape",
+      "repository_id": 1436933316,
+      "old_repository": "amplifier-skill-right-shape",
+      "new_repository": "amplifier-capability-right-shape",
+      "old_url": "https://github.com/michaeljabbour/amplifier-skill-right-shape",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-right-shape",
+      "additional_repository_aliases": [],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-skill-right-shape/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-right-shape/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/right-shape/",
+      "unchanged": {
+        "portable_method": {
+          "name": "right-shape",
+          "source_path": "skills/right-shape",
+          "installed_folder": "right-shape"
+        },
+        "root_bundle": {
+          "name": "right-shape",
+          "source_path": "bundle.md"
+        },
+        "bundle_and_behavior_entries": [
+          {
+            "path": "behaviors/right-shape.yaml",
+            "bundle_name": "right-shape-behavior",
+            "module_ids": [
+              "hooks-mode",
+              "tool-recipes",
+              "tool-skills"
+            ]
+          },
+          {
+            "path": "bundle.md",
+            "bundle_name": "right-shape",
+            "module_ids": []
+          }
+        ],
+        "declared_module_ids": [
+          "hooks-mode",
+          "tool-recipes",
+          "tool-skills"
+        ],
+        "recipes": [
+          {
+            "path": "recipes/right-shape-audit.yaml",
+            "name": "right-shape-audit"
+          }
+        ],
+        "python_distribution": null,
+        "python_import_roots_from_cli_entrypoints": [],
+        "cli_entrypoints": {}
+      },
+      "source_identity_evidence": {
+        "commit": "437fcaffb7a0cdc59aa8184672f6c06eae1d014f",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-right-shape/blob/437fcaffb7a0cdc59aa8184672f6c06eae1d014f/capability.json",
+        "bundle_metadata_urls": [
+          "https://github.com/michaeljabbour/amplifier-capability-right-shape/blob/437fcaffb7a0cdc59aa8184672f6c06eae1d014f/behaviors/right-shape.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-right-shape/blob/437fcaffb7a0cdc59aa8184672f6c06eae1d014f/bundle.md"
+        ],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin."
+      }
+    },
+    {
+      "id": "sizzle",
+      "display_name": "Sizzle",
+      "repository_id": 1422560775,
+      "old_repository": "amplifier-skill-sizzle",
+      "new_repository": "amplifier-capability-sizzle",
+      "old_url": "https://github.com/michaeljabbour/amplifier-skill-sizzle",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-sizzle",
+      "additional_repository_aliases": [],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-skill-sizzle/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-sizzle/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/sizzle/",
+      "unchanged": {
+        "portable_method": {
+          "name": "sizzle",
+          "source_path": ".",
+          "installed_folder": "sizzle"
+        },
+        "root_bundle": null,
+        "bundle_and_behavior_entries": [],
+        "declared_module_ids": [],
+        "recipes": [],
+        "python_distribution": null,
+        "python_import_roots_from_cli_entrypoints": [],
+        "cli_entrypoints": {}
+      },
+      "source_identity_evidence": {
+        "commit": "01652b4b8747b55cc74974d13ca4dadce9d5ec6b",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-sizzle/blob/01652b4b8747b55cc74974d13ca4dadce9d5ec6b/capability.json",
+        "bundle_metadata_urls": [],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin."
+      }
+    },
+    {
+      "id": "taste-elegance",
+      "display_name": "Taste × Elegance",
+      "repository_id": 1422435488,
+      "old_repository": "amplifier-skill-taste",
+      "new_repository": "amplifier-capability-taste-elegance",
+      "old_url": "https://github.com/michaeljabbour/amplifier-skill-taste",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-taste-elegance",
+      "additional_repository_aliases": [],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-skill-taste/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-taste-elegance/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/taste-elegance/",
+      "unchanged": {
+        "portable_method": {
+          "name": "improve-taste-and-elegance",
+          "source_path": "skills/improve-taste-and-elegance",
+          "installed_folder": "improve-taste-and-elegance"
+        },
+        "root_bundle": {
+          "name": "taste-elegance",
+          "source_path": "bundle.md"
+        },
+        "bundle_and_behavior_entries": [
+          {
+            "path": "behaviors/taste-elegance.yaml",
+            "bundle_name": "taste-elegance-behavior",
+            "module_ids": [
+              "hooks-mode",
+              "tool-recipes",
+              "tool-skills"
+            ]
+          },
+          {
+            "path": "bundle.md",
+            "bundle_name": "taste-elegance",
+            "module_ids": []
+          }
+        ],
+        "declared_module_ids": [
+          "hooks-mode",
+          "tool-recipes",
+          "tool-skills"
+        ],
+        "recipes": [
+          {
+            "path": "recipes/taste-round.yaml",
+            "name": "taste-round"
+          },
+          {
+            "path": "recipes/taste-spectrum.yaml",
+            "name": "taste-spectrum"
+          }
+        ],
+        "python_distribution": null,
+        "python_import_roots_from_cli_entrypoints": [],
+        "cli_entrypoints": {}
+      },
+      "source_identity_evidence": {
+        "commit": "051d1d233dd4d4b670e86e2bccb07d34e93eb8a7",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-taste-elegance/blob/051d1d233dd4d4b670e86e2bccb07d34e93eb8a7/capability.json",
+        "bundle_metadata_urls": [
+          "https://github.com/michaeljabbour/amplifier-capability-taste-elegance/blob/051d1d233dd4d4b670e86e2bccb07d34e93eb8a7/behaviors/taste-elegance.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-taste-elegance/blob/051d1d233dd4d4b670e86e2bccb07d34e93eb8a7/bundle.md"
+        ],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin."
+      }
+    },
+    {
+      "id": "worth-using",
+      "display_name": "Worth Using",
+      "repository_id": 1431081244,
+      "old_repository": "amplifier-skill-worth-using",
+      "new_repository": "amplifier-capability-worth-using",
+      "old_url": "https://github.com/michaeljabbour/amplifier-skill-worth-using",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-worth-using",
+      "additional_repository_aliases": [],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-skill-worth-using/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-worth-using/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/worth-using/",
+      "unchanged": {
+        "portable_method": {
+          "name": "worth-using",
+          "source_path": "skills/worth-using",
+          "installed_folder": "worth-using"
+        },
+        "root_bundle": {
+          "name": "worth-using",
+          "source_path": "bundle.md"
+        },
+        "bundle_and_behavior_entries": [
+          {
+            "path": "behaviors/worth-using.yaml",
+            "bundle_name": "worth-using-behavior",
+            "module_ids": [
+              "hooks-mode",
+              "tool-recipes",
+              "tool-skills"
+            ]
+          },
+          {
+            "path": "bundle.md",
+            "bundle_name": "worth-using",
+            "module_ids": []
+          }
+        ],
+        "declared_module_ids": [
+          "hooks-mode",
+          "tool-recipes",
+          "tool-skills"
+        ],
+        "recipes": [
+          {
+            "path": "recipes/worth-using-round.yaml",
+            "name": "worth-using-round"
+          }
+        ],
+        "python_distribution": null,
+        "python_import_roots_from_cli_entrypoints": [],
+        "cli_entrypoints": {}
+      },
+      "source_identity_evidence": {
+        "commit": "5d6865465cccf148d78a362384aa573c4540b35e",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-worth-using/blob/5d6865465cccf148d78a362384aa573c4540b35e/capability.json",
+        "bundle_metadata_urls": [
+          "https://github.com/michaeljabbour/amplifier-capability-worth-using/blob/5d6865465cccf148d78a362384aa573c4540b35e/behaviors/worth-using.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-worth-using/blob/5d6865465cccf148d78a362384aa573c4540b35e/bundle.md"
+        ],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin."
+      }
+    },
+    {
+      "id": "build-amplifier",
+      "display_name": "Build with Amplifier",
+      "repository_id": 1133691602,
+      "old_repository": "amplifier-skill-build-amplifier",
+      "new_repository": "amplifier-capability-build-amplifier",
+      "old_url": "https://github.com/michaeljabbour/amplifier-skill-build-amplifier",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-build-amplifier",
+      "additional_repository_aliases": [],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-skill-build-amplifier/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-build-amplifier/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/build-amplifier/",
+      "unchanged": {
+        "portable_method": {
+          "name": "build-amplifier",
+          "source_path": "skills/build-amplifier",
+          "installed_folder": "build-amplifier"
+        },
+        "root_bundle": null,
+        "bundle_and_behavior_entries": [],
+        "declared_module_ids": [],
+        "recipes": [],
+        "python_distribution": null,
+        "python_import_roots_from_cli_entrypoints": [],
+        "cli_entrypoints": {}
+      },
+      "source_identity_evidence": {
+        "commit": "9abe0155ec9f74e235e77a47f1415e826715dfa5",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-build-amplifier/blob/9abe0155ec9f74e235e77a47f1415e826715dfa5/capability.json",
+        "bundle_metadata_urls": [],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin."
+      }
+    },
+    {
+      "id": "build-tauri",
+      "display_name": "Build with Tauri",
+      "repository_id": 1170289063,
+      "old_repository": "amplifier-skill-build-tauri",
+      "new_repository": "amplifier-capability-build-tauri",
+      "old_url": "https://github.com/michaeljabbour/amplifier-skill-build-tauri",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-build-tauri",
+      "additional_repository_aliases": [],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-skill-build-tauri/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-build-tauri/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/build-tauri/",
+      "unchanged": {
+        "portable_method": {
+          "name": "build-tauri",
+          "source_path": "skills/build-tauri",
+          "installed_folder": "build-tauri"
+        },
+        "root_bundle": null,
+        "bundle_and_behavior_entries": [],
+        "declared_module_ids": [],
+        "recipes": [],
+        "python_distribution": null,
+        "python_import_roots_from_cli_entrypoints": [],
+        "cli_entrypoints": {}
+      },
+      "source_identity_evidence": {
+        "commit": "e593fb540ec71c0dfde675c4cabfd084df7bfb66",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-build-tauri/blob/e593fb540ec71c0dfde675c4cabfd084df7bfb66/capability.json",
+        "bundle_metadata_urls": [],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin."
+      }
+    },
+    {
+      "id": "build-with-torque",
+      "display_name": "Build with Torque",
+      "repository_id": 1437167075,
+      "old_repository": "amplifier-skill-build-torque",
+      "new_repository": "amplifier-capability-build-with-torque",
+      "old_url": "https://github.com/michaeljabbour/amplifier-skill-build-torque",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-build-with-torque",
+      "additional_repository_aliases": [],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-skill-build-torque/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-build-with-torque/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/build-with-torque/",
+      "unchanged": {
+        "portable_method": {
+          "name": "build-with-torque",
+          "source_path": "skills/build-with-torque",
+          "installed_folder": "build-with-torque"
+        },
+        "root_bundle": null,
+        "bundle_and_behavior_entries": [],
+        "declared_module_ids": [],
+        "recipes": [],
+        "python_distribution": null,
+        "python_import_roots_from_cli_entrypoints": [],
+        "cli_entrypoints": {}
+      },
+      "source_identity_evidence": {
+        "commit": "ac28119e89c6243ca05d76cd17f6a6b5ef585d94",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-build-with-torque/blob/ac28119e89c6243ca05d76cd17f6a6b5ef585d94/capability.json",
+        "bundle_metadata_urls": [],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin."
+      }
+    },
+    {
+      "id": "cognitive-simulation",
+      "display_name": "Cognitive Simulation",
+      "repository_id": 1152516561,
+      "old_repository": "amplifier-skill-cognitive-simulation",
+      "new_repository": "amplifier-capability-cognitive-simulation",
+      "old_url": "https://github.com/michaeljabbour/amplifier-skill-cognitive-simulation",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-cognitive-simulation",
+      "additional_repository_aliases": [],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-skill-cognitive-simulation/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-cognitive-simulation/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/cognitive-simulation/",
+      "unchanged": {
+        "portable_method": {
+          "name": "cognitive-simulation",
+          "source_path": "skills/cognitive-simulation",
+          "installed_folder": "cognitive-simulation"
+        },
+        "root_bundle": {
+          "name": "cognitive-research",
+          "source_path": "bundle.md"
+        },
+        "bundle_and_behavior_entries": [
+          {
+            "path": "behaviors/cognitive-research.yaml",
+            "bundle_name": "cognitive-research-behavior",
+            "module_ids": [
+              "tool-centaur"
+            ]
+          },
+          {
+            "path": "bundle.md",
+            "bundle_name": "cognitive-research",
+            "module_ids": []
+          }
+        ],
+        "declared_module_ids": [
+          "tool-centaur"
+        ],
+        "recipes": [],
+        "python_distribution": null,
+        "python_import_roots_from_cli_entrypoints": [],
+        "cli_entrypoints": {}
+      },
+      "source_identity_evidence": {
+        "commit": "a8435e5937831fe39037676be51446f60dbb4a8f",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-cognitive-simulation/blob/a8435e5937831fe39037676be51446f60dbb4a8f/capability.json",
+        "bundle_metadata_urls": [
+          "https://github.com/michaeljabbour/amplifier-capability-cognitive-simulation/blob/a8435e5937831fe39037676be51446f60dbb4a8f/behaviors/cognitive-research.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-cognitive-simulation/blob/a8435e5937831fe39037676be51446f60dbb4a8f/bundle.md"
+        ],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin."
+      }
+    },
+    {
+      "id": "constraint-builder",
+      "display_name": "Constraint Builder",
+      "repository_id": 1180773410,
+      "old_repository": "amplifier-skill-constraint-builder",
+      "new_repository": "amplifier-capability-constraint-builder",
+      "old_url": "https://github.com/michaeljabbour/amplifier-skill-constraint-builder",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-constraint-builder",
+      "additional_repository_aliases": [],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-skill-constraint-builder/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-constraint-builder/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/constraint-builder/",
+      "unchanged": {
+        "portable_method": {
+          "name": "constraint-builder",
+          "source_path": "skills/constraint-builder",
+          "installed_folder": "constraint-builder"
+        },
+        "root_bundle": {
+          "name": "harness-machine",
+          "source_path": "bundle.md"
+        },
+        "bundle_and_behavior_entries": [
+          {
+            "path": "behaviors/harness-machine.yaml",
+            "bundle_name": "harness-machine-behavior",
+            "module_ids": [
+              "hooks-mode",
+              "tool-mode",
+              "tool-skills"
+            ]
+          },
+          {
+            "path": "bundle.md",
+            "bundle_name": "harness-machine",
+            "module_ids": []
+          }
+        ],
+        "declared_module_ids": [
+          "hooks-mode",
+          "tool-mode",
+          "tool-skills"
+        ],
+        "recipes": [
+          {
+            "path": "recipes/check-upgrade.yaml",
+            "name": "check-upgrade"
+          },
+          {
+            "path": "recipes/execute-upgrade.yaml",
+            "name": "execute-upgrade"
+          },
+          {
+            "path": "recipes/harness-development-cycle.yaml",
+            "name": "harness-development-cycle"
+          },
+          {
+            "path": "recipes/harness-factory-generation.yaml",
+            "name": "harness-factory-generation"
+          },
+          {
+            "path": "recipes/harness-refinement-loop.yaml",
+            "name": "harness-refinement-loop"
+          },
+          {
+            "path": "recipes/harness-single-iteration.yaml",
+            "name": "harness-single-iteration"
+          }
+        ],
+        "python_distribution": null,
+        "python_import_roots_from_cli_entrypoints": [],
+        "cli_entrypoints": {}
+      },
+      "source_identity_evidence": {
+        "commit": "703aeab72d9c419c6103b48db4a435317ea78e19",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-constraint-builder/blob/703aeab72d9c419c6103b48db4a435317ea78e19/capability.json",
+        "bundle_metadata_urls": [
+          "https://github.com/michaeljabbour/amplifier-capability-constraint-builder/blob/703aeab72d9c419c6103b48db4a435317ea78e19/behaviors/harness-machine.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-constraint-builder/blob/703aeab72d9c419c6103b48db4a435317ea78e19/bundle.md"
+        ],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin."
+      }
+    },
+    {
+      "id": "desktop-tasks",
+      "display_name": "Desktop Tasks",
+      "repository_id": 1176147812,
+      "old_repository": "amplifier-skill-desktop-tasks",
+      "new_repository": "amplifier-capability-desktop-tasks",
+      "old_url": "https://github.com/michaeljabbour/amplifier-skill-desktop-tasks",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-desktop-tasks",
+      "additional_repository_aliases": [
+        {
+          "name": "amplifier-bundle-cua",
+          "url": "https://github.com/michaeljabbour/amplifier-bundle-cua",
+          "relation": "verified GitHub redirect to same repository ID"
+        }
+      ],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-skill-desktop-tasks/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-desktop-tasks/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/desktop-tasks/",
+      "unchanged": {
+        "portable_method": {
+          "name": "desktop-tasks",
+          "source_path": "skills/desktop-tasks",
+          "installed_folder": "desktop-tasks"
+        },
+        "root_bundle": {
+          "name": "cua",
+          "source_path": "bundle.md"
+        },
+        "bundle_and_behavior_entries": [
+          {
+            "path": "behaviors/cua-core.yaml",
+            "bundle_name": "behavior-cua-core",
+            "module_ids": [
+              "tool-cua"
+            ]
+          },
+          {
+            "path": "behaviors/cua-operator.yaml",
+            "bundle_name": "behavior-cua-operator",
+            "module_ids": []
+          },
+          {
+            "path": "behaviors/cua-recipes.yaml",
+            "bundle_name": "behavior-cua-recipes",
+            "module_ids": []
+          },
+          {
+            "path": "bundle.md",
+            "bundle_name": "cua",
+            "module_ids": []
+          }
+        ],
+        "declared_module_ids": [
+          "tool-cua"
+        ],
+        "recipes": [
+          {
+            "path": "recipes/bounded-task.yaml",
+            "name": "bounded-task"
+          },
+          {
+            "path": "recipes/observe-and-act.yaml",
+            "name": "observe-and-act"
+          },
+          {
+            "path": "recipes/recovery-workflow.yaml",
+            "name": "recovery-workflow"
+          }
+        ],
+        "python_distribution": "amplifier-bundle-cua",
+        "python_import_roots_from_cli_entrypoints": [],
+        "cli_entrypoints": {}
+      },
+      "source_identity_evidence": {
+        "commit": "fbcb2f7e0361fb98ee9d561685cb577a5a5574ca",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-desktop-tasks/blob/fbcb2f7e0361fb98ee9d561685cb577a5a5574ca/capability.json",
+        "bundle_metadata_urls": [
+          "https://github.com/michaeljabbour/amplifier-capability-desktop-tasks/blob/fbcb2f7e0361fb98ee9d561685cb577a5a5574ca/behaviors/cua-core.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-desktop-tasks/blob/fbcb2f7e0361fb98ee9d561685cb577a5a5574ca/behaviors/cua-operator.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-desktop-tasks/blob/fbcb2f7e0361fb98ee9d561685cb577a5a5574ca/behaviors/cua-recipes.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-desktop-tasks/blob/fbcb2f7e0361fb98ee9d561685cb577a5a5574ca/bundle.md"
+        ],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin."
+      }
+    },
+    {
+      "id": "fast-decisions",
+      "display_name": "Fast Decisions",
+      "repository_id": 1374067916,
+      "old_repository": "amplifier-smart-tool-fast-decisions",
+      "new_repository": "amplifier-capability-fast-decisions",
+      "old_url": "https://github.com/michaeljabbour/amplifier-smart-tool-fast-decisions",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-fast-decisions",
+      "additional_repository_aliases": [],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-smart-tool-fast-decisions/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-fast-decisions/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/fast-decisions/",
+      "unchanged": {
+        "portable_method": {
+          "name": "fast-decisions",
+          "source_path": "skills/fast-decisions",
+          "installed_folder": "fast-decisions"
+        },
+        "root_bundle": {
+          "name": "fast-decisions",
+          "source_path": "bundle.md"
+        },
+        "bundle_and_behavior_entries": [
+          {
+            "path": "behaviors/fast-decisions-registry.yaml",
+            "bundle_name": "fast-decisions-registry-behavior",
+            "module_ids": [
+              "hooks-fast-decisions",
+              "hooks-fast-decisions-router",
+              "tool-fast-workspace"
+            ]
+          },
+          {
+            "path": "behaviors/fast-decisions-shadow.yaml",
+            "bundle_name": "fast-decisions-shadow-behavior",
+            "module_ids": [
+              "hooks-fast-decisions",
+              "tool-fast-workspace"
+            ]
+          },
+          {
+            "path": "behaviors/fast-decisions.yaml",
+            "bundle_name": "fast-decisions-behavior",
+            "module_ids": [
+              "hooks-fast-decisions",
+              "loop-fast-decisions",
+              "tool-fast-workspace"
+            ]
+          },
+          {
+            "path": "behaviors/jev-cua.yaml",
+            "bundle_name": "fast-decisions-jev-cua",
+            "module_ids": [
+              "tool-jev-cua"
+            ]
+          },
+          {
+            "path": "behaviors/jevgrep.yaml",
+            "bundle_name": "fast-decisions-jevgrep",
+            "module_ids": [
+              "tool-jevgrep"
+            ]
+          },
+          {
+            "path": "bundle.md",
+            "bundle_name": "fast-decisions",
+            "module_ids": []
+          }
+        ],
+        "declared_module_ids": [
+          "hooks-fast-decisions",
+          "hooks-fast-decisions-router",
+          "loop-fast-decisions",
+          "tool-fast-workspace",
+          "tool-jev-cua",
+          "tool-jevgrep"
+        ],
+        "recipes": [
+          {
+            "path": "recipes/make-amplifier-faster.yaml",
+            "name": "make-amplifier-faster"
+          }
+        ],
+        "python_distribution": "amplifier-smart-tool-fast-decisions",
+        "python_import_roots_from_cli_entrypoints": [
+          "amplifier_fast_decisions"
+        ],
+        "cli_entrypoints": {
+          "amplifier-fast-decisions": "amplifier_fast_decisions.smart_cli:main",
+          "afast": "amplifier_fast_decisions.cli:main"
+        }
+      },
+      "source_identity_evidence": {
+        "commit": "552f84a13b4ea7d780dfac32245e532470f7b4aa",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-fast-decisions/blob/552f84a13b4ea7d780dfac32245e532470f7b4aa/capability.json",
+        "bundle_metadata_urls": [
+          "https://github.com/michaeljabbour/amplifier-capability-fast-decisions/blob/552f84a13b4ea7d780dfac32245e532470f7b4aa/behaviors/fast-decisions-registry.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-fast-decisions/blob/552f84a13b4ea7d780dfac32245e532470f7b4aa/behaviors/fast-decisions-shadow.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-fast-decisions/blob/552f84a13b4ea7d780dfac32245e532470f7b4aa/behaviors/fast-decisions.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-fast-decisions/blob/552f84a13b4ea7d780dfac32245e532470f7b4aa/behaviors/jev-cua.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-fast-decisions/blob/552f84a13b4ea7d780dfac32245e532470f7b4aa/behaviors/jevgrep.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-fast-decisions/blob/552f84a13b4ea7d780dfac32245e532470f7b4aa/bundle.md"
+        ],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin."
+      }
+    },
+    {
+      "id": "forge",
+      "display_name": "Forge",
+      "repository_id": 1302944041,
+      "old_repository": "amplifier-skill-forge",
+      "new_repository": "amplifier-capability-forge",
+      "old_url": "https://github.com/michaeljabbour/amplifier-skill-forge",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-forge",
+      "additional_repository_aliases": [],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-skill-forge/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-forge/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/forge/",
+      "unchanged": {
+        "portable_method": {
+          "name": "amplifier-skill-forge",
+          "source_path": ".",
+          "installed_folder": "amplifier-skill-forge"
+        },
+        "root_bundle": null,
+        "bundle_and_behavior_entries": [],
+        "declared_module_ids": [],
+        "recipes": [],
+        "python_distribution": null,
+        "python_import_roots_from_cli_entrypoints": [],
+        "cli_entrypoints": {}
+      },
+      "source_identity_evidence": {
+        "commit": "55e4da30b44db555c27b912f340779cdc599c5f6",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-forge/blob/55e4da30b44db555c27b912f340779cdc599c5f6/capability.json",
+        "bundle_metadata_urls": [],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin."
+      }
+    },
+    {
+      "id": "good-teammate",
+      "display_name": "Good Teammate",
+      "repository_id": 1363118368,
+      "old_repository": "amplifier-skill-good-teammate",
+      "new_repository": "amplifier-capability-good-teammate",
+      "old_url": "https://github.com/michaeljabbour/amplifier-skill-good-teammate",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-good-teammate",
+      "additional_repository_aliases": [
+        {
+          "name": "amplifier-bundle-teamwork",
+          "url": "https://github.com/michaeljabbour/amplifier-bundle-teamwork",
+          "relation": "verified GitHub redirect to same repository ID"
+        }
+      ],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-skill-good-teammate/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-good-teammate/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/good-teammate/",
+      "unchanged": {
+        "portable_method": {
+          "name": "good-teammate",
+          "source_path": "skills/good-teammate",
+          "installed_folder": "good-teammate"
+        },
+        "root_bundle": {
+          "name": "teamwork-standalone",
+          "source_path": "bundle.md"
+        },
+        "bundle_and_behavior_entries": [
+          {
+            "path": "behaviors/teamwork.yaml",
+            "bundle_name": "teamwork",
+            "module_ids": [
+              "hooks-teamwork",
+              "tool-skills",
+              "tool-teamwork"
+            ]
+          },
+          {
+            "path": "bundle.md",
+            "bundle_name": "teamwork-standalone",
+            "module_ids": []
+          }
+        ],
+        "declared_module_ids": [
+          "hooks-teamwork",
+          "tool-skills",
+          "tool-teamwork"
+        ],
+        "recipes": [],
+        "python_distribution": null,
+        "python_import_roots_from_cli_entrypoints": [],
+        "cli_entrypoints": {}
+      },
+      "source_identity_evidence": {
+        "commit": "7be747ba8c731bdb07ee1d44ff63fccf31c38a48",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-good-teammate/blob/7be747ba8c731bdb07ee1d44ff63fccf31c38a48/capability.json",
+        "bundle_metadata_urls": [
+          "https://github.com/michaeljabbour/amplifier-capability-good-teammate/blob/7be747ba8c731bdb07ee1d44ff63fccf31c38a48/behaviors/teamwork.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-good-teammate/blob/7be747ba8c731bdb07ee1d44ff63fccf31c38a48/bundle.md"
+        ],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin."
+      }
+    },
+    {
+      "id": "image-provider",
+      "display_name": "Imagen Provider",
+      "repository_id": 1080845923,
+      "old_repository": "amplifier-tool-imagen-provider",
+      "new_repository": "amplifier-capability-imagen-provider",
+      "old_url": "https://github.com/michaeljabbour/amplifier-tool-imagen-provider",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-imagen-provider",
+      "additional_repository_aliases": [],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-tool-imagen-provider/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-imagen-provider/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/image-provider/",
+      "unchanged": {
+        "portable_method": null,
+        "root_bundle": null,
+        "bundle_and_behavior_entries": [],
+        "declared_module_ids": [],
+        "recipes": [],
+        "python_distribution": "imagen",
+        "python_import_roots_from_cli_entrypoints": [
+          "imagen_mcp",
+          "src"
+        ],
+        "cli_entrypoints": {
+          "imagen-mcp": "imagen_mcp.server:main",
+          "imagen-mcp-cli": "imagen_mcp.cli:main",
+          "imagen": "src.smart_tool.cli:main"
+        },
+        "native_interfaces": {
+          "python_distribution": "imagen",
+          "cli_entrypoints": {
+            "imagen-mcp": "imagen_mcp.server:main",
+            "imagen-mcp-cli": "imagen_mcp.cli:main",
+            "imagen": "src.smart_tool.cli:main"
+          },
+          "amplifier_module_entrypoints": {},
+          "python_imports": {
+            "canonical": [
+              "imagen_mcp"
+            ],
+            "compatibility": [
+              "src"
+            ]
+          },
+          "mcp": {
+            "server_names": [
+              "imagen_mcp"
+            ],
+            "tool_names": [
+              "conversational_image",
+              "edit_image",
+              "estimate_cost",
+              "generate_image",
+              "generate_image_batch",
+              "list_conversations",
+              "list_gemini_models",
+              "list_providers"
+            ]
+          },
+          "smart_tool": {
+            "manifest": "SMART_TOOL.md",
+            "cli_argv": [
+              "imagen"
+            ],
+            "deterministic_smoke": [
+              "manifest"
+            ]
+          },
+          "rust": null
+        }
+      },
+      "source_identity_evidence": {
+        "commit": "b80e0166202a5030689bf743cd417cabc30cf6b4",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-imagen-provider/blob/b80e0166202a5030689bf743cd417cabc30cf6b4/capability.json",
+        "bundle_metadata_urls": [],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin.",
+        "native_identity_urls": [
+          "https://github.com/michaeljabbour/amplifier-capability-imagen-provider/blob/b80e0166202a5030689bf743cd417cabc30cf6b4/pyproject.toml",
+          "https://github.com/michaeljabbour/amplifier-capability-imagen-provider/blob/b80e0166202a5030689bf743cd417cabc30cf6b4/imagen_mcp/__init__.py",
+          "https://github.com/michaeljabbour/amplifier-capability-imagen-provider/blob/b80e0166202a5030689bf743cd417cabc30cf6b4/imagen_mcp/server.py",
+          "https://github.com/michaeljabbour/amplifier-capability-imagen-provider/blob/b80e0166202a5030689bf743cd417cabc30cf6b4/src/server.py",
+          "https://github.com/michaeljabbour/amplifier-capability-imagen-provider/blob/b80e0166202a5030689bf743cd417cabc30cf6b4/smart-tool.json",
+          "https://github.com/michaeljabbour/amplifier-capability-imagen-provider/blob/b80e0166202a5030689bf743cd417cabc30cf6b4/SMART_TOOL.md"
+        ]
+      }
+    },
+    {
+      "id": "imagen-studio",
+      "display_name": "Imagen Studio",
+      "repository_id": 1217419128,
+      "old_repository": "amplifier-skill-imagen-studio",
+      "new_repository": "amplifier-capability-imagen-studio",
+      "old_url": "https://github.com/michaeljabbour/amplifier-skill-imagen-studio",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-imagen-studio",
+      "additional_repository_aliases": [],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-skill-imagen-studio/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-imagen-studio/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/imagen-studio/",
+      "unchanged": {
+        "portable_method": {
+          "name": "imagen-studio",
+          "source_path": "skills/imagen-studio",
+          "installed_folder": "imagen-studio"
+        },
+        "root_bundle": {
+          "name": "imagen",
+          "source_path": "bundle.md"
+        },
+        "bundle_and_behavior_entries": [
+          {
+            "path": "behaviors/image-editing.yaml",
+            "bundle_name": "image-editing-behavior",
+            "module_ids": [
+              "tool-imagen"
+            ]
+          },
+          {
+            "path": "behaviors/image-generation.yaml",
+            "bundle_name": "image-generation-behavior",
+            "module_ids": [
+              "tool-imagen",
+              "tool-skills"
+            ]
+          },
+          {
+            "path": "behaviors/imagegen.yaml",
+            "bundle_name": "imagegen-behavior",
+            "module_ids": []
+          },
+          {
+            "path": "bundle.md",
+            "bundle_name": "imagen",
+            "module_ids": []
+          }
+        ],
+        "declared_module_ids": [
+          "tool-imagen",
+          "tool-skills"
+        ],
+        "recipes": [],
+        "python_distribution": null,
+        "python_import_roots_from_cli_entrypoints": [],
+        "cli_entrypoints": {}
+      },
+      "source_identity_evidence": {
+        "commit": "18a16158d8307bd3d6cd8cf1447288bfe0f6322e",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-imagen-studio/blob/18a16158d8307bd3d6cd8cf1447288bfe0f6322e/capability.json",
+        "bundle_metadata_urls": [
+          "https://github.com/michaeljabbour/amplifier-capability-imagen-studio/blob/18a16158d8307bd3d6cd8cf1447288bfe0f6322e/behaviors/image-editing.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-imagen-studio/blob/18a16158d8307bd3d6cd8cf1447288bfe0f6322e/behaviors/image-generation.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-imagen-studio/blob/18a16158d8307bd3d6cd8cf1447288bfe0f6322e/behaviors/imagegen.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-imagen-studio/blob/18a16158d8307bd3d6cd8cf1447288bfe0f6322e/bundle.md"
+        ],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin."
+      }
+    },
+    {
+      "id": "intent-to-plan",
+      "display_name": "Intent to Plan",
+      "repository_id": 1160993203,
+      "old_repository": "amplifier-skill-intent-to-plan",
+      "new_repository": "amplifier-capability-intent-to-plan",
+      "old_url": "https://github.com/michaeljabbour/amplifier-skill-intent-to-plan",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-intent-to-plan",
+      "additional_repository_aliases": [],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-skill-intent-to-plan/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-intent-to-plan/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/intent-to-plan/",
+      "unchanged": {
+        "portable_method": {
+          "name": "intent-to-plan",
+          "source_path": "skills/intent-to-plan",
+          "installed_folder": "intent-to-plan"
+        },
+        "root_bundle": {
+          "name": "idd",
+          "source_path": "bundle.md"
+        },
+        "bundle_and_behavior_entries": [
+          {
+            "path": "behaviors/idd-core.yaml",
+            "bundle_name": "idd-core-behavior",
+            "module_ids": [
+              "hooks-idd-confirmation",
+              "hooks-idd-events",
+              "hooks-idd-grammar-inject",
+              "hooks-idd-memory-bridge",
+              "hooks-idd-reporter",
+              "tool-idd"
+            ]
+          },
+          {
+            "path": "bundle.md",
+            "bundle_name": "idd",
+            "module_ids": []
+          }
+        ],
+        "declared_module_ids": [
+          "hooks-idd-confirmation",
+          "hooks-idd-events",
+          "hooks-idd-grammar-inject",
+          "hooks-idd-memory-bridge",
+          "hooks-idd-reporter",
+          "tool-idd"
+        ],
+        "recipes": [
+          {
+            "path": "recipes/idd-audit.yaml",
+            "name": "idd-audit"
+          },
+          {
+            "path": "recipes/idd-decompose.yaml",
+            "name": "idd-decompose"
+          },
+          {
+            "path": "recipes/idd-full-cycle.yaml",
+            "name": "idd-full-cycle"
+          },
+          {
+            "path": "recipes/idd-informed-full-cycle.yaml",
+            "name": "idd-informed-full-cycle"
+          },
+          {
+            "path": "recipes/idd-superpowers-full-cycle.yaml",
+            "name": "idd-superpowers-full-cycle"
+          },
+          {
+            "path": "recipes/idd-teach.yaml",
+            "name": "idd-teach"
+          }
+        ],
+        "python_distribution": "amplifier-bundle-idd",
+        "python_import_roots_from_cli_entrypoints": [],
+        "cli_entrypoints": {}
+      },
+      "source_identity_evidence": {
+        "commit": "a372ab6f62dc28efc2f300e4e748a28fa70287aa",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-intent-to-plan/blob/a372ab6f62dc28efc2f300e4e748a28fa70287aa/capability.json",
+        "bundle_metadata_urls": [
+          "https://github.com/michaeljabbour/amplifier-capability-intent-to-plan/blob/a372ab6f62dc28efc2f300e4e748a28fa70287aa/behaviors/idd-core.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-intent-to-plan/blob/a372ab6f62dc28efc2f300e4e748a28fa70287aa/bundle.md"
+        ],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin."
+      }
+    },
+    {
+      "id": "knowledge",
+      "display_name": "Knowledge",
+      "repository_id": 1437164128,
+      "old_repository": "amplifier-smart-tool-knowledge",
+      "new_repository": "amplifier-capability-knowledge",
+      "old_url": "https://github.com/michaeljabbour/amplifier-smart-tool-knowledge",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-knowledge",
+      "additional_repository_aliases": [],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-smart-tool-knowledge/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-knowledge/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/knowledge/",
+      "unchanged": {
+        "portable_method": {
+          "name": "knowledge",
+          "source_path": "skills/knowledge",
+          "installed_folder": "knowledge"
+        },
+        "root_bundle": {
+          "name": "knowledge",
+          "source_path": "bundle.md"
+        },
+        "bundle_and_behavior_entries": [
+          {
+            "path": "behaviors/knowledge-mcp.yaml",
+            "bundle_name": "knowledge-mcp-behavior",
+            "module_ids": [
+              "tool-mcp"
+            ]
+          },
+          {
+            "path": "behaviors/knowledge.yaml",
+            "bundle_name": "knowledge-behavior",
+            "module_ids": [
+              "tool-skills"
+            ]
+          },
+          {
+            "path": "bundle.md",
+            "bundle_name": "knowledge",
+            "module_ids": []
+          }
+        ],
+        "declared_module_ids": [
+          "tool-mcp",
+          "tool-skills"
+        ],
+        "recipes": [],
+        "python_distribution": "amplifier-smart-tool-knowledge",
+        "python_import_roots_from_cli_entrypoints": [
+          "knowledge"
+        ],
+        "cli_entrypoints": {
+          "knowledge": "knowledge.cli:main"
+        }
+      },
+      "source_identity_evidence": {
+        "commit": "e173e2d7d482b3820f85969c97d0090a315e7025",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-knowledge/blob/e173e2d7d482b3820f85969c97d0090a315e7025/capability.json",
+        "bundle_metadata_urls": [
+          "https://github.com/michaeljabbour/amplifier-capability-knowledge/blob/e173e2d7d482b3820f85969c97d0090a315e7025/behaviors/knowledge-mcp.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-knowledge/blob/e173e2d7d482b3820f85969c97d0090a315e7025/behaviors/knowledge.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-knowledge/blob/e173e2d7d482b3820f85969c97d0090a315e7025/bundle.md"
+        ],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin."
+      }
+    },
+    {
+      "id": "long-read",
+      "display_name": "Long Read",
+      "repository_id": 1134599661,
+      "old_repository": "amplifier-skill-long-read",
+      "new_repository": "amplifier-capability-long-read",
+      "old_url": "https://github.com/michaeljabbour/amplifier-skill-long-read",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-long-read",
+      "additional_repository_aliases": [],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-skill-long-read/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-long-read/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/long-read/",
+      "unchanged": {
+        "portable_method": {
+          "name": "long-read",
+          "source_path": "skills/long-read",
+          "installed_folder": "long-read"
+        },
+        "root_bundle": null,
+        "bundle_and_behavior_entries": [],
+        "declared_module_ids": [],
+        "recipes": [],
+        "python_distribution": "amplifier-module-tool-rlm",
+        "python_import_roots_from_cli_entrypoints": [],
+        "cli_entrypoints": {},
+        "python_module_entrypoints": {
+          "tool-rlm": "amplifier_module_tool_rlm:mount"
+        },
+        "python_import_roots_from_module_entrypoints": [
+          "amplifier_module_tool_rlm"
+        ]
+      },
+      "source_identity_evidence": {
+        "commit": "c22afda70dce72c4773d7532cb2c1aae650643b8",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-long-read/blob/c22afda70dce72c4773d7532cb2c1aae650643b8/capability.json",
+        "bundle_metadata_urls": [],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin.",
+        "python_package_metadata_url": "https://github.com/michaeljabbour/amplifier-capability-long-read/blob/c22afda70dce72c4773d7532cb2c1aae650643b8/pyproject.toml"
+      }
+    },
+    {
+      "id": "memory",
+      "display_name": "Memory",
+      "repository_id": 1132035397,
+      "old_repository": "amplifier-skill-memory",
+      "new_repository": "amplifier-capability-memory",
+      "old_url": "https://github.com/michaeljabbour/amplifier-skill-memory",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-memory",
+      "additional_repository_aliases": [
+        {
+          "name": "amplifier-bundle-memory",
+          "url": "https://github.com/michaeljabbour/amplifier-bundle-memory",
+          "relation": "verified GitHub redirect to same repository ID"
+        }
+      ],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-skill-memory/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-memory/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/memory/",
+      "unchanged": {
+        "portable_method": {
+          "name": "memory",
+          "source_path": "skills/memory",
+          "installed_folder": "memory"
+        },
+        "root_bundle": {
+          "name": "memory",
+          "source_path": "bundle.md"
+        },
+        "bundle_and_behavior_entries": [
+          {
+            "path": "behaviors/curate.yaml",
+            "bundle_name": "memory-curate-behavior",
+            "module_ids": [
+              "tool-pipeline-run"
+            ]
+          },
+          {
+            "path": "behaviors/memory-index.yaml",
+            "bundle_name": "memory-index-behavior",
+            "module_ids": [
+              "hooks-memory-reflect"
+            ]
+          },
+          {
+            "path": "behaviors/memory-reflect.yaml",
+            "bundle_name": "memory-reflect-behavior",
+            "module_ids": [
+              "hooks-memory-reflect"
+            ]
+          },
+          {
+            "path": "behaviors/memory.yaml",
+            "bundle_name": "memory-behavior",
+            "module_ids": [
+              "hooks-memory-briefing",
+              "hooks-memory-capture",
+              "hooks-memory-interject",
+              "hooks-project-context",
+              "hooks-project-isolation",
+              "tool-memory"
+            ]
+          },
+          {
+            "path": "bundle.md",
+            "bundle_name": "memory",
+            "module_ids": []
+          }
+        ],
+        "declared_module_ids": [
+          "hooks-memory-briefing",
+          "hooks-memory-capture",
+          "hooks-memory-interject",
+          "hooks-memory-reflect",
+          "hooks-project-context",
+          "hooks-project-isolation",
+          "tool-memory",
+          "tool-pipeline-run"
+        ],
+        "recipes": [],
+        "python_distribution": "amplifier-bundle-memory-tests",
+        "python_import_roots_from_cli_entrypoints": [],
+        "cli_entrypoints": {}
+      },
+      "source_identity_evidence": {
+        "commit": "07e3f8b2dd33a25ac8c21a866b6073d01b1fbf1a",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-memory/blob/07e3f8b2dd33a25ac8c21a866b6073d01b1fbf1a/capability.json",
+        "bundle_metadata_urls": [
+          "https://github.com/michaeljabbour/amplifier-capability-memory/blob/07e3f8b2dd33a25ac8c21a866b6073d01b1fbf1a/behaviors/curate.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-memory/blob/07e3f8b2dd33a25ac8c21a866b6073d01b1fbf1a/behaviors/memory-index.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-memory/blob/07e3f8b2dd33a25ac8c21a866b6073d01b1fbf1a/behaviors/memory-reflect.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-memory/blob/07e3f8b2dd33a25ac8c21a866b6073d01b1fbf1a/behaviors/memory.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-memory/blob/07e3f8b2dd33a25ac8c21a866b6073d01b1fbf1a/bundle.md"
+        ],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin."
+      }
+    },
+    {
+      "id": "migrate",
+      "display_name": "Migrate",
+      "repository_id": 1315126257,
+      "old_repository": "amplifier-skill-migrate",
+      "new_repository": "amplifier-capability-migrate",
+      "old_url": "https://github.com/michaeljabbour/amplifier-skill-migrate",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-migrate",
+      "additional_repository_aliases": [],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-skill-migrate/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-migrate/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/migrate/",
+      "unchanged": {
+        "portable_method": {
+          "name": "migrate",
+          "source_path": "skills/migrate",
+          "installed_folder": "migrate"
+        },
+        "root_bundle": {
+          "name": "gm",
+          "source_path": "bundle.md"
+        },
+        "bundle_and_behavior_entries": [
+          {
+            "path": "bundle.md",
+            "bundle_name": "gm",
+            "module_ids": [
+              "context-simple",
+              "loop-streaming"
+            ]
+          }
+        ],
+        "declared_module_ids": [
+          "context-simple",
+          "loop-streaming"
+        ],
+        "recipes": [],
+        "python_distribution": null,
+        "python_import_roots_from_cli_entrypoints": [],
+        "cli_entrypoints": {}
+      },
+      "source_identity_evidence": {
+        "commit": "dccb86232bad9899f3c442a027620853ca7acd90",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-migrate/blob/dccb86232bad9899f3c442a027620853ca7acd90/capability.json",
+        "bundle_metadata_urls": [
+          "https://github.com/michaeljabbour/amplifier-capability-migrate/blob/dccb86232bad9899f3c442a027620853ca7acd90/bundle.md"
+        ],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin."
+      }
+    },
+    {
+      "id": "pipeline",
+      "display_name": "Pipeline",
+      "repository_id": 1192803094,
+      "old_repository": "amplifier-skill-pipeline",
+      "new_repository": "amplifier-capability-pipeline",
+      "old_url": "https://github.com/michaeljabbour/amplifier-skill-pipeline",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-pipeline",
+      "additional_repository_aliases": [],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-skill-pipeline/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-pipeline/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/pipeline/",
+      "unchanged": {
+        "portable_method": {
+          "name": "pipeline",
+          "source_path": "skills/pipeline",
+          "installed_folder": "pipeline"
+        },
+        "root_bundle": {
+          "name": "cicd",
+          "source_path": "bundle.md"
+        },
+        "bundle_and_behavior_entries": [
+          {
+            "path": "bundle.md",
+            "bundle_name": "cicd",
+            "module_ids": []
+          }
+        ],
+        "declared_module_ids": [],
+        "recipes": [
+          {
+            "path": "recipes/cicd-audit-report.yaml",
+            "name": "CI/CD Audit Report"
+          },
+          {
+            "path": "recipes/cicd-full-pipeline.yaml",
+            "name": "CI/CD Full Pipeline (Autonomous)"
+          },
+          {
+            "path": "recipes/cicd-guided-pipeline.yaml",
+            "name": "CI/CD Guided Pipeline (Interactive)"
+          },
+          {
+            "path": "recipes/cicd-migration.yaml",
+            "name": "CI/CD Migration"
+          }
+        ],
+        "python_distribution": null,
+        "python_import_roots_from_cli_entrypoints": [],
+        "cli_entrypoints": {}
+      },
+      "source_identity_evidence": {
+        "commit": "262c914939216a15ecfdaf594b926d93a75e9629",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-pipeline/blob/262c914939216a15ecfdaf594b926d93a75e9629/capability.json",
+        "bundle_metadata_urls": [
+          "https://github.com/michaeljabbour/amplifier-capability-pipeline/blob/262c914939216a15ecfdaf594b926d93a75e9629/bundle.md"
+        ],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin."
+      }
+    },
+    {
+      "id": "preceptor",
+      "display_name": "Preceptor",
+      "repository_id": 1349952504,
+      "old_repository": "amplifier-skill-preceptor",
+      "new_repository": "amplifier-capability-preceptor",
+      "old_url": "https://github.com/michaeljabbour/amplifier-skill-preceptor",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-preceptor",
+      "additional_repository_aliases": [],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-skill-preceptor/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-preceptor/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/preceptor/",
+      "unchanged": {
+        "portable_method": {
+          "name": "preceptor",
+          "source_path": "skills/preceptor",
+          "installed_folder": "preceptor"
+        },
+        "root_bundle": {
+          "name": "preceptor",
+          "source_path": "bundle.md"
+        },
+        "bundle_and_behavior_entries": [
+          {
+            "path": "behaviors/preceptor-consent.yaml",
+            "bundle_name": "preceptor-consent-behavior",
+            "module_ids": [
+              "tool-preceptor"
+            ]
+          },
+          {
+            "path": "behaviors/preceptor-observer-on.yaml",
+            "bundle_name": "preceptor-observer-on-behavior",
+            "module_ids": [
+              "hooks-trajectory-observer"
+            ]
+          },
+          {
+            "path": "behaviors/preceptor-observer.yaml",
+            "bundle_name": "preceptor-observer-behavior",
+            "module_ids": [
+              "hooks-trajectory-observer"
+            ]
+          },
+          {
+            "path": "behaviors/preceptor.yaml",
+            "bundle_name": "preceptor-behavior",
+            "module_ids": [
+              "hooks-cue-injector",
+              "tool-preceptor"
+            ]
+          },
+          {
+            "path": "bundle.md",
+            "bundle_name": "preceptor",
+            "module_ids": []
+          }
+        ],
+        "declared_module_ids": [
+          "hooks-cue-injector",
+          "hooks-trajectory-observer",
+          "tool-preceptor"
+        ],
+        "recipes": [],
+        "python_distribution": null,
+        "python_import_roots_from_cli_entrypoints": [],
+        "cli_entrypoints": {}
+      },
+      "source_identity_evidence": {
+        "commit": "f7cfb79b6789bf3726f589c78742e1105605adda",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-preceptor/blob/f7cfb79b6789bf3726f589c78742e1105605adda/capability.json",
+        "bundle_metadata_urls": [
+          "https://github.com/michaeljabbour/amplifier-capability-preceptor/blob/f7cfb79b6789bf3726f589c78742e1105605adda/behaviors/preceptor-consent.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-preceptor/blob/f7cfb79b6789bf3726f589c78742e1105605adda/behaviors/preceptor-observer-on.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-preceptor/blob/f7cfb79b6789bf3726f589c78742e1105605adda/behaviors/preceptor-observer.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-preceptor/blob/f7cfb79b6789bf3726f589c78742e1105605adda/behaviors/preceptor.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-preceptor/blob/f7cfb79b6789bf3726f589c78742e1105605adda/bundle.md"
+        ],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin."
+      }
+    },
+    {
+      "id": "project-handoff",
+      "display_name": "Project Handoff",
+      "repository_id": 1437163930,
+      "old_repository": "amplifier-skill-project-handoff",
+      "new_repository": "amplifier-capability-project-handoff",
+      "old_url": "https://github.com/michaeljabbour/amplifier-skill-project-handoff",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-project-handoff",
+      "additional_repository_aliases": [],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-skill-project-handoff/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-project-handoff/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/project-handoff/",
+      "unchanged": {
+        "portable_method": {
+          "name": "project-handoff",
+          "source_path": "skills/project-handoff",
+          "installed_folder": "project-handoff"
+        },
+        "root_bundle": {
+          "name": "project-handoff",
+          "source_path": "bundle.md"
+        },
+        "bundle_and_behavior_entries": [
+          {
+            "path": "behaviors/project-handoff.yaml",
+            "bundle_name": "project-handoff-behavior",
+            "module_ids": [
+              "hooks-mode",
+              "tool-recipes",
+              "tool-skills"
+            ]
+          },
+          {
+            "path": "bundle.md",
+            "bundle_name": "project-handoff",
+            "module_ids": []
+          }
+        ],
+        "declared_module_ids": [
+          "hooks-mode",
+          "tool-recipes",
+          "tool-skills"
+        ],
+        "recipes": [
+          {
+            "path": "recipes/project-handoff-capture.yaml",
+            "name": "project-handoff-capture"
+          }
+        ],
+        "python_distribution": null,
+        "python_import_roots_from_cli_entrypoints": [],
+        "cli_entrypoints": {}
+      },
+      "source_identity_evidence": {
+        "commit": "71437d90b162ac856ef6b5feb50eb5ed53446ae8",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-project-handoff/blob/71437d90b162ac856ef6b5feb50eb5ed53446ae8/capability.json",
+        "bundle_metadata_urls": [
+          "https://github.com/michaeljabbour/amplifier-capability-project-handoff/blob/71437d90b162ac856ef6b5feb50eb5ed53446ae8/behaviors/project-handoff.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-project-handoff/blob/71437d90b162ac856ef6b5feb50eb5ed53446ae8/bundle.md"
+        ],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin."
+      }
+    },
+    {
+      "id": "research",
+      "display_name": "Research",
+      "repository_id": 1218623409,
+      "old_repository": "amplifier-skill-research",
+      "new_repository": "amplifier-capability-research",
+      "old_url": "https://github.com/michaeljabbour/amplifier-skill-research",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-research",
+      "additional_repository_aliases": [],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-skill-research/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-research/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/research/",
+      "unchanged": {
+        "portable_method": {
+          "name": "research",
+          "source_path": "skills/research",
+          "installed_folder": "research"
+        },
+        "root_bundle": {
+          "name": "research",
+          "source_path": "bundle.md"
+        },
+        "bundle_and_behavior_entries": [
+          {
+            "path": "bundle.md",
+            "bundle_name": "research",
+            "module_ids": []
+          }
+        ],
+        "declared_module_ids": [],
+        "recipes": [
+          {
+            "path": "recipes/_smoke-autonomous-experiment-loop.yaml",
+            "name": "_smoke-autonomous-experiment-loop"
+          },
+          {
+            "path": "recipes/_smoke-boolean-condition.yaml",
+            "name": "_smoke-boolean-condition"
+          },
+          {
+            "path": "recipes/autonomous-experiment-iteration.yaml",
+            "name": "autonomous-experiment-iteration"
+          },
+          {
+            "path": "recipes/autonomous-experiment-loop.yaml",
+            "name": "autonomous-experiment-loop"
+          },
+          {
+            "path": "recipes/autonomous-experiment-promotion-gate.yaml",
+            "name": "autonomous-experiment-promotion-gate"
+          },
+          {
+            "path": "recipes/benchmark-paper.yaml",
+            "name": "benchmark-paper"
+          },
+          {
+            "path": "recipes/bundle-overlay-proposer.yaml",
+            "name": "bundle-overlay-proposer"
+          },
+          {
+            "path": "recipes/cache-only-verify.yaml",
+            "name": "cache-only-verify"
+          },
+          {
+            "path": "recipes/empirical-paper.yaml",
+            "name": "empirical-paper"
+          },
+          {
+            "path": "recipes/grant-proposal.yaml",
+            "name": "grant-proposal"
+          },
+          {
+            "path": "recipes/idea-generation.yaml",
+            "name": "idea-generation"
+          },
+          {
+            "path": "recipes/literature-review.yaml",
+            "name": "literature-review"
+          },
+          {
+            "path": "recipes/orchestrated-loop-iteration.yaml",
+            "name": "orchestrated-loop-iteration"
+          },
+          {
+            "path": "recipes/orchestrated-loop.yaml",
+            "name": "orchestrated-loop"
+          },
+          {
+            "path": "recipes/paperbanana-figure.yaml",
+            "name": "paperbanana-figure-generation"
+          },
+          {
+            "path": "recipes/patent-brief.yaml",
+            "name": "patent-brief"
+          },
+          {
+            "path": "recipes/policy-brief.yaml",
+            "name": "policy-brief"
+          },
+          {
+            "path": "recipes/replication-study.yaml",
+            "name": "replication-study"
+          },
+          {
+            "path": "recipes/residual-adjudicator.yaml",
+            "name": "residual-adjudicator"
+          },
+          {
+            "path": "recipes/white-paper.yaml",
+            "name": "white-paper"
+          }
+        ],
+        "python_distribution": null,
+        "python_import_roots_from_cli_entrypoints": [],
+        "cli_entrypoints": {}
+      },
+      "source_identity_evidence": {
+        "commit": "fd325286763db2610742bf85b2453d11686df9e8",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-research/blob/fd325286763db2610742bf85b2453d11686df9e8/capability.json",
+        "bundle_metadata_urls": [
+          "https://github.com/michaeljabbour/amplifier-capability-research/blob/fd325286763db2610742bf85b2453d11686df9e8/bundle.md"
+        ],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin."
+      }
+    },
+    {
+      "id": "session-doctor",
+      "display_name": "Session Doctor",
+      "repository_id": 1181204047,
+      "old_repository": "amplifier-skill-session-doctor",
+      "new_repository": "amplifier-capability-session-doctor",
+      "old_url": "https://github.com/michaeljabbour/amplifier-skill-session-doctor",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-session-doctor",
+      "additional_repository_aliases": [],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-skill-session-doctor/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-session-doctor/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/session-doctor/",
+      "unchanged": {
+        "portable_method": {
+          "name": "session-doctor",
+          "source_path": "skills/session-doctor",
+          "installed_folder": "session-doctor"
+        },
+        "root_bundle": {
+          "name": "provider-doctor",
+          "source_path": "bundle.md"
+        },
+        "bundle_and_behavior_entries": [
+          {
+            "path": "behaviors/provider-resilience.yaml",
+            "bundle_name": "provider-resilience",
+            "module_ids": [
+              "hooks-telemetry",
+              "provider-failover"
+            ]
+          },
+          {
+            "path": "bundle.md",
+            "bundle_name": "provider-doctor",
+            "module_ids": []
+          }
+        ],
+        "declared_module_ids": [
+          "hooks-telemetry",
+          "provider-failover"
+        ],
+        "recipes": [
+          {
+            "path": "recipes/provider-diagnosis.yaml",
+            "name": "provider-diagnosis"
+          },
+          {
+            "path": "recipes/session-repair.yaml",
+            "name": "session-repair"
+          }
+        ],
+        "python_distribution": null,
+        "python_import_roots_from_cli_entrypoints": [],
+        "cli_entrypoints": {}
+      },
+      "source_identity_evidence": {
+        "commit": "071fbaf6bfba68340234fe0ddb52ab8b917d3411",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-session-doctor/blob/071fbaf6bfba68340234fe0ddb52ab8b917d3411/capability.json",
+        "bundle_metadata_urls": [
+          "https://github.com/michaeljabbour/amplifier-capability-session-doctor/blob/071fbaf6bfba68340234fe0ddb52ab8b917d3411/behaviors/provider-resilience.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-session-doctor/blob/071fbaf6bfba68340234fe0ddb52ab8b917d3411/bundle.md"
+        ],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin."
+      }
+    },
+    {
+      "id": "team-access",
+      "display_name": "Team Access",
+      "repository_id": 1118943971,
+      "old_repository": "amplifier-tool-team-access",
+      "new_repository": "amplifier-capability-team-access",
+      "old_url": "https://github.com/michaeljabbour/amplifier-tool-team-access",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-team-access",
+      "additional_repository_aliases": [],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-tool-team-access/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-team-access/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/team-access/",
+      "unchanged": {
+        "portable_method": null,
+        "root_bundle": null,
+        "bundle_and_behavior_entries": [],
+        "declared_module_ids": [],
+        "recipes": [],
+        "python_distribution": "addteam",
+        "python_import_roots_from_cli_entrypoints": [
+          "addteam"
+        ],
+        "cli_entrypoints": {
+          "addteam": "addteam.cli:main"
+        },
+        "native_interfaces": {
+          "python_distribution": "addteam",
+          "cli_entrypoints": {
+            "addteam": "addteam.cli:main"
+          },
+          "amplifier_module_entrypoints": {},
+          "python_imports": {
+            "canonical": [
+              "addteam"
+            ],
+            "compatibility": []
+          },
+          "mcp": null,
+          "smart_tool": null,
+          "rust": null
+        }
+      },
+      "source_identity_evidence": {
+        "commit": "2f76e2084a7c1225cea00f2bb4ed1c19ff8d34bc",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-team-access/blob/2f76e2084a7c1225cea00f2bb4ed1c19ff8d34bc/capability.json",
+        "bundle_metadata_urls": [],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin.",
+        "native_identity_urls": [
+          "https://github.com/michaeljabbour/amplifier-capability-team-access/blob/2f76e2084a7c1225cea00f2bb4ed1c19ff8d34bc/pyproject.toml",
+          "https://github.com/michaeljabbour/amplifier-capability-team-access/blob/2f76e2084a7c1225cea00f2bb4ed1c19ff8d34bc/src/addteam/__init__.py"
+        ]
+      }
+    },
+    {
+      "id": "teaserkit",
+      "display_name": "TeaserKit",
+      "repository_id": 1387938484,
+      "old_repository": "amplifier-smart-tool-teaserkit",
+      "new_repository": "amplifier-capability-teaserkit",
+      "old_url": "https://github.com/michaeljabbour/amplifier-smart-tool-teaserkit",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-teaserkit",
+      "additional_repository_aliases": [],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-smart-tool-teaserkit/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-teaserkit/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/teaserkit/",
+      "unchanged": {
+        "portable_method": null,
+        "root_bundle": null,
+        "bundle_and_behavior_entries": [],
+        "declared_module_ids": [],
+        "recipes": [],
+        "python_distribution": "teaserkit",
+        "python_import_roots_from_cli_entrypoints": [
+          "teaserkit"
+        ],
+        "cli_entrypoints": {
+          "teaserkit": "teaserkit.cli:main"
+        },
+        "native_interfaces": {
+          "python_distribution": "teaserkit",
+          "cli_entrypoints": {
+            "teaserkit": "teaserkit.cli:main"
+          },
+          "amplifier_module_entrypoints": {},
+          "python_imports": {
+            "canonical": [
+              "teaserkit"
+            ],
+            "compatibility": []
+          },
+          "mcp": null,
+          "smart_tool": {
+            "manifest": "src/teaserkit/SMART_TOOL.md",
+            "cli_argv": [
+              "teaserkit"
+            ],
+            "deterministic_smoke": [
+              "manifest"
+            ]
+          },
+          "rust": null
+        }
+      },
+      "source_identity_evidence": {
+        "commit": "01411e1eec778312f609ae73a6d2baac790a0f0a",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-teaserkit/blob/01411e1eec778312f609ae73a6d2baac790a0f0a/capability.json",
+        "bundle_metadata_urls": [],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin.",
+        "native_identity_urls": [
+          "https://github.com/michaeljabbour/amplifier-capability-teaserkit/blob/01411e1eec778312f609ae73a6d2baac790a0f0a/pyproject.toml",
+          "https://github.com/michaeljabbour/amplifier-capability-teaserkit/blob/01411e1eec778312f609ae73a6d2baac790a0f0a/src/teaserkit/__init__.py",
+          "https://github.com/michaeljabbour/amplifier-capability-teaserkit/blob/01411e1eec778312f609ae73a6d2baac790a0f0a/smart-tool.json",
+          "https://github.com/michaeljabbour/amplifier-capability-teaserkit/blob/01411e1eec778312f609ae73a6d2baac790a0f0a/src/teaserkit/SMART_TOOL.md"
+        ]
+      }
+    },
+    {
+      "id": "transfer",
+      "display_name": "Transfer",
+      "repository_id": 1315125894,
+      "old_repository": "amplifier-skill-transfer",
+      "new_repository": "amplifier-capability-transfer",
+      "old_url": "https://github.com/michaeljabbour/amplifier-skill-transfer",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-transfer",
+      "additional_repository_aliases": [],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-skill-transfer/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-transfer/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/transfer/",
+      "unchanged": {
+        "portable_method": {
+          "name": "transfer",
+          "source_path": "skills/transfer",
+          "installed_folder": "transfer"
+        },
+        "root_bundle": {
+          "name": "hgt",
+          "source_path": "bundle.md"
+        },
+        "bundle_and_behavior_entries": [
+          {
+            "path": "bundle.md",
+            "bundle_name": "hgt",
+            "module_ids": [
+              "context-simple",
+              "loop-streaming"
+            ]
+          }
+        ],
+        "declared_module_ids": [
+          "context-simple",
+          "loop-streaming"
+        ],
+        "recipes": [],
+        "python_distribution": null,
+        "python_import_roots_from_cli_entrypoints": [],
+        "cli_entrypoints": {}
+      },
+      "source_identity_evidence": {
+        "commit": "e02bc8ddfb19f68466429cae6977e2769838837a",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-transfer/blob/e02bc8ddfb19f68466429cae6977e2769838837a/capability.json",
+        "bundle_metadata_urls": [
+          "https://github.com/michaeljabbour/amplifier-capability-transfer/blob/e02bc8ddfb19f68466429cae6977e2769838837a/bundle.md"
+        ],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin."
+      }
+    },
+    {
+      "id": "ux-ergonomics",
+      "display_name": "UX Ergonomics",
+      "repository_id": 1329339581,
+      "old_repository": "amplifier-skill-ux-ergonomics",
+      "new_repository": "amplifier-capability-ux-ergonomics",
+      "old_url": "https://github.com/michaeljabbour/amplifier-skill-ux-ergonomics",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-ux-ergonomics",
+      "additional_repository_aliases": [],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-skill-ux-ergonomics/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-ux-ergonomics/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/ux-ergonomics/",
+      "unchanged": {
+        "portable_method": {
+          "name": "ux-ergonomics",
+          "source_path": "skills/ux-ergonomics",
+          "installed_folder": "ux-ergonomics"
+        },
+        "root_bundle": {
+          "name": "ux-ergonomist",
+          "source_path": "bundle.md"
+        },
+        "bundle_and_behavior_entries": [
+          {
+            "path": "behaviors/ux-ergonomist.yaml",
+            "bundle_name": "behavior-ux-ergonomist",
+            "module_ids": [
+              "tool-skills"
+            ]
+          },
+          {
+            "path": "bundle.md",
+            "bundle_name": "ux-ergonomist",
+            "module_ids": []
+          }
+        ],
+        "declared_module_ids": [
+          "tool-skills"
+        ],
+        "recipes": [
+          {
+            "path": "recipes/agent-experience-review.yaml",
+            "name": "agent-experience-review"
+          },
+          {
+            "path": "recipes/ergonomic-review.yaml",
+            "name": "ergonomic-review"
+          },
+          {
+            "path": "recipes/ergonomics-full-cycle.yaml",
+            "name": "ergonomics-full-cycle"
+          },
+          {
+            "path": "recipes/longitudinal-agent-impact-review.yaml",
+            "name": "longitudinal-agent-impact-review"
+          },
+          {
+            "path": "recipes/research-to-decision.yaml",
+            "name": "research-to-decision"
+          },
+          {
+            "path": "recipes/sociotechnical-workflow-review.yaml",
+            "name": "sociotechnical-workflow-review"
+          }
+        ],
+        "python_distribution": null,
+        "python_import_roots_from_cli_entrypoints": [],
+        "cli_entrypoints": {}
+      },
+      "source_identity_evidence": {
+        "commit": "e9549309d99f5982096d78d2994a9c45c8016508",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-ux-ergonomics/blob/e9549309d99f5982096d78d2994a9c45c8016508/capability.json",
+        "bundle_metadata_urls": [
+          "https://github.com/michaeljabbour/amplifier-capability-ux-ergonomics/blob/e9549309d99f5982096d78d2994a9c45c8016508/behaviors/ux-ergonomist.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-ux-ergonomics/blob/e9549309d99f5982096d78d2994a9c45c8016508/bundle.md"
+        ],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin."
+      }
+    },
+    {
+      "id": "unknowns",
+      "display_name": "Unknowns",
+      "repository_id": 1293510506,
+      "old_repository": "amplifier-skill-unknowns",
+      "new_repository": "amplifier-capability-unknowns",
+      "old_url": "https://github.com/michaeljabbour/amplifier-skill-unknowns",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-unknowns",
+      "additional_repository_aliases": [],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-skill-unknowns/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-unknowns/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/unknowns/",
+      "unchanged": {
+        "portable_method": {
+          "name": "unknowns",
+          "source_path": "skills/unknowns",
+          "installed_folder": "unknowns"
+        },
+        "root_bundle": {
+          "name": "unknowns",
+          "source_path": "bundle.md"
+        },
+        "bundle_and_behavior_entries": [
+          {
+            "path": "behaviors/unknowns.yaml",
+            "bundle_name": "unknowns-behavior",
+            "module_ids": [
+              "hooks-mode",
+              "tool-mode",
+              "tool-skills"
+            ]
+          },
+          {
+            "path": "bundle.md",
+            "bundle_name": "unknowns",
+            "module_ids": []
+          }
+        ],
+        "declared_module_ids": [
+          "hooks-mode",
+          "tool-mode",
+          "tool-skills"
+        ],
+        "recipes": [],
+        "python_distribution": "amplifier-unknowns",
+        "python_import_roots_from_cli_entrypoints": [
+          "unknowns_map"
+        ],
+        "cli_entrypoints": {
+          "unknowns": "unknowns_map.cli:main"
+        }
+      },
+      "source_identity_evidence": {
+        "commit": "ea0b8ccec92f423c5831fa9834af074a1db4a0df",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-unknowns/blob/ea0b8ccec92f423c5831fa9834af074a1db4a0df/capability.json",
+        "bundle_metadata_urls": [
+          "https://github.com/michaeljabbour/amplifier-capability-unknowns/blob/ea0b8ccec92f423c5831fa9834af074a1db4a0df/behaviors/unknowns.yaml",
+          "https://github.com/michaeljabbour/amplifier-capability-unknowns/blob/ea0b8ccec92f423c5831fa9834af074a1db4a0df/bundle.md"
+        ],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin."
+      }
+    },
+    {
+      "id": "data-substrate",
+      "display_name": "Amplifier Data",
+      "repository_id": 1437467167,
+      "old_repository": "amplifier-tool-data",
+      "new_repository": "amplifier-capability-data",
+      "old_url": "https://github.com/michaeljabbour/amplifier-tool-data",
+      "new_url": "https://github.com/michaeljabbour/amplifier-capability-data",
+      "additional_repository_aliases": [],
+      "old_pages_url": "https://michaeljabbour.github.io/amplifier-tool-data/",
+      "new_pages_url": "https://michaeljabbour.github.io/amplifier-capability-data/",
+      "portfolio_url": "https://michaeljabbour.github.io/capabilities/data-substrate/",
+      "unchanged": {
+        "portable_method": null,
+        "root_bundle": null,
+        "bundle_and_behavior_entries": [],
+        "declared_module_ids": [],
+        "recipes": [],
+        "python_distribution": "amplifier-data",
+        "python_import_roots_from_cli_entrypoints": [
+          "amplifier_data"
+        ],
+        "cli_entrypoints": {
+          "amplifier-data-doctor": "amplifier_data.doctor:main"
+        },
+        "native_interfaces": {
+          "python_distribution": "amplifier-data",
+          "cli_entrypoints": {
+            "amplifier-data-doctor": "amplifier_data.doctor:main"
+          },
+          "amplifier_module_entrypoints": {},
+          "python_imports": {
+            "canonical": [
+              "amplifier_data",
+              "amplifier_data._rust"
+            ],
+            "compatibility": []
+          },
+          "mcp": null,
+          "smart_tool": null,
+          "rust": {
+            "crate_packages": [
+              "amplifier-data-core",
+              "amplifier-data-py"
+            ],
+            "python_extension": "amplifier_data._rust"
+          }
+        }
+      },
+      "source_identity_evidence": {
+        "commit": "225242915d40c1d0411d4e0619b338c5b2de7a83",
+        "capability_manifest_url": "https://github.com/michaeljabbour/amplifier-capability-data/blob/225242915d40c1d0411d4e0619b338c5b2de7a83/capability.json",
+        "bundle_metadata_urls": [],
+        "revision_role": "Observed identity snapshot; not a guarantee of the latest release or a recommended upgrade pin.",
+        "native_identity_urls": [
+          "https://github.com/michaeljabbour/amplifier-capability-data/blob/225242915d40c1d0411d4e0619b338c5b2de7a83/pyproject.toml",
+          "https://github.com/michaeljabbour/amplifier-capability-data/blob/225242915d40c1d0411d4e0619b338c5b2de7a83/amplifier_data/__init__.py",
+          "https://github.com/michaeljabbour/amplifier-capability-data/blob/225242915d40c1d0411d4e0619b338c5b2de7a83/crates/amplifier-data-core/Cargo.toml",
+          "https://github.com/michaeljabbour/amplifier-capability-data/blob/225242915d40c1d0411d4e0619b338c5b2de7a83/crates/amplifier-data-py/Cargo.toml"
+        ]
+      }
+    }
+  ]
+}

@@ -10,6 +10,7 @@ import re
 from datetime import date
 from public_views import write_public_views
 from installer_download import write_installer
+from migration_view import write_migration
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "dist"
@@ -131,7 +132,7 @@ def main():
 <header class="site-header wrap"><a class="identity" href="/" aria-label="Michael Jabbour home"><span class="monogram" aria-hidden="true">mj</span><span>michael jabbour</span></a>
 <nav aria-label="Main navigation">{nav_html}</nav><a class="source-link" href="https://github.com/michaeljabbour">GitHub <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M5 5h10v10"/></svg></a></header>
 <main id="main">{body}</main>
-<footer class="site-footer wrap"><div><h2 class="footer-name">Take it from here.</h2><p>Here to pick up and make your own.</p></div><nav aria-label="Footer navigation"><a href="/#journey">Follow the work</a><a href="/capabilities/">All capabilities</a><a href="/films/">The films & demos</a><a href="https://www.michaeljabbour.com/">Blog</a><a href="https://github.com/michaeljabbour">GitHub</a></nav></footer>
+<footer class="site-footer wrap"><div><h2 class="footer-name">Take it from here.</h2><p>Here to pick up and make your own.</p></div><nav aria-label="Footer navigation"><a href="/#journey">Follow the work</a><a href="/capabilities/">All capabilities</a><a href="/films/">The films & demos</a><a href="https://www.michaeljabbour.com/">Blog</a><a href="/migration/">Update an installation</a><a href="https://github.com/michaeljabbour">GitHub</a></nav></footer>
 </body></html>'''
 
     def write(path, text):
@@ -371,6 +372,7 @@ def main():
         )
     write_public_views(ROOT, OUT, write, shell, projects, stages)
     write_installer(ROOT, OUT)
+    write_migration(ROOT, OUT, write, shell, set(by_id))
 
     notfound = """<section class="page-intro wrap not-found"><p>404</p><h1>Let’s find<br>a way back.</h1><p>This page isn’t in the collection. Browse the capabilities or return to the homepage.</p><div class="button-row"><a class="button primary" href="/capabilities/">Browse capabilities</a><a class="text-link" href="/">Go home</a></div></section>"""
     (OUT / "404.html").write_text(
@@ -380,7 +382,7 @@ def main():
             notfound,
         )
     )
-    urls = ["", "journey/", "capabilities/", "films/", "about/", "capabilities/categories/", "journey/knowledge/", "reports/capability-installer/"] + [
+    urls = ["", "journey/", "capabilities/", "films/", "about/", "capabilities/categories/", "journey/knowledge/", "reports/capability-installer/", "migration/"] + [
         "capabilities/" + p["id"] + "/" for p in projects
     ]
     (OUT / "sitemap.xml").write_text(

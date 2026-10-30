@@ -260,8 +260,8 @@ def main() -> int:
     documents = {path: Document(path.read_text()) for path in html_files}
     overview_pages = int((OUT / "assets/overview/transcript/index.html").exists())
     require(
-        len([p for p in html_files if p not in legacy_paths]) == 44 + overview_pages,
-        "Build must contain44 base HTML pages including33 capabilities, category/knowledge/installer routes and the legacy blog redirect, the category alias and404, plus the configured overview transcript",
+        len([p for p in html_files if p not in legacy_paths]) == 45 + overview_pages,
+        "Build must contain45 base HTML pages including33 capabilities, category/knowledge/installer routes and the legacy blog redirect, the category alias and404, plus the configured overview transcript",
     )
     expected_routes = {
         OUT / "capabilities" / ident / "index.html"
@@ -956,6 +956,10 @@ def main() -> int:
             require(not doc.select('a',**{'aria-label':'Status'}),f'{path.relative_to(OUT)}: internal Status navigation must not return')
     old_status=documents.get(OUT/'reports/capabilities/index.html')
     require(old_status is not None and old_status.select('meta',**{'http-equiv':'refresh'})==[{'http-equiv':'refresh','content':'0; url=https://www.michaeljabbour.com/'}],'Old status HTML route must be only the blog redirect/fallback')
+    migration=load_json(OUT/'migration/mapping.json')
+    require(migration==load_json(ROOT/'content/migration/mapping.json'),'Served migration map must match reviewed source')
+    require(len(migration.get('repositories',[]))==33 and {row['id'] for row in migration.get('repositories',[])}==set(ids),'Migration map must retain33 approved identities')
+    require(OUT/'migration/index.html' in documents,'Migration guide missing')
     # The download is the reviewed package, with an exact build-time commit pin.
     try:
         import os,subprocess
@@ -974,11 +978,11 @@ def main() -> int:
         sitemap_urls = set(re.findall(r"<loc>([^<]+)</loc>", sitemap.read_text()))
         expected_urls = {
             ORIGIN + route
-            for route in ["/", "/about/", "/capabilities/", "/films/", "/journey/", "/capabilities/categories/", "/journey/knowledge/", "/reports/capability-installer/"]
+            for route in ["/", "/about/", "/capabilities/", "/films/", "/journey/", "/capabilities/categories/", "/journey/knowledge/", "/reports/capability-installer/", "/migration/"]
         } | {ORIGIN + "/capabilities/" + ident + "/" for ident in ids}
         require(
             sitemap_urls == expected_urls,
-            "Sitemap must cover the41 public content routes exactly",
+            "Sitemap must cover the42 public content routes exactly",
         )
     else:
         errors.append("Missing sitemap.xml")

@@ -1,8 +1,8 @@
 {
-  "date": "2026-10-30T15:08:54.721565+00:00",
+  "date": "2026-10-30T16:09:37.381591+00:00",
   "tool_version": "1.1.0",
   "kind": "local packaging conformance",
   "portable_files": 6,
-  "capability_sha256": "949512fbcbcda2d38c57f3196de752bacf5871b76f7e6619553f811608901687",
+  "capability_sha256": "53ebab89079b5374f89b4d15abdd77339612ac9e3efd51fe07810a6eadf5f401",
   "benefit": "not measured by build"
 }
