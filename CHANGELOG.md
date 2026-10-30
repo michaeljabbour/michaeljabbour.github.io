@@ -37,3 +37,7 @@ This section records the local design baseline before publication.
 - Connected all 33 capabilities to their moment, with previous/next, keyboard navigation, deep links and a return to a new question.
 - Added truthful paused film chapter jumps, capability-to-journey context, and a byte-range-aware local preview helper.
 - Preserved the overview, individual films and stills. Recorded the film end-board correction separately.
+
+## Homepage navigation hotfix
+
+Removed the redundant top category launcher. Journey navigation now goes directly to the existing inline homepage journey and its capability panels. The 33-capability mapping, existing journey deep links, proposed knowledge page and media remain available.

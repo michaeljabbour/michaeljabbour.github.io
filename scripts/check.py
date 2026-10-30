@@ -404,6 +404,12 @@ def main() -> int:
                 )
         require("@@" not in raw, f"{relative}: unresolved build token")
 
+    home_navigation=documents.get(OUT/'index.html')
+    if home_navigation:
+        require(not any('data-category-launcher' in attrs for _,attrs in home_navigation.elements),'Homepage must not duplicate its inline journey with a top category launcher')
+        require('Where are you starting?' not in (OUT/'index.html').read_text(),'Removed homepage launcher must not return')
+        main_journey=home_navigation.select('a',**{'aria-label':'The journey'})
+        require(len(main_journey)==1 and main_journey[0].get('href')=='/#journey','Main Journey navigation must target the inline homepage content')
     library = documents.get(OUT / "capabilities/index.html")
     if library:
         rows = [
@@ -451,7 +457,7 @@ def main() -> int:
             f"{ident}: source, guide and installation links are required",
         )
         require(
-            "/journey/#stage-" + project["category"] in links,
+            "/#stage-" + project["category"] in links,
             f"{ident}: detail page needs its primary journey-stage destination",
         )
         require(
