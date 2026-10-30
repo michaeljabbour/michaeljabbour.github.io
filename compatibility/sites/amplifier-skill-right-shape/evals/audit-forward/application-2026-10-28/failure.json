@@ -1,0 +1,8 @@
+{
+  "status": "Provider transport failure; not a skill outcome",
+  "provider": "anthropic",
+  "model": "claude-sonnet-4-6",
+  "usage": "unavailable; possible billed usage unknown",
+  "input_preserved": true,
+  "retry": "No automatic retry. A separately labelled OpenAI application uses the same frozen skill and fixture."
+}

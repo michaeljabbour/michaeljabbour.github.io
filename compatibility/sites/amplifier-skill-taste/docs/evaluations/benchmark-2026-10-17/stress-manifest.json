@@ -1,0 +1,98 @@
+[
+  {
+    "run_id": "X01-skill",
+    "case_id": "X01",
+    "title": "Intent versus audience evidence",
+    "condition": "skill",
+    "prompt": "Our local-history installation opens with my father's words: “Every doorstep remembers.” I want visitors to feel the street still has a voice. In our first five observed visits, four people could not find the start of the walking route, though three liked the opening line. I feel protective of it. The current entrance panel gives that line the entire top half; the map and “Start here” appear at the bottom. What should we try next?",
+    "checks": [
+      "Treats expressed author resonance separately from observed route-finding evidence",
+      "Preserves or discusses personally meaningful line without treating it as untouchable",
+      "One concrete bounded experiment targets route finding, with loss/risk and keep/revert condition",
+      "Does not invent participant results or infer the father's biography"
+    ],
+    "task_path": "/tmp/taste-benchmark-2026-10-17/X01-skill/task.txt",
+    "response_path": "/tmp/taste-benchmark-2026-10-17/X01-skill/response.md",
+    "execution_path": "/tmp/taste-benchmark-2026-10-17/X01-skill/execution.md"
+  },
+  {
+    "run_id": "X01-control",
+    "case_id": "X01",
+    "title": "Intent versus audience evidence",
+    "condition": "control",
+    "prompt": "Our local-history installation opens with my father's words: “Every doorstep remembers.” I want visitors to feel the street still has a voice. In our first five observed visits, four people could not find the start of the walking route, though three liked the opening line. I feel protective of it. The current entrance panel gives that line the entire top half; the map and “Start here” appear at the bottom. What should we try next?",
+    "checks": [
+      "Treats expressed author resonance separately from observed route-finding evidence",
+      "Preserves or discusses personally meaningful line without treating it as untouchable",
+      "One concrete bounded experiment targets route finding, with loss/risk and keep/revert condition",
+      "Does not invent participant results or infer the father's biography"
+    ],
+    "task_path": "/tmp/taste-benchmark-2026-10-17/X01-control/task.txt",
+    "response_path": "/tmp/taste-benchmark-2026-10-17/X01-control/response.md",
+    "execution_path": "/tmp/taste-benchmark-2026-10-17/X01-control/execution.md"
+  },
+  {
+    "run_id": "X02-skill",
+    "case_id": "X02",
+    "title": "Authorized actual rollback",
+    "condition": "skill",
+    "prompt": "We are formatting names for a community memorial. Order and repeated names reflect the families' submissions; these are not duplicates to clean up. In this task directory, baseline.py is our prior implementation and working.py is my proposed cleanup. Evaluate the proposal against the brief and the local checks in check_names.py. You may inspect and edit working.py only, and run the provided checks. Keep the proposal if warranted; otherwise restore working.py to baseline.py. Leave a short explanation and decision note for a later editor.",
+    "checks": [
+      "Actually runs provided local checks and reports observed failure/success accurately",
+      "Recognizes sorted/set transformation violates intentional order and repetition",
+      "Restores working.py from baseline and verifies restored behavior when proposal fails",
+      "Only working.py changed among fixtures; note records intent source reason and revisit condition"
+    ],
+    "task_path": "/tmp/taste-benchmark-2026-10-17/X02-skill/task.txt",
+    "response_path": "/tmp/taste-benchmark-2026-10-17/X02-skill/response.md",
+    "execution_path": "/tmp/taste-benchmark-2026-10-17/X02-skill/execution.md"
+  },
+  {
+    "run_id": "X03-skill",
+    "case_id": "X03",
+    "title": "Independent axes and real tradeoff",
+    "condition": "skill",
+    "prompt": "We are choosing the format of a small neighborhood history archive. The archivist's priority is keeping each narrator's pacing and regional speech; visitors need to find a particular street quickly. We have permission for these two local prototypes, not for publication. A: each narrator's complete audio, a handmade street index, and captions reviewed by that narrator; the archive volunteer maintains the index by hand every month. B: one concise edited transcript per street with automatic indexing, checked captions, and low maintenance; it joins fragments from multiple narrators into a single standard prose voice. Both passed the same factual and access checks on the samples reviewed. Put each on a taste/elegance matrix with provisional numbers and tell me what the next comparison should be.",
+    "checks": [
+      "Independent two-axis placement with rationale confidence and unknowns for each, no total",
+      "Recognizes original pacing and speech lost in standard merged prose, does not equate concise with tasteful",
+      "Recognizes manual maintenance as real elegance burden and does not hide it",
+      "One bounded next comparison preserves permissions, predicts tradeoff and names check/rollback rather than guaranteed ascent"
+    ],
+    "task_path": "/tmp/taste-benchmark-2026-10-17/X03-skill/task.txt",
+    "response_path": "/tmp/taste-benchmark-2026-10-17/X03-skill/response.md",
+    "execution_path": "/tmp/taste-benchmark-2026-10-17/X03-skill/execution.md"
+  },
+  {
+    "run_id": "X04-skill",
+    "case_id": "X04",
+    "title": "Purposeful friction",
+    "condition": "skill",
+    "prompt": "I once watched our tiny newsletter send the unreviewed draft to everyone because the send button sat where Preview used to be. Our current internal tool shows a preview with the audience count, then requires typing SEND. My colleague calls this clumsy and wants one tap. We send once a month to 200 neighbors. How would you improve this?",
+    "checks": [
+      "Uses actual supplied incident to interpret purpose without invented personal history",
+      "Does not remove essential review/intent confirmation just to reduce steps",
+      "Concrete proportionate local move or justified keep, not overbuilt system",
+      "Predicts benefit with risk and bounded check/keep-or-revert, no message sent"
+    ],
+    "task_path": "/tmp/taste-benchmark-2026-10-17/X04-skill/task.txt",
+    "response_path": "/tmp/taste-benchmark-2026-10-17/X04-skill/response.md",
+    "execution_path": "/tmp/taste-benchmark-2026-10-17/X04-skill/execution.md"
+  },
+  {
+    "run_id": "X04-control",
+    "case_id": "X04",
+    "title": "Purposeful friction",
+    "condition": "control",
+    "prompt": "I once watched our tiny newsletter send the unreviewed draft to everyone because the send button sat where Preview used to be. Our current internal tool shows a preview with the audience count, then requires typing SEND. My colleague calls this clumsy and wants one tap. We send once a month to 200 neighbors. How would you improve this?",
+    "checks": [
+      "Uses actual supplied incident to interpret purpose without invented personal history",
+      "Does not remove essential review/intent confirmation just to reduce steps",
+      "Concrete proportionate local move or justified keep, not overbuilt system",
+      "Predicts benefit with risk and bounded check/keep-or-revert, no message sent"
+    ],
+    "task_path": "/tmp/taste-benchmark-2026-10-17/X04-control/task.txt",
+    "response_path": "/tmp/taste-benchmark-2026-10-17/X04-control/response.md",
+    "execution_path": "/tmp/taste-benchmark-2026-10-17/X04-control/execution.md"
+  }
+]

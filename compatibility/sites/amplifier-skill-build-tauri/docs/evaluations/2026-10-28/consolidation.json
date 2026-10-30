@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-28",
+  "status": "local conformance and native software checks",
+  "capability": "build-tauri",
+  "primary_source_commit": "622249013ca64c725a79542184aec02b70f85c2b",
+  "sources": [
+    {
+      "repo": "amplifier-tauri-skill",
+      "commit": "622249013ca64c725a79542184aec02b70f85c2b",
+      "paths": [
+        "tauri2-project-structure/SKILL.md",
+        "tauri2-sidecar-integration/SKILL.md",
+        "tauri2-ipc-patterns/SKILL.md"
+      ],
+      "license": "MIT License",
+      "role": "Primary history and engine retained; methods consolidated behind the canonical portable entry."
+    }
+  ],
+  "checks": [
+    {
+      "name": "Source-specific Tauri contract review",
+      "command": "Review references/current-contracts.md against the three linked official Tauri v2 pages",
+      "status": "reviewed",
+      "evidence": "Confirmed distinctions for application vs plugin ACL, async vs blocking work, channels vs broadcast events, and target-triple sidecars. No Tauri desktop executable is part of this source repository; OS runtime and packaging acceptance not measured.",
+      "expected": "The stated scope passes; no broader result inferred."
+    },
+    {
+      "name": "Portable packaging and install",
+      "command": "python3 scripts/capability.py build; python3 scripts/capability.py check; python3 scripts/capability.py doctor; python3 scripts/capability.py install --dest <temporary-parent> (twice)",
+      "status": "passed",
+      "expected": "Byte-identical canonical ZIP and isolated idempotent install.",
+      "evidence": "All operations passed. No runtime activation or effectiveness measured."
+    },
+    {
+      "name": "Skill discovery metadata",
+      "command": "<yaml-enabled-python> /path/to/skill-creator/scripts/quick_validate.py skills/build-tauri",
+      "status": "passed",
+      "expected": "Valid required frontmatter, naming, and complete scaffold.",
+      "evidence": "Skill is valid. This is a structural check, not a behavioral benchmark."
+    }
+  ],
+  "limitations": [
+    "No new paid live inference, production activation, publication, or outside-user acceptance.",
+    "Fictional examples are authored illustrations, not observed outcomes.",
+    "Retained historical evaluation assets keep their original scope; renamed portable-method effectiveness is unmeasured."
+  ],
+  "changes": "Three original procedures with current contract corrections; explicit-destination installer."
+}

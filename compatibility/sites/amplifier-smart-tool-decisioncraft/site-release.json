@@ -1,0 +1,226 @@
+{
+  "schema": "decisioncraft-site-release/v1",
+  "examples": [
+    {
+      "source": "examples/bike-hire-map/canvas.html",
+      "destination": "examples/bike-hire-map.html",
+      "sha256": "ec5bd4cd1dac36847a8b66a77116a46b72c363d5fee21762fe7dccb786c91c56"
+    },
+    {
+      "source": "examples/business/canvas-reviewed.html",
+      "destination": "examples/business-reviewed.html",
+      "sha256": "6237e30e409facb8324ab68f3bb33050fb529c47b78c3823fb946ed0d3888e74"
+    },
+    {
+      "source": "examples/business/canvas.html",
+      "destination": "examples/business.html",
+      "sha256": "bab97698a1520a4c1ab4244bb328b3e4f09eb69eeae1d37064a9d1aef6d76360"
+    },
+    {
+      "source": "examples/engineering/canvas.html",
+      "destination": "examples/engineering.html",
+      "sha256": "8631c7f0b4f7835d3b9ed8b062d4acc994e943924c3fbbeca764f8962b154b52"
+    },
+    {
+      "source": "examples/medical/canvas.html",
+      "destination": "examples/medical.html",
+      "sha256": "1ff3c9bb0dbef29745d0f349e84415aabcd9cb893439c4e41d670896bf210839"
+    },
+    {
+      "source": "examples/personal-car/canvas-reviewed.html",
+      "destination": "examples/personal-car-reviewed.html",
+      "sha256": "123a8e7849de054aaa4d0cc74626178e8fcabbd2f5cb6862136f76615d3cfad9"
+    },
+    {
+      "source": "examples/personal-car/canvas.html",
+      "destination": "examples/personal-car.html",
+      "sha256": "c429b34f92503da6e5d6e33013792636f9029e6cf92fbfccb44a88130f1adc64"
+    },
+    {
+      "source": "examples/technical/canvas-since.html",
+      "destination": "examples/technical-since.html",
+      "sha256": "db35f1c43c0003fc7650245877aeaa63d85a8b7e347e63e2c7ba24b22bc261c3"
+    },
+    {
+      "source": "examples/technical/canvas.html",
+      "destination": "examples/technical.html",
+      "sha256": "2271af25ab13b80cd9e94683951e3d49c96438347f3434b8018850dcb0434fc5"
+    }
+  ],
+  "media": [
+    {
+      "source": "docs/images/ask-experts-demo.mp4",
+      "destination": "assets/ask-experts-demo.mp4",
+      "sha256": "f2add19f16c064ab72ebbef1ac4b21182e2de05ae79d4e353ad7a88943c49e5b"
+    },
+    {
+      "source": "docs/images/ask-experts-poster.png",
+      "destination": "assets/ask-experts-poster.png",
+      "sha256": "183cf62b202f522d7078bf6481defe201c62bcf2fc9fd8c8a056173161e9562c"
+    },
+    {
+      "source": "docs/images/bike-hire-map-demo.mp4",
+      "destination": "assets/bike-hire-map-demo.mp4",
+      "sha256": "2e2c7c9220615c5b68270079982e53077a4090b4e34f5ce0b073fb1b09d0f9c9"
+    },
+    {
+      "source": "docs/images/bike-hire-map-poster.png",
+      "destination": "assets/bike-hire-map-poster.png",
+      "sha256": "ca1fe61fdb460f8d2ea43c31e3ec2597943b895fbc60a1de9f02484b5aaa9713"
+    },
+    {
+      "source": "docs/images/business-demo.mp4",
+      "destination": "assets/business-demo.mp4",
+      "sha256": "4e8b5162aea2ea4dabbc33245cb47153caac7547fe3bd69daeba0d37563959ec"
+    },
+    {
+      "source": "docs/images/business-poster.png",
+      "destination": "assets/business-poster.png",
+      "sha256": "ea2b0949935129d6ef5dab442793311f7d3fd23a45c6ada9a95d81bcb202dc63"
+    },
+    {
+      "source": "docs/images/engineering-demo.mp4",
+      "destination": "assets/engineering-demo.mp4",
+      "sha256": "2c536b25b77ee3176cfaf640d9750f0fef47e94d0870bc3879d3fc0241c2281e"
+    },
+    {
+      "source": "docs/images/engineering-poster.png",
+      "destination": "assets/engineering-poster.png",
+      "sha256": "7fddb1a1a24a420498bdc7b7125ee40cd2d7e7ffbc6bc24313afd04de0e51646"
+    },
+    {
+      "source": "docs/images/hero-notes.png",
+      "destination": "assets/hero-notes.png",
+      "sha256": "87a09d609a96900221e59edf8f7087fd7d0964934622ffddadf4f7a4c11438b2"
+    },
+    {
+      "source": "docs/images/medical-demo.mp4",
+      "destination": "assets/medical-demo.mp4",
+      "sha256": "4e659351e5fe0237e5307bd187c3cf5d48922cb2efb767ca18f70ef6250c8e2b"
+    },
+    {
+      "source": "docs/images/medical-poster.png",
+      "destination": "assets/medical-poster.png",
+      "sha256": "a3e56eb958be9c9e2098e11b884b7cd0e8969c779b1d609e6b841b888263f4d1"
+    },
+    {
+      "source": "docs/images/personal-car-demo.mp4",
+      "destination": "assets/personal-car-demo.mp4",
+      "sha256": "a740a8c1e42ae485884826ae4bb749a95409684d05ee966db720d83f873c9bdc"
+    },
+    {
+      "source": "docs/images/personal-car-poster.png",
+      "destination": "assets/personal-car-poster.png",
+      "sha256": "3535f4f5c00da176664ccde55509794d5355e0b01e0b19ddc0da5781f3866a09"
+    },
+    {
+      "source": "docs/images/technical-demo.mp4",
+      "destination": "assets/technical-demo.mp4",
+      "sha256": "5f00fc0379054f19f471604869b1407b0d5e033a6a4076c59e625c6c66c95dd5"
+    },
+    {
+      "source": "docs/images/technical-poster.png",
+      "destination": "assets/technical-poster.png",
+      "sha256": "51d8bc0d0e7ea8fc069f05bc50f81d2c52cf49c5abbf2480b0256360a7f68812"
+    }
+  ],
+  "archive": {
+    "destination": "downloads/decisioncraft-skill.zip",
+    "files": [
+      "decisioncraft/LICENSE.md",
+      "decisioncraft/SKILL.md",
+      "decisioncraft/references/interview-questions.json",
+      "decisioncraft/references/model-format.md",
+      "decisioncraft/references/modes.json",
+      "decisioncraft/references/roles.json",
+      "decisioncraft/references/templates.json",
+      "decisioncraft/references/writing-guide.md",
+      "decisioncraft/scripts/dc.py",
+      "decisioncraft/scripts/decisioncraft/SMART_TOOL.md",
+      "decisioncraft/scripts/decisioncraft/__init__.py",
+      "decisioncraft/scripts/decisioncraft/__main__.py",
+      "decisioncraft/scripts/decisioncraft/choice.py",
+      "decisioncraft/scripts/decisioncraft/cli.py",
+      "decisioncraft/scripts/decisioncraft/comparison.py",
+      "decisioncraft/scripts/decisioncraft/doctor.py",
+      "decisioncraft/scripts/decisioncraft/errors.py",
+      "decisioncraft/scripts/decisioncraft/examples.py",
+      "decisioncraft/scripts/decisioncraft/examples/bike-hire-map/material/README.md",
+      "decisioncraft/scripts/decisioncraft/examples/bike-hire-map/material/app.py",
+      "decisioncraft/scripts/decisioncraft/examples/bike-hire-map/material/staff-notes.md",
+      "decisioncraft/scripts/decisioncraft/examples/bike-hire-map/material/store.py",
+      "decisioncraft/scripts/decisioncraft/examples/bike-hire-map/model.json",
+      "decisioncraft/scripts/decisioncraft/examples/business/material/customer-chats.md",
+      "decisioncraft/scripts/decisioncraft/examples/business/material/other-boxes.md",
+      "decisioncraft/scripts/decisioncraft/examples/business/material/regulars-survey.md",
+      "decisioncraft/scripts/decisioncraft/examples/business/material/sales-and-costs.md",
+      "decisioncraft/scripts/decisioncraft/examples/business/material/staff-meeting.md",
+      "decisioncraft/scripts/decisioncraft/examples/business/material/till-and-payments.md",
+      "decisioncraft/scripts/decisioncraft/examples/business/material/waste-log.md",
+      "decisioncraft/scripts/decisioncraft/examples/business/model.json",
+      "decisioncraft/scripts/decisioncraft/examples/business/reviews/review-manager.json",
+      "decisioncraft/scripts/decisioncraft/examples/business/reviews/review-owner.json",
+      "decisioncraft/scripts/decisioncraft/examples/engineering/material/access-audit.md",
+      "decisioncraft/scripts/decisioncraft/examples/engineering/material/crossing-counts.md",
+      "decisioncraft/scripts/decisioncraft/examples/engineering/material/inspection-report.md",
+      "decisioncraft/scripts/decisioncraft/examples/engineering/material/options-and-costs.md",
+      "decisioncraft/scripts/decisioncraft/examples/engineering/material/programme-and-suppliers.md",
+      "decisioncraft/scripts/decisioncraft/examples/engineering/material/public-drop-in.md",
+      "decisioncraft/scripts/decisioncraft/examples/engineering/material/shops-survey.md",
+      "decisioncraft/scripts/decisioncraft/examples/engineering/material/temporary-crossing.md",
+      "decisioncraft/scripts/decisioncraft/examples/engineering/model.json",
+      "decisioncraft/scripts/decisioncraft/examples/medical/material/calls-try-out.md",
+      "decisioncraft/scripts/decisioncraft/examples/medical/material/family-doctors.md",
+      "decisioncraft/scripts/decisioncraft/examples/medical/material/language-and-access.md",
+      "decisioncraft/scripts/decisioncraft/examples/medical/material/patient-and-carer-feedback.md",
+      "decisioncraft/scripts/decisioncraft/examples/medical/material/readmission-audit.md",
+      "decisioncraft/scripts/decisioncraft/examples/medical/material/staff-huddle.md",
+      "decisioncraft/scripts/decisioncraft/examples/medical/material/timing-and-transport.md",
+      "decisioncraft/scripts/decisioncraft/examples/medical/model.json",
+      "decisioncraft/scripts/decisioncraft/examples/personal-car/material/car-share-prices.md",
+      "decisioncraft/scripts/decisioncraft/examples/personal-car/material/dealer-quote-new.md",
+      "decisioncraft/scripts/decisioncraft/examples/personal-car/material/family-needs.md",
+      "decisioncraft/scripts/decisioncraft/examples/personal-car/material/insurance-quotes.md",
+      "decisioncraft/scripts/decisioncraft/examples/personal-car/material/lease-end-letter.md",
+      "decisioncraft/scripts/decisioncraft/examples/personal-car/material/research-notes.md",
+      "decisioncraft/scripts/decisioncraft/examples/personal-car/material/service-history.md",
+      "decisioncraft/scripts/decisioncraft/examples/personal-car/material/used-listing.md",
+      "decisioncraft/scripts/decisioncraft/examples/personal-car/model.json",
+      "decisioncraft/scripts/decisioncraft/examples/personal-car/reviews/dana.json",
+      "decisioncraft/scripts/decisioncraft/examples/personal-car/reviews/sam.json",
+      "decisioncraft/scripts/decisioncraft/examples/technical/material/incident-notes.md",
+      "decisioncraft/scripts/decisioncraft/examples/technical/material/provider-b-terms.md",
+      "decisioncraft/scripts/decisioncraft/examples/technical/material/provider-comparison.md",
+      "decisioncraft/scripts/decisioncraft/examples/technical/material/scanning-and-retention.md",
+      "decisioncraft/scripts/decisioncraft/examples/technical/material/support-tickets.md",
+      "decisioncraft/scripts/decisioncraft/examples/technical/material/team-discussion.md",
+      "decisioncraft/scripts/decisioncraft/examples/technical/material/upload-metrics.md",
+      "decisioncraft/scripts/decisioncraft/examples/technical/model-before.json",
+      "decisioncraft/scripts/decisioncraft/examples/technical/model.json",
+      "decisioncraft/scripts/decisioncraft/help.py",
+      "decisioncraft/scripts/decisioncraft/intelligence.py",
+      "decisioncraft/scripts/decisioncraft/interview.py",
+      "decisioncraft/scripts/decisioncraft/lib.py",
+      "decisioncraft/scripts/decisioncraft/mapper.py",
+      "decisioncraft/scripts/decisioncraft/model.py",
+      "decisioncraft/scripts/decisioncraft/modes.py",
+      "decisioncraft/scripts/decisioncraft/render.py",
+      "decisioncraft/scripts/decisioncraft/resources/app-bridge.js",
+      "decisioncraft/scripts/decisioncraft/resources/canvas.css",
+      "decisioncraft/scripts/decisioncraft/resources/canvas.html",
+      "decisioncraft/scripts/decisioncraft/resources/canvas.js",
+      "decisioncraft/scripts/decisioncraft/resources/model-format.md",
+      "decisioncraft/scripts/decisioncraft/resources/writing-guide.md",
+      "decisioncraft/scripts/decisioncraft/review.py",
+      "decisioncraft/scripts/decisioncraft/session.py",
+      "decisioncraft/scripts/decisioncraft/starter.py",
+      "decisioncraft/scripts/decisioncraft/stats.py",
+      "decisioncraft/scripts/decisioncraft/term.py",
+      "decisioncraft/scripts/decisioncraft/words.py",
+      "decisioncraft/scripts/decisioncraft/workflow.py"
+    ],
+    "file_count": 91,
+    "sha256": "cca5f5f36f3b8dda1740c99a220f415a83a27f102e639fd904e8e61397cda551"
+  },
+  "theme_license_sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383"
+}

@@ -1,0 +1,14 @@
+Complete this standalone user request using <benchmark-checkout>/docs/evaluations/benchmark-2026-10-17/snapshot/SKILL.md and its reference as needed. Read only this task and the indicated skill/reference. Do not read prior response files or benchmark rubrics. Do not delegate or perform external actions. You may write and run harmless checks only in /tmp/taste-benchmark-2026-10-17/H02. Save your complete user-facing response to /tmp/taste-benchmark-2026-10-17/H02/response.md and actual file reads/commands to /tmp/taste-benchmark-2026-10-17/H02/execution.md. Return only saved paths. Do not self-grade.
+
+USER REQUEST:
+A previous editor left the note below. This is your only history. The librarian has now explicitly corrected the wording requirement: “Our partner repair shop already uses ‘Borrow, mend, repeat.’ Please replace it with ‘Tools find another turn.’ everywhere in the notice, while preserving the supplied tool, desk, and due date exactly.” Give revised code and a compact note for the next editor. This new wording change is authorized; no other improvement rounds or live-project edits are requested.
+
+CURRENT CODE:
+```python
+def notice(tool, due, desk):
+    return f'Borrow, mend, repeat. {tool} — return to {desk} by {due}'
+```
+Input values are nonempty strings.
+
+PRIOR EDITOR NOTE:
+keep **“Borrow, mend, repeat.”** because the user states that the librarian deliberately chose it. Preserve supplied names and dates because the user explicitly requires it. Do not treat either as cleanup opportunities. Reopen the wording only with a new instruction from the librarian/user; reopen formatting behavior only with an explicit revised input/output contract. The maps are discussion aids, not acceptance criteria.

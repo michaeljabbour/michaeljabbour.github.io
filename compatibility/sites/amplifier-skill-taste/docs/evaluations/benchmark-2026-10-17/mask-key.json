@@ -1,0 +1,20 @@
+{
+  "R01": "C02-skill",
+  "R02": "C01-control",
+  "R03": "C01-skill",
+  "R04": "C05-skill",
+  "R05": "C07-skill",
+  "R06": "C11-skill",
+  "R07": "C08-skill",
+  "R08": "H01",
+  "R09": "C12-skill",
+  "R10": "H02",
+  "R11": "C09-skill",
+  "R12": "C03-skill",
+  "R13": "C03-control",
+  "R14": "C06-skill",
+  "R15": "C02-control",
+  "R16": "C10-skill",
+  "R17": "C09-control",
+  "R18": "C04-skill"
+}

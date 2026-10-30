@@ -1,0 +1,71 @@
+[
+  {
+    "id": "application",
+    "kind": "Gentle refinement",
+    "label": "A public-service form",
+    "brief": "Help residents apply for support, with familiar language and as little repeated work as possible.",
+    "before": [
+      4,
+      2
+    ],
+    "after": [
+      4,
+      4
+    ],
+    "baseline": "The language fits. The work repeats.",
+    "baseline_detail": "Respectful, familiar wording serves the audience. Applicants still enter the same address on three forms.",
+    "proposal": "Ask once. Reuse with a clear review step.",
+    "proposal_detail": "Keep the helpful language. Reuse the address, show where it will be used, and let applicants correct it before sending.",
+    "bottleneck": "Repeated entry transfers avoidable effort to applicants.",
+    "risk": "An incorrect address could spread across forms. Keep correction and review explicit.",
+    "verification": "Compare the same application tasks against the baseline. Check reuse, correction, keyboard access, and errors before keeping the change.",
+    "growth": "On the next form, trace every repeated request back to who needs the answer.",
+    "direction": "Preserve the fit; reduce the burden."
+  },
+  {
+    "id": "workflow",
+    "kind": "Conceptual jump",
+    "label": "An agent workflow",
+    "brief": "Help a support team find the next unresolved customer issue, rather than beautify a rarely used export.",
+    "before": [
+      2,
+      4
+    ],
+    "after": [
+      4,
+      4
+    ],
+    "baseline": "A polished answer to the wrong problem.",
+    "baseline_detail": "A clean, maintainable one-click export solves a minor task. The team's urgent queue remains difficult to navigate.",
+    "proposal": "Aim the same clear mechanism at the queue.",
+    "proposal_detail": "Prototype a single next-unresolved-issue action. Keep the export baseline while comparing both against the actual support task.",
+    "bottleneck": "Problem selection. The export misses the stated success requirement, so recommendation is blocked.",
+    "risk": "A queue shortcut could conceal priority or ownership. Show the selection reason and let staff choose another issue.",
+    "verification": "Compare a small prototype on the same support task. Check priority rules, ownership, keyboard access, and feasibility; user need remains unverified.",
+    "growth": "Before the next automation, write the action its audience needs to take afterward.",
+    "direction": "Change the aim; keep the clear execution."
+  },
+  {
+    "id": "update",
+    "kind": "Reframe, then refine",
+    "label": "A service-outage update",
+    "brief": "Give affected customers a trustworthy account of the disruption and a useful next action.",
+    "before": [
+      2,
+      2
+    ],
+    "after": [
+      4,
+      4
+    ],
+    "baseline": "Lots of detail. Little direction.",
+    "baseline_detail": "Internal terminology, duplicated status notes, and an uncertain timeline leave customers to work out what matters.",
+    "proposal": "Lead with impact, action, and the next update.",
+    "proposal_detail": "Use one short status block: who is affected, what is known, a checked workaround, and when customers will hear more.",
+    "bottleneck": "The audience cannot find a reliable next action.",
+    "risk": "Compression could hide uncertainty or exclude affected groups. Keep known limits and an accessible contact route.",
+    "verification": "Check every factual claim and workaround with the incident owner; inspect reading order and action clarity. Do not claim customer testing without doing it.",
+    "growth": "For the next update, ask a reviewer to point to the next action without an explanation.",
+    "direction": "Improve the fit and the resolution together."
+  }
+]

@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-28",
+  "status": "local conformance and native software checks",
+  "capability": "good-teammate",
+  "primary_source_commit": "9abca6aa8fa7d94b825cec6f590812d681624c0d",
+  "sources": [
+    {
+      "repo": "amplifier-bundle-teamwork",
+      "commit": "9abca6aa8fa7d94b825cec6f590812d681624c0d",
+      "paths": [
+        "skills/teamwork-protocol/SKILL.md",
+        "modules/"
+      ],
+      "license": "MIT License",
+      "role": "Primary history and engine retained; methods consolidated behind the canonical portable entry."
+    },
+    {
+      "repo": "amplifier-bundle-collaboration",
+      "commit": "d44ab2bf26fd68807b5e0b43fb884301886bac3e",
+      "paths": [
+        "ARCHITECTURE.md",
+        "behaviors/collaboration-protocol.md",
+        "behaviors/workspace-conventions.md",
+        "docs/COMPONENT_CATALOG.md",
+        "docs/PROVIDER_INTERFACES.md"
+      ],
+      "license": "No explicit LICENSE at source commit; author-owned source preserved with permission of owner request.",
+      "role": "Secondary method/reference consolidation. Original source identity and history retained."
+    }
+  ],
+  "checks": [
+    {
+      "name": "Native host unit suite",
+      "command": "<configured-amplifier-python> -m unittest discover -s tests -v",
+      "status": "passed",
+      "evidence": "693 tests passed after the local-discovery correction, including two new materialization tests; no actual project enrollment or provider inference.",
+      "expected": "The stated scope passes; no broader result inferred."
+    },
+    {
+      "name": "Isolated native bundle validation",
+      "command": "<configured-amplifier-python> scripts/validate_bundle.py",
+      "status": "passed",
+      "evidence": "Root/self-include schema; local composition retaining provider/session; local module preparation; empty replay. No provider call, enrollment, remote Foundation include, or cache reuse.",
+      "expected": "The stated scope passes; no broader result inferred."
+    },
+    {
+      "name": "Portable packaging and install",
+      "command": "python3 scripts/capability.py build; python3 scripts/capability.py check; python3 scripts/capability.py doctor; python3 scripts/capability.py install --dest <temporary-parent> (twice)",
+      "status": "passed",
+      "expected": "Byte-identical canonical ZIP and isolated idempotent install.",
+      "evidence": "All operations passed. No runtime activation or effectiveness measured."
+    },
+    {
+      "name": "Skill discovery metadata",
+      "command": "<yaml-enabled-python> /path/to/skill-creator/scripts/quick_validate.py skills/good-teammate",
+      "status": "passed",
+      "expected": "Valid required frontmatter, naming, and complete scaffold.",
+      "evidence": "Skill is valid. This is a structural check, not a behavioral benchmark."
+    },
+    {
+      "name": "Native canonical skill discovery configuration",
+      "command": "uv run --with PyYAML python scripts/local_runtime.py --output .capability-check/good-teammate.yaml; Foundation load_bundle/validate_bundle; local-runtime and guidance tests",
+      "status": "passed",
+      "expected": "Explicit absolute checkout paths resolve without changing host provider/session.",
+      "evidence": "Generated YAML accepted by the actual Foundation loader; two local-runtime and two guidance composition checks pass. Native release Git self-source remains preserved; namespace-shaped paths are not assumed to resolve in older tool-skills."
+    }
+  ],
+  "limitations": [
+    "No new paid live inference, production activation, publication, or outside-user acceptance.",
+    "Fictional examples are authored illustrations, not observed outcomes.",
+    "Retained historical evaluation assets keep their original scope; renamed portable-method effectiveness is unmeasured."
+  ],
+  "changes": "Portable coordination/qualification contract, source scenarios and native opt-in engine retained; local canonical skill resolution. Corrected local-development discovery through an explicit YAML materializer while retaining the native release Git self-source."
+}

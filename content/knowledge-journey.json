@@ -1,0 +1,82 @@
+{
+  "status": "Proposed navigation through existing public capabilities; not an implemented automated pipeline",
+  "stages": [
+    {
+      "id": "explore",
+      "title": "Explore",
+      "question": "What is worth investigating?",
+      "description": "Find the question worth pursuing and expose what is still unknown.",
+      "output": "Bounded question, unknowns and success criteria",
+      "capability_ids": [
+        "unknowns",
+        "research"
+      ]
+    },
+    {
+      "id": "curate",
+      "title": "Curate",
+      "question": "Which sources can we inspect?",
+      "description": "Collect inspectable evidence and record what was and was not covered.",
+      "output": "Source manifest, exact spans, provenance and coverage limits",
+      "capability_ids": [
+        "research",
+        "long-read"
+      ]
+    },
+    {
+      "id": "connect",
+      "title": "Connect",
+      "question": "How do the claims fit together?",
+      "description": "Organize claims, relations and contradictions without erasing source identity.",
+      "output": "Connected claim/evidence map with contradiction and revision history",
+      "capability_ids": [
+        "knowledge",
+        "memory"
+      ]
+    },
+    {
+      "id": "test",
+      "title": "Test",
+      "question": "What would challenge this conclusion?",
+      "description": "Try to falsify claims and check whether each conclusion is actually supported.",
+      "output": "Supported, contradicted and unknown claims; traps, nulls and limitations retained",
+      "capability_ids": [
+        "research"
+      ]
+    },
+    {
+      "id": "create",
+      "title": "Create",
+      "question": "What should this become?",
+      "description": "Choose a form and turn tested material into a reviewable original artifact.",
+      "output": "Article, paper, talk, image, film or story with traceable evidence",
+      "capability_ids": [
+        "research",
+        "imagen-studio",
+        "sizzle"
+      ]
+    },
+    {
+      "id": "refine",
+      "title": "Refine",
+      "question": "What would make the work clearer?",
+      "description": "Improve clarity and form while preserving facts, citations, uncertainty and author control.",
+      "output": "Same-brief comparison, fidelity checks and human keep/undo",
+      "capability_ids": [
+        "taste-elegance",
+        "ux-ergonomics"
+      ]
+    },
+    {
+      "id": "share",
+      "title": "Share",
+      "question": "What can someone else build on?",
+      "description": "Package a reproducible handoff and choose deliberately what to publish or retain.",
+      "output": "Reviewable handoff or explicitly approved publication; retained learning receipt",
+      "capability_ids": [
+        "project-handoff",
+        "memory"
+      ]
+    }
+  ]
+}

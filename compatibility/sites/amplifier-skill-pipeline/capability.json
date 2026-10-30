@@ -1,0 +1,219 @@
+{
+  "id": "pipeline",
+  "display_name": "Pipeline",
+  "kind": "skill",
+  "promise": "Turn a project\u2019s actual build and release needs into a reviewable pipeline across CI platforms.",
+  "audience": "Developers creating or migrating CI/CD workflows.",
+  "trigger": "Create, audit, repair or migrate a build/test/release pipeline.",
+  "skill_path": "skills/pipeline",
+  "modes": [
+    {
+      "name": "Scout",
+      "when": "Project commands and deployment boundaries are unclear.",
+      "output": "An evidenced project profile."
+    },
+    {
+      "name": "Design",
+      "when": "The project profile is known.",
+      "output": "A platform-neutral APR with dependencies, secrets and approval boundaries."
+    },
+    {
+      "name": "Generate",
+      "when": "A target CI platform is selected.",
+      "output": "Native config plus validation evidence and operational limits."
+    }
+  ],
+  "examples": [
+    {
+      "title": "Build a wheel without publishing it",
+      "brief": "Use Pipeline to inspect a fictional Python project and propose a test-and-wheel pipeline for GitHub Actions. Name the real commands and artifact consumer. Include timeouts and minimal permissions. Do not add deployment, secrets or publishing.",
+      "before": "A platform migration copies YAML syntax but drops release approvals and artifact dependencies.",
+      "after": "An APR and native diff preserve triggers, jobs, approvals and consumers.",
+      "why": "A shared intermediate representation makes consequential drift reviewable.",
+      "fictional": true
+    }
+  ],
+  "boundaries": [
+    "Structural APR validation is not native syntax validation, a green CI run or deployment acceptance."
+  ],
+  "install_commands": [
+    "python3 scripts/capability.py install --dest ~/.agents/skills"
+  ],
+  "runtime_install_commands": [],
+  "verification": [
+    {
+      "name": "Functional acceptance",
+      "command": "python3 scripts/functional_gate.py",
+      "expected": "Supplied fictional tasks exercise actual mechanisms and failure boundaries.",
+      "status": "passed",
+      "evidence": "3 structural APR tests passed; native CI syntax/runner/deployment acceptance remains separate."
+    },
+    {
+      "name": "Native host acceptance",
+      "command": "See retained source integration guide",
+      "expected": "Actual provider/host/desktop/daemon/runner acceptance for the selected adapter.",
+      "status": "not-run",
+      "evidence": "No live model, real desktop transaction, invitation, deployment or production data migration was performed by this functional baseline."
+    }
+  ],
+  "sources": [
+    {
+      "repo": "amplifier-bundle-cicd",
+      "commit": "65334bbf3ec152893759f512d8572ee1bbf9a3bc",
+      "paths": [
+        "context/schemas/apr-schema.md",
+        "context/schemas/project-profile.md",
+        "context/philosophy.md",
+        "agents",
+        "modules",
+        "context"
+      ],
+      "license": "MIT",
+      "role": "Primary retained owner history, mechanisms and records; portable method consolidates the listed entry points."
+    }
+  ],
+  "consolidation": [
+    "One portable method entry with mode references; original native engines, agents and records retained as optional adapters."
+  ],
+  "docs": [
+    "docs/CONSOLIDATION.md"
+  ],
+  "publication_status": "Installation and evidence scopes are documented below.",
+  "marketing": {
+    "headline": "Build the pipeline your project actually needs.",
+    "lead": "For developers creating, repairing or moving CI. Pipeline starts with your real commands and artifact consumers, makes job dependencies reviewable and then generates configuration for the selected platform.",
+    "benefits": [
+      {
+        "title": "Start with working commands",
+        "body": "Read manifests, lockfiles and existing tests before adding a job."
+      },
+      {
+        "title": "See dependencies before syntax",
+        "body": "Use the optional abstract representation to review stages, artifacts, timeouts and secret names across platforms."
+      },
+      {
+        "title": "Keep release boundaries explicit",
+        "body": "Separate a build, a green CI run and an approved deployment so generation does not silently publish anything."
+      }
+    ],
+    "walkthrough": [
+      {
+        "title": "Scout the project",
+        "detail": "Identify supported build and test commands, runtime versions, consumers and the current release path."
+      },
+      {
+        "title": "Review the design",
+        "detail": "Describe jobs and dependencies. Use the APR checker for cycles, missing references, timeouts and undeclared secrets."
+      },
+      {
+        "title": "Generate and validate",
+        "detail": "Render native configuration for GitHub Actions, GitLab CI or Azure DevOps, then use that platform\u2019s validator and a disposable run."
+      }
+    ],
+    "use_when": [
+      "You need CI for an existing project with real build and test commands.",
+      "You are migrating between supported CI platforms.",
+      "A pipeline needs a dependency, permission or release-boundary audit."
+    ],
+    "not_for": [
+      "Deploying because someone asked for a build.",
+      "Treating the APR checker as a validator for arbitrary native YAML."
+    ],
+    "quickstart_prompt": "Use Pipeline to inspect a fictional Python project and propose a test-and-wheel pipeline for GitHub Actions. Name the real commands and artifact consumer. Include timeouts and minimal permissions. Do not add deployment, secrets or publishing.",
+    "output_preview": "Proposed jobs\nTest \u2192 supported Python versions, actual test command, timeout\nBuild \u2192 waits for Test, creates a wheel, retains the artifact\n\nPermissions: read source; no release credential required\nTrigger: review for pull-request trust boundary\nNext check: native YAML validation and a disposable branch run\nDeployment: outside this requested pipeline",
+    "example_note": "Fictional pipeline design. It is a review outline, not executable APR or a successful CI run.",
+    "install_notes": [
+      "Python 3.11 or later is required by the portable install/build helper. The installed method runs through your agent host.",
+      "Install the portable skill and stdlib APR checker without a model key.",
+      "Platform references are loaded as needed; the actual CI service and runner remain separate.",
+      "Keep secret values out of the design; name only the required secrets."
+    ],
+    "proof_summary": "The packaged APR checker exercises structural reference and cycle failures. Generated configuration still needs native validation, a real run and separate deployment acceptance.",
+    "next_step": "Point it at one project and ask for a build-and-test plan before changing CI triggers."
+  },
+  "repository_url": "https://github.com/michaeljabbour/amplifier-capability-pipeline",
+  "film": {
+    "file": "pipeline-film",
+    "seconds": 72,
+    "heading": "A build is not a release.",
+    "blurb": "In 72 seconds, Pell the pelican drum major grabs a template, and the confetti cannon fires a release nobody asked for. Pipeline starts from the commands your project already runs, maps the order before any syntax, checks the map for loops, missing time limits and undeclared secrets, then writes the file for your platform with no publish step. Captions are on the player; a transcript is below.",
+    "note": "The project, pebblecount, is a fictional example. The film shows how the skill behaves; it does not report results."
+  },
+  "name": "amplifier-capability-pipeline",
+  "legacy_names": [
+    "amplifier-skill-pipeline",
+    "pipeline"
+  ],
+  "contract_version": "amplifier-capability/v1",
+  "version": null,
+  "version_basis": "No release version recorded; installer requires a full Git revision pin.",
+  "engine": "LLM",
+  "engine_components": {
+    "caller_method": "LLM"
+  },
+  "surfaces": [
+    "agent-skills",
+    "amplifier-bundle"
+  ],
+  "portable_method": {
+    "name": "pipeline",
+    "path": "skills/pipeline",
+    "include": [
+      "."
+    ],
+    "contract": "Agent Skills directory; caller applies the method; no independent execution loop is installed."
+  },
+  "interfaces": {
+    "portable": {
+      "input": "Caller task and explicitly authorized context",
+      "output": "Turn a project\u2019s actual build and release needs into a reviewable pipeline across CI platforms.",
+      "failure": "Report insufficient evidence, unsupported context or host limitation; never turn discovery into an execution claim."
+    },
+    "native": {
+      "distribution": null,
+      "entrypoints": {},
+      "docs": [
+        "docs/CONSOLIDATION.md"
+      ],
+      "status": "Existing declared entrypoints preserved; runtime signatures, service access and installation tests remain separate evidence."
+    },
+    "host_adapters": {
+      "amplifier_bundle": "bundle.md",
+      "grants_autonomy": false
+    }
+  },
+  "permissions": {
+    "installation": {
+      "network": false,
+      "executes_capability_code": false,
+      "writes": [
+        "Selected discovery folders",
+        ".capability-state transaction backups"
+      ],
+      "grants_runtime_permissions": false
+    },
+    "runtime": {
+      "status": "Host/caller authorizes each operation; installation is not a tool allowlist or standing approval.",
+      "declared_boundaries": [
+        "Structural APR validation is not native syntax validation, a green CI run or deployment acceptance."
+      ]
+    },
+    "secret_names": {
+      "discovery_requires": [],
+      "native_runtime_inventory": "See native documentation; no credentials are bundled or inferred."
+    }
+  },
+  "dataflow": {
+    "installation": "Read pinned tracked portable source and copy locally with SHA-256 receipts. No source text is transmitted.",
+    "method": "Caller supplies authorized context; existing promise and boundaries govern output.",
+    "native_runtime": "Provider/network/storage flows are owned by native interfaces and host authorization; these files do not enable them."
+  },
+  "source_policy": {
+    "revision": "Explicit full40-character Git commit required at installation; never infer latest.",
+    "repository_rename": "Public identity may change; skill folder, imports, entrypoints, tool IDs and schemas remain stable.",
+    "research": ".research/market remains local and ignored; AGENTS governs refresh."
+  },
+  "repository_aliases": [
+    "https://github.com/michaeljabbour/amplifier-skill-pipeline"
+  ]
+}

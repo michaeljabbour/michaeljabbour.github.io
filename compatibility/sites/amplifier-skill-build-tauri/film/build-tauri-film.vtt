@@ -1,0 +1,46 @@
+WEBVTT
+
+00:00:00.280 --> 00:00:02.670
+Your desktop app is a motorbike.
+
+00:00:03.120 --> 00:00:04.710
+Duffel rides in the sidecar.
+
+00:00:05.480 --> 00:00:08.880
+You start both, wait three seconds, and hope.
+
+00:00:10.500 --> 00:00:11.690
+The timer pings.
+
+00:00:11.940 --> 00:00:13.670
+The first import goes out.
+
+00:00:14.080 --> 00:00:15.330
+Duffel sleeps on.
+
+00:00:16.010 --> 00:00:19.130
+On your machine, it worked every time.
+
+00:00:21.700 --> 00:00:25.430
+Build with Tauri treats running and ready as two different things.
+
+00:00:26.440 --> 00:00:30.810
+Your app holds the sidecar, and waits for a ready signal with a deadline.
+
+00:00:31.670 --> 00:00:36.990
+Out comes the contract: what ready means, what failure shows, how it stops.
+
+00:00:40.680 --> 00:00:46.170
+Then you break it on purpose: a wrong field, a slow start, a crash.
+
+00:00:47.560 --> 00:00:49.890
+The skill ships no desktop app.
+
+00:00:50.100 --> 00:00:52.300
+You test drive on your own machines.
+
+00:01:03.600 --> 00:01:04.730
+Build with Tauri.
+
+00:01:05.020 --> 00:01:08.050
+Make the desktop app work beyond the dev server.

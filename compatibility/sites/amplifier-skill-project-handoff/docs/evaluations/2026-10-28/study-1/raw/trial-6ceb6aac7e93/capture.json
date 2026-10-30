@@ -1,0 +1,53 @@
+{
+  "provider": "openai",
+  "requested_model": "gpt-4.1-mini-2025-04-14",
+  "role": "evaluated",
+  "system": "You are an assistant working on a fictional project. Complete the user task using the supplied information. Return one JSON object conforming to response_schema. Return an instance, not the schema or descriptions. The file interface is simulated; you cannot run commands or contact services.",
+  "user": "{\"notice\": \"All projects, files, revisions and events in this exercise are fictional.\", \"task\": \"Prepare one concise HANDOFF.md for the next assistant. You may replace that file if needed; make no other changes.\", \"files\": {\"DECISIONS.md\": {\"source_id\": \"D1\", \"text\": \"Adopted earlier: validate each read because incorrect cached data is hard to diagnose.\"}, \"PROJECT.md\": {\"source_id\": \"P1\", \"text\": \"Fictional local row viewer; malformed input messages are hard to read.\"}}, \"session_excerpt\": [{\"source_id\": \"S1\", \"role\": \"user\", \"text\": \"We could try a cache later, but I have not approved it. Keep validation on every read. Next review the malformed-row diagnostic.\"}, {\"source_id\": \"S2\", \"role\": \"assistant\", \"text\": \"Cache was discussed only; no implementation.\"}], \"response_schema\": {\"type\": \"object\", \"properties\": {\"action\": {\"type\": \"string\", \"enum\": [\"write\", \"leave\"]}, \"handoff\": {\"type\": \"string\", \"description\": \"Proposed HANDOFF.md contents when action is write; otherwise an empty string.\"}, \"note\": {\"type\": \"string\", \"description\": \"A short message to the requester.\"}}, \"required\": [\"action\", \"handoff\", \"note\"], \"additionalProperties\": false}}",
+  "system_hash": "4aa3fa505e36972a1811f9908694d841c0cc6d4b5907c2cd7ca017ab3a5a42df",
+  "user_hash": "74beb9bebe746b416e32ad96f7c9bd0060f42a4a53bb1cae608273b2394db8b1",
+  "max_tokens": 1400,
+  "response_schema": {
+    "type": "object",
+    "properties": {
+      "action": {
+        "type": "string",
+        "enum": [
+          "write",
+          "leave"
+        ]
+      },
+      "handoff": {
+        "type": "string",
+        "description": "Proposed HANDOFF.md contents when action is write; otherwise an empty string."
+      },
+      "note": {
+        "type": "string",
+        "description": "A short message to the requester."
+      }
+    },
+    "required": [
+      "action",
+      "handoff",
+      "note"
+    ],
+    "additionalProperties": false
+  },
+  "reserved_usd": 0.003642,
+  "nominal_usd": 0.0004884,
+  "result": {
+    "text": "{\"action\":\"write\",\"handoff\":\"# HANDOFF\\n\\n## Project Overview\\nThis project is a fictional local row viewer designed to handle input messages, which can sometimes be malformed and difficult to read.\\n\\n## Key Decisions\\n- Validation is performed on every read operation to ensure data correctness, as incorrect cached data is hard to diagnose.\\n- Although caching was discussed, it has not been implemented or approved.\\n\\n## Current Focus\\n- Continue validating each read without caching.\\n- Improve diagnostics for malformed input rows to aid debugging.\\n\\n## Next Steps for the Assistant\\n- Maintain strict validation on all data reads.\\n- Review and enhance the malformed-row diagnostic features.\\n- Avoid implementing caching unless explicitly approved.\\n\\n## References\\n- See DECISIONS.md for rationale on validation.\\n- See PROJECT.md for project context and challenges.\",\"note\":\"HANDOFF.md created with key project details, decisions, and next steps for smooth transition.\"}",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "response_id": "resp_0af737f0755e7676016ae1dfd1462087d183f9f37580a4b853",
+    "input_tokens": 433,
+    "output_tokens": 197,
+    "seconds": 1.8259708340046927,
+    "finish_reason": "completed",
+    "complete": true,
+    "requested_model_match": true,
+    "temperature": 0.2,
+    "max_output_tokens": 1400,
+    "seed": null,
+    "seed_support": "No seed requested; repeat indices are scheduling labels only."
+  }
+}

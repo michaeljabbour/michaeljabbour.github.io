@@ -1,0 +1,386 @@
+# Team Access
+
+See who has access. Apply the roster you intended.
+
+Watch the [72-second film](https://michaeljabbour.github.io/amplifier-tool-team-access/#film): keys handed to whoever knocks, and how one roster file shows who has access before anything changes. The example in it is fictional.
+
+For GitHub repository maintainers. Team Access compares a YAML roster with collaborators and invitations, shows permission drift and applies the changes you authorize through the stable addteam command.
+
+[Explore the site](https://michaeljabbour.github.io/amplifier-tool-team-access/)
+
+## What you get
+
+- **Keep one readable roster.** Use named role groups in team.yaml rather than remembering individual invitations and permission settings.
+- **Review drift before changing access.** Audit or dry-run additions, permission changes and removals before an apply operation.
+- **Use it across repositories.** Reuse a central roster or inspect several repositories while keeping the target repository explicit.
+
+## Start here
+
+```sh
+git clone https://github.com/michaeljabbour/amplifier-tool-team-access.git
+cd amplifier-tool-team-access
+python3 -m venv .venv
+.venv/bin/python -m pip install .
+.venv/bin/addteam --help
+```
+
+The package is installed into the project virtual environment. The native guide below explains configuration and actual operations. Start by inspecting help; no provider or GitHub operation is needed to do that.
+
+## What you need
+
+- The quickstart uses macOS/Linux virtual-environment paths. On Windows, use the corresponding `.venv\Scripts` executables.
+- The native package and command remain addteam.
+- GitHub CLI must be installed and authenticated with access to the selected repository.
+- Start with --help, then audit or dry-run. Applying or syncing changes is a separate consequential action.
+
+## Which commands change things (read before automating)
+
+Several forms of `addteam` are **mutating** and act on the real GitHub repository or account. This is intentional and unchanged; hosts, agents and CI wrappers must treat these as requiring explicit authorization for the exact repository and roster.
+
+| Command | Effect |
+|---------|--------|
+| `addteam` (bare, or with `-r`/`--from`/`--group`) | **Mutates.** Applies the roster immediately: sends invitations, updates permission drift, ensures team memberships, and (if enabled) creates welcome issues. There is no confirmation prompt for additions or permission changes. |
+| `addteam -s` / `--sync` / `--sync-teams` | **Mutates, including removals.** Prompts before removals only when interactive; with `-y`/`--yes`, or non-interactively (`--quiet`, `--json`, piped/CI), removals proceed without a prompt, limited only by the `--max-removals` circuit breaker. |
+| `addteam accept` | **Mutates your GitHub account.** Accepts your pending repository invitations. It asks for confirmation only on an interactive terminal; with `-y`/`--yes` **or when stdin/stdout is not a terminal** (CI, pipes, agent shells) it auto-confirms and accepts every matching invitation. |
+| `addteam -i`, `--init-action`, `--init-multi-repo` | Writes local files (`team.yaml`, workflows). |
+| `addteam -n` / `--dry-run` | Read-only preview of the above. |
+| `addteam -a` / `--audit`, `--report`, `--org` | Read-only (reads GitHub). |
+
+**Recommended workflow:** always preview first, review the output, then run the mutating command only once the exact change is authorized.
+
+```bash
+addteam -n -r owner/repo            # preview what bare `addteam` would do
+addteam -s -n -r owner/repo         # preview a sync, including whether the removal breaker would trip
+addteam accept -n [--from OWNER]    # preview which invitations `accept` would accept
+addteam -a --json -r owner/repo     # machine-readable drift audit (no changes)
+```
+
+Automation guidance: do not run bare `addteam`, `--sync`, or `accept` from an unattended host or agent unless a human has authorized that specific action; the non-interactive auto-confirm behavior means there is no second prompt to catch a mistake. `-n/--dry-run` and `--audit` exist on every path above and are safe defaults. The removal circuit breaker (`--max-removals`) is an operational limit, not an authorization.
+
+## Evidence and limits
+
+Native mocked tests, roster parsing and a clean-wheel entry-point check passed. No real invitations, permission mutations or welcome messages were performed for the release checks.
+
+The worked examples on the site are fictional. They illustrate the output and decisions; they are not user results or measured benefit. See [consolidation and runtime boundaries](docs/CONSOLIDATION.md) for retained interfaces and acceptance scope.
+
+---
+
+## Retained native guide
+
+### addteam
+
+Invite GitHub collaborators from a simple YAML file.
+
+## Install
+
+```bash
+pip install addteam
+```
+
+Or run without installing:
+
+```bash
+uvx addteam
+```
+
+**Prerequisite:** [GitHub CLI](https://cli.github.com/) must be installed and authenticated (`gh auth login`).
+
+## First Run
+
+```bash
+# In your repo directory, create a team.yaml
+addteam --init
+
+# Edit team.yaml with your team members, then run:
+addteam
+```
+
+That's it! Your collaborators will be invited.
+
+### Bootstrapping From an Existing Repo
+
+Already have collaborators on a repo and want a team.yaml that matches?
+
+```bash
+addteam --init --from-current
+```
+
+Groups current collaborators by permission into role buckets (`admins`,
+`maintainers`, `developers`, `triagers`, `readers`), lists pending invitations
+under the right bucket with a `# pending invite` comment (expired invites are
+commented out — uncomment to re-invite), and sets
+`welcome_issue: false`. Review and edit before committing — `--sync` run
+immediately after is a no-op since the file already matches current state.
+
+---
+
+## team.yaml Format
+
+```yaml
+default_permission: push
+
+admins:
+  - alice
+
+developers:
+  - bob
+  - username: charlie
+    name: Charlie Day      # optional display name
+
+reviewers:
+  - eve
+```
+
+`name:` is optional anywhere a `username:` is given — it shows up in
+audit/apply output, `--json`, and addresses welcome issues by name.
+
+Role names map to permissions automatically:
+
+| Role | Permission |
+|------|------------|
+| `admins` | admin |
+| `maintainers` | maintain |
+| `developers`, `contributors`, `contractors` | push |
+| `reviewers`, `readers` | pull |
+| `triagers` | triage |
+
+Unknown keys produce a warning (not silent drops), so a typo like
+`develoeprs:` won't quietly shrink your team.
+
+> Note: `maintain` and `triage` only exist on **organization-owned repos**.
+> On personal repos addteam automatically degrades to push/pull with a
+> warning (never expands access), so one config works everywhere.
+
+## Common Commands
+
+> **Mutating:** bare `addteam` applies changes immediately and `addteam accept` can auto-confirm when non-interactive. Preview with `-n` first; see [Which commands change things](#which-commands-change-things-read-before-automating).
+
+```bash
+addteam                    # invite from local team.yaml  (MUTATES - preview with -n first)
+addteam -n                 # dry-run (preview only)
+addteam -a                 # audit (show drift)
+addteam -s                 # sync (also removes unlisted users, asks first)
+addteam --from org/config  # use team.yaml from another repo
+addteam accept             # accept invitations sent to you (see "Accepting Invitations")
+```
+
+Apply mode also fixes permission drift: if a collaborator exists with the
+wrong permission, it is updated to match team.yaml.
+
+## Accepting Invitations
+
+If you're on the receiving end of invitations from repos that use addteam:
+
+```bash
+addteam accept -n               # preview only (do this first)
+addteam accept                  # list + accept all your pending invitations  (MUTATES)
+addteam accept --from myorg     # only from a specific org/owner               (MUTATES)
+```
+
+`accept` changes your GitHub account. It prompts for confirmation only on an
+interactive terminal; with `--yes`, or whenever stdin/stdout is not a terminal
+(CI, pipes, agent shells), it auto-confirms. Hosts must treat it as requiring
+authorization and run `addteam accept -n` first.
+
+Expired invitations (GitHub auto-expires after 7 days) are listed but can't
+be accepted — ask whoever invited you to re-run `addteam`.
+
+Note: because `accept` is now a command, a local team.yaml literally named
+`accept` must be passed as `addteam -f accept` instead of positionally.
+
+## Central Team Config
+
+Keep one `team.yaml` in a shared repo, apply it anywhere:
+
+```bash
+# Anyone on your team can run this in any repo:
+uvx addteam --from myorg/team-config
+```
+
+(`addteam myorg/team-config` without `--from` still works and means the same
+thing; `--from` is the explicit, less ambiguous spelling. Confusing it with
+`-r owner/repo` — which selects the *target* repo — is a common mistake.)
+
+Apply only one group (e.g. just the leads) to a specific repo:
+
+```bash
+uvx addteam --from myorg/team-config --group maintainers -r myorg/the-repo
+```
+
+The AI summary at the end is perfect for sharing via email or Slack.
+
+## Options
+
+| Flag | Description |
+|------|-------------|
+| `-n, --dry-run` | Preview without making changes |
+| `-s, --sync` | Remove collaborators not in list |
+| `--max-removals N` | With `--sync`: abort/prompt if removals exceed N or a majority (default: 3) |
+| `--allow-mass-removal` | With `--sync`: allow exceeding `--max-removals`/majority |
+| `-a, --audit` | Show drift without making changes |
+| `--fail-on-drift` | With `--audit`: exit 1 when drift is found (CI gates) |
+| `--sync-teams` | With `--sync`: also remove extra members from mapping-form `teams:` |
+| `-r, --repo` | Target a specific repo |
+| `--from` | Fetch team.yaml from another repo |
+| `--from-current` | With `--init`: snapshot current collaborators (and pending invites) into team.yaml |
+| `--group ROLE` | Only apply these role groups (repeatable; never with `--sync` or `--sync-teams`) |
+| `--org NAME` | Report access across every repo in an org |
+| `--repos PATH` | Report access across an explicit owner/repo list, one per line |
+| `--include-forks` | With `--org`: include forked repos in the report |
+| `--json` | Machine-readable output for audit/apply |
+| `--json-out PATH` | Write the run payload to PATH (apply/audit/dry-run only) |
+| `-y, --yes` | Skip confirmation prompts (sync removals) |
+| `-q, --quiet` | Minimal output |
+| `--welcome` / `--no-welcome` | Turn welcome issues on/off for this run (default: off) |
+| `--no-ai` | Skip AI-generated summaries |
+| `--report DIR` | Permission matrix for every repo in a directory |
+| `--csv PATH` | With `--report`: also write a spreadsheet |
+| `--format long/matrix` | With `--report --csv`: row-per-user or grid layout |
+| `--no-names` | With `--report`: skip display-name lookups (faster) |
+
+Exit codes: `0` success · `1` runtime error (or drift with `--fail-on-drift`) · `2` usage error.
+
+### Access Reports
+
+Audit permissions across a whole directory, GitHub org, or explicit repo list:
+
+```bash
+addteam --report ~/dev                       # local git checkouts
+addteam --org myorg                          # every repo in an org (forks skipped)
+addteam --org myorg --include-forks
+addteam --repos repos.txt                    # explicit owner/repo list, one per line
+addteam --report ~/dev --csv access.csv --format matrix
+```
+
+All three sources support `--csv`, `--format long|matrix`, `--no-names`, and
+`--json`. `--org`/`--repos` reports also carry `visibility` and `fork` per
+row; archived repos are included and flagged. Mutually exclusive with each
+other.
+
+### Scripting
+
+```bash
+addteam --audit --json | jq '.drift'
+addteam --audit --fail-on-drift   # CI gate: fail the job on drift
+```
+
+## GitOps Setup
+
+Automatically sync collaborators when team.yaml changes:
+
+```bash
+addteam --init --init-action
+```
+
+This creates:
+- `team.yaml` - your team config
+- `.github/workflows/sync-collaborators.yml` - runs on push
+
+Add a `TEAM_SYNC_TOKEN` secret (PAT with `repo` scope) to your repo.
+
+## Advanced Features
+
+### Expiring Access
+
+```yaml
+contractors:
+  - username: temp-dev
+    permission: push
+    expires: 2027-06-01
+```
+
+Expired users are skipped on apply and removed on `--sync`.
+
+GitHub itself auto-expires a pending invitation after 7 days if the invitee
+never accepts. addteam detects this (separately from the `expires:` date
+above) and automatically re-sends the invite on the next apply. `--audit`
+shows `pending (Nd)` for a live invite's age, or `expired` once GitHub has
+timed it out.
+
+### GitHub Teams (orgs)
+
+```yaml
+teams:
+  - myorg/backend-team
+  - myorg/frontend-team: pull
+  - myorg/platform-team:
+      permission: push
+      members:
+        - alice
+        - bob
+      maintainers:
+        - carol
+```
+
+The scalar forms (bare string, or `team: permission`) only use the team's
+*current* members to derive repo access, same as always. The mapping form
+additionally manages the **team's own membership** on GitHub: `addteam`
+ensures `members`/`maintainers` have the right role (`--audit` reports drift;
+`addteam -s --sync-teams` removes anyone extra, subject to the same
+`--max-removals`/`--allow-mass-removal` circuit breaker, computed per team).
+Requires org-admin or team-maintainer rights; skipped on personal repos.
+
+If a team lookup fails, the affected members are skipped with a warning and
+`--sync` refuses to run — a partial config must never cause mass removals.
+
+### Sync Safety (circuit breaker)
+
+`--sync` removes anyone not listed in team.yaml. A misconfigured file (or an
+API blip) could otherwise strip a whole repo's access at once. By default,
+addteam refuses to remove more than 3 people, or a majority (>50%) of current
+collaborators (when at least 2 would go), in one run:
+
+```bash
+addteam -s                      # blocked if it would remove too many
+addteam -s --max-removals 10    # raise the limit
+addteam -s --allow-mass-removal # explicitly allow a large removal
+addteam -s -n                   # --dry-run always reports whether it would trip
+```
+
+A single removal never trips the breaker — normal confirmation rules apply.
+Interactive runs get a loud warning and an explicit confirm instead of a hard
+abort.
+
+Users removed because their authored `expires:` date has passed do not count
+toward the breaker — they are explicit, authored intent, not unlisted drift —
+and are still removed under the normal confirmation rules even when the
+breaker blocks unlisted removals.
+
+### Machine-Readable Run Output
+
+```bash
+addteam --sync --yes --json-out run.json   # write a report file (in addition to normal output)
+```
+
+The payload mirrors `--json` (independent of it) and includes a `run` metadata
+block (version, UTC timestamp, actor, repo, mode) plus, for sync runs, a
+`circuit_breaker` block with the trip decision. The `--init-action` /
+`--init-multi-repo` GitHub Action scaffolds use it to upload a run artifact and
+post a step summary; PRs touching `team.yaml` get a dry-run plan comment.
+
+### Multi-Repo Management
+
+```bash
+addteam --init-multi-repo
+```
+
+Creates `repos.txt` to sync the same team across multiple repos.
+
+### Welcome Issues
+
+addteam can create a welcome issue for each new collaborator, with an
+AI-generated summary of your repo (requires `OPENAI_API_KEY`,
+`ANTHROPIC_API_KEY`, `GOOGLE_API_KEY`, or `OPENROUTER_API_KEY`).
+
+Welcome issues are off by default. Turn them on per run with `--welcome`,
+or per repo in config:
+
+```yaml
+welcome_issue: true
+```
+
+`--no-welcome` always forces them off, even if config sets `welcome_issue: true`.
+
+## License
+
+MIT

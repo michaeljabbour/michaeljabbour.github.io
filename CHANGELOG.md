@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-30 — Public categories, proposed knowledge journey and verification status
+
+- Keep33 capabilities distinct in a visible grouped category index, preserving the existing seven-stage journey and narration timings.
+- Add a separate proposed curation-to-creation journey using existing public capabilities only; no new capability or automation is claimed.
+- Add an allowlisted public status/report route and public study source list. The owner audit and local working data stay outside this site.
+- Keep published films playable while marking the overview ending-board revision and creative-review limits honestly. Media bytes are unchanged.
+
 ## Homepage category discovery — October 29, 2026
 
 - Put all seven category links directly under the homepage header, before the intro and film.

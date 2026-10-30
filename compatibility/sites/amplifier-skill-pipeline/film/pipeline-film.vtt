@@ -1,0 +1,52 @@
+WEBVTT
+
+00:00:00.300 --> 00:00:01.270
+Meet Pell.
+
+00:00:01.680 --> 00:00:05.790
+Pell runs your checks, in order, whenever the code changes.
+
+00:00:06.590 --> 00:00:07.920
+You ask for a build.
+
+00:00:08.510 --> 00:00:10.860
+Pell grabs a template and blows the whistle.
+
+00:00:11.590 --> 00:00:14.240
+The tests call a command you don’t have.
+
+00:00:14.390 --> 00:00:17.010
+The package ships to the public.
+
+00:00:20.900 --> 00:00:24.190
+Pipeline starts with the commands your project already runs.
+
+00:00:25.520 --> 00:00:28.630
+Then it maps the order before any syntax.
+
+00:00:29.360 --> 00:00:30.850
+Build waits for test.
+
+00:00:31.690 --> 00:00:36.630
+A small checker catches loops, missing time limits and undeclared secrets.
+
+00:00:39.980 --> 00:00:44.310
+Then it writes the file for your platform, with no publish step.
+
+00:00:44.660 --> 00:00:46.050
+You asked for a build.
+
+00:00:48.440 --> 00:00:51.030
+The checker reads the map, not the file.
+
+00:00:51.500 --> 00:00:53.030
+Next comes a trial run.
+
+00:00:53.420 --> 00:00:56.100
+Releasing needs your yes.
+
+00:01:06.040 --> 00:01:06.290
+Pipeline.
+
+00:01:06.760 --> 00:01:09.540
+Build the pipeline your project actually needs.

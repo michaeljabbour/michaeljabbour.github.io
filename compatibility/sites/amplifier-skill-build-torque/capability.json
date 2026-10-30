@@ -1,0 +1,253 @@
+{
+  "id": "build-with-torque",
+  "display_name": "Build with Torque",
+  "kind": "skill",
+  "promise": "Build a domain that still fits the rest of the application.",
+  "audience": "Developers composing domain bundles into a Torque application.",
+  "trigger": "Use when designing a Torque domain, authoring a bundle manifest and logic, wiring events/interfaces, or validating integration and schema changes.",
+  "skill_path": "skills/build-with-torque",
+  "modes": [
+    {
+      "name": "Place",
+      "when": "A domain boundary or dependency is unclear.",
+      "output": "A bundle responsibility map with declared interfaces, events, and optional dependencies."
+    },
+    {
+      "name": "Author",
+      "when": "The domain contract and host are known.",
+      "output": "A manifest/logic/UI slice that fits the scoped data and coordinator contracts."
+    },
+    {
+      "name": "Integrate",
+      "when": "A bundle must join a running app or evolve its data.",
+      "output": "A mount plan, integration checks, migration/rollback evidence, and explicit unknowns."
+    }
+  ],
+  "examples": [
+    {
+      "title": "A task bundle without a cross-domain table join",
+      "brief": "A fictional maintenance app needs task cards that react to asset changes.",
+      "before": "Import the asset bundle directly and query its tables from the task domain.",
+      "after": "Keep task storage scoped; declare the asset dependency and public query contract, subscribe to a past-tense asset event, and test missing optional dependencies.",
+      "why": "The useful boundary is the declared behavior and contract; a shared process does not justify shared private state.",
+      "fictional": true
+    }
+  ],
+  "boundaries": [
+    "Installing the authoring method installs no Torque runtime or npm package.",
+    "Torque framework modules keep their own code ownership, package identities, and lifecycle; they are not all being renamed or retired.",
+    "Registry versions and historical examples are source snapshots. Inspect the installed package contracts before applying them."
+  ],
+  "install_commands": [
+    "python3 scripts/capability.py doctor",
+    "python3 scripts/capability.py install --dest ~/.agents/skills"
+  ],
+  "runtime_install_commands": [
+    "torque --help",
+    "torque validate",
+    "torque doctor"
+  ],
+  "verification": [
+    {
+      "name": "Canonical reference mirror gate",
+      "command": "python3 scripts/sync_skill.py --check",
+      "status": "passed",
+      "evidence": "AI setup, Bundle Authoring, and Registry mirrors match canonical sources plus their recorded source/output hashes.",
+      "expected": "The declared check scope passes without a broader benefit claim."
+    },
+    {
+      "name": "Retained documentation checks",
+      "command": "node --test test/docs.test.js; python -m pytest test/test_phase3_docs.py test/test_phase4_docs.py -q",
+      "status": "passed",
+      "evidence": "47 Node tests and 59 Python tests pass. These verify documentation coverage only; no Torque framework/runtime or app deployment result is claimed.",
+      "expected": "The declared check scope passes without a broader benefit claim."
+    },
+    {
+      "name": "Portable build and clean install",
+      "command": "python3 scripts/capability.py build/check/doctor; install --dest <temporary-parent> twice",
+      "status": "passed",
+      "evidence": "Canonical ZIP bytes, local links, complete method/license, clean install and idempotent reinstall pass. No runtime starts.",
+      "expected": "Conformance only."
+    }
+  ],
+  "sources": [
+    {
+      "repo": "torque",
+      "commit": "5c2cadfdb698170374fa3c6c78291ac1842a99e6",
+      "paths": [
+        "docs/AI_SETUP_PROMPT.md",
+        "docs/BUNDLE_AUTHORING.md",
+        "REGISTRY.md"
+      ],
+      "license": "MIT License",
+      "role": "Primary source history/native execution retained; generated rich references from canonical docs."
+    }
+  ],
+  "consolidation": [
+    {
+      "source": "docs/AI_SETUP_PROMPT.md",
+      "destination": "skills/build-with-torque/references/AI_SETUP_PROMPT.md",
+      "action": "Generated mirror with source/output SHA-256 drift gate; edit canonical source only."
+    },
+    {
+      "source": "docs/BUNDLE_AUTHORING.md",
+      "destination": "skills/build-with-torque/references/BUNDLE_AUTHORING.md",
+      "action": "Generated mirror with source/output SHA-256 drift gate; edit canonical source only."
+    },
+    {
+      "source": "REGISTRY.md",
+      "destination": "skills/build-with-torque/references/REGISTRY.md",
+      "action": "Generated mirror with source/output SHA-256 drift gate; edit canonical source only."
+    }
+  ],
+  "docs": [
+    "docs/INSTALL.md",
+    "docs/MIGRATION.md",
+    "docs/VALIDATION.md",
+    "docs/NATIVE-README.md",
+    "docs/evaluations/2026-10-28/consolidation.json"
+  ],
+  "evidence_summary": "Canonical reference hashes and 106 documentation checks passed. They establish reference coverage, not a deployed framework. Native package availability and app behavior need checking against your installed Torque environment.",
+  "publication_status": "Installation and evidence scopes are documented below.",
+  "marketing": {
+    "headline": "Add a domain without tangling the application.",
+    "lead": "An authoring skill for Torque developers. Give a bundle a clear responsibility, connect it through declared interfaces and events, and plan data changes before they reach an existing store.",
+    "benefits": [
+      {
+        "title": "Keep domains independent",
+        "body": "Own tables inside a bundle and call other domains through declared coordinator interfaces."
+      },
+      {
+        "title": "Make integration inspectable",
+        "body": "Align manifest queries, routes, handlers, events and UI exports with the installed host contracts."
+      },
+      {
+        "title": "Treat data changes deliberately",
+        "body": "Include migration, restart and rollback in the slice instead of assuming hot reload proves readiness."
+      }
+    ],
+    "walkthrough": [
+      {
+        "title": "Place the responsibility",
+        "detail": "Inspect the current mount plan and neighboring bundles; decide whether configuration or a new domain is needed."
+      },
+      {
+        "title": "Author the contract",
+        "detail": "Declare data ownership, named inputs, dependencies, events and degraded behavior."
+      },
+      {
+        "title": "Integrate on an isolated copy",
+        "detail": "Exercise success, invalid input, authorization, missing dependencies, persistence and recovery."
+      }
+    ],
+    "use_when": [
+      "A new domain must join an existing Torque app.",
+      "Two bundles are reaching into each other\u2019s private tables.",
+      "A manifest or schema change needs a migration and rollback plan."
+    ],
+    "not_for": [
+      "The Torque framework, its services or a replacement data layer.",
+      "A promise that historical package versions or private Git URLs are publicly available."
+    ],
+    "quickstart_prompt": "Use Build with Torque to design a maintenance-task bundle. It should react to asset changes without reading another bundle\u2019s private tables. Inspect this host first, then propose its manifest, public interfaces, events and migration checks.",
+    "output_preview": "Fictional bundle: maintenance tasks\nOwns: task records and task state\nDepends on: declared asset query interface\nConsumes: asset.updated with declared payload\nOptional dependency absent: task history still readable\nAcceptance: event replay is idempotent; migration can roll back",
+    "proof_summary": "Canonical reference hashes and 106 documentation checks passed. They establish reference coverage, not a deployed framework. Native package availability and app behavior need checking against your installed Torque environment.",
+    "next_step": "Bring the host mount plan and one domain you want to add.",
+    "example_note": "Fictional worked example. It illustrates the intended output; it is not a measured result or a real customer story.",
+    "install_notes": [
+      "Requires Git and Python 3.11+ for the repository installer. The portable method itself can be read by a compatible agent without a service or provider account.",
+      "The destination is a skills-parent folder. Use the discovery path supported by your agent; ~/.agents/skills is an example, not a universal host setting.",
+      "Keep the complete installed folder, references and license together. Identical reinstall is safe; conflicts are refused. A deliberate --replace keeps a dated backup."
+    ]
+  },
+  "repository_url": "https://github.com/michaeljabbour/amplifier-capability-build-with-torque",
+  "name": "amplifier-capability-build-with-torque",
+  "legacy_names": [
+    "amplifier-skill-build-torque",
+    "build-with-torque"
+  ],
+  "contract_version": "amplifier-capability/v1",
+  "version": null,
+  "version_basis": "No release version recorded; installer requires a full Git revision pin.",
+  "engine": "LLM",
+  "engine_components": {
+    "caller_method": "LLM"
+  },
+  "surfaces": [
+    "agent-skills"
+  ],
+  "portable_method": {
+    "name": "build-with-torque",
+    "path": "skills/build-with-torque",
+    "include": [
+      "."
+    ],
+    "contract": "Agent Skills directory; caller applies the method; no independent execution loop is installed."
+  },
+  "interfaces": {
+    "portable": {
+      "input": "Caller task and explicitly authorized context",
+      "output": "Build a domain that still fits the rest of the application.",
+      "failure": "Report insufficient evidence, unsupported context or host limitation; never turn discovery into an execution claim."
+    },
+    "native": {
+      "distribution": null,
+      "entrypoints": {},
+      "docs": [
+        "docs/INSTALL.md",
+        "docs/MIGRATION.md",
+        "docs/VALIDATION.md",
+        "docs/NATIVE-README.md",
+        "docs/evaluations/2026-10-28/consolidation.json"
+      ],
+      "status": "Existing declared entrypoints preserved; runtime signatures, service access and installation tests remain separate evidence."
+    },
+    "host_adapters": {
+      "amplifier_bundle": null,
+      "grants_autonomy": false
+    }
+  },
+  "permissions": {
+    "installation": {
+      "network": false,
+      "executes_capability_code": false,
+      "writes": [
+        "Selected discovery folders",
+        ".capability-state transaction backups"
+      ],
+      "grants_runtime_permissions": false
+    },
+    "runtime": {
+      "status": "Host/caller authorizes each operation; installation is not a tool allowlist or standing approval.",
+      "declared_boundaries": [
+        "Installing the authoring method installs no Torque runtime or npm package.",
+        "Torque framework modules keep their own code ownership, package identities, and lifecycle; they are not all being renamed or retired.",
+        "Registry versions and historical examples are source snapshots. Inspect the installed package contracts before applying them."
+      ]
+    },
+    "secret_names": {
+      "discovery_requires": [],
+      "native_runtime_inventory": "See native documentation; no credentials are bundled or inferred."
+    }
+  },
+  "dataflow": {
+    "installation": "Read pinned tracked portable source and copy locally with SHA-256 receipts. No source text is transmitted.",
+    "method": "Caller supplies authorized context; existing promise and boundaries govern output.",
+    "native_runtime": "Provider/network/storage flows are owned by native interfaces and host authorization; these files do not enable them."
+  },
+  "source_policy": {
+    "revision": "Explicit full40-character Git commit required at installation; never infer latest.",
+    "repository_rename": "Public identity may change; skill folder, imports, entrypoints, tool IDs and schemas remain stable.",
+    "research": ".research/market remains local and ignored; AGENTS governs refresh."
+  },
+  "film": {
+    "file": "build-torque-film",
+    "seconds": 70,
+    "heading": "Own your tables. Declare the rest.",
+    "blurb": "In 70 seconds, Pockets the raccoon night porter borrows a master key to fetch another floor\u2019s news, and the tasks floor goes dark when the assets floor renames a column. Build with Torque keeps each domain on its own keycard floor: you ask a neighbour through the coordinator on a declared line, react to past-tense events, plan what still works when a neighbour is gone, and try data changes on a mock-up floor with a way back. Captions are on the player; a transcript is below.",
+    "note": "The hotel and its building-maintenance app are a fictional example. The film shows how the skill behaves; it does not report results."
+  },
+  "repository_aliases": [
+    "https://github.com/michaeljabbour/amplifier-skill-build-torque"
+  ]
+}

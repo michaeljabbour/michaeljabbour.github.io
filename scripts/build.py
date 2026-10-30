@@ -8,6 +8,8 @@ import hashlib
 import shutil
 import re
 from datetime import date
+from public_views import write_public_views
+from installer_download import write_installer
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "dist"
@@ -111,6 +113,7 @@ def main():
             ("capabilities", "/capabilities/", "All capabilities"),
             ("films", "/films/", "Films & demos"),
             ("about", "/about/", "About"),
+            ("status", "/reports/capabilities/", "Status"),
         ]
         nav_html = "".join(
             f'<a href="{url}" aria-label="{label}"'
@@ -128,7 +131,7 @@ def main():
 <header class="site-header wrap"><a class="identity" href="/" aria-label="Michael Jabbour home"><span class="monogram" aria-hidden="true">mj</span><span>michael jabbour</span></a>
 <nav aria-label="Main navigation">{nav_html}</nav><a class="source-link" href="https://github.com/michaeljabbour">GitHub <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M5 5h10v10"/></svg></a></header>
 <main id="main">{body}</main>
-<footer class="site-footer wrap"><div><h2 class="footer-name">Take it from here.</h2><p>Built by Michael. Here to pick up and make your own.</p></div><nav aria-label="Footer navigation"><a href="/journey/">Follow the work</a><a href="/capabilities/">All capabilities</a><a href="/films/">The films & demos</a><a href="https://github.com/michaeljabbour">GitHub</a></nav></footer>
+<footer class="site-footer wrap"><div><h2 class="footer-name">Take it from here.</h2><p>Built by Michael. Here to pick up and make your own.</p></div><nav aria-label="Footer navigation"><a href="/journey/">Follow the work</a><a href="/capabilities/">All capabilities</a><a href="/films/">The films & demos</a><a href="/reports/capabilities/">Current checks</a><a href="https://github.com/michaeljabbour">GitHub</a></nav></footer>
 </body></html>'''
 
     def write(path, text):
@@ -161,7 +164,7 @@ def main():
                 if overview.get("transcript")
                 else ""
             )
-            hero_art = f'''<div class="hero-story" id="story"><h2>{E(overview.get("title", "Good Work Has a Next Day"))}</h2><video controls playsinline preload="none" crossorigin="anonymous" poster="{E(asset_url(overview["poster"]))}" aria-label="Portfolio overview film" data-overview-video><source src="{E(asset_url(overview["src"]))}" type="video/mp4"><track kind="captions" srclang="en" label="English" src="{E(asset_url(overview["caption"]))}"></video>{transcript_link}<a class="story-to-journey" href="#journey">Find your place in the story</a></div>'''
+            hero_art = f'''<div class="hero-story" id="story"><h2>{E(overview.get("title", "Good Work Has a Next Day"))}</h2><p class="publication-label">Published cut · ending-board revision planned</p><video controls playsinline preload="none" crossorigin="anonymous" poster="{E(asset_url(overview["poster"]))}" aria-label="Portfolio overview film" data-overview-video><source src="{E(asset_url(overview["src"]))}" type="video/mp4"><track kind="captions" srclang="en" label="English" src="{E(asset_url(overview["caption"]))}"></video>{transcript_link}<a class="story-to-journey" href="#journey">Find your place in the story</a></div>'''
 
     def journey_guide(home=False):
         intro = (
@@ -207,7 +210,7 @@ def main():
         f"""<li><a href="/journey/#stage-{E(stage["id"])}"><span aria-hidden="true">{index + 1}</span>{E(stage["title"])}</a></li>"""
         for index, stage in enumerate(stages)
     )
-    category_launcher = f"""<nav class="category-launcher wrap" aria-label="Work categories" data-category-launcher><div class="category-launcher-head"><p>Where are you starting?</p><a href="/capabilities/" aria-label="Browse all 33 capabilities">All 33</a></div><ol class="category-links">{category_links}</ol></nav>"""
+    category_launcher = f"""<nav class="category-launcher wrap" aria-label="Work categories" data-category-launcher><div class="category-launcher-head"><p>Where are you starting?</p><a href="/capabilities/categories/" aria-label="Browse all 33 capabilities by category">All 33 by category</a></div><ol class="category-links">{category_links}</ol></nav>"""
     home = f"""{category_launcher}<section class="hero wrap"><div class="hero-copy"><p class="intro-line">A few useful things for working with AI.</p><h1>Good work<br>has a next day.</h1><p class="hero-description">Skills and tools for thinking things through, making things, and picking up where you left off.<br><span class="hero-invitation">Take what’s useful. Make it yours.</span></p><div class="button-row"><a class="button primary" href="#journey">Browse categories</a><a class="button secondary" href="/films/">Watch the films</a></div></div>{hero_art}</section>
 {journey_guide(home=True)}
 <section class="selected-section wrap section-space"><div class="section-heading"><div><h2>A few things to try.</h2><p>Pick one up. See what it opens.</p></div><a class="text-link" href="/capabilities/">See all 33</a></div><div class="feature-grid">{"".join(feature(by_id[i], n < 2) for n, i in enumerate(selected))}</div></section>
@@ -222,7 +225,7 @@ def main():
         ),
     )
 
-    journey_page = f"""<section class="page-intro wrap journey-page-intro"><a class="back-link" href="/">Back to the start</a><h1>Start with a person.<br>Follow the work.</h1><p>{E(journey["intro"])}</p></section>{journey_guide()}<section class="journey-loop wrap"><p>A first version can send you back to the question. A new person can change the plan. Follow what you learn.</p><a class="text-link" href="/capabilities/">Or browse all 33 capabilities</a></section>"""
+    journey_page = f"""<section class="page-intro wrap journey-page-intro"><a class="back-link" href="/">Back to the start</a><h1>Start with a person.<br>Follow the work.</h1><p>{E(journey["intro"])}</p></section>{journey_guide()}<section class="journey-loop wrap"><p>A first version can send you back to the question. A new person can change the plan. Follow what you learn.</p><a class="text-link" href="/capabilities/">Or browse all 33 capabilities</a><a class="text-link" href="/journey/knowledge/">Proposed: from curation to creation</a></section>"""
     write(
         "journey",
         shell(
@@ -254,7 +257,7 @@ def main():
         rows.append(
             f'''<article class="project-row" data-project data-category="{E(p["category"])}" data-format="{E(p["format"])}" data-search="{E(search.lower())}"><a class="row-art" href="{project_url(p)}">{poster(p)}</a><div class="row-body"><div class="row-meta"><span>{E(groups[p["category"]]["title"])}</span><span>{E(p["format"])}</span></div><h2><a href="{project_url(p)}">{E(p["title"])}</a></h2><p>{E(p["summary"])}</p></div><a class="row-action" href="{project_url(p)}" aria-label="Explore {E(p["title"])}">Explore <span aria-hidden="true">↗</span></a></article>'''
         )
-    library = f"""<section class="page-intro wrap"><a class="back-link" href="/">Home</a><h1>What’s the<br>next thing?</h1><p>Thirty-three skills, tools and libraries. Each does a particular job. Find one for what you’re working on, then take a look inside.</p><a class="library-journey-link" href="/journey/">Find your place in the journey</a></section><section class="library-section wrap"><form id="project-filters" class="filters" role="search" action="/capabilities/"><div class="search-field"><label for="search">Find a capability</label><input id="search" type="search" name="q" placeholder="Try research, a film, a handoff…" autocomplete="off"></div><div><label for="category">What are you working on?</label><select id="category" name="category"><option value="all">All kinds of work</option>{options}</select></div><div><label for="format">Format</label><select id="format" name="format"><option value="all">All formats</option>{format_options}</select></div></form><noscript><p class="notice">All capabilities are listed below. Search and filters are available with JavaScript enabled.</p></noscript><div class="result-line"><p id="result-count" role="status" aria-live="polite">33 capabilities</p><button class="text-button" type="button" id="clear-filters" hidden>Clear filters</button></div><div class="project-list">{"".join(rows)}</div><div id="no-results" class="empty-state" hidden><h2>No match yet.</h2><p>Try a broader word, another kind of work, or reset the filters to see the whole collection.</p><button class="button primary" type="button" data-reset-filters>Show all capabilities</button></div></section><section class="format-guide wrap"><h2>A few formats, each with a purpose.</h2><div><p><strong>A skill</strong> guides how an agent approaches a task. You bring the host and the tools it needs.</p><p><strong>A smart tool</strong> combines guidance with a specific interface or mechanism.</p><p><strong>A tool or library</strong> provides a mechanism that other capabilities can use. Its own guide explains the runtime and dependencies.</p></div></section>"""
+    library = f"""<section class="page-intro wrap"><a class="back-link" href="/">Home</a><h1>What’s the<br>next thing?</h1><p>Thirty-three skills, tools and libraries. Each does a particular job. Find one for what you’re working on, then take a look inside.</p><a class="library-journey-link" href="/journey/">Find your place in the journey</a><div class="button-row"><a class="text-link" href="/capabilities/categories/">Browse all seven categories</a><a class="text-link" href="/journey/knowledge/">Proposed knowledge journey</a></div></section><section class="library-section wrap"><form id="project-filters" class="filters" role="search" action="/capabilities/"><div class="search-field"><label for="search">Find a capability</label><input id="search" type="search" name="q" placeholder="Try research, a film, a handoff…" autocomplete="off"></div><div><label for="category">What are you working on?</label><select id="category" name="category"><option value="all">All kinds of work</option>{options}</select></div><div><label for="format">Format</label><select id="format" name="format"><option value="all">All formats</option>{format_options}</select></div></form><noscript><p class="notice">All capabilities are listed below. Search and filters are available with JavaScript enabled.</p></noscript><div class="result-line"><p id="result-count" role="status" aria-live="polite">33 capabilities</p><button class="text-button" type="button" id="clear-filters" hidden>Clear filters</button></div><div class="project-list">{"".join(rows)}</div><div id="no-results" class="empty-state" hidden><h2>No match yet.</h2><p>Try a broader word, another kind of work, or reset the filters to see the whole collection.</p><button class="button primary" type="button" data-reset-filters>Show all capabilities</button></div></section><section class="format-guide wrap"><h2>A few formats, each with a purpose.</h2><div><p><strong>A skill</strong> guides how an agent approaches a task. You bring the host and the tools it needs.</p><p><strong>A smart tool</strong> combines guidance with a specific interface or mechanism.</p><p><strong>A tool or library</strong> provides a mechanism that other capabilities can use. Its own guide explains the runtime and dependencies.</p></div></section>"""
     write(
         "capabilities",
         shell(
@@ -275,7 +278,7 @@ def main():
         film_tiles.append(
             f'''<article class="film-card"><a class="film-art" href="{project_url(p)}#watch">{poster(p)}<span class="play-disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 5 11 7-11 7z"/></svg></span></a><div class="film-card-copy"><h2><a href="{project_url(p)}#watch">{E(p["title"])}</a></h2><p>{E(p["summary"])}</p><a class="text-link" href="{project_url(p)}#watch">{E(label)}</a></div></article>'''
         )
-    films_html = f"""<section class="page-intro wrap"><a class="back-link" href="/">Home</a><h1>See the work<br>in motion.</h1><p>Captioned films, lessons and a visual demo that introduce the capabilities. Pick one to see its purpose and approach.</p></section><section class="wrap film-library"><div class="film-grid">{"".join(film_tiles)}</div><p class="library-footnote">Media is hosted on each capability’s own site. The individual page links its transcript and short cut when available.</p></section>"""
+    films_html = f"""<section class="page-intro wrap"><a class="back-link" href="/">Home</a><h1>See the work<br>in motion.</h1><p>Captioned films, lessons and a visual demo that introduce the capabilities. Pick one to see its purpose and approach.</p><p class="media-review-note">Published and playable does not mean final creative review. The overview ending board has a planned revision; individual films remain available while review continues.</p></section><section class="wrap film-library"><div class="film-grid">{"".join(film_tiles)}</div><p class="library-footnote">Media is hosted on each capability’s own site. The individual page links its transcript and short cut when available.</p></section>"""
     write(
         "films",
         shell(
@@ -371,6 +374,9 @@ def main():
             "capabilities/" + p["id"],
             shell(p["title"], p["summary"], detail, "capabilities", project_url(p)),
         )
+    write_public_views(ROOT, OUT, write, shell, projects, stages)
+    write_installer(ROOT, OUT)
+
     notfound = """<section class="page-intro wrap not-found"><p>404</p><h1>Let’s find<br>a way back.</h1><p>This page isn’t in the collection. Browse the capabilities or return to the homepage.</p><div class="button-row"><a class="button primary" href="/capabilities/">Browse capabilities</a><a class="text-link" href="/">Go home</a></div></section>"""
     (OUT / "404.html").write_text(
         shell(
@@ -379,7 +385,7 @@ def main():
             notfound,
         )
     )
-    urls = ["", "journey/", "capabilities/", "films/", "about/"] + [
+    urls = ["", "journey/", "capabilities/", "films/", "about/", "capabilities/categories/", "journey/knowledge/", "reports/capabilities/", "reports/capability-installer/"] + [
         "capabilities/" + p["id"] + "/" for p in projects
     ]
     (OUT / "sitemap.xml").write_text(

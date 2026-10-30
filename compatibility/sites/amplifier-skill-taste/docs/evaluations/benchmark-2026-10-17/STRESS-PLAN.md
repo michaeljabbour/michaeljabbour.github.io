@@ -1,0 +1,7 @@
+# Separately frozen stress extension
+
+Added after the initial 18 task episodes and their evaluator outputs were available. The methodology reviewer identified near-transfer and operational-coverage limits. These six new task episodes (four distinct cases, two matched controls) are frozen before their generation. They supplement, never replace or rescore, the initial cases. The canonical skill remains unchanged. They are exploratory follow-up cases, not part of the initially frozen denominator.
+
+The extension addresses author intent versus observed audience difficulty, an authorized local rollback with actual fixtures, independent axes with a real maintenance/voice tradeoff, and purposeful confirmation friction informed by a stated prior incident. X02's baseline.py and check_names.py must remain byte-identical; only working.py may change among fixtures. The expected behavior is submission-order/repetition preservation, and actual execution must support the keep-or-restore decision.
+
+Use the original four common checks, the four listed specific checks per case, and the same pass/mixed/critical definitions. Two new condition-masked evaluator passes score all six extension responses independently. Keep their agreement and case outcomes separate from the initial suite. Parent adjudicates differences with evidence. No skill changes, publishing, sending, destructive operations, or installed services. The two new controls are descriptive; they were selected after initial results and cannot support confirmatory causal inference.

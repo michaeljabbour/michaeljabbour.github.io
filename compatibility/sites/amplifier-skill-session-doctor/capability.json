@@ -1,0 +1,218 @@
+{
+  "id": "session-doctor",
+  "display_name": "Session Doctor",
+  "kind": "skill",
+  "promise": "Diagnose a broken agent session and prepare a reversible repair without inventing execution results.",
+  "audience": "People repairing transcripts and provider/session integration.",
+  "trigger": "A session cannot resume or provider errors suggest structural corruption.",
+  "skill_path": "skills/session-doctor",
+  "modes": [
+    {
+      "name": "Diagnose",
+      "when": "A session or provider has failed.",
+      "output": "Severity-ranked findings with supported evidence and envelope limits."
+    },
+    {
+      "name": "Repair",
+      "when": "A specific repair is authorized.",
+      "output": "A separate repaired copy and verification report."
+    },
+    {
+      "name": "Escalate",
+      "when": "The format or failure remains uncertain.",
+      "output": "A minimal redacted support bundle and next diagnostic step."
+    }
+  ],
+  "examples": [
+    {
+      "title": "Recover an interrupted tool call",
+      "brief": "Use Session Doctor to inspect a disposable direct role/content JSONL transcript. Diagnose before changing anything. If a missing tool result is unambiguous, prepare a new repair copy that marks the result unavailable, preserve the original and explain the remaining host-resume check.",
+      "before": "An interrupted tool call is \u201cfixed\u201d by a fabricated successful result or truncated history.",
+      "after": "A new copy records the missing result as interrupted and leaves the original intact.",
+      "why": "The repaired structure remains honest about what actually executed.",
+      "fictional": true
+    }
+  ],
+  "boundaries": [
+    "The helper supports direct role/content JSONL only; live resume and provider acceptance are separate checks."
+  ],
+  "install_commands": [
+    "python3 scripts/capability.py install --dest ~/.agents/skills"
+  ],
+  "runtime_install_commands": [],
+  "verification": [
+    {
+      "name": "Functional acceptance",
+      "command": "python3 scripts/functional_gate.py",
+      "expected": "Supplied fictional tasks exercise actual mechanisms and failure boundaries.",
+      "status": "passed",
+      "evidence": "326 retained native tests and 3 substantive direct-message repair checks passed; no live provider or session resume performed."
+    },
+    {
+      "name": "Native host acceptance",
+      "command": "See retained source integration guide",
+      "expected": "Actual provider/host/desktop/daemon/runner acceptance for the selected adapter.",
+      "status": "not-run",
+      "evidence": "No live model, real desktop transaction, invitation, deployment or production data migration was performed by this functional baseline."
+    }
+  ],
+  "sources": [
+    {
+      "repo": "amplifier-bundle-provider-doctor",
+      "commit": "0938f46e601d9f9bc5e5a6ac4210ee0966baffee",
+      "paths": [
+        "agents",
+        "modules",
+        "context"
+      ],
+      "license": "MIT",
+      "role": "Primary retained owner history, mechanisms and records; portable method consolidates the listed entry points."
+    }
+  ],
+  "consolidation": [
+    "One portable method entry with mode references; original native engines, agents and records retained as optional adapters."
+  ],
+  "docs": [
+    "docs/CONSOLIDATION.md",
+    "docs/ADAPTERS.md"
+  ],
+  "publication_status": "Installation and evidence scopes are documented below.",
+  "marketing": {
+    "headline": "Understand a broken session before you repair it.",
+    "lead": "For people whose agent session will not resume. Session Doctor checks the supported transcript structure, names the ambiguity and prepares a separate repair copy when the evidence supports one, leaving the original available.",
+    "benefits": [
+      {
+        "title": "Keep the original intact",
+        "body": "Diagnose first and write any supported repair to a new destination that cannot overwrite existing work."
+      },
+      {
+        "title": "See what is actually missing",
+        "body": "Distinguish a missing tool result from malformed JSON, duplicate IDs or an unsupported event format."
+      },
+      {
+        "title": "Avoid invented history",
+        "body": "A synthetic repair entry says interrupted with no result available; it never pretends an action completed."
+      }
+    ],
+    "walkthrough": [
+      {
+        "title": "Identify the format",
+        "detail": "Record the host, transcript revision and failure class without exposing private transcript contents."
+      },
+      {
+        "title": "Inspect the structure",
+        "detail": "Check supported direct role/content JSONL for pairing, duplicate IDs, malformed lines and advisory ordering concerns."
+      },
+      {
+        "title": "Prepare a copy and verify",
+        "detail": "Repair only an unambiguous missing result into a new file, recheck it and separately test resumption in the actual host."
+      }
+    ],
+    "use_when": [
+      "A supported direct-message JSONL transcript cannot resume.",
+      "A tool call appears to have no result after interruption.",
+      "You need a redacted diagnosis before host-specific recovery."
+    ],
+    "not_for": [
+      "Blindly rewriting an unfamiliar event envelope.",
+      "Equating a structurally clean copy with provider acceptance."
+    ],
+    "quickstart_prompt": "Use Session Doctor to inspect a disposable direct role/content JSONL transcript. Diagnose before changing anything. If a missing tool result is unambiguous, prepare a new repair copy that marks the result unavailable, preserve the original and explain the remaining host-resume check.",
+    "output_preview": "Diagnosis: one tool call has no result\nOriginal: unchanged\nRepair eligibility: only if pairing and order are otherwise unambiguous\nNew copy: explicit destination, must not already exist\nInserted status: interrupted; result unavailable\n\nStill to check: actual host and provider accept the repaired copy.",
+    "example_note": "Fictional diagnostic outline. No real session transcript was opened or modified for this example.",
+    "install_notes": [
+      "Python 3.11 or later is required by the portable install/build helper. The installed method runs through your agent host.",
+      "The portable direct-message helper is Python stdlib-only and requires no provider key.",
+      "It reads at most the documented 16 MB limit; unsupported event envelopes are reported explicitly.",
+      "Optional failover, cache and host adapters have separate setup and acceptance requirements."
+    ],
+    "proof_summary": "Native and functional fixtures cover supported structure, ambiguous failures and copy-only repair. They do not establish successful resumption in every host or provider.",
+    "next_step": "Work on a disposable copy first and identify the exact transcript format before requesting a repair."
+  },
+  "repository_url": "https://github.com/michaeljabbour/amplifier-capability-session-doctor",
+  "name": "amplifier-capability-session-doctor",
+  "legacy_names": [
+    "amplifier-skill-session-doctor",
+    "session-doctor"
+  ],
+  "contract_version": "amplifier-capability/v1",
+  "version": null,
+  "version_basis": "No release version recorded; installer requires a full Git revision pin.",
+  "engine": "LLM",
+  "engine_components": {
+    "caller_method": "LLM"
+  },
+  "surfaces": [
+    "agent-skills",
+    "amplifier-bundle"
+  ],
+  "portable_method": {
+    "name": "session-doctor",
+    "path": "skills/session-doctor",
+    "include": [
+      "."
+    ],
+    "contract": "Agent Skills directory; caller applies the method; no independent execution loop is installed."
+  },
+  "interfaces": {
+    "portable": {
+      "input": "Caller task and explicitly authorized context",
+      "output": "Diagnose a broken agent session and prepare a reversible repair without inventing execution results.",
+      "failure": "Report insufficient evidence, unsupported context or host limitation; never turn discovery into an execution claim."
+    },
+    "native": {
+      "distribution": null,
+      "entrypoints": {},
+      "docs": [
+        "docs/CONSOLIDATION.md",
+        "docs/ADAPTERS.md"
+      ],
+      "status": "Existing declared entrypoints preserved; runtime signatures, service access and installation tests remain separate evidence."
+    },
+    "host_adapters": {
+      "amplifier_bundle": "bundle.md",
+      "grants_autonomy": false
+    }
+  },
+  "permissions": {
+    "installation": {
+      "network": false,
+      "executes_capability_code": false,
+      "writes": [
+        "Selected discovery folders",
+        ".capability-state transaction backups"
+      ],
+      "grants_runtime_permissions": false
+    },
+    "runtime": {
+      "status": "Host/caller authorizes each operation; installation is not a tool allowlist or standing approval.",
+      "declared_boundaries": [
+        "The helper supports direct role/content JSONL only; live resume and provider acceptance are separate checks."
+      ]
+    },
+    "secret_names": {
+      "discovery_requires": [],
+      "native_runtime_inventory": "See native documentation; no credentials are bundled or inferred."
+    }
+  },
+  "dataflow": {
+    "installation": "Read pinned tracked portable source and copy locally with SHA-256 receipts. No source text is transmitted.",
+    "method": "Caller supplies authorized context; existing promise and boundaries govern output.",
+    "native_runtime": "Provider/network/storage flows are owned by native interfaces and host authorization; these files do not enable them."
+  },
+  "source_policy": {
+    "revision": "Explicit full40-character Git commit required at installation; never infer latest.",
+    "repository_rename": "Public identity may change; skill folder, imports, entrypoints, tool IDs and schemas remain stable.",
+    "research": ".research/market remains local and ignored; AGENTS governs refresh."
+  },
+  "film": {
+    "file": "session-doctor-film",
+    "seconds": 70,
+    "heading": "A zipper with a missing tooth.",
+    "blurb": "In 70 seconds, a laptop sleeps halfway through a job and the session will not resume. Session Doctor looks before it touches anything, names the one tool call with no result, leaves the original alone and repairs a copy with a piece that tells the truth. A broken line or a repeated ID stops it for review. Captions are on the player; a transcript is below.",
+    "note": "The session and the photo-renaming job are a fictional example. The film shows how the skill behaves; it does not report results."
+  },
+  "repository_aliases": [
+    "https://github.com/michaeljabbour/amplifier-skill-session-doctor"
+  ]
+}

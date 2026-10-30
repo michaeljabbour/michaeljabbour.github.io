@@ -1,0 +1,146 @@
+[
+  {
+    "run_id": "C01-skill",
+    "words": 1091,
+    "sha256": "85db4aea344e4fa90a9fb261251a0f0be514e6d06e5b8e4b07f4716992c5a144",
+    "execution_log_present": true
+  },
+  {
+    "run_id": "C01-control",
+    "words": 649,
+    "sha256": "c85045d3acb5adc265d5b2abaca759aec147f95ae54bc15c27484eadc203c2a9",
+    "execution_log_present": true
+  },
+  {
+    "run_id": "C02-skill",
+    "words": 96,
+    "sha256": "3ec73909e8a62e99f8093229a7d663025a24d9f3e47f8cf2340cf2773fbc9f1a",
+    "execution_log_present": true
+  },
+  {
+    "run_id": "C02-control",
+    "words": 71,
+    "sha256": "095fa0a748d58604e0f09c7e36b2db7deb02ba3e0f67d4308937b950d9546583",
+    "execution_log_present": true
+  },
+  {
+    "run_id": "C03-skill",
+    "words": 282,
+    "sha256": "7c16edb64542e98978b53c1702864ba237dfa74a90a5310f1af738b7536c1d35",
+    "execution_log_present": true
+  },
+  {
+    "run_id": "C03-control",
+    "words": 136,
+    "sha256": "a7db32f4b85a05c9fac56aff60a416d74b7408e3b623fe06e20411048a0c0bc5",
+    "execution_log_present": true
+  },
+  {
+    "run_id": "C04-skill",
+    "words": 376,
+    "sha256": "2addc3d5f71b4e063edc1d9a62d64b0059a9b1e8aca430ed363be0669ed669f9",
+    "execution_log_present": true
+  },
+  {
+    "run_id": "C05-skill",
+    "words": 289,
+    "sha256": "eb27a0f194a2711a2f1900d09bb3c4afead4a7f1f3dc77cec06980d2d5826648",
+    "execution_log_present": true
+  },
+  {
+    "run_id": "C06-skill",
+    "words": 243,
+    "sha256": "f312181f0a467342898251b225bd9975a8ca77323da6dda399ccd5743a850c11",
+    "execution_log_present": true
+  },
+  {
+    "run_id": "C07-skill",
+    "words": 231,
+    "sha256": "a9c93d50d0b666d4e9169321313c38fa9c3139756a7adfa87c95944125a9c98b",
+    "execution_log_present": true
+  },
+  {
+    "run_id": "C08-skill",
+    "words": 140,
+    "sha256": "a4ea0c1fb1e57988d66b7e76af8bb5c5b1783d8eb850274df2599d668470048e",
+    "execution_log_present": true
+  },
+  {
+    "run_id": "C09-skill",
+    "words": 165,
+    "sha256": "3de352da4146f3f97114d081c2beaf7ac94fe31d5599acba6c90aa70a0e53b72",
+    "execution_log_present": true
+  },
+  {
+    "run_id": "C09-control",
+    "words": 113,
+    "sha256": "577e95b0d81fb986222f7a42eb87a834a1bdc9ad605940acec43e29d91424bc8",
+    "execution_log_present": true
+  },
+  {
+    "run_id": "C10-skill",
+    "words": 176,
+    "sha256": "58008056fe49facfe5428b76a6fd132a526fc639460f2b45d055563106a6af18",
+    "execution_log_present": true
+  },
+  {
+    "run_id": "C11-skill",
+    "words": 78,
+    "sha256": "3ddb30b919b21e2262de6a85dedea9d932810eea5d24ca8d1c2ce30f1d36bd76",
+    "execution_log_present": true
+  },
+  {
+    "run_id": "C12-skill",
+    "words": 215,
+    "sha256": "4e89f7787607266ca0648c527340c51de49da8d4d9ea40a506a9c1521cca5294",
+    "execution_log_present": true
+  },
+  {
+    "run_id": "H01",
+    "words": 214,
+    "sha256": "d75576e21ae23d6ae620a7d0b210370fa6cf32b22bb41dfa4337f0413215babd",
+    "execution_log_present": true
+  },
+  {
+    "run_id": "H02",
+    "words": 82,
+    "sha256": "3536249186a0eabc30761e8e90080beb2c19a4873c61c5e63cd9f3d473be9fed",
+    "execution_log_present": true
+  },
+  {
+    "run_id": "X01-skill",
+    "words": 346,
+    "sha256": "20a0a5b81aba05eceb466347683e12f7212d70605a47d293dd1999b82e677adf",
+    "execution_log_present": true
+  },
+  {
+    "run_id": "X01-control",
+    "words": 198,
+    "sha256": "f17f4495d179e0fb69cc7ca04e48f0abaed54d09bed928c43ea9d16afdac6593",
+    "execution_log_present": true
+  },
+  {
+    "run_id": "X02-skill",
+    "words": 105,
+    "sha256": "3babc174d9a64d9059f620171721b858fbc761c77d0002f091377bf9e1474c82",
+    "execution_log_present": true
+  },
+  {
+    "run_id": "X03-skill",
+    "words": 532,
+    "sha256": "0ef6aa7ed22d510f4171dbc8f4a2a8904af1909ab2e1e82700c98a1c7f3fdf60",
+    "execution_log_present": true
+  },
+  {
+    "run_id": "X04-skill",
+    "words": 350,
+    "sha256": "9970d60e40a972d36deefbbe7d646f42ff0887b9aca1844712c81bcd7c8a957e",
+    "execution_log_present": true
+  },
+  {
+    "run_id": "X04-control",
+    "words": 327,
+    "sha256": "29c010274491c64e7a9558864956607ba1f1acf27ad4d7713d644224daadab98",
+    "execution_log_present": true
+  }
+]

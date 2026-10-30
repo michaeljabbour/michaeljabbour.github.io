@@ -1,0 +1,12 @@
+{
+  "python": "3.14.7",
+  "system": "Darwin",
+  "machine": "arm64",
+  "model": "Inherited parent model and reasoning settings; no model override requested. Exact backend model identifier not instrumented.",
+  "isolation": "Fresh-agent fork_turns=none, instruction-bounded reads/writes; common platform instructions and available tools remain. No OS-enforced per-agent read isolation.",
+  "episodes": 24,
+  "distinct_initial_cases": 12,
+  "controls": 6,
+  "handoffs": 2,
+  "distinct_stress_cases": 4
+}

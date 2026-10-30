@@ -1,0 +1,257 @@
+{
+  "schema_version": "benchmark-public-copy/v1",
+  "sanitized_at": "2026-10-30",
+  "benchmark": "benchmark-2026-10-17",
+  "original_public_revision": "e13b717541a813a7e05fd2eb6868da1d66b6591a",
+  "transformation": "Replace only the original personal checkout prefix with the literal <benchmark-checkout>. Keep historical suffixes and command text otherwise intact.",
+  "raw_evidence": "Original bytes remain in existing Git history and an owner-local backup. These published files are privacy-normalized copies, not byte-identical raw execution transcripts.",
+  "unchanged": "Task substance, responses, fixtures, frozen skill/reference, judgments, scoring, results, masking packets, response inventory, and mechanical checks.",
+  "new_behavioral_runs": false,
+  "files": [
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/C01-skill/execution.md",
+      "original_sha256": "3cc9018f1e496830ea6db7ee4ee5171f06dacb407deb23e68ddebdf0e5a17ba2",
+      "public_copy_sha256": "7ae2697636a00a651b5426e4043ab7660fd2b1aaad5787dbc7d11b4d98d734a0",
+      "checkout_prefix_replacements": 2,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/C01-skill/task.txt",
+      "original_sha256": "5ed745860adf00ace8de79c147be3898e885169c8e387994a6a7126c49facb80",
+      "public_copy_sha256": "d5cf1577e4b93978a8021fb50e3dff7b6bc7b54a79ee6e950e299a61fb7cd618",
+      "checkout_prefix_replacements": 1,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/C02-skill/execution.md",
+      "original_sha256": "7d85680288c8737f846abaa886c813b3a7ee3e6032e40aa42f7e28e6de01448a",
+      "public_copy_sha256": "7ed4aa15cf0fe0d798ee7de347af78a24741cb700563aa4f85e82a9199b3923b",
+      "checkout_prefix_replacements": 1,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/C02-skill/task.txt",
+      "original_sha256": "b082df5aa2c930b89eb5a3e326650bcfcc1f5536f51871a68c640285192006bd",
+      "public_copy_sha256": "da014be4ae1963ab88a5e9f15d967c22848e547650b28858b0bed834e527d09c",
+      "checkout_prefix_replacements": 1,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/C03-skill/execution.md",
+      "original_sha256": "6e51dd3410d3c30073659c4339e3a39e7b425bfecf2405531839c65acbeb300f",
+      "public_copy_sha256": "0b75cd2c003e4c67e9d03550d9a39b2e13a240eb9865848d655a007c64205c6a",
+      "checkout_prefix_replacements": 2,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/C03-skill/task.txt",
+      "original_sha256": "575fbc85bb8e63f09ce35055d9d887651cfd6208ef1c9d844fdfd4d7b08c387e",
+      "public_copy_sha256": "d8fb2d318f46b69b24495b2e9528f513204e10456fbb7bec637c4df623cd4c0b",
+      "checkout_prefix_replacements": 1,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/C04-skill/execution.md",
+      "original_sha256": "6e9a0d13d0b2748ebc7f17654babb7838745818136deb13ee050136053481f1d",
+      "public_copy_sha256": "2a034c467767d6bbf70b939cad782b47568c97131608ea3c7f972908c22c592b",
+      "checkout_prefix_replacements": 2,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/C04-skill/task.txt",
+      "original_sha256": "6318d876bbde3d843943166c3eedfe80cdbde3ad2cbfb446e6fff66b53f34849",
+      "public_copy_sha256": "5c2b5bb839e8fcdf22d796b4ad656d8c5fba94659aca493257d739fe3963dfde",
+      "checkout_prefix_replacements": 1,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/C05-skill/execution.md",
+      "original_sha256": "3cc9768dbfbd31b9cd3bdd30d72de183db82a2189418903980a56fa348c16796",
+      "public_copy_sha256": "132145888c97393a7ae79501d59c76e3e44b08ad039526db93e833d52f5f91e3",
+      "checkout_prefix_replacements": 2,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/C05-skill/task.txt",
+      "original_sha256": "be8aca70f1f07b92a0470eaa2ea892b6d84ed24d3fc7cbdfbf74152611aab611",
+      "public_copy_sha256": "5045b1475561c7c54f57dcf7be1e87fcde45e3a8ba72fc43ad8122be6f97209e",
+      "checkout_prefix_replacements": 1,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/C06-skill/execution.md",
+      "original_sha256": "ec06c93ae19a1c67d32f7428063fb115e0e5c3bd458d17a09a81260f98a57d82",
+      "public_copy_sha256": "685ff58f9f4b8a0cd8ed733de10bd0858e335bdda28e78d76599635b53cb43c8",
+      "checkout_prefix_replacements": 2,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/C06-skill/task.txt",
+      "original_sha256": "2cc96b1c6bb3747b5de2e06429b30b56c22a722814d220daec8061a3f64b0407",
+      "public_copy_sha256": "e90d820d37d620d9cbbe06e0c0a04924d05c647bc3dfad68fe595951c6862d7d",
+      "checkout_prefix_replacements": 1,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/C07-skill/task.txt",
+      "original_sha256": "85802746b3498cb419cc470c90d624e986ccf99298602616b2396e4298d4a063",
+      "public_copy_sha256": "bd5b592839a60ab1d03c7eecf189cd8733a500b5ab0b512ebd7a9740583039ad",
+      "checkout_prefix_replacements": 1,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/C08-skill/execution.md",
+      "original_sha256": "56b83754dae7a522297742d4d14703f54c6e72f22326848bdc53b26c75446680",
+      "public_copy_sha256": "19139982a0e61a7abf07b97cb139fe6b05efe66630f8785310dc24388b7b975d",
+      "checkout_prefix_replacements": 2,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/C08-skill/task.txt",
+      "original_sha256": "d86a013edb98d839dd61314b25df675574ccaa5321c157d37a441553cb9ec91a",
+      "public_copy_sha256": "652dac6770f40a3b1ec2aa4cfae43d04095c5c9bfea31d9c0c8961aabfcd6d3d",
+      "checkout_prefix_replacements": 1,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/C09-skill/execution.md",
+      "original_sha256": "9c078ace8e896c541aace3ba04681ef0e77343a199135abc3a477d3afd027442",
+      "public_copy_sha256": "a392a4201b39f6e0cd5b4856debbea97fea73bd32908c163656864c5416a2d4e",
+      "checkout_prefix_replacements": 2,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/C09-skill/task.txt",
+      "original_sha256": "fab8c11c4172a47d9b6bc130165d0326de6c8474a700c6bd57b0da214ef22dff",
+      "public_copy_sha256": "9f1bbcfdfc67a11dad67ab01c9b12a0595c627201cf5d1edc8124ce0435dc911",
+      "checkout_prefix_replacements": 1,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/C10-skill/execution.md",
+      "original_sha256": "5e21d552bbfae6cf8cd0d698cd8af69097145e3b637102b8874be8c65e69fd6b",
+      "public_copy_sha256": "2261f2833127898b5a090fdd2137f9fe06af55ddc2e56bc2f7f11110d26aa8dd",
+      "checkout_prefix_replacements": 2,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/C10-skill/task.txt",
+      "original_sha256": "adb3b9509b54c4bb9e53822b4289304350f992847d10f1cbe9ad07b1dd156d47",
+      "public_copy_sha256": "308c9584b96409f7b691595025238d1659e75e1f2a6ee6970f9468023988faa4",
+      "checkout_prefix_replacements": 1,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/C11-skill/execution.md",
+      "original_sha256": "7fbf7ca74abaade5d1852261ae04208994be66a1fb6997fd6adafab5d7b213f8",
+      "public_copy_sha256": "f8451c085311e6731b3fcf55c81918ae756ed04d674dc3f640beb802a794257f",
+      "checkout_prefix_replacements": 1,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/C11-skill/task.txt",
+      "original_sha256": "a479826ca90abc25e1a07f0305f492785afe8d549147c5ea561a7c279ed8e38e",
+      "public_copy_sha256": "21da31ea5a5797a55a442697c83b48f8a42a6fe5fb3d29a50096ea81f5f1843a",
+      "checkout_prefix_replacements": 1,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/C12-skill/execution.md",
+      "original_sha256": "3eda39bbee6a25b271a5d580062ccae3d9797963c03bd61032a102288edaf5b8",
+      "public_copy_sha256": "abc4df1b01b38a97cd4bea3f866d090a22174452f29be5c51ef7c9af73a797bf",
+      "checkout_prefix_replacements": 1,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/C12-skill/task.txt",
+      "original_sha256": "220adec2da24b0921e5c498fdb5ab662f0d75823098c939c1b840880683edeff",
+      "public_copy_sha256": "c5d1831980a454e250b21f730ce7c6201e1f911172f4d00fce0ff24583214d0c",
+      "checkout_prefix_replacements": 1,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/H01/execution.md",
+      "original_sha256": "ba246d5fbf1f3972372758986143d6821453f6cb1ac8096e145323a3d5c6a6a7",
+      "public_copy_sha256": "324b6942795247f285a95ac6792fc08eabd0f3674672f76b5a5855d733d71d94",
+      "checkout_prefix_replacements": 1,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/H01/task.txt",
+      "original_sha256": "086ae376d5ed35a67c2be5f605a228659854ef4a99397963193aff40a4d6ad92",
+      "public_copy_sha256": "dc12b1eb34407ab609ae056ab076acc51f3b83c2d22044248878658d36725eec",
+      "checkout_prefix_replacements": 1,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/H02/execution.md",
+      "original_sha256": "4b35561a9819166091d15964c130d0dd91d7246a4165f0defa69a8dec5d3e42e",
+      "public_copy_sha256": "e702a48b57f7299d933aae42c1572df4c26680af1fbcf8ca015e7511691ea4d4",
+      "checkout_prefix_replacements": 1,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/H02/task.txt",
+      "original_sha256": "97108e1a9dac30df726e33bbe5659d616f2882ce8ff5164cd5a38cd9ed1224e0",
+      "public_copy_sha256": "143e3ac2a22304127da981d07b1b3857113402524432ade4027578316dad60bf",
+      "checkout_prefix_replacements": 1,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/X01-skill/execution.md",
+      "original_sha256": "ef9dde79c2bf1c829207f7bd718edfb5c52f4e4c602572e3b6185fbc44174f52",
+      "public_copy_sha256": "dccfb27d4f564774a842bcb3c5c6b63369bd8f0d2d30b180da1abf63aa4536fc",
+      "checkout_prefix_replacements": 2,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/X01-skill/task.txt",
+      "original_sha256": "7155fece3e8554b1465cdb28289ca3c79b7c29ef4888986a5fe0440ac5abe335",
+      "public_copy_sha256": "fc2ad978d5018320371932fdebda7bcb892701e2887dea62d450cc9fbc46017e",
+      "checkout_prefix_replacements": 1,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/X02-skill/execution.md",
+      "original_sha256": "9947ad04900280d7d2914999f40060618ec806f7477427681beecd5615da79e6",
+      "public_copy_sha256": "d8aabb20f881edae3bb8e371456070c1505c1c5a2fb1202ef515dbb53f661e9e",
+      "checkout_prefix_replacements": 1,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/X02-skill/task.txt",
+      "original_sha256": "5a7838b118755754e90dfff437306166ecc9663e3cb51f642f747b00c54d7a75",
+      "public_copy_sha256": "383a30b1b5b6a4f1e347c9b87f3e5942c83124d24da243d29850608da99d57f7",
+      "checkout_prefix_replacements": 1,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/X03-skill/execution.md",
+      "original_sha256": "ebb8cc6729edaab1b639a9d656305d26459ddd975b809e3acae34eb1fc9f4f1c",
+      "public_copy_sha256": "bb20773321d8f695de3b1f03e4cdcb2c28d5a7ba7d89324bf7c1b0eeeebcee91",
+      "checkout_prefix_replacements": 4,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/X03-skill/task.txt",
+      "original_sha256": "9635a191b5705699c80c4385bddae1166f597d7acd3972c2990d37b2fa9c551a",
+      "public_copy_sha256": "923fce5395b210ffb03f0da5ab3d402f0de60db805ec44ab9f7501af08cd71d4",
+      "checkout_prefix_replacements": 1,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/X04-skill/execution.md",
+      "original_sha256": "d273da83360d64bfa03f552dc22f3a4ff332a52723cd4b973fcc7436c96b8c8f",
+      "public_copy_sha256": "935551415583cd4ebdb4b20a54b3d98a0ca2d57734b1e0689aa5dfc77606f662",
+      "checkout_prefix_replacements": 1,
+      "already_public_bytes_verified": true
+    },
+    {
+      "path": "docs/evaluations/benchmark-2026-10-17/runs/X04-skill/task.txt",
+      "original_sha256": "5a0698b08b9128ee98a10453a318dc1177553c12282fc23666dd4c276bdd3058",
+      "public_copy_sha256": "0b910ea2ee1f974a2dd17e7fbd03ef7b3cc170cadfe5ad42f94897eb79f04f64",
+      "checkout_prefix_replacements": 1,
+      "already_public_bytes_verified": true
+    }
+  ]
+}

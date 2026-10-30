@@ -45,3 +45,12 @@ It uploads only `dist/`. The public site contains no private audit, owner workbo
 All 28 rollout films were observed available on October 29. The collection also includes two earlier films, Sizzle’s reel, Taste’s lesson and Decisioncraft’s visual demo. Their formats are labeled individually. Media availability does not establish creative acceptance or capability effectiveness.
 
 [Media provenance and observation notes](docs/MEDIA.md) distinguish direct URL checks from the producer’s report. [Content notes](docs/CONTENT.md) explain the catalogue’s scope. Site source is MIT licensed; existing film artwork and media retain the notices of their original repositories.
+
+
+## Public checks and shared installation
+
+The grouped catalogue keeps the same 33 public capabilities. `/journey/knowledge/` is a proposed route through existing research and creative methods; the narrated build journey stays separate. `/reports/capabilities/` publishes a bounded public status snapshot and its matching JSON/CSV downloads. Raw audit findings and research stores are not part of this repository.
+
+The one shared installer lives in `tools/` and is served at `/reports/capability-installer/`. The download manifest records the exact committed build revision and hashes. Normal publication requires committed package bytes; during local editing, use `CAPABILITY_INSTALLER_PREVIEW=1 python3 scripts/build.py` and the same prefix for `scripts/check.py`. This preview explicitly claims no immutable source pin. Commit before the normal production build.
+
+Run `python3 -m unittest discover -s tests -v` and `python3 -m unittest discover -s tools -p test_capability.py -v` before building. The checker verifies all compatibility payload hashes and links, the new public metadata boundaries and the shared download. Hash-pinned legacy examples retain their original document heading structures; homepage template requirements apply to the owner pages.

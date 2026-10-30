@@ -1,0 +1,310 @@
+{
+  "id": "research",
+  "display_name": "Research",
+  "kind": "skill",
+  "promise": "Build the claim from evidence, keep the limits, and make the work inspectable.",
+  "audience": "People and agents doing evidence synthesis, experiments, or scientific writing.",
+  "trigger": "Use when a decision needs sources, an empirical claim needs a study, or a paper needs an auditable evidence chain.",
+  "skill_path": "skills/research",
+  "modes": [
+    {
+      "name": "Investigate",
+      "when": "A question needs a bounded multi-source answer.",
+      "output": "A source and claim map, contradictions, applicability, and open gaps."
+    },
+    {
+      "name": "Experiment",
+      "when": "A hypothesis has executable measurements and a justified budget.",
+      "output": "A frozen protocol, retained trials, integrity checks, and cautious inference."
+    },
+    {
+      "name": "Write",
+      "when": "Evidence is ready for a paper, brief, or technical report.",
+      "output": "A claim-linked manuscript with real citations, figures, methods, and limitations."
+    }
+  ],
+  "examples": [
+    {
+      "title": "A high score built from broken trials",
+      "brief": "A fictional experiment reports an apparent gain after several provider errors and a favorable model judge.",
+      "before": "Average only the successes, call the judge independent, and write an improvement claim.",
+      "after": "Keep errors in the declared denominator, audit manifests and traces, inspect judgment semantics, retain null/disputed outcomes, and withhold the claim until a valid comparison exists.",
+      "why": "An attractive number cannot repair a compromised measurement process.",
+      "fictional": true
+    }
+  ],
+  "boundaries": [
+    "A literature basis is not a measured result of this skill. Model judgments are fallible measurements.",
+    "Optional statistical, audit, resume, provenance, and paper-generation engines retain their native dependencies.",
+    "Do not begin a costly live experiment, generate paid media, or publish a manuscript without existing authorization."
+  ],
+  "install_commands": [
+    "python3 scripts/capability.py doctor",
+    "python3 scripts/capability.py install --dest ~/.agents/skills"
+  ],
+  "runtime_install_commands": [
+    "amplifier bundle add ./bundle.md"
+  ],
+  "verification": [
+    {
+      "name": "Six native integrity tool suites",
+      "command": "For each modules/tool-experiment-*/: PYTHONPATH=<module>/src python -m pytest <module>/tests -q",
+      "status": "passed",
+      "evidence": "174 tests: audit 50; block hypothesis 22; power 40; provenance 19; resume 14; stage analyzer 29. Isolated Python 3.12.11 with recorded test dependencies. No new empirical study or live model comparison.",
+      "expected": "The stated scope passes; no broader result inferred."
+    },
+    {
+      "name": "Autonomous experiment-loop shell checks",
+      "command": "For each scripts/experiment-loop/tests/test_*.sh: bash <test>",
+      "status": "passed",
+      "evidence": "10 shell checks passed, including freeze gate, append-only ledger, keep/revert, promotion rules, attribution, templates, and an isolated three-row smoke loop. Synthetic plumbing, not empirical benefit.",
+      "expected": "The stated scope passes; no broader result inferred."
+    },
+    {
+      "name": "Portable packaging and install",
+      "command": "python3 scripts/capability.py build; python3 scripts/capability.py check; python3 scripts/capability.py doctor; python3 scripts/capability.py install --dest <temporary-parent> (twice)",
+      "status": "passed",
+      "expected": "Byte-identical canonical ZIP and isolated idempotent install.",
+      "evidence": "All operations passed. No runtime activation or effectiveness measured."
+    },
+    {
+      "name": "Skill discovery metadata",
+      "command": "<yaml-enabled-python> /path/to/skill-creator/scripts/quick_validate.py skills/research",
+      "status": "passed",
+      "expected": "Valid required frontmatter, naming, and complete scaffold.",
+      "evidence": "Skill is valid. This is a structural check, not a behavioral benchmark."
+    }
+  ],
+  "sources": [
+    {
+      "repo": "amplifier-bundle-research",
+      "commit": "79b64cb33cb7ea123c8004733282bfcc29837f8d",
+      "paths": [
+        "skills/conducting-autonomous-experiments/SKILL.md",
+        "agents/hypothesis-designer.md",
+        "agents/methodologist.md",
+        "agents/statistician.md",
+        "agents/literature-scout.md",
+        "agents/research-paper-architect.md",
+        "agents/research-technical-writer.md",
+        "agents/research-citation-manager.md",
+        "agents/figure-designer.md",
+        "agents/honest-critic.md",
+        "context/orchestrated-loop-judge-rubric.md",
+        "behaviors/cross-vendor-judge.md",
+        "agents/ml-paper-reviewer.md",
+        "modules/"
+      ],
+      "license": "MIT License",
+      "role": "Primary history and engine retained; methods consolidated behind the canonical portable entry."
+    },
+    {
+      "repo": "amplifier-bundle-scientificpaper",
+      "commit": "0ef198d1f416b82abb05a9139c86367f17cba037",
+      "paths": [
+        "LICENSE",
+        "agents/citation-manager.md",
+        "agents/figure-artist.md",
+        "agents/latex-expert.md",
+        "agents/paper-architect.md",
+        "context/conference-formats/acl.md",
+        "context/conference-formats/acm.md",
+        "context/conference-formats/arxiv.md",
+        "context/conference-formats/icml.md",
+        "context/conference-formats/ieee.md",
+        "context/conference-formats/neurips.md",
+        "context/conference-styling-awareness.md",
+        "context/figure-generation-awareness.md",
+        "context/imaging/matplotlib-scientific.md",
+        "context/imaging/tikz-patterns.md",
+        "context/instructions.md",
+        "context/latex-awareness.md",
+        "context/paperbanana-methodology.md"
+      ],
+      "license": "MIT License",
+      "role": "Secondary method/reference consolidation. Original source identity and history retained."
+    }
+  ],
+  "consolidation": [
+    {
+      "source": "skills/conducting-autonomous-experiments/SKILL.md",
+      "destination": "skills/research/references/conducting-autonomous-experiments/METHOD.md",
+      "action": "Preserved as a rich mode reference; native consumers updated to canonical entry."
+    },
+    {
+      "source": "amplifier-bundle-scientificpaper: LICENSE, agents/citation-manager.md, agents/figure-artist.md, agents/latex-expert.md, agents/paper-architect.md, context/conference-formats/acl.md, context/conference-formats/acm.md, context/conference-formats/arxiv.md, context/conference-formats/icml.md, context/conference-formats/ieee.md, context/conference-formats/neurips.md, context/conference-styling-awareness.md, context/figure-generation-awareness.md, context/imaging/matplotlib-scientific.md, context/imaging/tikz-patterns.md, context/instructions.md, context/latex-awareness.md, context/paperbanana-methodology.md",
+      "destination": [
+        "skills/research/references/sources/amplifier-bundle-scientificpaper/LICENSE",
+        "skills/research/references/sources/amplifier-bundle-scientificpaper/agents/citation-manager.md",
+        "skills/research/references/sources/amplifier-bundle-scientificpaper/agents/figure-artist.md",
+        "skills/research/references/sources/amplifier-bundle-scientificpaper/agents/latex-expert.md",
+        "skills/research/references/sources/amplifier-bundle-scientificpaper/agents/paper-architect.md",
+        "skills/research/references/sources/amplifier-bundle-scientificpaper/context/conference-formats/acl.md",
+        "skills/research/references/sources/amplifier-bundle-scientificpaper/context/conference-formats/acm.md",
+        "skills/research/references/sources/amplifier-bundle-scientificpaper/context/conference-formats/arxiv.md",
+        "skills/research/references/sources/amplifier-bundle-scientificpaper/context/conference-formats/icml.md",
+        "skills/research/references/sources/amplifier-bundle-scientificpaper/context/conference-formats/ieee.md",
+        "skills/research/references/sources/amplifier-bundle-scientificpaper/context/conference-formats/neurips.md",
+        "skills/research/references/sources/amplifier-bundle-scientificpaper/context/conference-styling-awareness.md",
+        "skills/research/references/sources/amplifier-bundle-scientificpaper/context/figure-generation-awareness.md",
+        "skills/research/references/sources/amplifier-bundle-scientificpaper/context/imaging/matplotlib-scientific.md",
+        "skills/research/references/sources/amplifier-bundle-scientificpaper/context/imaging/tikz-patterns.md",
+        "skills/research/references/sources/amplifier-bundle-scientificpaper/context/instructions.md",
+        "skills/research/references/sources/amplifier-bundle-scientificpaper/context/latex-awareness.md",
+        "skills/research/references/sources/amplifier-bundle-scientificpaper/context/paperbanana-methodology.md"
+      ],
+      "action": "Preserved reference content and provenance; source repo retained until consumer migration validated."
+    }
+  ],
+  "docs": [
+    "docs/INSTALL.md",
+    "docs/MIGRATION.md",
+    "docs/VALIDATION.md",
+    "docs/NATIVE-README.md",
+    "docs/evaluations/2026-10-28/consolidation.json"
+  ],
+  "evidence_summary": "174 native integrity-tool tests and ten synthetic experiment-loop shell checks passed. They check software controls, not research novelty, an empirical treatment effect or an outside-user outcome.",
+  "publication_status": "Installation and evidence scopes are documented below.",
+  "marketing": {
+    "headline": "Make the answer traceable to the evidence.",
+    "lead": "A research skill for decisions, experiments and papers. Build a claim-to-source chain, keep contradictions visible and use a study design that can support the conclusion you want to make.",
+    "benefits": [
+      {
+        "title": "Answer the bounded question",
+        "body": "Choose a focused investigation, a justified experiment or a claim-linked manuscript."
+      },
+      {
+        "title": "Keep the evidence inspectable",
+        "body": "Retain source locators, methods, populations, applicability and the reasoning between them."
+      },
+      {
+        "title": "Learn from an honest comparison",
+        "body": "Freeze the protocol, preserve errors and failed trials, and separate exploratory findings from confirmation."
+      }
+    ],
+    "walkthrough": [
+      {
+        "title": "Define what the answer changes",
+        "detail": "Name the question, audience, competing explanations, needed evidence and budget."
+      },
+      {
+        "title": "Gather or measure",
+        "detail": "Read primary sources, or freeze the experiment and measurement rules before outcomes."
+      },
+      {
+        "title": "Write what the evidence permits",
+        "detail": "Link claims to records, include disagreement and uncertainty, and identify the smallest useful next check."
+      }
+    ],
+    "use_when": [
+      "A decision needs more than a confident summary.",
+      "An empirical claim needs a test or a fair baseline comparison.",
+      "A brief or paper needs real sources, methods and limits."
+    ],
+    "not_for": [
+      "A citation generator that invents inaccessible papers or results.",
+      "A reason to treat a model judge, popularity metric or passing self-test as research truth."
+    ],
+    "quickstart_prompt": "Use Research to assess whether the fictional document-retrieval change improves source coverage. First propose a bounded question, treatment and baseline, coverage measure, error handling, budget and stop rule. Prepare a protocol; do not run paid calls.",
+    "output_preview": "Fictional protocol: retrieval coverage\nQuestion: does the change surface required evidence?\nBaseline and treatment: frozen versions\nUnit: source-question pair\nErrors: retained under the declared denominator\nJudge: calibrated against literal source evidence\nConclusion: pending measurements; no improvement claim yet",
+    "proof_summary": "174 native integrity-tool tests and ten synthetic experiment-loop shell checks passed. They check software controls, not research novelty, an empirical treatment effect or an outside-user outcome.",
+    "next_step": "Bring the question, the decision it affects and the evidence you already have.",
+    "example_note": "Fictional worked example. It illustrates the intended output; it is not a measured result or a real customer story.",
+    "install_notes": [
+      "Requires Git and Python 3.11+ for the repository installer. The portable method itself can be read by a compatible agent without a service or provider account.",
+      "The destination is a skills-parent folder. Use the discovery path supported by your agent; ~/.agents/skills is an example, not a universal host setting.",
+      "Keep the complete installed folder, references and license together. Identical reinstall is safe; conflicts are refused. A deliberate --replace keeps a dated backup."
+    ]
+  },
+  "repository_url": "https://github.com/michaeljabbour/amplifier-capability-research",
+  "name": "amplifier-capability-research",
+  "legacy_names": [
+    "amplifier-skill-research",
+    "research"
+  ],
+  "contract_version": "amplifier-capability/v1",
+  "version": null,
+  "version_basis": "No release version recorded; installer requires a full Git revision pin.",
+  "engine": "LLM",
+  "engine_components": {
+    "caller_method": "LLM"
+  },
+  "surfaces": [
+    "agent-skills",
+    "amplifier-bundle"
+  ],
+  "portable_method": {
+    "name": "research",
+    "path": "skills/research",
+    "include": [
+      "."
+    ],
+    "contract": "Agent Skills directory; caller applies the method; no independent execution loop is installed."
+  },
+  "interfaces": {
+    "portable": {
+      "input": "Caller task and explicitly authorized context",
+      "output": "Build the claim from evidence, keep the limits, and make the work inspectable.",
+      "failure": "Report insufficient evidence, unsupported context or host limitation; never turn discovery into an execution claim."
+    },
+    "native": {
+      "distribution": null,
+      "entrypoints": {},
+      "docs": [
+        "docs/INSTALL.md",
+        "docs/MIGRATION.md",
+        "docs/VALIDATION.md",
+        "docs/NATIVE-README.md",
+        "docs/evaluations/2026-10-28/consolidation.json"
+      ],
+      "status": "Existing declared entrypoints preserved; runtime signatures, service access and installation tests remain separate evidence."
+    },
+    "host_adapters": {
+      "amplifier_bundle": "bundle.md",
+      "grants_autonomy": false
+    }
+  },
+  "permissions": {
+    "installation": {
+      "network": false,
+      "executes_capability_code": false,
+      "writes": [
+        "Selected discovery folders",
+        ".capability-state transaction backups"
+      ],
+      "grants_runtime_permissions": false
+    },
+    "runtime": {
+      "status": "Host/caller authorizes each operation; installation is not a tool allowlist or standing approval.",
+      "declared_boundaries": [
+        "A literature basis is not a measured result of this skill. Model judgments are fallible measurements.",
+        "Optional statistical, audit, resume, provenance, and paper-generation engines retain their native dependencies.",
+        "Do not begin a costly live experiment, generate paid media, or publish a manuscript without existing authorization."
+      ]
+    },
+    "secret_names": {
+      "discovery_requires": [],
+      "native_runtime_inventory": "See native documentation; no credentials are bundled or inferred."
+    }
+  },
+  "dataflow": {
+    "installation": "Read pinned tracked portable source and copy locally with SHA-256 receipts. No source text is transmitted.",
+    "method": "Caller supplies authorized context; existing promise and boundaries govern output.",
+    "native_runtime": "Provider/network/storage flows are owned by native interfaces and host authorization; these files do not enable them."
+  },
+  "source_policy": {
+    "revision": "Explicit full40-character Git commit required at installation; never infer latest.",
+    "repository_rename": "Public identity may change; skill folder, imports, entrypoints, tool IDs and schemas remain stable.",
+    "research": ".research/market remains local and ignored; AGENTS governs refresh."
+  },
+  "film": {
+    "file": "research-film",
+    "seconds": 66,
+    "heading": "Keep the failures in the count.",
+    "blurb": "In 66 seconds, a search setting looks eighteen points better because nine crashed runs vanished into the hat and a friendly judge agreed. Research turns the house lights on: the crashes stay in the count, the judge is checked against the source text, and the plan is frozen before the next run. You get the protocol and an honest answer: no improvement claim yet. Captions are on the player; a transcript is below.",
+    "note": "The experiment, its numbers and the judge are a fictional example. The film shows how the skill behaves; it does not report results."
+  },
+  "repository_aliases": [
+    "https://github.com/michaeljabbour/amplifier-skill-research"
+  ]
+}

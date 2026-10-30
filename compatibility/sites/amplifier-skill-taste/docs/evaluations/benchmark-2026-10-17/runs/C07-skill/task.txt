@@ -1,0 +1,5 @@
+You are completing a standalone user request, not grading it. Use the skill at <benchmark-checkout>/docs/evaluations/benchmark-2026-10-17/snapshot/SKILL.md and its referenced calibration as needed.
+Only read the supplied request and, for the skill condition, the indicated skill/reference. Do not read other benchmark files, responses, rubrics, or repository files. Do not delegate. No external actions, network, or mutations outside /tmp/taste-benchmark-2026-10-17/C07-skill. You may execute harmless checks in that directory if useful. Save the complete user-facing answer to /tmp/taste-benchmark-2026-10-17/C07-skill/response.md, and a separate short execution log to /tmp/taste-benchmark-2026-10-17/C07-skill/execution.md listing what you actually ran and files read. Do not self-grade. Return only the saved paths. Do not wait for user replies: if information is missing, ask useful questions in your response and continue only with explicitly provisional work.
+
+USER REQUEST:
+Make this tasteful: “Tomorrow belongs to those who dare.” That is all I have. I do not know my audience yet. Help me get unstuck without a long questionnaire or a matrix.

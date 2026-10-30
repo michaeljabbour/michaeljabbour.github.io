@@ -1,0 +1,327 @@
+{
+  "id": "ux-ergonomics",
+  "display_name": "UX Ergonomics",
+  "kind": "skill",
+  "promise": "Make the task easier to complete, and show what evidence would prove the change helped.",
+  "audience": "Teams designing or reviewing digital workflows and human-agent experiences.",
+  "trigger": "Use when task completion, cognitive load, accessibility, authority, error recovery, or longitudinal impact needs investigation.",
+  "skill_path": "skills/ux-ergonomics",
+  "modes": [
+    {
+      "name": "Frame and gather",
+      "when": "The product surface is known but the actual breakdown is unclear.",
+      "output": "A task model, claim-level evidence map, and ranked uncertainties."
+    },
+    {
+      "name": "Review and recommend",
+      "when": "An inspectable flow needs changes.",
+      "output": "Mechanism-specific findings, authority choices, and observable acceptance criteria."
+    },
+    {
+      "name": "Verify",
+      "when": "A decision package needs an adversarial check or study.",
+      "output": "A bounded verdict, valid study plan, and explicit inference limits."
+    }
+  ],
+  "examples": [
+    {
+      "title": "A recovery button is not recovery evidence",
+      "brief": "A fictional analyst cannot recover a failed batch without re-entering every field.",
+      "before": "Add an animated retry button and call the workflow accessible and faster.",
+      "after": "Walk the failure state, preserve user input, expose what retry will do, provide cancellation, and define a keyboard and task-completion check before claiming improvement.",
+      "why": "Visual polish can support the task, but it cannot establish usability or conformance.",
+      "fictional": true
+    }
+  ],
+  "boundaries": [
+    "Expert inspection is not observed-user evidence; anecdotes cannot establish prevalence.",
+    "Accessibility conformance needs adequate runtime/manual evidence at the stated scope.",
+    "Visual Taste guidance is an optional craft lens; it never outranks task evidence, usability, or user voice."
+  ],
+  "install_commands": [
+    "python3 scripts/capability.py doctor",
+    "python3 scripts/capability.py install --dest ~/.agents/skills"
+  ],
+  "runtime_install_commands": [
+    "amplifier bundle add ./bundle.md"
+  ],
+  "verification": [
+    {
+      "name": "Native bundle and mode references",
+      "command": "<configured-amplifier-python> tests/validate_bundle.py",
+      "status": "passed",
+      "evidence": "4 agents, 6 recipes, 6 modes, one canonical skill, 50 namespaced mentions. Method/shape conformance only; no usability study or accessibility-conformance claim.",
+      "expected": "The stated scope passes; no broader result inferred."
+    },
+    {
+      "name": "Portable packaging and install",
+      "command": "python3 scripts/capability.py build; python3 scripts/capability.py check; python3 scripts/capability.py doctor; python3 scripts/capability.py install --dest <temporary-parent> (twice)",
+      "status": "passed",
+      "expected": "Byte-identical canonical ZIP and isolated idempotent install.",
+      "evidence": "All operations passed. No runtime activation or effectiveness measured."
+    },
+    {
+      "name": "Skill discovery metadata",
+      "command": "<yaml-enabled-python> /path/to/skill-creator/scripts/quick_validate.py skills/ux-ergonomics",
+      "status": "passed",
+      "expected": "Valid required frontmatter, naming, and complete scaffold.",
+      "evidence": "Skill is valid. This is a structural check, not a behavioral benchmark."
+    }
+  ],
+  "sources": [
+    {
+      "repo": "amplifier-bundle-ergonomics",
+      "commit": "8a6b9a0a5189b5572ea5d5c933f7956227a711fb",
+      "paths": [
+        "skills/human-agent-authority-map/SKILL.md",
+        "skills/ux-acceptance-criteria/SKILL.md",
+        "skills/task-analysis/SKILL.md",
+        "skills/ux-evidence-synthesis/SKILL.md",
+        "skills/accessibility-evaluation/SKILL.md",
+        "skills/cognitive-walkthrough/SKILL.md",
+        "skills/usability-study-design/SKILL.md",
+        "skills/ergonomics-verification/SKILL.md",
+        "context/knowledge/lifecycle-ergonomics.md",
+        "context/knowledge/source-policy.md",
+        "context/knowledge/adversarial-ergonomics.md"
+      ],
+      "license": "MIT License",
+      "role": "Primary history and engine retained; methods consolidated behind the canonical portable entry."
+    },
+    {
+      "repo": "amplifier-bundle-taste",
+      "commit": "4cf2f37465d1a93d3e22e653ee92fe078eb07280",
+      "paths": [
+        "LICENSE",
+        "context/ai-tells-design.md",
+        "context/output-discipline-research.md",
+        "scripts/check-tells.sh",
+        "skills/brutalist-taste.md",
+        "skills/design-context-generator.md",
+        "skills/design-taste.md",
+        "skills/gpt-taste.md",
+        "skills/minimalist-taste.md",
+        "skills/output-discipline.md",
+        "skills/redesign-existing-projects.md",
+        "skills/soft-editorial-taste.md"
+      ],
+      "license": "MIT License",
+      "role": "Secondary method/reference consolidation. Original source identity and history retained."
+    }
+  ],
+  "consolidation": [
+    {
+      "source": "skills/human-agent-authority-map/SKILL.md",
+      "destination": "skills/ux-ergonomics/references/human-agent-authority-map/METHOD.md",
+      "action": "Preserved as a rich mode reference; native consumers updated to canonical entry."
+    },
+    {
+      "source": "skills/ux-acceptance-criteria/SKILL.md",
+      "destination": "skills/ux-ergonomics/references/ux-acceptance-criteria/METHOD.md",
+      "action": "Preserved as a rich mode reference; native consumers updated to canonical entry."
+    },
+    {
+      "source": "skills/task-analysis/SKILL.md",
+      "destination": "skills/ux-ergonomics/references/task-analysis/METHOD.md",
+      "action": "Preserved as a rich mode reference; native consumers updated to canonical entry."
+    },
+    {
+      "source": "skills/ux-evidence-synthesis/SKILL.md",
+      "destination": "skills/ux-ergonomics/references/ux-evidence-synthesis/METHOD.md",
+      "action": "Preserved as a rich mode reference; native consumers updated to canonical entry."
+    },
+    {
+      "source": "skills/accessibility-evaluation/SKILL.md",
+      "destination": "skills/ux-ergonomics/references/accessibility-evaluation/METHOD.md",
+      "action": "Preserved as a rich mode reference; native consumers updated to canonical entry."
+    },
+    {
+      "source": "skills/cognitive-walkthrough/SKILL.md",
+      "destination": "skills/ux-ergonomics/references/cognitive-walkthrough/METHOD.md",
+      "action": "Preserved as a rich mode reference; native consumers updated to canonical entry."
+    },
+    {
+      "source": "skills/usability-study-design/SKILL.md",
+      "destination": "skills/ux-ergonomics/references/usability-study-design/METHOD.md",
+      "action": "Preserved as a rich mode reference; native consumers updated to canonical entry."
+    },
+    {
+      "source": "skills/ergonomics-verification/SKILL.md",
+      "destination": "skills/ux-ergonomics/references/ergonomics-verification/METHOD.md",
+      "action": "Preserved as a rich mode reference; native consumers updated to canonical entry."
+    },
+    {
+      "source": "amplifier-bundle-taste: LICENSE, context/ai-tells-design.md, context/output-discipline-research.md, scripts/check-tells.sh, skills/brutalist-taste.md, skills/design-context-generator.md, skills/design-taste.md, skills/gpt-taste.md, skills/minimalist-taste.md, skills/output-discipline.md, skills/redesign-existing-projects.md, skills/soft-editorial-taste.md",
+      "destination": [
+        "skills/ux-ergonomics/references/sources/amplifier-bundle-taste/LICENSE",
+        "skills/ux-ergonomics/references/sources/amplifier-bundle-taste/context/ai-tells-design.md",
+        "skills/ux-ergonomics/references/sources/amplifier-bundle-taste/context/output-discipline-research.md",
+        "skills/ux-ergonomics/references/sources/amplifier-bundle-taste/scripts/check-tells.sh",
+        "skills/ux-ergonomics/references/sources/amplifier-bundle-taste/skills/brutalist-taste.md",
+        "skills/ux-ergonomics/references/sources/amplifier-bundle-taste/skills/design-context-generator.md",
+        "skills/ux-ergonomics/references/sources/amplifier-bundle-taste/skills/design-taste.md",
+        "skills/ux-ergonomics/references/sources/amplifier-bundle-taste/skills/gpt-taste.md",
+        "skills/ux-ergonomics/references/sources/amplifier-bundle-taste/skills/minimalist-taste.md",
+        "skills/ux-ergonomics/references/sources/amplifier-bundle-taste/skills/output-discipline.md",
+        "skills/ux-ergonomics/references/sources/amplifier-bundle-taste/skills/redesign-existing-projects.md",
+        "skills/ux-ergonomics/references/sources/amplifier-bundle-taste/skills/soft-editorial-taste.md"
+      ],
+      "action": "Preserved reference content and provenance; source repo retained until consumer migration validated."
+    }
+  ],
+  "docs": [
+    "docs/INSTALL.md",
+    "docs/MIGRATION.md",
+    "docs/VALIDATION.md",
+    "docs/NATIVE-README.md",
+    "docs/NATIVE-INSTALL.md",
+    "docs/evaluations/2026-10-28/consolidation.json",
+    "docs/OPTIONAL-CRAFT-ADAPTERS.md"
+  ],
+  "evidence_summary": "Native bundle structure, references and portable installation are checked. No usability study or accessibility-conformance claim is established by those structural checks; each product needs validation on its actual tasks and surfaces.",
+  "publication_status": "Installation and evidence scopes are documented below.",
+  "marketing": {
+    "headline": "Make the next step easier to understand and do.",
+    "lead": "An evidence-led UX skill for workflows and human-agent interactions. Trace the real task, find where people can lose their way and turn findings into changes you can verify.",
+    "benefits": [
+      {
+        "title": "Find the task behind the screen",
+        "body": "Map decisions, interruptions, errors, recovery and completion instead of beginning with a visual redesign."
+      },
+      {
+        "title": "Make authority understandable",
+        "body": "Show who decides, who acts, what can be stopped and what evidence confirms completion."
+      },
+      {
+        "title": "Give recommendations a fair test",
+        "body": "Separate observation from inference and specify what would pass or fail each consequential change."
+      }
+    ],
+    "walkthrough": [
+      {
+        "title": "Frame and inspect",
+        "detail": "Name the actor and task, gather relevant evidence and walk both normal and failure states."
+      },
+      {
+        "title": "Recommend a concrete change",
+        "detail": "Choose the lenses that fit: cognition, accessibility, authority, recovery and visual craft."
+      },
+      {
+        "title": "Verify at the right level",
+        "detail": "Check keyboard and runtime behavior, then use affected-user tasks where the claim needs them."
+      }
+    ],
+    "use_when": [
+      "People cannot tell what happened or what to do next.",
+      "A workflow loses input or hides recovery after an error.",
+      "An agent interface makes approval, cancellation or completion unclear."
+    ],
+    "not_for": [
+      "An accessibility-conformance certificate based on a source scan.",
+      "Treating anecdotes as prevalence or a visual preference as measured usability."
+    ],
+    "quickstart_prompt": "Use UX Ergonomics to review this fictional batch-import failure flow. The analyst loses entered mappings after an error. Separate observation, inference and recommendation; propose recovery behavior and keyboard/task checks without claiming a measured improvement.",
+    "output_preview": "Fictional finding: failed import discards mappings\nObservation: inputs disappear after the error\nConsequence: task must restart from scratch\nChange: preserve mappings; explain retry and cancellation\nAcceptance: keyboard user can inspect and retry without re-entry\nEvidence gap: affected-user task observation pending",
+    "proof_summary": "Native bundle structure, references and portable installation are checked. No usability study or accessibility-conformance claim is established by those structural checks; each product needs validation on its actual tasks and surfaces.",
+    "next_step": "Bring one user task, an inspectable flow and the breakdown you want to understand.",
+    "example_note": "Fictional worked example. It illustrates the intended output; it is not a measured result or a real customer story.",
+    "install_notes": [
+      "Requires Git and Python 3.11+ for the repository installer. The portable method itself can be read by a compatible agent without a service or provider account.",
+      "The destination is a skills-parent folder. Use the discovery path supported by your agent; ~/.agents/skills is an example, not a universal host setting.",
+      "Keep the complete installed folder, references and license together. Identical reinstall is safe; conflicts are refused. A deliberate --replace keeps a dated backup."
+    ]
+  },
+  "repository_url": "https://github.com/michaeljabbour/amplifier-capability-ux-ergonomics",
+  "name": "amplifier-capability-ux-ergonomics",
+  "legacy_names": [
+    "amplifier-skill-ux-ergonomics",
+    "ux-ergonomics"
+  ],
+  "contract_version": "amplifier-capability/v1",
+  "version": null,
+  "version_basis": "No release version recorded; installer requires a full Git revision pin.",
+  "engine": "LLM",
+  "engine_components": {
+    "caller_method": "LLM"
+  },
+  "surfaces": [
+    "agent-skills",
+    "amplifier-bundle"
+  ],
+  "portable_method": {
+    "name": "ux-ergonomics",
+    "path": "skills/ux-ergonomics",
+    "include": [
+      "."
+    ],
+    "contract": "Agent Skills directory; caller applies the method; no independent execution loop is installed."
+  },
+  "interfaces": {
+    "portable": {
+      "input": "Caller task and explicitly authorized context",
+      "output": "Make the task easier to complete, and show what evidence would prove the change helped.",
+      "failure": "Report insufficient evidence, unsupported context or host limitation; never turn discovery into an execution claim."
+    },
+    "native": {
+      "distribution": null,
+      "entrypoints": {},
+      "docs": [
+        "docs/INSTALL.md",
+        "docs/MIGRATION.md",
+        "docs/VALIDATION.md",
+        "docs/NATIVE-README.md",
+        "docs/NATIVE-INSTALL.md",
+        "docs/evaluations/2026-10-28/consolidation.json",
+        "docs/OPTIONAL-CRAFT-ADAPTERS.md"
+      ],
+      "status": "Existing declared entrypoints preserved; runtime signatures, service access and installation tests remain separate evidence."
+    },
+    "host_adapters": {
+      "amplifier_bundle": "bundle.md",
+      "grants_autonomy": false
+    }
+  },
+  "permissions": {
+    "installation": {
+      "network": false,
+      "executes_capability_code": false,
+      "writes": [
+        "Selected discovery folders",
+        ".capability-state transaction backups"
+      ],
+      "grants_runtime_permissions": false
+    },
+    "runtime": {
+      "status": "Host/caller authorizes each operation; installation is not a tool allowlist or standing approval.",
+      "declared_boundaries": [
+        "Expert inspection is not observed-user evidence; anecdotes cannot establish prevalence.",
+        "Accessibility conformance needs adequate runtime/manual evidence at the stated scope.",
+        "Visual Taste guidance is an optional craft lens; it never outranks task evidence, usability, or user voice."
+      ]
+    },
+    "secret_names": {
+      "discovery_requires": [],
+      "native_runtime_inventory": "See native documentation; no credentials are bundled or inferred."
+    }
+  },
+  "dataflow": {
+    "installation": "Read pinned tracked portable source and copy locally with SHA-256 receipts. No source text is transmitted.",
+    "method": "Caller supplies authorized context; existing promise and boundaries govern output.",
+    "native_runtime": "Provider/network/storage flows are owned by native interfaces and host authorization; these files do not enable them."
+  },
+  "source_policy": {
+    "revision": "Explicit full40-character Git commit required at installation; never infer latest.",
+    "repository_rename": "Public identity may change; skill folder, imports, entrypoints, tool IDs and schemas remain stable.",
+    "research": ".research/market remains local and ignored; AGENTS governs refresh."
+  },
+  "film": {
+    "file": "ux-ergonomics-film",
+    "seconds": 68,
+    "heading": "Forty fields. Then it's gone.",
+    "blurb": "In 68 seconds, Pat maps forty columns and loses them all to one failed import. UX Ergonomics rides the real route to the stop where it breaks, keeps the work, says what retry will do, gives a way out and checks it with only a keyboard. It will not call the fix better until real people try it. Captions are on the player; a transcript is below.",
+    "note": "Pat, the import and the form are a fictional example. The film shows how the skill behaves; it does not report results."
+  },
+  "repository_aliases": [
+    "https://github.com/michaeljabbour/amplifier-skill-ux-ergonomics"
+  ]
+}

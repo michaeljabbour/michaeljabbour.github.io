@@ -1,0 +1,239 @@
+{
+  "id": "image-provider",
+  "display_name": "Imagen Provider",
+  "kind": "tool",
+  "promise": "Generate images through one provider interface while preserving explicit feature requirements.",
+  "audience": "Agents and people needing image generation from a stable CLI or MCP tool.",
+  "trigger": "Generate or edit an image through an explicitly configured provider.",
+  "skill_path": null,
+  "modes": [
+    {
+      "name": "Select",
+      "when": "A request needs a provider.",
+      "output": "A qualified provider recommendation or a precise capability failure."
+    },
+    {
+      "name": "Generate",
+      "when": "The input and provider access are available.",
+      "output": "Provider-produced image bytes, paths and metadata."
+    },
+    {
+      "name": "Integrate",
+      "when": "An agent host needs the interface.",
+      "output": "Installed MCP/CLI entry points and verified namespace compatibility."
+    }
+  ],
+  "examples": [
+    {
+      "title": "Fictional provider requirement",
+      "brief": "Inspect Imagen Provider\u2019s installed help and MCP schema. Prepare a fictional packaging-image request that requires a reference image and an explicit output path. Explain which configured provider can meet it or what setup is missing. Do not make a paid generation call during this inspection.",
+      "before": "A missing provider silently drops the reference requirement.",
+      "after": "The selector either picks the available capable provider or stops with a setup error.",
+      "why": "Provider availability must not erase a requested feature.",
+      "fictional": true
+    }
+  ],
+  "boundaries": [
+    "Provider invocation can cost money and requires an approved environment credential. Selector/mock tests do not generate images.",
+    "The parked video-mcp stub is retained separately as reference; it is not advertised as a functioning video provider.",
+    "Server defaults to environment-only configuration; IMAGEN_MCP_CONFIG_PROFILE=local explicitly enables the retained dotenv setup profile."
+  ],
+  "install_commands": [
+    "python3 -m venv .venv",
+    ".venv/bin/python -m pip install .",
+    ".venv/bin/imagen --help"
+  ],
+  "runtime_install_commands": [],
+  "verification": [
+    {
+      "name": "Native functional baseline",
+      "command": "python3 -m pytest -q",
+      "expected": "Original deterministic/mocked native checks pass.",
+      "status": "passed",
+      "evidence": "324 native tests and 3 source-specific provider/configuration checks passed; no provider call."
+    },
+    {
+      "name": "Source-specific acceptance",
+      "command": "python3 scripts/functional_gate.py",
+      "expected": "Check real configuration/schema/validation branches without remote execution.",
+      "status": "passed",
+      "evidence": "324 native tests and 3 source-specific provider/configuration checks passed; no provider call."
+    },
+    {
+      "name": "Live execution acceptance",
+      "command": "See native production guide",
+      "expected": "Explicitly authorized real provider, invite or video task.",
+      "status": "not-run",
+      "evidence": "No paid model call, real invitation, permission mutation, browser recording or film render was performed."
+    },
+    {
+      "name": "Clean wheel installation",
+      "command": "Build wheel, install into a fresh venv, then run installed entry points outside checkout",
+      "expected": "Stable native interfaces and packaged assets survive installation.",
+      "status": "passed",
+      "evidence": "Fresh-wheel distribution metadata, canonical/legacy namespace identity and real MCP stdio initialize/list-tools smoke passed outside the checkout with provider keys empty. No provider operation invoked."
+    }
+  ],
+  "sources": [
+    {
+      "repo": "imagen",
+      "commit": "8d809cfd82699578b589381810aa1e07d0b6bd26",
+      "paths": [
+        "imagen_mcp",
+        "src/providers",
+        "src/models",
+        "src/services",
+        "src/tools",
+        "tests"
+      ],
+      "license": "MIT",
+      "role": "Retained native owner implementation, import/CLI interfaces and complete source history."
+    }
+  ],
+  "consolidation": [
+    "Public family repository name changes independently from stable native package/CLI/import identity.",
+    "No forced portable coaching wrapper; ordinary execution stays directly installable.",
+    "Upstream0.5.0 distribution/Smart Tool rename retained: imagen; MCP command/import remains imagen-mcp/imagen_mcp."
+  ],
+  "docs": [
+    "docs/CONSOLIDATION.md",
+    "docs/PROVIDER_SELECTION.md",
+    "docs/RELEASE_EVIDENCE_0.4.0.md"
+  ],
+  "publication_status": "Installation and evidence scopes are documented below.",
+  "marketing": {
+    "headline": "Generate the image without losing the requirements.",
+    "lead": "For agents and developers adding image generation. Imagen Provider exposes one library, CLI and MCP interface, qualifies the configured provider against requested features and returns image paths and metadata through the same integration.",
+    "benefits": [
+      {
+        "title": "Keep the brief intact",
+        "body": "A required feature, such as a reference image, must remain a requirement when the provider is selected."
+      },
+      {
+        "title": "Reuse one integration",
+        "body": "Call the stable native interface from an agent host or from Python while provider adapters handle the differences."
+      },
+      {
+        "title": "Get an actionable setup failure",
+        "body": "When no configured provider can satisfy the request, stop with a clear capability or configuration error."
+      }
+    ],
+    "walkthrough": [
+      {
+        "title": "Install and inspect",
+        "detail": "Install the native package in a virtual environment and inspect imagen --help or the MCP tool schema."
+      },
+      {
+        "title": "Configure the provider",
+        "detail": "Supply approved credentials through environment variables; the default profile does not search for dotenv files."
+      },
+      {
+        "title": "Submit an explicit request",
+        "detail": "Set the image requirements and output path, then inspect the returned provider metadata and generated asset."
+      }
+    ],
+    "use_when": [
+      "An agent needs an MCP image tool with explicit provider requirements.",
+      "An application needs generation or editing behind a stable Python interface.",
+      "A missing feature must fail clearly instead of being dropped."
+    ],
+    "not_for": [
+      "A free offline image generator.",
+      "A video provider; the older video stub is not a functioning capability."
+    ],
+    "quickstart_prompt": "Inspect Imagen Provider\u2019s installed help and MCP schema. Prepare a fictional packaging-image request that requires a reference image and an explicit output path. Explain which configured provider can meet it or what setup is missing. Do not make a paid generation call during this inspection.",
+    "output_preview": "Request\n  task: fictional packaging mockup\n  required feature: reference-image support\n  output: caller-selected image path\n\nSelection\n  capable configured provider \u2192 submit explicit request\n  no capable configured provider \u2192 setup/capability error\n\nResult after generation: image bytes or path plus provider metadata",
+    "example_note": "Fictional request and routing outline. No image was generated and no provider was invoked for this example.",
+    "install_notes": [
+      "Native distribution: imagen; command: imagen; MCP entry point: python -m imagen_mcp.",
+      "Generation needs an approved OpenAI or Gemini credential and may incur provider charges.",
+      "The default config reads environment variables only. IMAGEN_MCP_CONFIG_PROFILE=local explicitly opts into the retained dotenv profile.",
+      "The shown virtual-environment commands use macOS/Linux paths; on Windows, use the corresponding .venv\\Scripts executables."
+    ],
+    "proof_summary": "Native provider/configuration tests and a clean-wheel MCP initialize/list-tools check passed with keys empty. Those checks establish integration behavior; generated image quality needs an actual reviewed output.",
+    "next_step": "Install in a virtual environment, inspect the tool schema and configure only the provider your request needs."
+  },
+  "repository_url": "https://github.com/michaeljabbour/amplifier-capability-imagen-provider",
+  "name": "amplifier-capability-imagen-provider",
+  "legacy_names": [
+    "amplifier-tool-imagen-provider"
+  ],
+  "contract_version": "amplifier-capability/v1",
+  "version": "0.5.0",
+  "version_basis": "Existing release metadata",
+  "engine": "LLM",
+  "engine_components": {
+    "selector_mcp_adapter": "None",
+    "image_generation": "External generative model (LLM category is the nearest rubric engine; multimodal provider owns synthesis)"
+  },
+  "surfaces": [
+    "cli",
+    "mcp",
+    "python-library"
+  ],
+  "portable_method": null,
+  "interfaces": {
+    "portable": null,
+    "native": {
+      "distribution": "imagen",
+      "entrypoints": {
+        "imagen-mcp": "imagen_mcp.server:main",
+        "imagen-mcp-cli": "imagen_mcp.cli:main",
+        "imagen": "src.smart_tool.cli:main"
+      },
+      "docs": [
+        "docs/CONSOLIDATION.md",
+        "docs/PROVIDER_SELECTION.md",
+        "docs/RELEASE_EVIDENCE_0.4.0.md"
+      ],
+      "status": "Existing declared entrypoints preserved; runtime signatures, service access and installation tests remain separate evidence."
+    },
+    "host_adapters": {
+      "amplifier_bundle": null,
+      "grants_autonomy": false
+    }
+  },
+  "permissions": {
+    "installation": {
+      "network": false,
+      "executes_capability_code": false,
+      "writes": [
+        "Selected discovery folders",
+        ".capability-state transaction backups"
+      ],
+      "grants_runtime_permissions": false
+    },
+    "runtime": {
+      "status": "Host/caller authorizes each operation; installation is not a tool allowlist or standing approval.",
+      "declared_boundaries": [
+        "Provider invocation can cost money and requires an approved environment credential. Selector/mock tests do not generate images.",
+        "The parked video-mcp stub is retained separately as reference; it is not advertised as a functioning video provider.",
+        "Server defaults to environment-only configuration; IMAGEN_MCP_CONFIG_PROFILE=local explicitly enables the retained dotenv setup profile."
+      ]
+    },
+    "secret_names": {
+      "discovery_requires": [],
+      "native_runtime_inventory": "See native documentation; no credentials are bundled or inferred."
+    }
+  },
+  "dataflow": {
+    "installation": "Read pinned tracked portable source and copy locally with SHA-256 receipts. No source text is transmitted.",
+    "method": "Caller supplies authorized context; existing promise and boundaries govern output.",
+    "native_runtime": "Provider/network/storage flows are owned by native interfaces and host authorization; these files do not enable them."
+  },
+  "source_policy": {
+    "revision": "Explicit full40-character Git commit required at installation; never infer latest.",
+    "repository_rename": "Public identity may change; skill folder, imports, entrypoints, tool IDs and schemas remain stable.",
+    "research": ".research/market remains local and ignored; AGENTS governs refresh."
+  },
+  "film": {
+    "file": "imagen-provider-film",
+    "seconds": 70,
+    "heading": "A requirement is not a preference.",
+    "blurb": "In 70 seconds, Otto the octopus switchboard operator drops a must to get a request through: the line that takes reference sketches is dark, so he plugs in anyway. Imagen Provider never drops a must. If no configured provider can meet it, the call stops and says what to set up; a preference can fall back, with a note saying why. One interface serves agents, terminals and code, and you get the file and which provider made it. Captions are on the player; a transcript is below.",
+    "note": "The tea-tin label and its fox sketch are a fictional example. Provider names on screen are the tool\u2019s real settings and messages. The film shows how the tool behaves; it does not report results."
+  },
+  "repository_aliases": [
+    "https://github.com/michaeljabbour/amplifier-tool-imagen-provider"
+  ]
+}

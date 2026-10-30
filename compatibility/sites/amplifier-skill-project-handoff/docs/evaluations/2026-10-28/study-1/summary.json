@@ -1,0 +1,99 @@
+{
+  "status": "live-study",
+  "scope": "The treatment is loaded by the capture agent only. A fresh, neutral resumer sees the resulting handoff and retained project files, not history or method. No real model tools execute.",
+  "models": {
+    "evaluated": "gpt-4.1-mini-2025-04-14",
+    "judge": "claude-sonnet-4-6",
+    "family_declarations": [
+      "gpt-4.1",
+      "claude-sonnet-4.6"
+    ]
+  },
+  "fixture_count": 10,
+  "repeats": 2,
+  "conditions": [
+    "skill",
+    "baseline",
+    "placebo"
+  ],
+  "completed_trials": 60,
+  "failed_trials": 1,
+  "metrics_by_condition": {
+    "skill": {
+      "n": 20,
+      "resume_correct_rate": 1,
+      "all_gates_pass_rate": 1,
+      "critical_failures": 0,
+      "ungraded_trials": 0
+    },
+    "baseline": {
+      "n": 20,
+      "resume_correct_rate": 1,
+      "all_gates_pass_rate": 1,
+      "critical_failures": 0,
+      "ungraded_trials": 0
+    },
+    "placebo": {
+      "n": 20,
+      "resume_correct_rate": 0.85,
+      "all_gates_pass_rate": 0.8,
+      "critical_failures": 2,
+      "ungraded_trials": 1
+    }
+  },
+  "paired_comparisons": {
+    "skill_vs_baseline": {
+      "delta_resume": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "fixture_pairs": 10,
+      "warning": "Small, curated fixture sample; interval is descriptive, not a population guarantee."
+    },
+    "skill_vs_placebo": {
+      "delta_resume": 0.15,
+      "ci95": [
+        0.0,
+        0.3
+      ],
+      "fixture_pairs": 10,
+      "warning": "Small, curated fixture sample; interval is descriptive, not a population guarantee."
+    }
+  },
+  "consistency": {
+    "skill": {
+      "repeated_fixtures": 10,
+      "resume_verdict_agreement": 1,
+      "scope_verdict_agreement": 1,
+      "meaning": "Agreement of scored outcomes across repetitions; not identical prose or deterministic generation."
+    },
+    "baseline": {
+      "repeated_fixtures": 10,
+      "resume_verdict_agreement": 1,
+      "scope_verdict_agreement": 1,
+      "meaning": "Agreement of scored outcomes across repetitions; not identical prose or deterministic generation."
+    },
+    "placebo": {
+      "repeated_fixtures": 10,
+      "resume_verdict_agreement": 0.7,
+      "scope_verdict_agreement": 0.8,
+      "meaning": "Agreement of scored outcomes across repetitions; not identical prose or deterministic generation."
+    }
+  },
+  "nominal_uncached_usd": 0.7910956,
+  "unpriced_failed_calls": 0,
+  "budget_accounted_usd": 0.7910956,
+  "provider_calls": 180,
+  "limitations": [
+    "Curated fictional cases; no real-user time saving, adoption or durable memory outcome measured.",
+    "Only Capture-to-neutral-resumer transfer is tested; direct Resume and Check method benefit is not established.",
+    "Virtual text/file interface, not actual host tools, permissions or filesystem security.",
+    "Both stages use the same evaluated model in separate stateless calls; judge uses a different declared model family.",
+    "Judge blinding hides condition labels, not stylistic clues; human adjudication remains useful.",
+    "Small clustered bootstrap intervals are descriptive; repeated cases are not independent new projects.",
+    "Snapshot IDs/settings and source hashes are frozen; provider generation is not deterministic.",
+    "Nominal uncached token prices are not an invoice; errors may consume reserved budget without retained provider usage."
+  ],
+  "interpretation": "Incomplete or ungraded trials remain. No effectiveness conclusion; failures are retained in denominators."
+}

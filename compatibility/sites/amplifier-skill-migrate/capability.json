@@ -1,0 +1,243 @@
+{
+  "id": "migrate",
+  "display_name": "Migrate",
+  "kind": "skill",
+  "promise": "Change the language without losing the application.",
+  "audience": "Developers rebuilding a whole application in another language or runtime.",
+  "trigger": "Use when behavior, data, interfaces, and deployment must survive a whole-app migration.",
+  "skill_path": "skills/migrate",
+  "modes": [
+    {
+      "name": "Inventory",
+      "when": "The source app must become a rebuildable specification.",
+      "output": "Observed surfaces, sequenced story cards, data/interface contracts, and acceptance criteria."
+    },
+    {
+      "name": "Rebuild",
+      "when": "A story\u2019s prerequisites and acceptance are known.",
+      "output": "An idiomatic vertical slice with unit and real-surface evidence."
+    },
+    {
+      "name": "Verify",
+      "when": "Builder-created checks need an independent challenge.",
+      "output": "Source-derived parity findings, bounded reopen decisions, and retained unresolved cases."
+    }
+  ],
+  "examples": [
+    {
+      "title": "Preserve the failure path too",
+      "brief": "A fictional terminal editor is migrating languages; its save dialog preserves an unsaved buffer after a write failure.",
+      "before": "Translate the save function and count a successful unit test as parity.",
+      "after": "Observe the source failure state, put buffer preservation and recovery in the story, write the terminal probe first, then implement in target idioms.",
+      "why": "The observable contract includes failures, state, and recovery\u2014not the source language\u2019s line structure.",
+      "fictional": true
+    }
+  ],
+  "boundaries": [
+    "The source remains read-only. Keep data migration and rollback explicit; code parity alone cannot establish data safety.",
+    "The optional Gene-Migration graph, ledger, Forge tool, and Amplifier are not required to install this method.",
+    "A ledger fitness curve measures declared completion, not independently established behavioral parity."
+  ],
+  "install_commands": [
+    "python3 scripts/capability.py doctor",
+    "python3 scripts/capability.py install --dest ~/.agents/skills"
+  ],
+  "runtime_install_commands": [
+    "amplifier bundle add ./bundle.md"
+  ],
+  "verification": [
+    {
+      "name": "Ledger ratchet and sequence detector",
+      "command": "python3 evals/hillclimb.py --self-test; python3 evals/hillclimb.py --fixture",
+      "status": "passed",
+      "evidence": "Builder/verifier state regressions rejected and synthetic fixture curve read. These are fixture mechanics, not an app migration or behavioral parity measurement.",
+      "expected": "The stated scope passes; no broader result inferred."
+    },
+    {
+      "name": "Executable graph syntax",
+      "command": "dot -Tsvg pipelines/inventory.dot -o /dev/null; dot -Tsvg pipelines/migrate.dot -o /dev/null; dot -Tsvg pipelines/verify.dot -o /dev/null",
+      "status": "passed",
+      "evidence": "All three retained graphs parse. No graph/orchestration changes or paid pipeline execution.",
+      "expected": "The stated scope passes; no broader result inferred."
+    },
+    {
+      "name": "Portable packaging and install",
+      "command": "python3 scripts/capability.py build; python3 scripts/capability.py check; python3 scripts/capability.py doctor; python3 scripts/capability.py install --dest <temporary-parent> (twice)",
+      "status": "passed",
+      "expected": "Byte-identical canonical ZIP and isolated idempotent install.",
+      "evidence": "All operations passed. No runtime activation or effectiveness measured."
+    },
+    {
+      "name": "Skill discovery metadata",
+      "command": "<yaml-enabled-python> /path/to/skill-creator/scripts/quick_validate.py skills/migrate",
+      "status": "passed",
+      "expected": "Valid required frontmatter, naming, and complete scaffold.",
+      "evidence": "Skill is valid. This is a structural check, not a behavioral benchmark."
+    }
+  ],
+  "sources": [
+    {
+      "repo": "amplifier-bundle-genemigration",
+      "commit": "a20f50716d4bd07053a04b84fe5c50d6eee547ef",
+      "paths": [
+        "PRINCIPLES.md",
+        "context/gm-runbook.md",
+        "context/story-template.md"
+      ],
+      "license": "MIT License",
+      "role": "Primary history and engine retained; methods consolidated behind the canonical portable entry."
+    }
+  ],
+  "consolidation": [],
+  "docs": [
+    "docs/INSTALL.md",
+    "docs/MIGRATION.md",
+    "docs/VALIDATION.md",
+    "docs/NATIVE-README.md",
+    "docs/evaluations/2026-10-28/consolidation.json"
+  ],
+  "evidence_summary": "Retained graph syntax, ledger ratchet and sequence fixtures pass, and the portable install is checked. They validate orchestration mechanics; this release does not claim a newly completed app migration or production cutover.",
+  "publication_status": "Installation and evidence scopes are documented below.",
+  "marketing": {
+    "headline": "Change the language. Preserve the experience.",
+    "lead": "A whole-application migration skill. Observe how the source behaves, turn it into sequenced stories, and rebuild one complete slice at a time with data, failure and recovery checks.",
+    "benefits": [
+      {
+        "title": "Capture the app people use",
+        "body": "Inventory commands, screens, hidden state, errors and persistence instead of translating files line by line."
+      },
+      {
+        "title": "Rebuild in the target\u2019s idioms",
+        "body": "Use source-derived acceptance criteria while respecting the target language and host architecture."
+      },
+      {
+        "title": "See what is actually complete",
+        "body": "Keep implemented, independently verified, blocked and cut over as separate states."
+      }
+    ],
+    "walkthrough": [
+      {
+        "title": "Inventory the source",
+        "detail": "Keep it read-only and describe observed capabilities as dependency-ordered stories with testable criteria."
+      },
+      {
+        "title": "Rebuild a vertical slice",
+        "detail": "Write target checks and a real-surface probe first; include data handling and recovery."
+      },
+      {
+        "title": "Verify and plan cutover",
+        "detail": "Challenge behavior against the source, preserve failures and record migration and rollback status."
+      }
+    ],
+    "use_when": [
+      "A whole app must move to a different language or runtime.",
+      "A rewrite needs source-based acceptance rather than visual resemblance.",
+      "Data compatibility and failure recovery must survive the move."
+    ],
+    "not_for": [
+      "A guarantee of parity from a green ledger or unit test alone.",
+      "An implicit data migration or permission to cut over a production system."
+    ],
+    "quickstart_prompt": "Use Migrate to inventory this fictional terminal editor for a Rust rebuild. Keep the Python source read-only. Start with open, edit, save and failed-save recovery; write dependency-ordered story cards and acceptance probes before implementation.",
+    "output_preview": "Fictional story: recover from failed save\nGiven: edited buffer and unwritable destination\nWhen: save fails\nThen: buffer remains; reason is visible; retry is possible\nDepends on: editor state and file boundary\nEvidence: source observation + target terminal probe\nState: inventoried; target implementation pending",
+    "proof_summary": "Retained graph syntax, ledger ratchet and sequence fixtures pass, and the portable install is checked. They validate orchestration mechanics; this release does not claim a newly completed app migration or production cutover.",
+    "next_step": "Bring the read-only source, target language and the surfaces that must survive.",
+    "example_note": "Fictional worked example. It illustrates the intended output; it is not a measured result or a real customer story.",
+    "install_notes": [
+      "Requires Git and Python 3.11+ for the repository installer. The portable method itself can be read by a compatible agent without a service or provider account.",
+      "The destination is a skills-parent folder. Use the discovery path supported by your agent; ~/.agents/skills is an example, not a universal host setting.",
+      "Keep the complete installed folder, references and license together. Identical reinstall is safe; conflicts are refused. A deliberate --replace keeps a dated backup."
+    ]
+  },
+  "repository_url": "https://github.com/michaeljabbour/amplifier-capability-migrate",
+  "name": "amplifier-capability-migrate",
+  "legacy_names": [
+    "amplifier-skill-migrate",
+    "migrate"
+  ],
+  "contract_version": "amplifier-capability/v1",
+  "version": null,
+  "version_basis": "No release version recorded; installer requires a full Git revision pin.",
+  "engine": "LLM",
+  "engine_components": {
+    "caller_method": "LLM"
+  },
+  "surfaces": [
+    "agent-skills",
+    "amplifier-bundle"
+  ],
+  "portable_method": {
+    "name": "migrate",
+    "path": "skills/migrate",
+    "include": [
+      "."
+    ],
+    "contract": "Agent Skills directory; caller applies the method; no independent execution loop is installed."
+  },
+  "interfaces": {
+    "portable": {
+      "input": "Caller task and explicitly authorized context",
+      "output": "Change the language without losing the application.",
+      "failure": "Report insufficient evidence, unsupported context or host limitation; never turn discovery into an execution claim."
+    },
+    "native": {
+      "distribution": null,
+      "entrypoints": {},
+      "docs": [
+        "docs/INSTALL.md",
+        "docs/MIGRATION.md",
+        "docs/VALIDATION.md",
+        "docs/NATIVE-README.md",
+        "docs/evaluations/2026-10-28/consolidation.json"
+      ],
+      "status": "Existing declared entrypoints preserved; runtime signatures, service access and installation tests remain separate evidence."
+    },
+    "host_adapters": {
+      "amplifier_bundle": "bundle.md",
+      "grants_autonomy": false
+    }
+  },
+  "permissions": {
+    "installation": {
+      "network": false,
+      "executes_capability_code": false,
+      "writes": [
+        "Selected discovery folders",
+        ".capability-state transaction backups"
+      ],
+      "grants_runtime_permissions": false
+    },
+    "runtime": {
+      "status": "Host/caller authorizes each operation; installation is not a tool allowlist or standing approval.",
+      "declared_boundaries": [
+        "The source remains read-only. Keep data migration and rollback explicit; code parity alone cannot establish data safety.",
+        "The optional Gene-Migration graph, ledger, Forge tool, and Amplifier are not required to install this method.",
+        "A ledger fitness curve measures declared completion, not independently established behavioral parity."
+      ]
+    },
+    "secret_names": {
+      "discovery_requires": [],
+      "native_runtime_inventory": "See native documentation; no credentials are bundled or inferred."
+    }
+  },
+  "dataflow": {
+    "installation": "Read pinned tracked portable source and copy locally with SHA-256 receipts. No source text is transmitted.",
+    "method": "Caller supplies authorized context; existing promise and boundaries govern output.",
+    "native_runtime": "Provider/network/storage flows are owned by native interfaces and host authorization; these files do not enable them."
+  },
+  "source_policy": {
+    "revision": "Explicit full40-character Git commit required at installation; never infer latest.",
+    "repository_rename": "Public identity may change; skill folder, imports, entrypoints, tool IDs and schemas remain stable.",
+    "research": ".research/market remains local and ignored; AGENTS governs refresh."
+  },
+  "film": {
+    "file": "migrate-film",
+    "seconds": 72,
+    "heading": "Move the behavior, not the lines.",
+    "blurb": "In 72 seconds, Wendell the hermit crab, your app, gets copied line by line into a new shell: tests pass, then a save fails and a page of edits vanishes. Migrate starts from the app people use, every command, error and save, including how it fails. Each behavior becomes a story card with a real terminal check, built in the new language\u2019s own style and checked by a verifier blind to the builder\u2019s tests. Captions are on the player; a transcript is below.",
+    "note": "The app and its failure are a fictional example. This release proves the bookkeeping, not a finished migration. The film shows how the skill behaves; it does not report results."
+  },
+  "repository_aliases": [
+    "https://github.com/michaeljabbour/amplifier-skill-migrate"
+  ]
+}

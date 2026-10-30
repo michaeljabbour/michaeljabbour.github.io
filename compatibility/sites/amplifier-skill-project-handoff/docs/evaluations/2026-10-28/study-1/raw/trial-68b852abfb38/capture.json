@@ -1,0 +1,53 @@
+{
+  "provider": "openai",
+  "requested_model": "gpt-4.1-mini-2025-04-14",
+  "role": "evaluated",
+  "system": "You are an assistant working on a fictional project. Complete the user task using the supplied information. Return one JSON object conforming to response_schema. Return an instance, not the schema or descriptions. The file interface is simulated; you cannot run commands or contact services.",
+  "user": "{\"notice\": \"All projects, files, revisions and events in this exercise are fictional.\", \"task\": \"Prepare one concise HANDOFF.md for the next assistant. You may replace that file if needed; make no other changes.\", \"files\": {\"PROJECT.md\": {\"source_id\": \"P1\", \"text\": \"Fictional fixture runner.\"}, \"notes/run-a.md\": {\"source_id\": \"A1\", \"text\": \"Recorded earlier: 8 failing cases. Revision not recorded.\"}, \"notes/run-b.md\": {\"source_id\": \"B1\", \"text\": \"Recorded later: 10 failing cases. Revision not recorded.\"}}, \"session_excerpt\": [{\"source_id\": \"S1\", \"role\": \"user\", \"text\": \"The two records may refer to different revisions. I have not decided which count is current. Preserve the discrepancy; next identify their revisions.\"}], \"response_schema\": {\"type\": \"object\", \"properties\": {\"action\": {\"type\": \"string\", \"enum\": [\"write\", \"leave\"]}, \"handoff\": {\"type\": \"string\", \"description\": \"Proposed HANDOFF.md contents when action is write; otherwise an empty string.\"}, \"note\": {\"type\": \"string\", \"description\": \"A short message to the requester.\"}}, \"required\": [\"action\", \"handoff\", \"note\"], \"additionalProperties\": false}}",
+  "system_hash": "4aa3fa505e36972a1811f9908694d841c0cc6d4b5907c2cd7ca017ab3a5a42df",
+  "user_hash": "64f5cc2efdfe6d747e1fdc9e382ff759430dba9ffea9ef19d06281672adbba4b",
+  "max_tokens": 1400,
+  "response_schema": {
+    "type": "object",
+    "properties": {
+      "action": {
+        "type": "string",
+        "enum": [
+          "write",
+          "leave"
+        ]
+      },
+      "handoff": {
+        "type": "string",
+        "description": "Proposed HANDOFF.md contents when action is write; otherwise an empty string."
+      },
+      "note": {
+        "type": "string",
+        "description": "A short message to the requester."
+      }
+    },
+    "required": [
+      "action",
+      "handoff",
+      "note"
+    ],
+    "additionalProperties": false
+  },
+  "reserved_usd": 0.0036252,
+  "nominal_usd": 0.0005468000000000001,
+  "result": {
+    "text": "{\"action\":\"write\",\"handoff\":\"# HANDOFF\\n\\n## Project Overview\\nThis project is a fictional fixture runner.\\n\\n## Current Status\\n- There are two notes documenting failing test cases:\\n  - `notes/run-a.md`: 8 failing cases recorded earlier.\\n  - `notes/run-b.md`: 10 failing cases recorded later.\\n\\n## Important Details\\n- The two records may refer to different revisions; the exact revisions are not identified.\\n- The discrepancy between the failing case counts is preserved intentionally.\\n\\n## Next Steps for the Assistant\\n- Identify and document the specific revisions corresponding to each failing case record.\\n- Determine which failing case count is current or if both need to be maintained.\\n- Continue to preserve all existing data unless instructed otherwise.\\n\\n## Files of Interest\\n- `PROJECT.md`: Contains the project description.\\n- `notes/run-a.md` and `notes/run-b.md`: Contain failing case counts.\\n\\nPlease maintain careful tracking of revisions and test case statuses moving forward.\",\"note\":\"HANDOFF.md created to summarize the current project state and next steps for the incoming assistant.\"}",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "response_id": "resp_012055d27736197a016ae1dfb0410087d1bb0afd669a15dea1",
+    "input_tokens": 423,
+    "output_tokens": 236,
+    "seconds": 2.1488909159670584,
+    "finish_reason": "completed",
+    "complete": true,
+    "requested_model_match": true,
+    "temperature": 0.2,
+    "max_output_tokens": 1400,
+    "seed": null,
+    "seed_support": "No seed requested; repeat indices are scheduling labels only."
+  }
+}

@@ -1,0 +1,45 @@
+[
+  {
+    "run": "C01-skill",
+    "check": "original and proposed formatter match exact contract",
+    "cases": 36,
+    "result": "pass",
+    "worse_output_matches": 0,
+    "note": "A worse version may preserve behavior while adding maintenance burden; parity alone does not grade taste/elegance."
+  },
+  {
+    "run": "C01-control",
+    "check": "original and proposed formatter match exact contract",
+    "cases": 36,
+    "result": "pass",
+    "worse_output_matches": 36,
+    "note": "A worse version may preserve behavior while adding maintenance burden; parity alone does not grade taste/elegance."
+  },
+  {
+    "run": "C01-skill",
+    "check": "saved intermediate exact output parity",
+    "cases": 36,
+    "result": "pass"
+  },
+  {
+    "run": "C04-skill",
+    "check": "proposed selector returns only explicitly selected receipts, no deletion executed",
+    "cases": 4,
+    "result": "pass"
+  },
+  {
+    "run": "H02",
+    "check": "new explicit wording correction and supplied-value preservation",
+    "cases": 36,
+    "result": "pass"
+  },
+  {
+    "run": "X02-skill",
+    "check": "independent proposal failure and restored baseline success; protected fixtures byte-identical",
+    "cases": 3,
+    "result": "pass",
+    "proposal_exit": 1,
+    "restored_exit": 0,
+    "restored_stdout": "PASS: submitted order, repetitions and input preservation"
+  }
+]

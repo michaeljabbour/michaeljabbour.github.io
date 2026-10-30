@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-28",
+  "status": "local conformance and native/source checks",
+  "capability": "imagen-studio",
+  "source_commit": "ec6da7d9b45be033a23ccd37cafc419ffffdeda9",
+  "checks": [
+    {
+      "name": "Native adapter regression suite",
+      "command": "python -m pytest -q -p pytest_asyncio.plugin -p pytest_cov.plugin --cov=amplifier_module_tool_imagen --cov-fail-under=80 modules/tool-imagen/tests (plugin autoload disabled)",
+      "status": "passed",
+      "evidence": "36 passed, 1 opt-in checkout-contract test skipped; 85.33% line coverage. Provider-free MCP lifecycle, discovery, schema, timeout, error and cleanup tests.",
+      "expected": "The declared check scope passes without a broader benefit claim."
+    },
+    {
+      "name": "Retained deterministic policy record",
+      "command": "python scripts/run_behavioral_evals.py --verify evals/results/2026-07-13.json",
+      "status": "passed",
+      "evidence": "Exact July result reproduces: 5/5 typed policy cases, 5/5 unsafe mutations rejected. All seven bound apparatus files and dated result unchanged. This is deterministic fixture evidence, not stochastic-model effectiveness.",
+      "expected": "The declared check scope passes without a broader benefit claim."
+    },
+    {
+      "name": "Native and portable workflow checks",
+      "command": "python scripts/validate_bundle.py; python -m pytest -q -p pytest_asyncio.plugin evals/test_behavioral_harness.py tests (plugin autoload disabled)",
+      "status": "passed",
+      "evidence": "Static 5 YAML/1 canonical skill/12 scenarios; 6 tests pass, including local behavior and synthetic image\u2192ASCII/HTML\u2192PNG. No generation or real-user visual acceptance.",
+      "expected": "The declared check scope passes without a broader benefit claim."
+    },
+    {
+      "name": "Independent executable MCP contract",
+      "command": "python scripts/check_external_contract.py --server <explicit-independent-installed-imagen-mcp> --output docs/evaluations/2026-10-28/external-mcp.json",
+      "status": "passed",
+      "evidence": "Actual client adapter initialized an independently installed server, discovered/validated exactly 8 reviewed schemas, and cleaned up. Provider keys removed; no client tool call or provider package import.",
+      "expected": "The declared check scope passes without a broader benefit claim."
+    },
+    {
+      "name": "Current style and frozen apparatus",
+      "command": "ruff check scripts tests modules/tool-imagen evals; ruff format --check scripts tests modules/tool-imagen evals",
+      "status": "passed",
+      "evidence": "Local Ruff configuration makes checks independent of parent workspace defaults. Frozen byte-hashed July harness is excluded from formatting/import resorting; all other selected Python passes. Shared generated HTML literal and Python-compatible timezone spelling have narrow style exceptions.",
+      "expected": "The declared check scope passes without a broader benefit claim."
+    },
+    {
+      "name": "Canonical reference mirror gate",
+      "command": "python3 scripts/sync_skill.py --check",
+      "status": "passed",
+      "evidence": "Original production/ASCII bodies, native router/policy/schema generated into portable references; source/output hashes prevent hand-maintained drift.",
+      "expected": "The declared check scope passes without a broader benefit claim."
+    },
+    {
+      "name": "Portable build and clean install",
+      "command": "python3 scripts/capability.py build/check/doctor; install --dest <temporary-parent> twice",
+      "status": "passed",
+      "evidence": "Canonical ZIP bytes, local links, complete method/license, clean install and idempotent reinstall pass. No runtime starts.",
+      "expected": "Conformance only."
+    },
+    {
+      "name": "Explicit local native configuration",
+      "command": "uv run --with PyYAML python scripts/local_runtime.py --output .capability-check/imagen-studio.yaml; Foundation load_bundle/validate_bundle",
+      "status": "passed",
+      "evidence": "Absolute local skill/module paths resolve; actual Foundation loader accepts YAML behavior with 2 tools and no provider/session. No activation.",
+      "expected": "Local configuration accepted by actual loader."
+    }
+  ],
+  "effectiveness": "not measured",
+  "paid_calls": 0,
+  "publication": "not performed",
+  "preserved_native_apparatus_sha256": {
+    "behaviors/image-editing.yaml": "0d78404f62eebf1d30250ddbe683d1d6a42ac1ab2d206bcc82742960a3bd0e0a",
+    "behaviors/image-generation.yaml": "80052c5a65627cb8ee79f4d790ebaf6bd90893c59b3d9d365c5c79e5d864e324",
+    "context/image-production-policy.md": "9746eec006920feefd67f725daa0f71106f70ca8beb109dc5a725670d78dec02",
+    "context/imagen-awareness.md": "16dc354d2a0915b37c31f77f15a653c33116c5db57ef9b3d1476db35b7b86e0a",
+    "evals/behavioral_harness.py": "6f3ade8e2d58a12fb39141105e0d19ecb40c52388eac732f0c8f800eb839c515",
+    "evals/deterministic-cases.yaml": "26cee8d4bab06fd113bc4c98acf9c8e51a97bfb2b6cdba13103cb8fad8d0bf88",
+    "evals/workflow-scenarios.yaml": "93f05fbf1e43baf3e2aad264341b99b94c186cccf63cb03b3c151221f3abf7f6"
+  }
+}

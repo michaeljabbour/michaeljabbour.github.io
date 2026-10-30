@@ -14,6 +14,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import parse_qs, unquote, urlsplit
 from build import checked_compatibility_sites
+from public_privacy import reviewed_example_text
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "dist"
@@ -147,6 +148,7 @@ def main() -> int:
     errors: list[str] = []
     checked_links: set[tuple[str, str]] = set()
     checked_assets: set[str] = set()
+    legacy_template_notes: list[str] = []
 
     def require(condition, message):
         if not condition:
@@ -236,6 +238,7 @@ def main() -> int:
     except (OSError, ValueError, KeyError, TypeError) as exc:
         errors.append(f"Invalid compatibility source: {exc}")
         compatibility_sites = []
+    legacy_entries = {}
     for prefix, _, expected in compatibility_sites:
         destination = OUT / prefix
         actual = {p.relative_to(destination).as_posix() for p in destination.rglob("*") if p.is_file()}
@@ -246,6 +249,7 @@ def main() -> int:
         )
         for name, entry in expected.items():
             path = destination / name
+            legacy_entries[path] = entry
             legacy_paths.add(path)
             require(
                 path.is_file() and path.stat().st_size == entry["bytes"]
@@ -256,8 +260,8 @@ def main() -> int:
     documents = {path: Document(path.read_text()) for path in html_files}
     overview_pages = int((OUT / "assets/overview/transcript/index.html").exists())
     require(
-        len([p for p in html_files if p not in legacy_paths]) == 39 + overview_pages,
-        "Build must contain 39 HTML pages (33 capability pages, five index pages and 404), plus the overview film transcript when one is configured",
+        len([p for p in html_files if p not in legacy_paths]) == 44 + overview_pages,
+        "Build must contain44 base HTML pages including33 capabilities, category/knowledge/status routes, the category alias and404, plus the configured overview transcript",
     )
     expected_routes = {
         OUT / "capabilities" / ident / "index.html"
@@ -266,8 +270,8 @@ def main() -> int:
     }
     actual_routes = set((OUT / "capabilities").glob("*/index.html"))
     require(
-        actual_routes == expected_routes,
-        "Built capability routes do not match the 33 catalogue IDs",
+        actual_routes == expected_routes | {OUT / "capabilities/categories/index.html"},
+        "Built capability routes differ from the33 catalogue IDs plus the category index",
     )
 
     def target_for(reference: str, origin: Path):
@@ -316,16 +320,18 @@ def main() -> int:
         if asset:
             checked_assets.add(str(target.relative_to(OUT)))
 
+    installer_index=OUT / "reports/capability-installer/index.html"
     for path, doc in documents.items():
+        homepage_template=path not in legacy_paths
         relative = path.relative_to(OUT)
         raw = path.read_text()
         require(
-            doc.title.strip() and (path in legacy_paths or "Michael Jabbour" in doc.title),
+            doc.title.strip() and (not homepage_template or "Michael Jabbour" in doc.title),
             f"{relative}: meaningful owner-attributed title required",
         )
         descriptions = doc.select("meta", name="description")
         require(
-            len(descriptions) == 1 and bool(descriptions[0].get("content")),
+            not homepage_template or (len(descriptions) == 1 and bool(descriptions[0].get("content"))),
             f"{relative}: one nonempty description required",
         )
         canonical = doc.select("link", rel="canonical")
@@ -334,18 +340,23 @@ def main() -> int:
             if relative.parent != Path(".")
             else "/"
         )
+        if path == OUT / "reports/capability-installer/index.html":
+            route = "/reports/capability-installer/"
+        if path.name == "repo-categories.html":
+            route = "/repo-categories.html"
         if path.name == "404.html":
             route = "/"  # The error page intentionally points visitors back to the homepage.
-        if path not in legacy_paths:
+        if homepage_template:
             require(
                 len(canonical) == 1 and canonical[0].get("href") == ORIGIN + route,
                 f"{relative}: canonical does not match its public route",
             )
+        if path in legacy_paths and len(doc.select("h1")) != 1:
+            legacy_template_notes.append(f"{relative}: preserved legacy example heading structure")
+        else:
+            require(len(doc.select("h1")) == 1, f"{relative}: exactly one page heading required")
         require(
-            len(doc.select("h1")) == 1, f"{relative}: exactly one page heading required"
-        )
-        require(
-            "main" in doc.ids and bool(doc.select("html", lang="en")),
+            path in legacy_paths or (("main" in doc.ids or (not homepage_template and bool(doc.select("main")))) and bool(doc.select("html", lang="en"))),
             f"{relative}: language and main landmark required",
         )
         require(
@@ -381,7 +392,7 @@ def main() -> int:
                 )
             if tag == "img":
                 require("alt" in attributes, f"{relative}: image alternative missing")
-            if tag == "button":
+            if tag == "button" and path not in legacy_paths:
                 require(
                     attributes.get("type") in {"button", "submit"},
                     f"{relative}: explicit button type required",
@@ -407,7 +418,7 @@ def main() -> int:
             match = re.fullmatch(
                 r"/capabilities/([^/]+)/", urlsplit(attributes.get("href", "")).path
             )
-            if match:
+            if match and match.group(1) != "categories":
                 library_ids.add(match.group(1))
         require(
             library_ids == set(ids),
@@ -878,11 +889,11 @@ def main() -> int:
         for p in OUT.rglob("*")
         if p.is_file()
         and p.suffix.lower()
-        in {".html", ".css", ".js", ".json", ".xml", ".txt", ".md", ".svg"}
+        in {".html", ".css", ".js", ".json", ".xml", ".txt", ".md", ".svg", ".csv", ".py"}
     ]
     private_markers = [
         "/Users/",
-        "file:///",
+        "file://",
         "mj-public-repo-consolidation",
         "portfolio-evidence.html",
         "records/visibility",
@@ -898,12 +909,13 @@ def main() -> int:
     }
     for path in public_text_files:
         raw = path.read_text()
-        # The hash-pinned legacy README documents this literal placeholder,
-        # not an actual machine path. Real file URLs remain forbidden.
-        private_text = (
-            raw.replace("file:///<path-to-checkout>/", "LOCAL_CHECKOUT_PLACEHOLDER/")
-            if path in legacy_paths else raw
-        )
+        # Only original-byte/hash-bound public examples may be removed for this scan.
+        private_text = raw
+        if path in legacy_entries:
+            try:
+                private_text = reviewed_example_text(private_text, path.read_bytes(), legacy_entries[path])
+            except ValueError:
+                errors.append(f"{path.relative_to(OUT)}: public example review binding differs")
         for marker in private_markers:
             require(
                 marker not in private_text,
@@ -914,6 +926,30 @@ def main() -> int:
                 not re.search(pattern, raw),
                 f"{path.relative_to(OUT)}: possible {label} found (value suppressed)",
             )
+    category_doc = documents.get(OUT / "capabilities/categories/index.html")
+    require(category_doc is not None, "Missing category index")
+    if category_doc:
+        category_ids = [attrs.get("data-category-capability") for _, attrs in category_doc.elements if attrs.get("data-category-capability")]
+        require(len(category_ids) ==33 and set(category_ids) ==set(ids), "Category index must keep all33 capabilities distinct")
+    knowledge_doc = documents.get(OUT / "journey/knowledge/index.html")
+    require(knowledge_doc is not None, "Missing proposed knowledge journey")
+    if knowledge_doc:
+        require(not any(attrs.get("data-film-start") for _, attrs in knowledge_doc.elements), "Proposed knowledge journey must not invent narrated timestamps")
+    from public_views import validate_status,validate_csv
+    try:
+        public_status=validate_status(load_json(OUT / "reports/capabilities/status.json"), set(ids))
+        validate_csv((OUT / "reports/capabilities/capability-status.csv").read_text(),public_status)
+        require(public_status==load_json(ROOT / "content/public-capability-status.json"),"Served status differs from validated source")
+    except (KeyError, TypeError, ValueError) as exc:
+        errors.append("Invalid public status projection: " + str(exc))
+    # The download is the reviewed package, with an exact build-time commit pin.
+    try:
+        import os,subprocess
+        package=load_json(ROOT/'tools/PACKAGE.json');served=load_json(OUT/'reports/capability-installer/manifest.json')
+        from installer_download import validate_download
+        validate_download(ROOT,OUT,package,served)
+    except (OSError,KeyError,TypeError,ValueError) as exc:
+        errors.append('Invalid installer download: '+str(exc))
     public_catalogue = load_json(OUT / "portfolio.json")
     require(
         public_catalogue == catalogue,
@@ -924,11 +960,11 @@ def main() -> int:
         sitemap_urls = set(re.findall(r"<loc>([^<]+)</loc>", sitemap.read_text()))
         expected_urls = {
             ORIGIN + route
-            for route in ["/", "/about/", "/capabilities/", "/films/", "/journey/"]
+            for route in ["/", "/about/", "/capabilities/", "/films/", "/journey/", "/capabilities/categories/", "/journey/knowledge/", "/reports/capabilities/", "/reports/capability-installer/"]
         } | {ORIGIN + "/capabilities/" + ident + "/" for ident in ids}
         require(
             sitemap_urls == expected_urls,
-            "Sitemap must cover the 38 public content routes exactly",
+            "Sitemap must cover the42 public content routes exactly",
         )
     else:
         errors.append("Missing sitemap.xml")
@@ -948,6 +984,9 @@ def main() -> int:
         "total_players": media_players + home_players,
         "caption_tracks": captions,
         "public_text_files_scanned": len(public_text_files),
+        "owner_pages": len(documents)-sum(p in legacy_paths for p in documents),
+        "legacy_html_pages": sum(p in legacy_paths for p in documents),
+        "legacy_template_notes": legacy_template_notes,
         "network_calls": 0,
         "errors": errors,
     }

@@ -1,0 +1,308 @@
+{
+  "id": "imagen-studio",
+  "display_name": "Imagen Studio",
+  "kind": "skill",
+  "promise": "Direct the image, choose the draft, and refine the actual file.",
+  "audience": "People and agents creating or refining visual assets with explicit artifact review.",
+  "trigger": "Use when directing an image, choosing and refining concrete drafts, delivering an artifact pack, or converting image and ASCII art.",
+  "skill_path": "skills/imagen-studio",
+  "modes": [
+    {
+      "name": "Fast",
+      "when": "One clear low-risk image or edit with an available tool.",
+      "output": "One concrete file with technical checks and visual review at the capability actually available."
+    },
+    {
+      "name": "Guided",
+      "when": "One meaningful creative or technical ambiguity.",
+      "output": "Focused direction or parameter judgment, then a checked draft."
+    },
+    {
+      "name": "Studio",
+      "when": "A campaign, batch, reference asset, costly output, or consequential edit needs review.",
+      "output": "Approved brief/cost plan, selected artifacts, anchored refinements, and final artifact pack."
+    },
+    {
+      "name": "ASCII",
+      "when": "The intended artifact is characters or a rasterized text composition.",
+      "output": "A local luminance-mapped text/HTML artifact or rasterization with no generation required when a source exists."
+    }
+  ],
+  "examples": [
+    {
+      "title": "The approved cup stays the approved cup",
+      "brief": "A fictional studio chooses draft cup-A, then requests a small label correction.",
+      "before": "Rerun the same prompt at higher quality and deliver the resulting different composition as the approved image.",
+      "after": "Edit cup-A or its last accepted descendant, retain parent/hash lineage, show the new exact file, and keep visual QA pending if the model cannot see its pixels.",
+      "why": "Approval belongs to a concrete artifact. Reusing a prompt creates a new candidate.",
+      "fictional": true
+    }
+  ],
+  "boundaries": [
+    "Installing the portable method starts no service, uploads no image, and calls no paid provider.",
+    "The native adapter speaks only MCP to an independently installed server. It imports no provider-server package and searches no sibling checkout.",
+    "Model names, costs, sizes, safety behavior, and tool arguments must be checked against live schemas and current authoritative provider documentation.",
+    "Studio approval and draft selection are existing workflow gates. Preserve prior user approvals at their exact scope."
+  ],
+  "install_commands": [
+    "python3 scripts/capability.py doctor",
+    "python3 scripts/capability.py install --dest ~/.agents/skills"
+  ],
+  "runtime_install_commands": [
+    "uv run --with PyYAML python scripts/local_runtime.py --output .capability-check/imagen-studio.yaml"
+  ],
+  "verification": [
+    {
+      "name": "Native adapter regression suite",
+      "command": "python -m pytest -q -p pytest_asyncio.plugin -p pytest_cov.plugin --cov=amplifier_module_tool_imagen --cov-fail-under=80 modules/tool-imagen/tests (plugin autoload disabled)",
+      "status": "passed",
+      "evidence": "36 passed, 1 opt-in checkout-contract test skipped; 85.33% line coverage. Provider-free MCP lifecycle, discovery, schema, timeout, error and cleanup tests.",
+      "expected": "The declared check scope passes without a broader benefit claim."
+    },
+    {
+      "name": "Retained deterministic policy record",
+      "command": "python scripts/run_behavioral_evals.py --verify evals/results/2026-07-13.json",
+      "status": "passed",
+      "evidence": "Exact July result reproduces: 5/5 typed policy cases, 5/5 unsafe mutations rejected. All seven bound apparatus files and dated result unchanged. This is deterministic fixture evidence, not stochastic-model effectiveness.",
+      "expected": "The declared check scope passes without a broader benefit claim."
+    },
+    {
+      "name": "Native and portable workflow checks",
+      "command": "python scripts/validate_bundle.py; python -m pytest -q -p pytest_asyncio.plugin evals/test_behavioral_harness.py tests (plugin autoload disabled)",
+      "status": "passed",
+      "evidence": "Static 5 YAML/1 canonical skill/12 scenarios; 6 tests pass, including local behavior and synthetic image\u2192ASCII/HTML\u2192PNG. No generation or real-user visual acceptance.",
+      "expected": "The declared check scope passes without a broader benefit claim."
+    },
+    {
+      "name": "Independent executable MCP contract",
+      "command": "python scripts/check_external_contract.py --server <explicit-independent-installed-imagen-mcp> --output docs/evaluations/2026-10-28/external-mcp.json",
+      "status": "passed",
+      "evidence": "Actual client adapter initialized an independently installed server, discovered/validated exactly 8 reviewed schemas, and cleaned up. Provider keys removed; no client tool call or provider package import.",
+      "expected": "The declared check scope passes without a broader benefit claim."
+    },
+    {
+      "name": "Current style and frozen apparatus",
+      "command": "ruff check scripts tests modules/tool-imagen evals; ruff format --check scripts tests modules/tool-imagen evals",
+      "status": "passed",
+      "evidence": "Local Ruff configuration makes checks independent of parent workspace defaults. Frozen byte-hashed July harness is excluded from formatting/import resorting; all other selected Python passes. Shared generated HTML literal and Python-compatible timezone spelling have narrow style exceptions.",
+      "expected": "The declared check scope passes without a broader benefit claim."
+    },
+    {
+      "name": "Canonical reference mirror gate",
+      "command": "python3 scripts/sync_skill.py --check",
+      "status": "passed",
+      "evidence": "Original production/ASCII bodies, native router/policy/schema generated into portable references; source/output hashes prevent hand-maintained drift.",
+      "expected": "The declared check scope passes without a broader benefit claim."
+    },
+    {
+      "name": "Portable build and clean install",
+      "command": "python3 scripts/capability.py build/check/doctor; install --dest <temporary-parent> twice",
+      "status": "passed",
+      "evidence": "Canonical ZIP bytes, local links, complete method/license, clean install and idempotent reinstall pass. No runtime starts.",
+      "expected": "Conformance only."
+    },
+    {
+      "name": "Explicit local native configuration",
+      "command": "uv run --with PyYAML python scripts/local_runtime.py --output .capability-check/imagen-studio.yaml; Foundation load_bundle/validate_bundle",
+      "status": "passed",
+      "evidence": "Absolute local skill/module paths resolve; actual Foundation loader accepts YAML behavior with 2 tools and no provider/session. No activation.",
+      "expected": "Local configuration accepted by actual loader."
+    }
+  ],
+  "sources": [
+    {
+      "repo": "amplifier-bundle-imagen",
+      "commit": "ec6da7d9b45be033a23ccd37cafc419ffffdeda9",
+      "paths": [
+        "docs/source-methods/design-visual-asset.md",
+        "docs/source-methods/image-ascii-art.md",
+        "context/image-production-policy.md",
+        "context/imagen-awareness.md",
+        "schemas/artifact-manifest.schema.json"
+      ],
+      "license": "MIT License",
+      "role": "Primary source history/native execution retained; generated rich references from canonical docs."
+    }
+  ],
+  "consolidation": [
+    {
+      "source": "docs/source-methods/design-visual-asset.md",
+      "destination": "skills/imagen-studio/references/design-visual-asset.md",
+      "action": "Generated mirror with source/output SHA-256 drift gate; edit canonical source only."
+    },
+    {
+      "source": "docs/source-methods/image-ascii-art.md",
+      "destination": "skills/imagen-studio/references/image-ascii-art.md",
+      "action": "Generated mirror with source/output SHA-256 drift gate; edit canonical source only."
+    },
+    {
+      "source": "context/image-production-policy.md",
+      "destination": "skills/imagen-studio/references/image-production-policy.md",
+      "action": "Generated mirror with source/output SHA-256 drift gate; edit canonical source only."
+    },
+    {
+      "source": "context/imagen-awareness.md",
+      "destination": "skills/imagen-studio/references/imagen-awareness.md",
+      "action": "Generated mirror with source/output SHA-256 drift gate; edit canonical source only."
+    },
+    {
+      "source": "schemas/artifact-manifest.schema.json",
+      "destination": "skills/imagen-studio/references/artifact-manifest.schema.json",
+      "action": "Generated mirror with source/output SHA-256 drift gate; edit canonical source only."
+    }
+  ],
+  "docs": [
+    "docs/INSTALL.md",
+    "docs/MIGRATION.md",
+    "docs/VALIDATION.md",
+    "docs/NATIVE-README.md",
+    "docs/evaluations/2026-10-28/consolidation.json",
+    "docs/evaluations/2026-10-28/external-mcp.json"
+  ],
+  "evidence_summary": "Provider-free adapter lifecycle tests and a retained deterministic policy record cover the stated software and workflow boundaries. Image generation, pixels and user acceptance require their own actual review; the portable install performs no generation.",
+  "publication_status": "Installation and evidence scopes are documented below.",
+  "marketing": {
+    "headline": "Take the image from brief to chosen file.",
+    "lead": "A creative production skill for images and ASCII art. Clarify the brief, review concrete drafts and refine the file you actually chose, with the checks and delivery details needed to use it.",
+    "benefits": [
+      {
+        "title": "Use the right amount of process",
+        "body": "Fast handles a clear small task; Guided resolves an ambiguity; Studio supports deliberate draft selection and refinement."
+      },
+      {
+        "title": "Preserve what you approved",
+        "body": "Anchor edits to the selected artifact and keep accepted and rejected branches traceable."
+      },
+      {
+        "title": "Receive a usable artifact pack",
+        "body": "Deliver the exact file with dimensions, alt text, literal text, lineage and an honest visual-review state."
+      }
+    ],
+    "walkthrough": [
+      {
+        "title": "Direct the brief",
+        "detail": "Name intended use, subject, dimensions, preserve constraints, references and acceptance criteria."
+      },
+      {
+        "title": "Choose and refine",
+        "detail": "Review actual drafts, select one and edit its accepted descendant instead of silently creating a replacement."
+      },
+      {
+        "title": "Inspect and deliver",
+        "detail": "Check the exact bytes and pixels when available, then deliver the file, preview and manifest."
+      }
+    ],
+    "use_when": [
+      "You need a visual asset with a specific brief and review path.",
+      "An approved image needs a small correction without losing its composition.",
+      "You want a local image-to-ASCII conversion without generation."
+    ],
+    "not_for": [
+      "An included image provider, free generation quota or an automatic claim of authenticity.",
+      "Visual approval inferred from a filename, a successful write or a prompt."
+    ],
+    "quickstart_prompt": "Use Imagen Studio in Guided mode to prepare a fictional product-card illustration. It needs a 4:3 composition, room for a heading and no text inside the image. Draft the brief and acceptance checks first; show the provider and cost before any generation.",
+    "output_preview": "Fictional artifact plan: product card\nComposition: 4:3; heading safe area reserved\nLiteral image text: none\nReview: select one concrete draft before refinement\nDelivery: chosen file, dimensions, alt text, parent hash\nCurrent state: brief only; no image generated",
+    "proof_summary": "Provider-free adapter lifecycle tests and a retained deterministic policy record cover the stated software and workflow boundaries. Image generation, pixels and user acceptance require their own actual review; the portable install performs no generation.",
+    "next_step": "Bring the asset\u2019s intended use, references and what must stay unchanged.",
+    "example_note": "Fictional worked example. It illustrates the intended output; it is not a measured result or a real customer story.",
+    "install_notes": [
+      "Requires Git and Python 3.11+ for the repository installer. The portable method itself can be read by a compatible agent without a service or provider account.",
+      "The destination is a skills-parent folder. Use the discovery path supported by your agent; ~/.agents/skills is an example, not a universal host setting.",
+      "Keep the complete installed folder, references and license together. Identical reinstall is safe; conflicts are refused. A deliberate --replace keeps a dated backup."
+    ]
+  },
+  "repository_url": "https://github.com/michaeljabbour/amplifier-capability-imagen-studio",
+  "name": "amplifier-capability-imagen-studio",
+  "legacy_names": [
+    "amplifier-skill-imagen-studio",
+    "imagen-studio"
+  ],
+  "contract_version": "amplifier-capability/v1",
+  "version": null,
+  "version_basis": "No release version recorded; installer requires a full Git revision pin.",
+  "engine": "LLM",
+  "engine_components": {
+    "caller_method": "LLM"
+  },
+  "surfaces": [
+    "agent-skills",
+    "amplifier-bundle"
+  ],
+  "portable_method": {
+    "name": "imagen-studio",
+    "path": "skills/imagen-studio",
+    "include": [
+      "."
+    ],
+    "contract": "Agent Skills directory; caller applies the method; no independent execution loop is installed."
+  },
+  "interfaces": {
+    "portable": {
+      "input": "Caller task and explicitly authorized context",
+      "output": "Direct the image, choose the draft, and refine the actual file.",
+      "failure": "Report insufficient evidence, unsupported context or host limitation; never turn discovery into an execution claim."
+    },
+    "native": {
+      "distribution": null,
+      "entrypoints": {},
+      "docs": [
+        "docs/INSTALL.md",
+        "docs/MIGRATION.md",
+        "docs/VALIDATION.md",
+        "docs/NATIVE-README.md",
+        "docs/evaluations/2026-10-28/consolidation.json",
+        "docs/evaluations/2026-10-28/external-mcp.json"
+      ],
+      "status": "Existing declared entrypoints preserved; runtime signatures, service access and installation tests remain separate evidence."
+    },
+    "host_adapters": {
+      "amplifier_bundle": "bundle.md",
+      "grants_autonomy": false
+    }
+  },
+  "permissions": {
+    "installation": {
+      "network": false,
+      "executes_capability_code": false,
+      "writes": [
+        "Selected discovery folders",
+        ".capability-state transaction backups"
+      ],
+      "grants_runtime_permissions": false
+    },
+    "runtime": {
+      "status": "Host/caller authorizes each operation; installation is not a tool allowlist or standing approval.",
+      "declared_boundaries": [
+        "Installing the portable method starts no service, uploads no image, and calls no paid provider.",
+        "The native adapter speaks only MCP to an independently installed server. It imports no provider-server package and searches no sibling checkout.",
+        "Model names, costs, sizes, safety behavior, and tool arguments must be checked against live schemas and current authoritative provider documentation.",
+        "Studio approval and draft selection are existing workflow gates. Preserve prior user approvals at their exact scope."
+      ]
+    },
+    "secret_names": {
+      "discovery_requires": [],
+      "native_runtime_inventory": "See native documentation; no credentials are bundled or inferred."
+    }
+  },
+  "dataflow": {
+    "installation": "Read pinned tracked portable source and copy locally with SHA-256 receipts. No source text is transmitted.",
+    "method": "Caller supplies authorized context; existing promise and boundaries govern output.",
+    "native_runtime": "Provider/network/storage flows are owned by native interfaces and host authorization; these files do not enable them."
+  },
+  "source_policy": {
+    "revision": "Explicit full40-character Git commit required at installation; never infer latest.",
+    "repository_rename": "Public identity may change; skill folder, imports, entrypoints, tool IDs and schemas remain stable.",
+    "research": ".research/market remains local and ignored; AGENTS governs refresh."
+  },
+  "film": {
+    "file": "imagen-studio-film",
+    "seconds": 64,
+    "heading": "Everyone loved the cup.",
+    "blurb": "In 64 seconds, an approved image vanishes the moment someone asks for a little brighter. Imagen Studio starts from the brief, lets you pick from real drafts, changes only the image you picked and ships it with its size, alt text and history. When it cannot see the pixels, it says so. Captions are on the player; a transcript is below.",
+    "note": "The cup, the drafts and the file are a fictional example. The film shows how the skill behaves; it does not report results."
+  },
+  "repository_aliases": [
+    "https://github.com/michaeljabbour/amplifier-skill-imagen-studio"
+  ]
+}

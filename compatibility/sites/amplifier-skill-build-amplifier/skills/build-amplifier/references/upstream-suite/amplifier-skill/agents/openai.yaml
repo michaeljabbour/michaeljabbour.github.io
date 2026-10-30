@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build with Amplifier"
+  short_description: "Choose the extension seam and prove the native slice"
+  default_prompt: "Use $build-amplifier to inspect the host contracts and implement a bounded extension."

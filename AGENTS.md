@@ -10,3 +10,5 @@
 - Keep the site free of backend services, analytics and runtime dependencies. Never add an unfinished media player as a placeholder.
 
 - Use `python3 scripts/serve.py` for local preview with seekable video. The helper binds only to loopback and is not part of the deployed static artifact.
+
+- `content/knowledge-journey.json` is a separate, explicitly proposed navigation through existing public capabilities. It has no narration timestamps and does not change the seven-stage build journey. Public status data must match the same 33 IDs and contain only public fields; the full owner audit stays outside this repository.

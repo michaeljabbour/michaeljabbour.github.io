@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f4ee"><meta name="description" content="Run, inspect and coordinate persistent terminal sessions through the retained Forge daemon interface."><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"><title>Forge | Amplifier</title><link rel="stylesheet" href="style.css"><script src="site.js" defer></script></head>
+<body><a class="skip" href="#main">Skip to content</a><header class="masthead"><div class="wrap masthead-inner"><a class="brand" href="#main"><span class="brand-mark" aria-hidden="true"></span><span>Amplifier<small>Skills and tools for thoughtful work</small></span></a><nav aria-label="Main navigation"><a href="#film">Film</a><a href="#try">Explore</a><a href="#method">How it works</a><a href="#install">Install</a><a href="#evidence">Evidence</a></nav></div></header>
+<main id="main" class="wrap"><section class="hero"><div class="hero-copy"><p class="kind">Skill</p><h1>Forge</h1><p class="promise">Keep terminal work alive, visible and testable.</p><p class="lede">For people and agents driving CLIs and terminal apps. Forge gives a persistent session a name, lets you inspect its screen and output, and keeps a clear test and cleanup path when the conversation moves on.</p><div class="actions"><a class="button primary" href="#install">Use Forge</a><a class="text-link" href="#film">Watch the 62-second film</a><a class="text-link" href="#try">Walk through an example</a></div></div><figure class="artifact"><figcaption><span>What you get</span><span>Fictional illustration</span></figcaption><pre>Session: demo-tui-smoke
+Tag: disposable-check
+Start: launch the selected TUI in its project folder
+Observe: rendered screen and incremental output
+Accept: the agreed ready label is visible
+Cleanup: close demo-tui-smoke
+
+For a one-shot build: use exec and retain its exit code.</pre><p>Fictional test plan. No terminal daemon or session was started for this illustration.</p></figure></section>
+<section class="benefits" aria-label="What this helps you do"><article><h3>Return to a running task</h3><p>Use a named PTY session rather than losing the state of an interactive terminal between turns.</p></article><article><h3>Check the app itself</h3><p>Read rendered screens, wait for a specific state and assert what appeared.</p></article><article><h3>Coordinate through artifacts</h3><p>Use the optional relay ledger when several workers need an inspectable handoff and acceptance gate.</p></article></section>
+<section id="film" class="section film-section" aria-labelledby="film-title"><div class="section-heading"><div><p class="kind">The film</p><h2 id="film-title">Out of sight, out of mind.</h2></div><p>In 62 seconds, an agent starts a long job in the terminal, the chat moves on, and nobody knows if it finished. Forge names the session, calls it back, reads the screen, waits for ready, checks what is really there and closes only what this task opened. Captions are on the player; a transcript is below.</p></div><figure class="film-frame"><video controls preload="metadata" playsinline poster="film/forge-film-poster.jpg" aria-describedby="film-transcript-summary"><source src="film/forge-film.webm" type="video/webm"><source src="film/forge-film.mp4" type="video/mp4"><track kind="captions" src="film/forge-film.vtt" srclang="en" label="English" default><a href="film/forge-film.mp4">Download the film (MP4)</a></video><figcaption><a href="film/forge-film.mp4" download>Download the film</a> <span aria-hidden="true">&middot;</span> <a href="film/forge-film-15s.mp4" download>15-second cut</a> <span aria-hidden="true">&middot;</span> <a href="film/forge-film.vtt" download>Captions</a></figcaption></figure><details class="film-transcript"><summary id="film-transcript-summary">Read the transcript</summary><p>Your agent starts a long job in the terminal.</p><p>Then the chat moves on, and the job slides out of sight.</p><p>Down here, nobody knows if it finished, or if it passed.</p><p>Forge gives the session a name.</p><p>Call it back any time.</p><p>Read the screen. Wait for ready. Check what’s actually there.</p><p>Then close what this task opened. Only that.</p><p>It needs the Forge daemon. The doctor checks first.</p><p>On screen: Name it. Watch it. Close it.</p><p>Forge. Keep terminal work alive, visible and testable.</p></details><p class="note">The terminals and jobs are a fictional example. The film shows how the skill behaves; it does not report results.</p></section>
+<section id="try" class="section"><div class="section-heading"><h2>See the work take shape.</h2><p>Fictional test plan. No terminal daemon or session was started for this illustration.</p></div><div class="walkthrough"><div class="walk-controls" role="group" aria-label="Explore the workflow"><button type="button" class="walk-step" aria-expanded="true" aria-controls="walk-detail-0"><span>1</span>Check the connection</button><button type="button" class="walk-step" aria-expanded="false" aria-controls="walk-detail-1"><span>2</span>Drive a named session</button><button type="button" class="walk-step" aria-expanded="false" aria-controls="walk-detail-2"><span>3</span>Assert and clean up</button></div><div class="walk-panels"><div id="walk-detail-0" class="walk-detail"><h3>Check the connection</h3><p>Run the helper’s doctor before a real operation; it can start or repair the local Forge daemon.</p></div><div id="walk-detail-1" class="walk-detail" hidden><h3>Drive a named session</h3><p>Create a tagged terminal, send commands or keys and inspect the returned screen or output.</p></div><div id="walk-detail-2" class="walk-detail" hidden><h3>Assert and clean up</h3><p>Record the actual exit code or screen condition, then close the session or only the tag you created.</p></div></div></div><div class="worked-example"><label for="example-select">Choose a fictional task</label><select id="example-select"><option value="0">Fictional terminal task</option></select><article class="example" id="example-0"><p class="eyebrow">Fictional example</p><h3>Fictional terminal task</h3><p><strong>The brief</strong> Use Forge to plan a disposable TUI smoke test. Check daemon availability first, create one named session, wait for the ready screen, capture the observed state and close only the session created for this test. Do not change permissions or launch additional agents.</p><div class="comparison"><div><h4>Before</h4><p>A background process has no inspectable session or exit result.</p></div><div><h4>After applying the method</h4><p>A tagged PTY is observed, asserted and closed after acceptance.</p></div></div><p>Persistent state and explicit assertions make terminal work reviewable.</p></article></div></section>
+<section id="method" class="section"><div class="section-heading"><h2>A clear job.<br>A useful stopping point.</h2><p>A task needs persistent PTYs, terminal apps or cross-harness terminal supervision.</p></div><div class="fit-grid"><div><h3>Use it when</h3><ul><li>A command needs an interactive terminal or survives multiple turns.</li><li>You are testing a TUI through actual key input and observed screens.</li><li>Several terminal workers coordinate through a shared artifact gate.</li></ul></div><div><h3>Choose another route when</h3><ul><li>Replacing ordinary subagents for a simple code edit.</li><li>Assuming a daemon is reachable because the skill installed successfully.</li></ul></div></div><div class="mode-grid"><article><h3>Drive</h3><p>An app needs an interactive terminal.</p><p class="muted">A tagged session and observed terminal state.</p></article><article><h3>Relay</h3><p>Several terminal workers share an artifact gate.</p><p class="muted">A resumable ledger and verified artifact transitions.</p></article><article><h3>Verify</h3><p>A command or TUI task needs acceptance evidence.</p><p class="muted">Actual exit code or asserted screen state plus cleanup.</p></article></div><details class="method-details"><summary>Read the canonical method</summary><div class="method"><h2>Amplifier + Forge: Terminal &amp; Agent Orchestration</h2>
+<p>All commands below use the helper at <code>tools/forge.py</code> **relative to this skill&#x27;s</p>
+<p>directory** (the folder containing this SKILL.md — resolve it first and export</p>
+<p><code>FORGE=&lt;skill-dir&gt;/tools/forge.py</code>). It is stdlib-only python3; it talks to the</p>
+<p>forge daemon over HTTP, so it works even where forge&#x27;s MCP tools are not</p>
+<p>connected.</p>
+<p>For artifact-gated multi-agent work, also resolve</p>
+<p><code>RELAY=&lt;skill-dir&gt;/tools/relay.py</code>. It maintains a private, resumable ledger and</p>
+<p>drives <code>forge.py</code>; use it instead of reconstructing relay state in chat.</p>
+<h3>Before the first Forge operation</h3>
+<p>Run <code>doctor</code> before creating or driving a Forge session. Skip it when only</p>
+<p>reading this skill&#x27;s references or reviewing source files.</p>
+<pre><code>python3 &quot;$FORGE&quot; doctor  # starts daemon if down; auto-fixes node-pty spawn-helper exec bit</code></pre>
+<p><code>doctor</code> may start a local daemon and write its MCP session cache under the</p>
+<p>user&#x27;s cache directory. If Codex blocks localhost access or an out-of-workspace</p>
+<p>repair, request only the permission needed for that operation. Do not bypass</p>
+<p>the Codex sandbox globally.</p>
+<h3>Core loop: spawn → drive → observe → assert → teardown</h3>
+<pre><code>SID=$(python3 &quot;$FORGE&quot; new --name myapp --cwd /repo --tag batch1) # sleep 2 before first cmd
+python3 &quot;$FORGE&quot; run &quot;$SID&quot; &quot;npm run dev&quot; --wait 5      # type + enter + cleaned output
+python3 &quot;$FORGE&quot; screen &quot;$SID&quot;                          # rendered viewport — TUIs
+python3 &quot;$FORGE&quot; read &quot;$SID&quot;                            # incremental stream — logs
+python3 &quot;$FORGE&quot; wait &quot;$SID&quot; &quot;Ready in&quot; --timeout 29000 # regex; exit 1 on timeout
+python3 &quot;$FORGE&quot; grep &quot;$SID&quot; &quot;error&quot; --max 20           # single words only: ANSI can
+                                                            # split phrases in the buffer
+python3 &quot;$FORGE&quot; close &quot;$SID&quot;                            # or: close-tag batch1</code></pre>
+<p>Rules:</p>
+<ul>
+<li><code>wait</code> timeouts are capped ~30s server-side — loop <code>wait</code> calls for longer waits.</li>
+<li>One-shot build/test commands: use <code>exec</code> (real exit code, auto-cleanup), not a session:</li>
+</ul>
+<p>  <code>python3 &quot;$FORGE&quot; exec &quot;pytest -q&quot; --cwd /repo --timeout 300000</code></p>
+<ul>
+<li>TUIs: drive with <code>type</code> + <code>key</code> (<code>enter</code>, <code>escape</code>, <code>ctrl+c</code>, <code>up</code>, <code>down</code>, <code>tab</code>...).</li>
+</ul>
+<p>  <code>key</code> has a fixed list; other control chars via <code>type</code> raw bytes: <code>&quot;$(printf &#x27;\x11&#x27;)&quot;</code>.</p>
+<ul>
+<li>Fan-out: tag every session in a batch; give each parallel worker one session id;</li>
+</ul>
+<p>  reap the whole batch with <code>close-tag</code>.</p>
+<h3>Orchestrating coding agents</h3>
+<p>Forge natively wraps Claude Code, Codex, and Gemini (interactive or one-shot,</p>
+<p>optional isolated git worktrees). OpenCode is driven as a generic PTY.</p>
+<p>Inside Codex, prefer native subagents for ordinary parallel code work. Use</p>
+<p>Forge when the task specifically needs persistent PTYs, TUI interaction,</p>
+<p>cross-harness agents, isolated terminal sessions, or processes that must</p>
+<p>survive a turn. Loading this skill alone does not authorize delegation; follow</p>
+<p>the user&#x27;s request and the active <code>AGENTS.md</code> delegation policy.</p>
+<pre><code># Fire-and-collect (blocks up to --timeout, returns output + sessionId):
+python3 &quot;$FORGE&quot; delegate claude &quot;fix the failing test&quot; --cwd /repo --model haiku
+python3 &quot;$FORGE&quot; delegate codex &quot;review this diff&quot; --cwd /repo # permissions not explicit
+python3 &quot;$FORGE&quot; codex-exec &quot;fix the failing test&quot; --cwd /repo --sandbox workspace-write
+python3 &quot;$FORGE&quot; delegate claude &quot;start refactor&quot; --cwd /repo --mode interactive
+AGENT_SID=SESSION_ID # copy sessionId from the JSON result above
+python3 &quot;$FORGE&quot; delegate claude &quot;now add tests&quot; --session &quot;$AGENT_SID&quot; # follow-up
+
+# Long-lived interactive agents (returns session id immediately):
+SID=$(python3 &quot;$FORGE&quot; spawn-claude --cwd /repo --prompt &quot;audit this repo&quot; --tag agents)
+python3 &quot;$FORGE&quot; submit &quot;$SID&quot; &quot;focus on the auth module&quot; # Claude: Escape+Enter
+SID=$(python3 &quot;$FORGE&quot; new --cwd /repo --program &quot;$(command -v codex)&quot; \
+  --arg=--sandbox --arg=workspace-write --tag agents) # explicit Codex permissions
+python3 &quot;$FORGE&quot; history &quot;$SID&quot;                           # agent tool-call history
+
+# Isolated parallel work: --worktree --branch feature/x  (per agent git worktree)
+# OpenCode (generic PTY; headless run is simplest):
+python3 &quot;$FORGE&quot; exec &quot;opencode run &#x27;explain this codebase&#x27;&quot; --cwd /repo --timeout 300000</code></pre>
+<p>Gotchas (verified):</p>
+<ul>
+<li>Forge 0.9.0&#x27;s native Codex wrappers do not expose Codex sandbox flags; the</li>
+</ul>
+<p>  interactive wrapper has been observed launching in <code>YOLO mode</code>. Do not use</p>
+<p>  those wrappers when the permission boundary matters. Use <code>codex-exec</code>, a</p>
+<p>  generic PTY with literal <code>--arg=--sandbox</code>, or <code>relay start ... --sandbox</code>;</p>
+<p>  reserve <code>danger-full-access</code> for an externally isolated environment.</p>
+<ul>
+<li>Inspect <code>screen</code> after spawning an interactive agent. First-run trust, auth,</li>
+</ul>
+<p>  update, or hook-review gates can consume the initial prompt; resolve the gate</p>
+<p>  and resubmit only when the prompt is absent.</p>
+<ul>
+<li><code>codex exec</code> refuses to run outside a git repo (<code>--skip-git-repo-check</code> or use a repo cwd).</li>
+<li>Claude one-shot prompts: <code>delegate</code> is more reliable than screen-scraping <code>spawn --one-shot</code>.</li>
+<li>Idle/busy detection and full flag references: see</li>
+</ul>
+<p>  <a href="references/driving-claude-code.md">references/driving-claude-code.md</a> and</p>
+<p>  <a href="references/driving-codex-opencode.md">references/driving-codex-opencode.md</a>.</p>
+<h3>Coordinating a real multi-agent relay</h3>
+<p>When the user asks agents to work together, use artifact-gated handoffs rather</p>
+<p>than marker-only demos or independent fan-out. Read</p>
+<p><a href="references/multi-agent-relay.md">references/multi-agent-relay.md</a> and follow</p>
+<p>its planner → implementer → reviewer → resolver → acceptor protocol.</p>
+<p>Initialize the controller with the exact files and test command, then retain</p>
+<p>the printed state path across turns:</p>
+<pre><code>STATE=$(python3 &quot;$RELAY&quot; init --cwd /repo --tag ticket-123 --goal &quot;build X&quot; \
+  --implementation-artifact src/x.py --implementation-artifact tests/test_x.py \
+  --test-command &quot;python3 -m unittest discover -s tests -v&quot;)
+python3 &quot;$RELAY&quot; preflight --state &quot;$STATE&quot; --harness claude --harness codex
+python3 &quot;$RELAY&quot; start planner --state &quot;$STATE&quot; --harness claude
+python3 &quot;$RELAY&quot; send planner --state &quot;$STATE&quot;
+python3 &quot;$RELAY&quot; wait planner --state &quot;$STATE&quot; --attempts 10
+python3 &quot;$RELAY&quot; gate planner --state &quot;$STATE&quot;</code></pre>
+<p>Repeat <code>start</code> → <code>send</code> → <code>wait</code> → <code>gate</code> for each role and harness. Codex</p>
+<p>starts require an explicit <code>--sandbox</code> value; use <code>workspace-write</code> only for</p>
+<p>authorized implementation roles and <code>read-only</code> for review. Use</p>
+<p><code>status</code> to resume after interruption, <code>cost</code> for provider charges, <code>evidence</code></p>
+<p>for the final report, and <code>close</code> unless the user wants dashboard sessions left</p>
+<p>open. Inspect the initial and post-send screens; resolve first-run gates before</p>
+<p>continuing. Never advance when <code>gate</code> exits nonzero.</p>
+<p>Use a shared Git workspace for sequential roles and isolated worktrees for</p>
+<p>concurrent editors. Advance only when all three gates pass: the expected file</p>
+<p>exists, the agent emitted its completion marker, and an independent command</p>
+<p>verified the artifact. Freeze specifications with a hash, pass raw files rather</p>
+<p>than summaries, require a written review verdict and resolution, and leave a</p>
+<p>final acceptance ledger. A timeout is an observation point, not permission to</p>
+<p>advance: inspect <code>screen</code>, then continue waiting or intervene explicitly.</p>
+<h3>Driving Amplifier</h3>
+<pre><code>SID=$(python3 &quot;$FORGE&quot; new --name amp --cwd /project); sleep 2
+python3 &quot;$FORGE&quot; type &quot;$SID&quot; &quot;amplifier&quot;; python3 &quot;$FORGE&quot; key &quot;$SID&quot; enter
+# boot composes bundles: 1-3 min cold
+for i in 1 2 3 4 5 6; do python3 &quot;$FORGE&quot; wait &quot;$SID&quot; &quot;Amplifier Interactive Session&quot; --timeout 29000 &amp;&amp; break; done
+python3 &quot;$FORGE&quot; type &quot;$SID&quot; &quot;/status&quot;; python3 &quot;$FORGE&quot; key &quot;$SID&quot; enter
+python3 &quot;$FORGE&quot; wait &quot;$SID&quot; &#x27;Turn: \$&#x27; --timeout 29000 # cost footer = turn complete
+# Scriptable (two separate examples, not a pipe):
+#   amplifier run --output-format json &quot;prompt&quot;
+#   amplifier run --bundle ./bundle.md &quot;smoke&quot;</code></pre>
+<p>Watch costs: heavy bundles can reach 100k+ token system prompts (&gt;$1/turn uncached; the</p>
+<p>footer prints per-turn and session cost). Multi-line input: Ctrl-J newline,</p>
+<p>Enter submits. Long-running processes (attractor pipelines, evaluation batches,</p>
+<p>resolve instances): poll their file ledgers (<code>checkpoint.json</code>, <code>state.json</code>,</p>
+<p><code>events.jsonl</code>) with <code>exec</code>, not the screen.</p>
+<h3>Reference library (load on demand)</h3>
+<p>| Topic | File |</p>
+<p>|---|---|</p>
+<p>| Amplifier CLI: install, run/continue/resume, sessions, bundles, settings, JSON output | <a href="references/using-amplifier.md">references/using-amplifier.md</a> |</p>
+<p>| Building bundles/agents/skills/modes/tools, mount plans, conformance | <a href="references/building-with-amplifier.md">references/building-with-amplifier.md</a> |</p>
+<p>| Condensed expert-verified builder reference (exact schemas + CLI) | <a href="references/expert-bundle-reference.md">references/expert-bundle-reference.md</a> |</p>
+<p>| Long-running loops: evaluation, attractor, resolve | <a href="references/long-running-processes.md">references/long-running-processes.md</a> |</p>
+<p>| Superpowers workflow: brainstorm→plan→execute→verify→finish, debug | <a href="references/superpowers-lifecycle.md">references/superpowers-lifecycle.md</a> |</p>
+<p>| Claude Code CLI: headless flags, TUI keys, state detection, sessions | <a href="references/driving-claude-code.md">references/driving-claude-code.md</a> |</p>
+<p>| Codex CLI + OpenCode: exec/run modes, TUI keys, auth, comparison table | <a href="references/driving-codex-opencode.md">references/driving-codex-opencode.md</a> |</p>
+<p>| Multi-agent coordination: shared-artifact relay, gates, review, resolution, acceptance | <a href="references/multi-agent-relay.md">references/multi-agent-relay.md</a> |</p>
+<p>| Deep orchestration playbook: TUI testing method, failure modes, ledger babysitting | <a href="references/orchestration-playbook.md">references/orchestration-playbook.md</a> |</p>
+<p>Fresher ground truth for Amplifier lives in <code>~/.amplifier/cache/amplifier-foundation-*/docs/</code></p>
+<p>and the in-app experts (<code>amplifier:amplifier-expert</code>, <code>foundation:foundation-expert</code>,</p>
+<p><code>core:core-expert</code>).</p></div></details><details><summary>Limits and prerequisites</summary><ul><li>The portable helper is stdlib-only; real operations require a reachable Forge daemon. Doctor may start it; a fixture pass is not daemon acceptance.</li></ul></details></section>
+<section id="install" class="section"><div class="section-heading"><h2>Your first useful run.</h2><p>Try one disposable terminal task, then inspect and close the session you created.</p></div><div class="install-grid"><div><p>The download contains the complete skill folder. Extract it into the skills directory supported by your agent, keeping its references and license together. Or use the source installer below. Python 3.11+ is required for that installer.</p><div class="actions"><a class="button" href="downloads/forge-skill.zip">Download the portable skill</a><a href="https://github.com/michaeljabbour/amplifier-capability-forge">Source on GitHub</a></div><h3>Start from the public source</h3><div class="code-box"><button type="button" class="copy-button" data-copy="clone-commands">Copy</button><pre id="clone-commands"><code>git clone https://github.com/michaeljabbour/amplifier-capability-forge.git
+cd amplifier-capability-forge</code></pre></div><pre><code>python3 scripts/capability.py install --dest ~/.agents/skills</code></pre><details><summary>Native tools and optional execution</summary><pre><code>python3 tools/forge.py doctor</code></pre><p>These commands are for the optional native surface. Follow its installation guide and prerequisites; portable method installation is separate.</p></details><p class="note">Keep the complete skill folder together, including its references and license. The host applies the method in your context; the skill does not start a background service.</p><ul class="install-notes"><li>Python 3.11 or later is required by the portable install/build helper. The installed method runs through your agent host.</li><li>The packaged Python HTTP client and relay are stdlib-only.</li><li>Real terminal operations need a reachable Forge daemon; the native guide covers its Node/Bun installation.</li><li>Doctor can start the daemon and repair its helper. Read that behavior before running it on a shared machine.</li></ul></div><div><div class="prompt-box"><div class="box-heading"><h3>Try this with your agent</h3><button type="button" class="copy-button" data-copy="starter-prompt">Copy prompt</button></div><pre id="starter-prompt"><code>Use Forge to plan a disposable TUI smoke test. Check daemon availability first, create one named session, wait for the ready screen, capture the observed state and close only the session created for this test. Do not change permissions or launch additional agents.</code></pre><p class="note">Use after installing in a host that loads skill folders. Supply your own task files and review the result.</p></div><div class="reading"><h3>Keep the guide nearby</h3><p><a href="https://github.com/michaeljabbour/amplifier-capability-forge/blob/main/README.md">Read the guide</a> · <a href="https://github.com/michaeljabbour/amplifier-capability-forge/blob/main/LICENSE">License</a> · <a href="https://github.com/michaeljabbour/amplifier-capability-forge/blob/main/CHANGELOG.md">Changes</a> · <a href="https://github.com/michaeljabbour/amplifier-capability-forge/blob/main/capability.json">Release metadata</a> · <a href="https://github.com/michaeljabbour/amplifier-capability-forge/blob/main/docs/CONSOLIDATION.md">CONSOLIDATION</a></p></div></div></div><p class="copy-status" role="status" aria-live="polite"></p></section>
+<section id="evidence" class="section evidence"><div class="section-heading"><h2>Know what you can rely on.</h2><p>Unit and isolated integration checks cover client and relay behavior. The portable release check deliberately does not start a daemon or prove that a particular TUI works.</p></div><details><summary>Read the checks and their scope</summary><ul class="checks"><li><strong>Functional acceptance</strong> — passed<p>34 native stdlib unit tests passed; no daemon was started for acceptance.</p></li><li><strong>Native host acceptance</strong> — not-run<p>No live model, real desktop transaction, invitation, deployment or production data migration was performed by this functional baseline.</p></li></ul><p>Source and conformance checks are separate from demonstrated benefit. Comparative effectiveness and outside-user outcomes are not established by this site.</p></details><p class="note">Fictional examples explain the capability. Tests check the stated behavior. Outside-user outcomes need their own evidence.</p></section></main>
+<footer><div class="wrap footer-grid"><div><strong>Forge</strong><p>One capability. Its method, source and limits in reach.</p></div><div><a href="https://github.com/michaeljabbour/amplifier-capability-forge">Source on GitHub</a><p><a href="https://github.com/michaeljabbour/amplifier-capability-forge/blob/main/README.md">Read the guide</a> · <a href="https://github.com/michaeljabbour/amplifier-capability-forge/blob/main/LICENSE">License</a> · <a href="https://github.com/michaeljabbour/amplifier-capability-forge/blob/main/CHANGELOG.md">Changes</a> · <a href="https://github.com/michaeljabbour/amplifier-capability-forge/blob/main/capability.json">Release metadata</a> · <a href="https://github.com/michaeljabbour/amplifier-capability-forge/blob/main/docs/CONSOLIDATION.md">CONSOLIDATION</a></p></div></div><div class="wrap attribution">The family theme is MIT licensed. No institutional affiliation or endorsement is implied.</div></footer></body></html>

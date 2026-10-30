@@ -1,0 +1,115 @@
+## 2026-10-29 — Publication-state clarification
+
+- Correct the consolidation guide’s stale prepublication statement. Preserve historical release evidence and runtime acceptance limits.
+
+## Unreleased local consolidation
+
+## 2026-10-28 — Newcomer guide corrections
+
+- Correct canonical clone-directory or method links found by an independent public reader review.
+- Keep optional execution requirements separate from independent installation; label illustrative hypotheses and untested outcomes.
+
+## 2026-10-28 — Public site and first-use guide
+
+- Lead with the intended user, concrete benefits, a fictional output preview and a first task.
+- Document canonical public clone/install steps, optional runtime requirements and the boundary of existing verification.
+- Preserve native interfaces, source history and the retained integration guide.
+
+- Separate the server environment-only runtime profile from explicit local dotenv setup. Native CLI/import compatibility is retained.
+
+# Changelog
+
+## 2026-10-29 — Film
+
+- Add a 70-second film to the site, with captions, a transcript, a poster and a 15-second cut. The example in it is fictional, and it reports no results.
+
+## Unreleased
+
+## 0.5.0 - 2026-09-25
+
+### Changed
+
+- Renamed the project and PyPI/git distribution from `imagen-mcp` to
+  `imagen` (GitHub repo: `michaeljabbour/imagen`, redirected from
+  `michaeljabbour/imagen-mcp`). The smart-tool CLI is now installed as
+  `imagen` (was `imagen-mcp-smart`). Install with:
+  `uv tool install "git+https://github.com/michaeljabbour/imagen@main"`.
+  The MCP server entry points (`imagen-mcp`, `imagen-mcp-cli`) and the
+  `imagen_mcp` Python package name are unchanged -- `imagen-mcp` names the
+  MCP server executable itself, not the project. The smart tool's config
+  and cache files move to `~/.config/imagen/models.yaml` and
+  `~/.cache/imagen/model_discovery_cache.json`; reads fall back to the old
+  `~/.config/imagen-mcp/` and `~/.cache/imagen-mcp/` locations when the new
+  paths do not yet exist. macOS Keychain service names
+  (`dev.imagen-mcp.OPENAI_API_KEY` / `dev.imagen-mcp.GEMINI_API_KEY`) are
+  unchanged so existing stored keys keep working.
+
+### Added
+
+- Amplifier Smart Tool surface (`src/smart_tool/`, `SMART_TOOL.md`,
+  `smart-tool.json`): an `imagen` CLI/library exposing
+  `generate-image`, `edit-image`, `list-providers`, and `estimate-cost`,
+  reusing the existing `src.providers` code -- no generation logic is
+  reimplemented. Passes the spec's 16-rule conformance kit.
+- Model-agnostic resolution (`src/smart_tool/model_resolution.py`): explicit
+  choice > a user-editable `~/.config/imagen/models.yaml` (aliases plus
+  `openai`/`gemini: latest`) > live discovery of the newest model from each
+  provider's own models API > a cached last-known-good > a hardcoded
+  fallback. `OpenAIProvider._resolve_model` / `GeminiProvider._resolve_model_id`
+  gained an `allow_unknown` parameter (default `False`, MCP server behavior
+  unchanged) so the smart tool can pass an unrecognized-but-live model id
+  through to the provider's API instead of rejecting it against the static
+  registry.
+
+## 0.4.0 - 2026-07-13
+
+- Validate Gemini response bytes and normalize JPEG/WebP payloads to genuine
+  PNG artifacts before persistence, keeping file suffixes and metadata honest.
+- Create MCP-owned output files with mode `0600` and newly created output
+  directories with mode `0700` without changing pre-existing directory modes.
+
+### Added
+
+- Canonical `imagen_mcp` package, module runner, and console entry points while
+  preserving identity-compatible `src` imports for the 0.4 transition.
+- Eight-tool MCP contract with batch generation, cost estimation, provider and
+  model discovery, real conversation continuation, tool annotations, progress,
+  optional bounded previews, and stable structured error envelopes.
+- Gemini 3.1 Flash, Gemini 3 Pro, and Gemini 3.1 Flash Lite GA support with
+  model-specific sizes, aspect ratios, reference limits, thinking controls,
+  Search-grounding attribution, and current pricing estimates.
+- Clean wheel/sdist installation, PEP 639 license metadata, Python 3.10–3.14 CI,
+  protocol-level stdio tests, type checking, and an 80% coverage gate.
+
+### Changed
+
+- Updated the default image models to OpenAI `gpt-image-2` and Google
+  `gemini-3.1-flash-image`; retired preview IDs now fail with migration guidance
+  instead of silently changing an explicit model pin.
+- Provider-specific controls now route or fail closed instead of being silently
+  ignored. Prompt enhancement is explicit, OpenAI-only, and off by default.
+- OpenAI supports constrained custom resolutions, strict model/quality/format
+  validation, bounded retries, exclusive output writes, multi-image paths, and
+  edit-backed conversational continuation.
+- Conversation persistence is opt-in, atomic, private to the current user, and
+  subject to a configurable 30-day inactivity retention policy.
+
+### Security and reliability
+
+- Added input-root enforcement for edits; format, dimension, decoded-byte, and
+  aggregate limits for reference images; secret-safe logging; sanitized provider
+  errors; and bounded MCP output previews.
+- Google Search grounding fails closed when required Search Suggestions cannot
+  be returned through a compliant output path.
+- MCP and provider dependency major versions are bounded, CI actions are pinned
+  to immutable commits, and clean artifacts are tested outside the source tree.
+
+### Breaking changes
+
+- Runtime package metadata and the server contract are now version `0.4.0`.
+- Explicit unavailable providers/models and conflicting provider-specific
+  controls fail instead of falling back.
+- `conversational_image` rejects unknown arguments and requires a valid stored
+  predecessor when continuing a conversation.
+- `edit_image` reads only from the configured output root unless
+  `IMAGEN_MCP_ALLOWED_INPUT_ROOTS` grants additional local roots.

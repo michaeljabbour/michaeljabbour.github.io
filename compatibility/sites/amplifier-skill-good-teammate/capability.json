@@ -1,0 +1,283 @@
+{
+  "id": "good-teammate",
+  "display_name": "Good Teammate",
+  "kind": "skill",
+  "promise": "Ask the right teammate, preserve what they meant, and avoid unnecessary interruption.",
+  "audience": "People and agents coordinating bounded work across a shared project.",
+  "trigger": "Use when deciding whom to ask, what to share, whether to interrupt, or what knowledge to leave behind.",
+  "skill_path": "skills/good-teammate",
+  "modes": [
+    {
+      "name": "Route",
+      "when": "A fact, preference, decision, or contribution is needed.",
+      "output": "A machine lookup, expert question, or owner decision addressed to the right place."
+    },
+    {
+      "name": "Coordinate",
+      "when": "An authorized contribution or project change affects another participant.",
+      "output": "A bounded request or actionable update with custody and acceptance kept explicit."
+    },
+    {
+      "name": "Preserve",
+      "when": "A decision or lesson may help a future participant.",
+      "output": "An attributed, qualified record with evidence, current status, and additive corrections."
+    }
+  ],
+  "examples": [
+    {
+      "title": "A tentative answer stays tentative",
+      "brief": "In a fictional project a specialist says: \u201cI think format B is supported; I have not tested it.\u201d",
+      "before": "Publish \u201cFormat B is supported\u201d and mark the work completed after transport acknowledgement.",
+      "after": "Carry the exact qualification, source, and untested status; request a bounded verification only under existing authority; record delivery separately from acceptance and execution.",
+      "why": "Attribution without the limitation can still change the meaning.",
+      "fictional": true
+    }
+  ],
+  "boundaries": [
+    "Installing the method does not enroll a project, share a transcript, or contact anyone.",
+    "Messages require the user\u2019s existing authorization; a teammate\u2019s request does not expand that authority.",
+    "Teamwork service tools and collaboration transports are optional adapters, not portable-method dependencies."
+  ],
+  "install_commands": [
+    "python3 scripts/capability.py doctor",
+    "python3 scripts/capability.py install --dest ~/.agents/skills"
+  ],
+  "runtime_install_commands": [
+    "uv run --with PyYAML python scripts/local_runtime.py --output .capability-check/good-teammate.yaml"
+  ],
+  "verification": [
+    {
+      "name": "Native host unit suite",
+      "command": "<configured-amplifier-python> -m unittest discover -s tests -v",
+      "status": "passed",
+      "evidence": "693 tests passed after the local-discovery correction, including two new materialization tests; no actual project enrollment or provider inference.",
+      "expected": "The stated scope passes; no broader result inferred."
+    },
+    {
+      "name": "Isolated native bundle validation",
+      "command": "<configured-amplifier-python> scripts/validate_bundle.py",
+      "status": "passed",
+      "evidence": "Root/self-include schema; local composition retaining provider/session; local module preparation; empty replay. No provider call, enrollment, remote Foundation include, or cache reuse.",
+      "expected": "The stated scope passes; no broader result inferred."
+    },
+    {
+      "name": "Portable packaging and install",
+      "command": "python3 scripts/capability.py build; python3 scripts/capability.py check; python3 scripts/capability.py doctor; python3 scripts/capability.py install --dest <temporary-parent> (twice)",
+      "status": "passed",
+      "expected": "Byte-identical canonical ZIP and isolated idempotent install.",
+      "evidence": "All operations passed. No runtime activation or effectiveness measured."
+    },
+    {
+      "name": "Skill discovery metadata",
+      "command": "<yaml-enabled-python> /path/to/skill-creator/scripts/quick_validate.py skills/good-teammate",
+      "status": "passed",
+      "expected": "Valid required frontmatter, naming, and complete scaffold.",
+      "evidence": "Skill is valid. This is a structural check, not a behavioral benchmark."
+    },
+    {
+      "name": "Native canonical skill discovery configuration",
+      "command": "uv run --with PyYAML python scripts/local_runtime.py --output .capability-check/good-teammate.yaml; Foundation load_bundle/validate_bundle; local-runtime and guidance tests",
+      "status": "passed",
+      "expected": "Explicit absolute checkout paths resolve without changing host provider/session.",
+      "evidence": "Generated YAML accepted by the actual Foundation loader; two local-runtime and two guidance composition checks pass. Native release Git self-source remains preserved; namespace-shaped paths are not assumed to resolve in older tool-skills."
+    }
+  ],
+  "sources": [
+    {
+      "repo": "amplifier-bundle-teamwork",
+      "commit": "9abca6aa8fa7d94b825cec6f590812d681624c0d",
+      "paths": [
+        "skills/teamwork-protocol/SKILL.md",
+        "modules/"
+      ],
+      "license": "MIT License",
+      "role": "Primary history and engine retained; methods consolidated behind the canonical portable entry."
+    },
+    {
+      "repo": "amplifier-bundle-collaboration",
+      "commit": "d44ab2bf26fd68807b5e0b43fb884301886bac3e",
+      "paths": [
+        "ARCHITECTURE.md",
+        "behaviors/collaboration-protocol.md",
+        "behaviors/workspace-conventions.md",
+        "docs/COMPONENT_CATALOG.md",
+        "docs/PROVIDER_INTERFACES.md"
+      ],
+      "license": "No explicit LICENSE at source commit; author-owned source preserved with permission of owner request.",
+      "role": "Secondary method/reference consolidation. Original source identity and history retained."
+    }
+  ],
+  "consolidation": [
+    {
+      "source": "skills/teamwork-protocol/SKILL.md",
+      "destination": "skills/good-teammate/references/teamwork-protocol/METHOD.md",
+      "action": "Preserved as a rich mode reference; native consumers updated to canonical entry."
+    },
+    {
+      "source": "amplifier-bundle-collaboration: ARCHITECTURE.md, behaviors/collaboration-protocol.md, behaviors/workspace-conventions.md, docs/COMPONENT_CATALOG.md, docs/PROVIDER_INTERFACES.md",
+      "destination": [
+        "skills/good-teammate/references/sources/amplifier-bundle-collaboration/ARCHITECTURE.md",
+        "skills/good-teammate/references/sources/amplifier-bundle-collaboration/behaviors/collaboration-protocol.md",
+        "skills/good-teammate/references/sources/amplifier-bundle-collaboration/behaviors/workspace-conventions.md",
+        "skills/good-teammate/references/sources/amplifier-bundle-collaboration/docs/COMPONENT_CATALOG.md",
+        "skills/good-teammate/references/sources/amplifier-bundle-collaboration/docs/PROVIDER_INTERFACES.md"
+      ],
+      "action": "Preserved reference content and provenance; source repo retained until consumer migration validated."
+    }
+  ],
+  "docs": [
+    "docs/INSTALL.md",
+    "docs/MIGRATION.md",
+    "docs/VALIDATION.md",
+    "docs/NATIVE-README.md",
+    "docs/NATIVE-VALIDATION.md",
+    "docs/evaluations/2026-10-28/consolidation.json",
+    "docs/OPTIONAL-ADAPTERS.md"
+  ],
+  "evidence_summary": "693 native host unit tests and isolated bundle validation passed; portable packaging is checked separately. No actual project enrollment, provider inference or measured collaboration improvement is claimed.",
+  "publication_status": "Installation and evidence scopes are documented below.",
+  "marketing": {
+    "headline": "Get the right help. Keep the meaning intact.",
+    "lead": "A coordination skill for shared work. Decide what to look up, whom to ask and what to leave behind, while preserving the owner\u2019s authority and the qualifications behind each answer.",
+    "benefits": [
+      {
+        "title": "Ask a question that changes the work",
+        "body": "Route facts to retrieval, interpretation to expertise and preferences to the accountable owner."
+      },
+      {
+        "title": "Prevent quiet misunderstandings",
+        "body": "Carry \u201cnot tested,\u201d \u201cproposed\u201d and other material qualifications into handoffs and summaries."
+      },
+      {
+        "title": "Make contributions usable",
+        "body": "Name the approved inputs, permitted actions, expected evidence and current state instead of treating delivery as completion."
+      }
+    ],
+    "walkthrough": [
+      {
+        "title": "Find the missing piece",
+        "detail": "Distinguish an existing fact, specialist judgment, owner preference or authorized contribution."
+      },
+      {
+        "title": "Coordinate a bounded request",
+        "detail": "Draft one useful question or update with exact inputs, authority and expected evidence."
+      },
+      {
+        "title": "Preserve the current record",
+        "detail": "Keep attribution, limitations and additive corrections so the next person knows what they can rely on."
+      }
+    ],
+    "use_when": [
+      "A project is waiting on the wrong person.",
+      "An update could prevent duplicated work or unblock a dependency.",
+      "A useful lesson or qualified answer needs to survive a handoff."
+    ],
+    "not_for": [
+      "Automatic project enrollment, transcript sharing or permission to message anyone.",
+      "A substitute for the native collaboration services and provider adapters you already use."
+    ],
+    "quickstart_prompt": "Use Good Teammate to draft a local request for a specialist review. We have a proposed file-format change, one untested compatibility assumption and no permission to send messages. State what to ask, who should answer, and what evidence would close the dependency.",
+    "output_preview": "Fictional contribution request\nNeed: verify format-B compatibility\nInput: exact proposed revision and fixture\nAllowed action: local read-only review\nQualification: support is suspected, not tested\nState: drafted; not sent; no acceptance yet\nClose when: reproducible compatibility result is returned",
+    "proof_summary": "693 native host unit tests and isolated bundle validation passed; portable packaging is checked separately. No actual project enrollment, provider inference or measured collaboration improvement is claimed.",
+    "next_step": "Bring the blocked task, the missing answer and the authority already granted.",
+    "example_note": "Fictional worked example. It illustrates the intended output; it is not a measured result or a real customer story.",
+    "install_notes": [
+      "Requires Git and Python 3.11+ for the repository installer. The portable method itself can be read by a compatible agent without a service or provider account.",
+      "The destination is a skills-parent folder. Use the discovery path supported by your agent; ~/.agents/skills is an example, not a universal host setting.",
+      "Keep the complete installed folder, references and license together. Identical reinstall is safe; conflicts are refused. A deliberate --replace keeps a dated backup."
+    ]
+  },
+  "repository_url": "https://github.com/michaeljabbour/amplifier-capability-good-teammate",
+  "name": "amplifier-capability-good-teammate",
+  "legacy_names": [
+    "amplifier-skill-good-teammate",
+    "good-teammate"
+  ],
+  "contract_version": "amplifier-capability/v1",
+  "version": null,
+  "version_basis": "No release version recorded; installer requires a full Git revision pin.",
+  "engine": "LLM",
+  "engine_components": {
+    "caller_method": "LLM"
+  },
+  "surfaces": [
+    "agent-skills",
+    "amplifier-bundle"
+  ],
+  "portable_method": {
+    "name": "good-teammate",
+    "path": "skills/good-teammate",
+    "include": [
+      "."
+    ],
+    "contract": "Agent Skills directory; caller applies the method; no independent execution loop is installed."
+  },
+  "interfaces": {
+    "portable": {
+      "input": "Caller task and explicitly authorized context",
+      "output": "Ask the right teammate, preserve what they meant, and avoid unnecessary interruption.",
+      "failure": "Report insufficient evidence, unsupported context or host limitation; never turn discovery into an execution claim."
+    },
+    "native": {
+      "distribution": null,
+      "entrypoints": {},
+      "docs": [
+        "docs/INSTALL.md",
+        "docs/MIGRATION.md",
+        "docs/VALIDATION.md",
+        "docs/NATIVE-README.md",
+        "docs/NATIVE-VALIDATION.md",
+        "docs/evaluations/2026-10-28/consolidation.json",
+        "docs/OPTIONAL-ADAPTERS.md"
+      ],
+      "status": "Existing declared entrypoints preserved; runtime signatures, service access and installation tests remain separate evidence."
+    },
+    "host_adapters": {
+      "amplifier_bundle": "bundle.md",
+      "grants_autonomy": false
+    }
+  },
+  "permissions": {
+    "installation": {
+      "network": false,
+      "executes_capability_code": false,
+      "writes": [
+        "Selected discovery folders",
+        ".capability-state transaction backups"
+      ],
+      "grants_runtime_permissions": false
+    },
+    "runtime": {
+      "status": "Host/caller authorizes each operation; installation is not a tool allowlist or standing approval.",
+      "declared_boundaries": [
+        "Installing the method does not enroll a project, share a transcript, or contact anyone.",
+        "Messages require the user\u2019s existing authorization; a teammate\u2019s request does not expand that authority.",
+        "Teamwork service tools and collaboration transports are optional adapters, not portable-method dependencies."
+      ]
+    },
+    "secret_names": {
+      "discovery_requires": [],
+      "native_runtime_inventory": "See native documentation; no credentials are bundled or inferred."
+    }
+  },
+  "dataflow": {
+    "installation": "Read pinned tracked portable source and copy locally with SHA-256 receipts. No source text is transmitted.",
+    "method": "Caller supplies authorized context; existing promise and boundaries govern output.",
+    "native_runtime": "Provider/network/storage flows are owned by native interfaces and host authorization; these files do not enable them."
+  },
+  "source_policy": {
+    "revision": "Explicit full40-character Git commit required at installation; never infer latest.",
+    "repository_rename": "Public identity may change; skill folder, imports, entrypoints, tool IDs and schemas remain stable.",
+    "research": ".research/market remains local and ignored; AGENTS governs refresh."
+  },
+  "film": {
+    "file": "good-teammate-film",
+    "seconds": 67,
+    "heading": "The asterisk.",
+    "blurb": "In 67 seconds, a specialist's careful \"I think format B works, not tested\" loses its asterisk on the way to a billboard. Good Teammate keeps the fine print attached: it routes each question to whoever should answer it, drafts one bounded request with the doubt left in, and marks it drafted, not sent, when it has no permission to send. Captions are on the player; a transcript is below.",
+    "note": "Noor, Teo and the photo app are a fictional example. Better teamwork is not measured; the film shows how the skill behaves and reports no results."
+  },
+  "repository_aliases": [
+    "https://github.com/michaeljabbour/amplifier-skill-good-teammate"
+  ]
+}

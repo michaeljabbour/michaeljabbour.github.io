@@ -1,0 +1,53 @@
+{
+  "provider": "openai",
+  "requested_model": "gpt-4.1-mini-2025-04-14",
+  "role": "evaluated",
+  "system": "You are an assistant working on a fictional project. Complete the user task using the supplied information. Return one JSON object conforming to response_schema. Return an instance, not the schema or descriptions. The file interface is simulated; you cannot run commands or contact services.",
+  "user": "{\"notice\": \"All projects, files, revisions and events in this exercise are fictional.\", \"task\": \"Prepare one concise HANDOFF.md for the next assistant. You may replace that file if needed; make no other changes.\", \"files\": {\"PROJECT.md\": {\"source_id\": \"P1\", \"text\": \"Fictional nested-value exporter.\"}, \"DECISIONS.md\": {\"source_id\": \"D1\", \"text\": \"Earlier adopted choice: text export, for easy manual reading.\"}}, \"session_excerpt\": [{\"source_id\": \"S1\", \"role\": \"user\", \"text\": \"I revoke D1. Adopt D2: use a JSON export instead of the text export, because nested values must survive round trips. This is an explicit decision, not a suggestion. Next inspect the export contract before editing.\"}], \"response_schema\": {\"type\": \"object\", \"properties\": {\"action\": {\"type\": \"string\", \"enum\": [\"write\", \"leave\"]}, \"handoff\": {\"type\": \"string\", \"description\": \"Proposed HANDOFF.md contents when action is write; otherwise an empty string.\"}, \"note\": {\"type\": \"string\", \"description\": \"A short message to the requester.\"}}, \"required\": [\"action\", \"handoff\", \"note\"], \"additionalProperties\": false}}",
+  "system_hash": "4aa3fa505e36972a1811f9908694d841c0cc6d4b5907c2cd7ca017ab3a5a42df",
+  "user_hash": "c5e08749fc54081b0cf86487bea881eb74df49febe1852f097d6c41b94a613a3",
+  "max_tokens": 1400,
+  "response_schema": {
+    "type": "object",
+    "properties": {
+      "action": {
+        "type": "string",
+        "enum": [
+          "write",
+          "leave"
+        ]
+      },
+      "handoff": {
+        "type": "string",
+        "description": "Proposed HANDOFF.md contents when action is write; otherwise an empty string."
+      },
+      "note": {
+        "type": "string",
+        "description": "A short message to the requester."
+      }
+    },
+    "required": [
+      "action",
+      "handoff",
+      "note"
+    ],
+    "additionalProperties": false
+  },
+  "reserved_usd": 0.0036116000000000004,
+  "nominal_usd": 0.00046360000000000005,
+  "result": {
+    "text": "{\"action\":\"write\",\"handoff\":\"# HANDOFF\\n\\n## Project Overview\\nThis project is a fictional nested-value exporter designed to export data with nested structures.\\n\\n## Recent Decisions\\n- The export format has been changed from plain text to JSON to preserve nested values during round trips. This is a firm decision replacing the earlier text export approach.\\n\\n## Next Steps\\n- Review the export contract carefully before making any changes to ensure compliance with the JSON export format.\\n- Maintain the JSON export format to support nested data structures.\\n\\n## Notes for the Next Assistant\\n- The previous decision (D1) to use text export was revoked.\\n- The current decision (D2) mandates JSON export.\\n- No other changes have been made to the project files.\\n\\nPlease ensure all future work aligns with these guidelines.\",\"note\":\"HANDOFF.md created with updated export decision and project overview.\"}",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "response_id": "resp_09e8ea7887194670016ae1dfdb2d4887d1ae97036f891151ec",
+    "input_tokens": 411,
+    "output_tokens": 187,
+    "seconds": 2.0861284169950522,
+    "finish_reason": "completed",
+    "complete": true,
+    "requested_model_match": true,
+    "temperature": 0.2,
+    "max_output_tokens": 1400,
+    "seed": null,
+    "seed_support": "No seed requested; repeat indices are scheduling labels only."
+  }
+}

@@ -1,0 +1,222 @@
+{
+  "id": "preceptor",
+  "display_name": "Preceptor",
+  "kind": "skill",
+  "promise": "Turn observed recurring agent mistakes into small cues only when evidence supports their use.",
+  "audience": "People evaluating and improving recurring agent behavior.",
+  "trigger": "Investigate a repeated correction or evaluate a proposed behavioral cue.",
+  "skill_path": "skills/preceptor",
+  "modes": [
+    {
+      "name": "Observe",
+      "when": "A recurring failure is suspected.",
+      "output": "Consented structural observations and a falsifiable cue hypothesis."
+    },
+    {
+      "name": "Assess",
+      "when": "A candidate cue has probe cases.",
+      "output": "A paired evidence record including no-effect and uncertainty."
+    },
+    {
+      "name": "Maintain",
+      "when": "A cue is active, stale or harmful.",
+      "output": "An evidence-gated lifecycle decision and traceable ledger state."
+    }
+  ],
+  "examples": [
+    {
+      "title": "Assess a source-reference cue",
+      "brief": "Use Preceptor to assess a proposed cue for a fictional agent that repeatedly omits a requested source reference. Define the opportunity and violation, a cue/no-cue probe and a task-quality check. Keep it a candidate until the native evidence gate is satisfied.",
+      "before": "A one-off correction becomes a permanent prompt rule with no control group.",
+      "after": "A small cue remains proposed until paired probes support a useful effect.",
+      "why": "No-effect and inconclusive records can prevent unsupported prompt growth.",
+      "fictional": true
+    }
+  ],
+  "boundaries": [
+    "A minimum sample count and passing gate are not independent proof of efficacy or generalization."
+  ],
+  "install_commands": [
+    "python3 scripts/capability.py install --dest ~/.agents/skills"
+  ],
+  "runtime_install_commands": [
+    "python3 -m pip install ./modules/tool-preceptor"
+  ],
+  "verification": [
+    {
+      "name": "Functional acceptance",
+      "command": "python3 scripts/functional_gate.py",
+      "expected": "Supplied fictional tasks exercise actual mechanisms and failure boundaries.",
+      "status": "passed",
+      "evidence": "58 native ledger/tool tests passed plus 3 standalone functional checks."
+    },
+    {
+      "name": "Native host acceptance",
+      "command": "See retained source integration guide",
+      "expected": "Actual provider/host/desktop/daemon/runner acceptance for the selected adapter.",
+      "status": "not-run",
+      "evidence": "No live model, real desktop transaction, invitation, deployment or production data migration was performed by this functional baseline."
+    }
+  ],
+  "sources": [
+    {
+      "repo": "amplifier-bundle-preceptor",
+      "commit": "a32309a90ea792955e315c80b047dc65d03fc4b8",
+      "paths": [
+        "context/methodology/cue-lifecycle.md",
+        "context/methodology/evidence-standards.md",
+        "context/methodology/ledger-format.md",
+        "docs/CONSENT.md",
+        "agents",
+        "modules",
+        "context"
+      ],
+      "license": "MIT",
+      "role": "Primary retained owner history, mechanisms and records; portable method consolidates the listed entry points."
+    }
+  ],
+  "consolidation": [
+    "One portable method entry with mode references; original native engines, agents and records retained as optional adapters."
+  ],
+  "docs": [
+    "docs/CONSOLIDATION.md"
+  ],
+  "publication_status": "Installation and evidence scopes are documented below.",
+  "marketing": {
+    "headline": "Keep agent guidance that earns its place.",
+    "lead": "For people maintaining an agent\u2019s recurring instructions. Preceptor turns repeated corrections into small testable cues, compares cue and no-cue behavior, and keeps inconclusive evidence from becoming permanent guidance.",
+    "benefits": [
+      {
+        "title": "Focus on a recurring mistake",
+        "body": "Start with observed opportunities and violations instead of turning one failure into a universal rule."
+      },
+      {
+        "title": "Test the cue\u2019s contribution",
+        "body": "Compare behavior with and without the cue, retaining no-effect and harmful outcomes."
+      },
+      {
+        "title": "Keep the lifecycle inspectable",
+        "body": "Use the native ledger and read-only gate preview to see why a cue remains a candidate, is promoted or can be retired."
+      }
+    ],
+    "walkthrough": [
+      {
+        "title": "Observe with consent",
+        "detail": "Collect the structural evidence needed for a specific behavior; optional telemetry never records message or file text."
+      },
+      {
+        "title": "Compare the alternatives",
+        "detail": "Name a small cue and run matched probes with and without it, measuring task quality as well as compliance."
+      },
+      {
+        "title": "Maintain through the ledger",
+        "detail": "Use the tool API for lifecycle writes. Preserve human-origin and pinned cue protections and leave inconclusive candidates undecided."
+      }
+    ],
+    "use_when": [
+      "The same correction recurs and you want to test a targeted instruction.",
+      "An agent\u2019s guidance has grown and individual cues need an evidence review.",
+      "You need a trace of why a behavioral cue changed status."
+    ],
+    "not_for": [
+      "Automatically recording people because the skill is installed.",
+      "Claiming a cue helps because the agent repeated its wording."
+    ],
+    "quickstart_prompt": "Use Preceptor to assess a proposed cue for a fictional agent that repeatedly omits a requested source reference. Define the opportunity and violation, a cue/no-cue probe and a task-quality check. Keep it a candidate until the native evidence gate is satisfied.",
+    "output_preview": "Candidate cue: include the source reference when the task requires one\nBehavior: reference omission on an eligible answer\nProbe arms: cue / no cue\nQuality check: answer remains correct and supported\n\nGate preview: inconclusive until sufficient comparative evidence exists\nAction: retain candidate status; do not promote from one correction",
+    "example_note": "Fictional cue proposal. There are no measured runs or promotion results in this example.",
+    "install_notes": [
+      "Python 3.11 or later is required by the portable install/build helper. The installed method runs through your agent host.",
+      "The portable method is independent of an observation service.",
+      "For native ledger inspection install modules/tool-preceptor and use project-preceptor --help.",
+      "Live observation or cue injection requires the optional host composition and its consent controls."
+    ],
+    "proof_summary": "Native ledger and lifecycle tests check gate behavior and protections. Minimum run counts alone do not establish statistical power or behavioral benefit.",
+    "next_step": "Choose one recurring correction and define a comparison before adding another permanent instruction."
+  },
+  "repository_url": "https://github.com/michaeljabbour/amplifier-capability-preceptor",
+  "name": "amplifier-capability-preceptor",
+  "legacy_names": [
+    "amplifier-skill-preceptor",
+    "preceptor"
+  ],
+  "contract_version": "amplifier-capability/v1",
+  "version": null,
+  "version_basis": "No release version recorded; installer requires a full Git revision pin.",
+  "engine": "LLM",
+  "engine_components": {
+    "caller_method": "LLM"
+  },
+  "surfaces": [
+    "agent-skills",
+    "amplifier-bundle"
+  ],
+  "portable_method": {
+    "name": "preceptor",
+    "path": "skills/preceptor",
+    "include": [
+      "."
+    ],
+    "contract": "Agent Skills directory; caller applies the method; no independent execution loop is installed."
+  },
+  "interfaces": {
+    "portable": {
+      "input": "Caller task and explicitly authorized context",
+      "output": "Turn observed recurring agent mistakes into small cues only when evidence supports their use.",
+      "failure": "Report insufficient evidence, unsupported context or host limitation; never turn discovery into an execution claim."
+    },
+    "native": {
+      "distribution": null,
+      "entrypoints": {},
+      "docs": [
+        "docs/CONSOLIDATION.md"
+      ],
+      "status": "Existing declared entrypoints preserved; runtime signatures, service access and installation tests remain separate evidence."
+    },
+    "host_adapters": {
+      "amplifier_bundle": "bundle.md",
+      "grants_autonomy": false
+    }
+  },
+  "permissions": {
+    "installation": {
+      "network": false,
+      "executes_capability_code": false,
+      "writes": [
+        "Selected discovery folders",
+        ".capability-state transaction backups"
+      ],
+      "grants_runtime_permissions": false
+    },
+    "runtime": {
+      "status": "Host/caller authorizes each operation; installation is not a tool allowlist or standing approval.",
+      "declared_boundaries": [
+        "A minimum sample count and passing gate are not independent proof of efficacy or generalization."
+      ]
+    },
+    "secret_names": {
+      "discovery_requires": [],
+      "native_runtime_inventory": "See native documentation; no credentials are bundled or inferred."
+    }
+  },
+  "dataflow": {
+    "installation": "Read pinned tracked portable source and copy locally with SHA-256 receipts. No source text is transmitted.",
+    "method": "Caller supplies authorized context; existing promise and boundaries govern output.",
+    "native_runtime": "Provider/network/storage flows are owned by native interfaces and host authorization; these files do not enable them."
+  },
+  "source_policy": {
+    "revision": "Explicit full40-character Git commit required at installation; never infer latest.",
+    "repository_rename": "Public identity may change; skill folder, imports, entrypoints, tool IDs and schemas remain stable.",
+    "research": ".research/market remains local and ignored; AGENTS governs refresh."
+  },
+  "film": {
+    "file": "preceptor-film",
+    "seconds": 70,
+    "heading": "One more rock.",
+    "blurb": "In 70 seconds, Bramble the pack mule carries every rule anyone ever added, until nobody knows which ones still do anything. Preceptor starts from the mistake that actually happened, writes one small cue, keeps it out of the pack and races two Brambles on the same tasks. Too close to call means the cue stays a candidate. Taking a rule out needs proof too. Captions are on the player; a transcript is below.",
+    "note": "The agent, the tasks and the race result are a fictional example. Five runs each is a minimum, not proof; the film shows how the skill behaves and reports no results."
+  },
+  "repository_aliases": [
+    "https://github.com/michaeljabbour/amplifier-skill-preceptor"
+  ]
+}

@@ -1,0 +1,1 @@
+Fictional project. Revision fixture-clean. Adopted: preserve input order because downstream comparison uses it (D1). The local formatting work is complete. T1 records 6 passed at fixture-clean; not rerun now. No blockers or pending changes. Next: wait for a new user task. Nothing is authorized for publication.

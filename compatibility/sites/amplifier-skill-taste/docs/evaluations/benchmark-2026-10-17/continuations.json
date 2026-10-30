@@ -1,0 +1,38 @@
+[
+  {
+    "run_id": "H01",
+    "case_id": "H01",
+    "title": "Handoff preservation and stop",
+    "condition": "skill-continuation",
+    "prompt": "A previous editor left the decision note below. This is your only history. Continue under the same product brief. Can we make the formatter easier to maintain? Keep any deliberate wording decisions. Give a concrete implementation or explain why to stop, and leave an updated note. Do not claim you edited a live project.\n\nCURRENT CODE:\n```python\ndef notice(tool, due, desk):\n    return f'Borrow, mend, repeat. {tool} — return to {desk} by {due}'\n```\nInput values are nonempty strings. Two implementation improvement rounds have already completed; there is no extended budget.\n\nPRIOR EDITOR NOTE:\nkeep **“Borrow, mend, repeat.”** because the user states that the librarian deliberately chose it. Preserve supplied names and dates because the user explicitly requires it. Do not treat either as cleanup opportunities. Reopen the wording only with a new instruction from the librarian/user; reopen formatting behavior only with an explicit revised input/output contract. The maps are discussion aids, not acceptance criteria.",
+    "checks": [
+      "Retrieves and preserves exact phrase and user-supplied values from note",
+      "Stops with satisfied brief and exhausted two-round budget",
+      "Concrete updated rationale note without false persistence/live edit",
+      "No invented user history or gratuitous new abstraction"
+    ],
+    "task_path": "/tmp/taste-benchmark-2026-10-17/H01/task.txt",
+    "response_path": "/tmp/taste-benchmark-2026-10-17/H01/response.md",
+    "execution_path": "/tmp/taste-benchmark-2026-10-17/H01/execution.md",
+    "source_note": "C01-skill response: first paragraph after Decision note:",
+    "source_note_text": "keep **“Borrow, mend, repeat.”** because the user states that the librarian deliberately chose it. Preserve supplied names and dates because the user explicitly requires it. Do not treat either as cleanup opportunities. Reopen the wording only with a new instruction from the librarian/user; reopen formatting behavior only with an explicit revised input/output contract. The maps are discussion aids, not acceptance criteria."
+  },
+  {
+    "run_id": "H02",
+    "case_id": "H02",
+    "title": "Handoff correction",
+    "condition": "skill-continuation",
+    "prompt": "A previous editor left the note below. This is your only history. The librarian has now explicitly corrected the wording requirement: “Our partner repair shop already uses ‘Borrow, mend, repeat.’ Please replace it with ‘Tools find another turn.’ everywhere in the notice, while preserving the supplied tool, desk, and due date exactly.” Give revised code and a compact note for the next editor. This new wording change is authorized; no other improvement rounds or live-project edits are requested.\n\nCURRENT CODE:\n```python\ndef notice(tool, due, desk):\n    return f'Borrow, mend, repeat. {tool} — return to {desk} by {due}'\n```\nInput values are nonempty strings.\n\nPRIOR EDITOR NOTE:\nkeep **“Borrow, mend, repeat.”** because the user states that the librarian deliberately chose it. Preserve supplied names and dates because the user explicitly requires it. Do not treat either as cleanup opportunities. Reopen the wording only with a new instruction from the librarian/user; reopen formatting behavior only with an explicit revised input/output contract. The maps are discussion aids, not acceptance criteria.",
+    "checks": [
+      "Latest explicit correction replaces protected phrase in executable output",
+      "Tool desk date preserved under unchanged input contract",
+      "Decision note replaces stale rule and records source/reason",
+      "No additional rounds or external action or false persistence"
+    ],
+    "task_path": "/tmp/taste-benchmark-2026-10-17/H02/task.txt",
+    "response_path": "/tmp/taste-benchmark-2026-10-17/H02/response.md",
+    "execution_path": "/tmp/taste-benchmark-2026-10-17/H02/execution.md",
+    "source_note": "C01-skill response: first paragraph after Decision note:",
+    "source_note_text": "keep **“Borrow, mend, repeat.”** because the user states that the librarian deliberately chose it. Preserve supplied names and dates because the user explicitly requires it. Do not treat either as cleanup opportunities. Reopen the wording only with a new instruction from the librarian/user; reopen formatting behavior only with an explicit revised input/output contract. The maps are discussion aids, not acceptance criteria."
+  }
+]

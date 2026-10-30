@@ -1,0 +1,20 @@
+[
+  {
+    "source": "docs/AI_SETUP_PROMPT.md",
+    "destination": "references/AI_SETUP_PROMPT.md",
+    "source_sha256": "bbad34593514030c9766600c4267552c08ff1ecd1a6d4614831a59c577f9c47c",
+    "output_sha256": "bbad34593514030c9766600c4267552c08ff1ecd1a6d4614831a59c577f9c47c"
+  },
+  {
+    "source": "docs/BUNDLE_AUTHORING.md",
+    "destination": "references/BUNDLE_AUTHORING.md",
+    "source_sha256": "727c005ff74541613f93127b0a8c3c43126a92ed42820cd1c9dc2015deb622fd",
+    "output_sha256": "667a2242fb6a52b8600a0c44680a13041604d4e315b3ceb0f0b8cc0b800e37ef"
+  },
+  {
+    "source": "REGISTRY.md",
+    "destination": "references/REGISTRY.md",
+    "source_sha256": "af6118a13650239503ef895700a931c62d719fbe36e7e17105d69c01ae82b6b9",
+    "output_sha256": "7c0bce37e7ad71c42f6311bbb31a395a359c29bcf3461fec6988b7cea3e48595"
+  }
+]

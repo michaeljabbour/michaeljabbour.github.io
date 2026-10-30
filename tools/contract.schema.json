@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:amplifier:capability-contract:v1",
+  "title": "Amplifier capability contract v1",
+  "type": "object",
+  "required": ["contract_version", "id", "name", "legacy_names", "version", "kind", "engine", "engine_components", "promise", "surfaces", "portable_method", "interfaces", "permissions", "dataflow", "source_policy"],
+  "properties": {
+    "contract_version": {"const": "amplifier-capability/v1"},
+    "id": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"},
+    "name": {"type": "string", "pattern": "^amplifier-capability-[a-z0-9]+(-[a-z0-9]+)*$"},
+    "legacy_names": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "version": {"type": ["string", "null"]},
+    "kind": {"enum": ["skill", "smart-tool", "tool", "library", "agent", "outer-harness"]},
+    "engine": {"enum": ["LLM", "Decision model", "Both", "None"]},
+    "engine_components": {"type": "object"},
+    "surfaces": {"type": "array", "items": {"enum": ["agent-skills", "amplifier-bundle", "cli", "mcp", "python-library"]}, "uniqueItems": true},
+    "portable_method": {"type": ["object", "null"]},
+    "interfaces": {"type": "object"},
+    "permissions": {"type": "object"},
+    "dataflow": {"type": "object"},
+    "source_policy": {"type": "object"}
+  },
+  "additionalProperties": true
+}

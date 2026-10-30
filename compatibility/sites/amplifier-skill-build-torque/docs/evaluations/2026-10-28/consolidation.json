@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-28",
+  "status": "local conformance and native/source checks",
+  "capability": "build-with-torque",
+  "source_commit": "5c2cadfdb698170374fa3c6c78291ac1842a99e6",
+  "checks": [
+    {
+      "name": "Canonical reference mirror gate",
+      "command": "python3 scripts/sync_skill.py --check",
+      "status": "passed",
+      "evidence": "AI setup, Bundle Authoring, and Registry mirrors match canonical sources plus their recorded source/output hashes.",
+      "expected": "The declared check scope passes without a broader benefit claim."
+    },
+    {
+      "name": "Retained documentation checks",
+      "command": "node --test test/docs.test.js; python -m pytest test/test_phase3_docs.py test/test_phase4_docs.py -q",
+      "status": "passed",
+      "evidence": "47 Node tests and 59 Python tests pass. These verify documentation coverage only; no Torque framework/runtime or app deployment result is claimed.",
+      "expected": "The declared check scope passes without a broader benefit claim."
+    },
+    {
+      "name": "Portable build and clean install",
+      "command": "python3 scripts/capability.py build/check/doctor; install --dest <temporary-parent> twice",
+      "status": "passed",
+      "evidence": "Canonical ZIP bytes, local links, complete method/license, clean install and idempotent reinstall pass. No runtime starts.",
+      "expected": "Conformance only."
+    }
+  ],
+  "effectiveness": "not measured",
+  "paid_calls": 0,
+  "publication": "not performed"
+}

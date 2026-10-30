@@ -1,0 +1,92 @@
+{
+  "date": "2026-10-28",
+  "status": "local conformance and native software checks",
+  "capability": "research",
+  "primary_source_commit": "79b64cb33cb7ea123c8004733282bfcc29837f8d",
+  "sources": [
+    {
+      "repo": "amplifier-bundle-research",
+      "commit": "79b64cb33cb7ea123c8004733282bfcc29837f8d",
+      "paths": [
+        "skills/conducting-autonomous-experiments/SKILL.md",
+        "agents/hypothesis-designer.md",
+        "agents/methodologist.md",
+        "agents/statistician.md",
+        "agents/literature-scout.md",
+        "agents/research-paper-architect.md",
+        "agents/research-technical-writer.md",
+        "agents/research-citation-manager.md",
+        "agents/figure-designer.md",
+        "agents/honest-critic.md",
+        "context/orchestrated-loop-judge-rubric.md",
+        "behaviors/cross-vendor-judge.md",
+        "agents/ml-paper-reviewer.md",
+        "modules/"
+      ],
+      "license": "MIT License",
+      "role": "Primary history and engine retained; methods consolidated behind the canonical portable entry."
+    },
+    {
+      "repo": "amplifier-bundle-scientificpaper",
+      "commit": "0ef198d1f416b82abb05a9139c86367f17cba037",
+      "paths": [
+        "LICENSE",
+        "agents/citation-manager.md",
+        "agents/figure-artist.md",
+        "agents/latex-expert.md",
+        "agents/paper-architect.md",
+        "context/conference-formats/acl.md",
+        "context/conference-formats/acm.md",
+        "context/conference-formats/arxiv.md",
+        "context/conference-formats/icml.md",
+        "context/conference-formats/ieee.md",
+        "context/conference-formats/neurips.md",
+        "context/conference-styling-awareness.md",
+        "context/figure-generation-awareness.md",
+        "context/imaging/matplotlib-scientific.md",
+        "context/imaging/tikz-patterns.md",
+        "context/instructions.md",
+        "context/latex-awareness.md",
+        "context/paperbanana-methodology.md"
+      ],
+      "license": "MIT License",
+      "role": "Secondary method/reference consolidation. Original source identity and history retained."
+    }
+  ],
+  "checks": [
+    {
+      "name": "Six native integrity tool suites",
+      "command": "For each modules/tool-experiment-*/: PYTHONPATH=<module>/src python -m pytest <module>/tests -q",
+      "status": "passed",
+      "evidence": "174 tests: audit 50; block hypothesis 22; power 40; provenance 19; resume 14; stage analyzer 29. Isolated Python 3.12.11 with recorded test dependencies. No new empirical study or live model comparison.",
+      "expected": "The stated scope passes; no broader result inferred."
+    },
+    {
+      "name": "Autonomous experiment-loop shell checks",
+      "command": "For each scripts/experiment-loop/tests/test_*.sh: bash <test>",
+      "status": "passed",
+      "evidence": "10 shell checks passed, including freeze gate, append-only ledger, keep/revert, promotion rules, attribution, templates, and an isolated three-row smoke loop. Synthetic plumbing, not empirical benefit.",
+      "expected": "The stated scope passes; no broader result inferred."
+    },
+    {
+      "name": "Portable packaging and install",
+      "command": "python3 scripts/capability.py build; python3 scripts/capability.py check; python3 scripts/capability.py doctor; python3 scripts/capability.py install --dest <temporary-parent> (twice)",
+      "status": "passed",
+      "expected": "Byte-identical canonical ZIP and isolated idempotent install.",
+      "evidence": "All operations passed. No runtime activation or effectiveness measured."
+    },
+    {
+      "name": "Skill discovery metadata",
+      "command": "<yaml-enabled-python> /path/to/skill-creator/scripts/quick_validate.py skills/research",
+      "status": "passed",
+      "expected": "Valid required frontmatter, naming, and complete scaffold.",
+      "evidence": "Skill is valid. This is a structural check, not a behavioral benchmark."
+    }
+  ],
+  "limitations": [
+    "No new paid live inference, production activation, publication, or outside-user acceptance.",
+    "Fictional examples are authored illustrations, not observed outcomes.",
+    "Retained historical evaluation assets keep their original scope; renamed portable-method effectiveness is unmeasured."
+  ],
+  "changes": "Investigation, experimentation, writing methods; six integrity tools and Scientific Paper source ancestry retained."
+}

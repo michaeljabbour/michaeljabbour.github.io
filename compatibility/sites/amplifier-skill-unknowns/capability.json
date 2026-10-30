@@ -1,0 +1,227 @@
+{
+  "id": "unknowns",
+  "display_name": "Unknowns",
+  "kind": "skill",
+  "promise": "Expose the assumptions and unanswered questions that could change a plan, then choose the next useful inquiry.",
+  "audience": "People planning work in uncertain or unfamiliar territory.",
+  "trigger": "Find blind spots, map uncertainty, or decide what to investigate next.",
+  "skill_path": "skills/unknowns",
+  "modes": [
+    {
+      "name": "Map",
+      "when": "A plan needs an uncertainty inventory.",
+      "output": "An evidenced four-quadrant map with priorities."
+    },
+    {
+      "name": "Blindspot",
+      "when": "The user wants to surface unstated assumptions.",
+      "output": "A conversational challenge and concrete test."
+    },
+    {
+      "name": "Resolve",
+      "when": "An important uncertainty is actionable.",
+      "output": "A selected inquiry, evidence and a reclassified map entry."
+    }
+  ],
+  "examples": [
+    {
+      "title": "Test an export assumption",
+      "brief": "Use Unknowns to review a fictional export migration plan. Separate established requirements from compatibility assumptions, attach an evidence basis and choose the one unanswered question most likely to change the plan. Keep possible blind spots labeled as hypotheses.",
+      "before": "A migration plan treats an untested compatibility assumption as settled.",
+      "after": "The map records it as a consequential question with an explicit verification step.",
+      "why": "The next inquiry targets a decision-changing unknown.",
+      "fictional": true
+    }
+  ],
+  "boundaries": [
+    "A brainstormed blind spot is a hypothesis; classification does not prove it exists."
+  ],
+  "install_commands": [
+    "python3 scripts/capability.py install --dest ~/.agents/skills"
+  ],
+  "runtime_install_commands": [
+    "python3 -m pip install ."
+  ],
+  "verification": [
+    {
+      "name": "Functional acceptance",
+      "command": "python3 scripts/functional_gate.py",
+      "expected": "Supplied fictional tasks exercise actual mechanisms and failure boundaries.",
+      "status": "passed",
+      "evidence": "31 native map/tool tests passed; installed no-engine seed/add/triage gate also passed."
+    },
+    {
+      "name": "Native host acceptance",
+      "command": "See retained source integration guide",
+      "expected": "Actual provider/host/desktop/daemon/runner acceptance for the selected adapter.",
+      "status": "not-run",
+      "evidence": "No live model, real desktop transaction, invitation, deployment or production data migration was performed by this functional baseline."
+    }
+  ],
+  "sources": [
+    {
+      "repo": "amplifier-bundle-unknowns",
+      "commit": "cbc8dcda6c384d5b0283db847a812f3f70121da8",
+      "paths": [
+        "context/unknowns-matrix.md",
+        "context/ascii-render-spec.md",
+        "agents/unknownfinder.md",
+        "agents",
+        "modules",
+        "context"
+      ],
+      "license": "MIT",
+      "role": "Primary retained owner history, mechanisms and records; portable method consolidates the listed entry points."
+    }
+  ],
+  "consolidation": [
+    "One portable method entry with mode references; original native engines, agents and records retained as optional adapters."
+  ],
+  "docs": [
+    "docs/CONSOLIDATION.md"
+  ],
+  "publication_status": "Installation and evidence scopes are documented below.",
+  "marketing": {
+    "headline": "Find the question that could change your plan.",
+    "lead": "For people starting unfamiliar or uncertain work. Unknowns makes assumptions and unanswered questions visible, attaches an evidence basis and helps choose the next useful inquiry instead of growing an endless risk list.",
+    "benefits": [
+      {
+        "title": "Separate facts from assumptions",
+        "body": "Mark what is established, what is open and what is only a possible blind spot."
+      },
+      {
+        "title": "Spend inquiry where it matters",
+        "body": "Choose a question whose answer could alter a decision or acceptance test."
+      },
+      {
+        "title": "Keep a map that can change",
+        "body": "Reclassify an entry when evidence arrives, retaining the source and the reason for the change."
+      }
+    ],
+    "walkthrough": [
+      {
+        "title": "Read the actual territory",
+        "detail": "Use the code, records and user constraints as evidence rather than filling quadrants with guesses."
+      },
+      {
+        "title": "Name the consequential gap",
+        "detail": "Record its evidence basis, severity and the decision it could change."
+      },
+      {
+        "title": "Choose and update",
+        "detail": "Select one inquiry, gather the evidence and update only the entries it resolves."
+      }
+    ],
+    "use_when": [
+      "A plan rests on an untested compatibility or customer assumption.",
+      "You are entering a codebase or domain you do not know well.",
+      "A team needs to choose what to investigate next."
+    ],
+    "not_for": [
+      "Claiming a brainstormed hazard has been discovered as a fact.",
+      "Filling every quadrant just to make the diagram look complete."
+    ],
+    "quickstart_prompt": "Use Unknowns to review a fictional export migration plan. Separate established requirements from compatibility assumptions, attach an evidence basis and choose the one unanswered question most likely to change the plan. Keep possible blind spots labeled as hypotheses.",
+    "output_preview": "Established: the consumer accepts the current export\nOpen question: does it accept the proposed schema revision?\nUnstated preference: is manual conversion acceptable to the owner?\nPossible blind spot: a downstream consumer may rely on an undocumented field\n\nNext inquiry: test the proposed export against the named consumer\nEvidence needed: actual parse result and supported schema contract",
+    "example_note": "Fictional migration map. The possible downstream dependency is a hypothesis, not a discovered dependency.",
+    "install_notes": [
+      "Python 3.11 or later is required by the portable install/build helper. The installed method runs through your agent host.",
+      "The portable method and deterministic map operations need no engine or model key.",
+      "The optional native unknowns CLI can seed, add and triage a map; Graphviz is only needed for image export.",
+      "Pipeline execution is separate from map creation and needs its own configured runner."
+    ],
+    "proof_summary": "Native map/tool tests and an installed no-engine seed/add/triage check passed. A map or routing token does not demonstrate that an inquiry ran or that rework was avoided.",
+    "next_step": "Bring one plan and ask which unanswered question would most change its next step."
+  },
+  "repository_url": "https://github.com/michaeljabbour/amplifier-capability-unknowns",
+  "name": "amplifier-capability-unknowns",
+  "legacy_names": [
+    "amplifier-skill-unknowns",
+    "blindspot-pass",
+    "unknownfinder",
+    "unknowns"
+  ],
+  "contract_version": "amplifier-capability/v1",
+  "version": "0.1.0",
+  "version_basis": "Existing release metadata",
+  "engine": "LLM",
+  "engine_components": {
+    "caller_method": "LLM"
+  },
+  "surfaces": [
+    "agent-skills",
+    "amplifier-bundle",
+    "cli",
+    "python-library"
+  ],
+  "portable_method": {
+    "name": "unknowns",
+    "path": "skills/unknowns",
+    "include": [
+      "."
+    ],
+    "contract": "Agent Skills directory; caller applies the method; no independent execution loop is installed."
+  },
+  "interfaces": {
+    "portable": {
+      "input": "Caller task and explicitly authorized context",
+      "output": "Expose the assumptions and unanswered questions that could change a plan, then choose the next useful inquiry.",
+      "failure": "Report insufficient evidence, unsupported context or host limitation; never turn discovery into an execution claim."
+    },
+    "native": {
+      "distribution": "amplifier-unknowns",
+      "entrypoints": {
+        "unknowns": "unknowns_map.cli:main"
+      },
+      "docs": [
+        "docs/CONSOLIDATION.md"
+      ],
+      "status": "Existing declared entrypoints preserved; runtime signatures, service access and installation tests remain separate evidence."
+    },
+    "host_adapters": {
+      "amplifier_bundle": "bundle.md",
+      "grants_autonomy": false
+    }
+  },
+  "permissions": {
+    "installation": {
+      "network": false,
+      "executes_capability_code": false,
+      "writes": [
+        "Selected discovery folders",
+        ".capability-state transaction backups"
+      ],
+      "grants_runtime_permissions": false
+    },
+    "runtime": {
+      "status": "Host/caller authorizes each operation; installation is not a tool allowlist or standing approval.",
+      "declared_boundaries": [
+        "A brainstormed blind spot is a hypothesis; classification does not prove it exists."
+      ]
+    },
+    "secret_names": {
+      "discovery_requires": [],
+      "native_runtime_inventory": "See native documentation; no credentials are bundled or inferred."
+    }
+  },
+  "dataflow": {
+    "installation": "Read pinned tracked portable source and copy locally with SHA-256 receipts. No source text is transmitted.",
+    "method": "Caller supplies authorized context; existing promise and boundaries govern output.",
+    "native_runtime": "Provider/network/storage flows are owned by native interfaces and host authorization; these files do not enable them."
+  },
+  "source_policy": {
+    "revision": "Explicit full40-character Git commit required at installation; never infer latest.",
+    "repository_rename": "Public identity may change; skill folder, imports, entrypoints, tool IDs and schemas remain stable.",
+    "research": ".research/market remains local and ignored; AGENTS governs refresh."
+  },
+  "film": {
+    "file": "unknowns-film",
+    "seconds": 67,
+    "heading": "Twelve green steps. One secret.",
+    "blurb": "In 67 seconds, a migration plan looks perfect until step seven turns out to rest on a guess nobody checked. Unknowns sorts what you know from what you are only assuming, picks the one question that could change the plan, and turns it into a small test before anything moves. Captions are on the player; a transcript is below.",
+    "note": "The migration plan, the files and the test result are a fictional example. The film shows how the skill behaves; it does not report results."
+  },
+  "repository_aliases": [
+    "https://github.com/michaeljabbour/amplifier-skill-unknowns"
+  ]
+}

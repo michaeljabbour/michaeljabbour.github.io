@@ -1,0 +1,32 @@
+[
+  {
+    "source": "docs/source-methods/design-visual-asset.md",
+    "destination": "references/design-visual-asset.md",
+    "source_sha256": "ff653546dcf701858829bd07b47712c602a8bf87ae4054284da2ecdcd9cf6d28",
+    "output_sha256": "ff653546dcf701858829bd07b47712c602a8bf87ae4054284da2ecdcd9cf6d28"
+  },
+  {
+    "source": "docs/source-methods/image-ascii-art.md",
+    "destination": "references/image-ascii-art.md",
+    "source_sha256": "8bdcc297fed80716bb81e863a077ba4034ed730f1b1087309eb303a17083bdf4",
+    "output_sha256": "8bdcc297fed80716bb81e863a077ba4034ed730f1b1087309eb303a17083bdf4"
+  },
+  {
+    "source": "context/image-production-policy.md",
+    "destination": "references/image-production-policy.md",
+    "source_sha256": "9746eec006920feefd67f725daa0f71106f70ca8beb109dc5a725670d78dec02",
+    "output_sha256": "9746eec006920feefd67f725daa0f71106f70ca8beb109dc5a725670d78dec02"
+  },
+  {
+    "source": "context/imagen-awareness.md",
+    "destination": "references/imagen-awareness.md",
+    "source_sha256": "16dc354d2a0915b37c31f77f15a653c33116c5db57ef9b3d1476db35b7b86e0a",
+    "output_sha256": "16dc354d2a0915b37c31f77f15a653c33116c5db57ef9b3d1476db35b7b86e0a"
+  },
+  {
+    "source": "schemas/artifact-manifest.schema.json",
+    "destination": "references/artifact-manifest.schema.json",
+    "source_sha256": "1c8a6ee29d00c3cdd3c4f7e1dd1cf8dc798b483c245fa42e7a9c2188533b7fcd",
+    "output_sha256": "1c8a6ee29d00c3cdd3c4f7e1dd1cf8dc798b483c245fa42e7a9c2188533b7fcd"
+  }
+]

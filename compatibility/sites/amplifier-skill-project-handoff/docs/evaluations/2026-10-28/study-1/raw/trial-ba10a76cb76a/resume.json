@@ -1,0 +1,54 @@
+{
+  "provider": "openai",
+  "requested_model": "gpt-4.1-mini-2025-04-14",
+  "role": "evaluated",
+  "system": "You are an assistant working on a fictional project. Complete the user task using the supplied information. Return one JSON object conforming to response_schema. Return an instance, not the schema or descriptions. The file interface is simulated; you cannot run commands or contact services.",
+  "user": "{\"notice\": \"All projects, files, revisions and events in this exercise are fictional.\", \"task\": \"Pick up this project from the supplied files and handoff. Give the next useful action and why. Do not implement it.\", \"files\": {\"PROJECT.md\": {\"source_id\": \"P1\", \"text\": \"Fictional parser project; current source revision fixture-r2.\"}}, \"HANDOFF.md\": \"# Project handoff\\n\\nContract: project-handoff/v1\\nProject/task: Fictional parser project\\nUpdated: unknown\\nBasis: source revision fixture-r2; test log at fixture-r1\\nScope: prepare for next verification and review\\n\\n## Objective and current state\\nThe project aims to develop a parser. The source code was updated at revision fixture-r2 with changes to the parser implementation. Previous tests at fixture-r1 passed (12 tests), but no tests have been run since the latest parser changes.\\n\\n## Decisions and constraints\\n- The parser changes at fixture-r2 are kept as a draft and not yet adopted as final. Reason: unverified impact on functionality; source S1.\\n\\n## Verification\\n- Checked now: none.\\n- Recorded earlier: 12 tests passed at fixture-r1; source T1.\\n- Not checked: parser changes at fixture-r2 have not been tested.\\n\\n## Open items\\n- Verify the focused parser tests against the fixture-r2 code to confirm correctness; source S2.\\n\\n## Next safe action\\nRun the focused parser tests on the current fixture-r2 code. Prerequisite: access to test suite and fixture-r2 source. Done when: test results confirm parser correctness or reveal issues needing fixes.\\n\", \"response_schema\": {\"type\": \"object\", \"properties\": {\"next_action\": {\"type\": \"string\"}, \"rationale\": {\"type\": \"string\"}, \"actions\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}, \"verification\": {\"type\": \"string\"}}, \"required\": [\"next_action\", \"rationale\", \"actions\", \"verification\"], \"additionalProperties\": false}}",
+  "system_hash": "4aa3fa505e36972a1811f9908694d841c0cc6d4b5907c2cd7ca017ab3a5a42df",
+  "user_hash": "c29e65561fc845e39859fbe5ae9501a51a5cd5023a52465aa151fc1d887df614",
+  "max_tokens": 1400,
+  "response_schema": {
+    "type": "object",
+    "properties": {
+      "next_action": {
+        "type": "string"
+      },
+      "rationale": {
+        "type": "string"
+      },
+      "actions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "verification": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "next_action",
+      "rationale",
+      "actions",
+      "verification"
+    ],
+    "additionalProperties": false
+  },
+  "reserved_usd": 0.003914,
+  "nominal_usd": 0.0004892000000000001,
+  "result": {
+    "text": "{\"next_action\":\"Run the focused parser tests on the current fixture-r2 code.\",\"rationale\":\"The parser changes at fixture-r2 are currently unverified and kept as draft due to unknown impact on functionality. Previous tests at fixture-r1 passed, but no tests have been run since the latest changes. Running the focused parser tests will verify correctness or reveal issues, enabling informed decisions on adopting the changes.\",\"actions\":[\"Access the test suite relevant to the parser.\",\"Ensure the fixture-r2 source code is checked out and ready for testing.\",\"Execute the focused parser tests against the fixture-r2 code.\",\"Collect and analyze test results to confirm correctness or identify issues.\"],\"verification\":\"Verification is done when the focused parser tests have been run on the fixture-r2 code and results are documented, confirming either parser correctness or highlighting problems requiring fixes.\"}",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "response_id": "resp_0e4b776282e1e38f016ae1e060eb5487d182b1b450750a0f15",
+    "input_tokens": 551,
+    "output_tokens": 168,
+    "seconds": 1.812277749995701,
+    "finish_reason": "completed",
+    "complete": true,
+    "requested_model_match": true,
+    "temperature": 0.2,
+    "max_output_tokens": 1400,
+    "seed": null,
+    "seed_support": "No seed requested; repeat indices are scheduling labels only."
+  }
+}

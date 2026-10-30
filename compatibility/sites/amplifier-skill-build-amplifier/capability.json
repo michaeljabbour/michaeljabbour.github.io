@@ -1,0 +1,326 @@
+{
+  "id": "build-amplifier",
+  "display_name": "Build with Amplifier",
+  "kind": "skill",
+  "promise": "Build the extension in the right place, against the current contracts.",
+  "audience": "People building Amplifier applications, bundles, tools, hooks, and providers.",
+  "trigger": "Use when adding an Amplifier capability, composing a client, or debugging the boundary between Foundation and Core.",
+  "skill_path": "skills/build-amplifier",
+  "modes": [
+    {
+      "name": "Place",
+      "when": "A request could become configuration, bundle, tool, hook, provider, or app code.",
+      "output": "A seam decision with inspected contracts and a smallest working slice."
+    },
+    {
+      "name": "Build",
+      "when": "The host and extension seam are known.",
+      "output": "A native implementation with cleanup, failure behavior, and contract checks."
+    },
+    {
+      "name": "Delegate",
+      "when": "The user explicitly asks to run work through Amplifier.",
+      "output": "A bounded runtime request and an attributed result; never implicit delegation."
+    }
+  ],
+  "examples": [
+    {
+      "title": "A progress panel that does not own the loop",
+      "brief": "A fictional terminal app needs visible streaming progress.",
+      "before": "Copy the orchestrator into the UI and add a custom session store.",
+      "after": "Read the installed hook/event contract; subscribe in the client, retain Core execution custody, and test cleanup on cancellation.",
+      "why": "Composition and lifecycle ownership keep UI interaction separate from the execution engine.",
+      "fictional": true
+    }
+  ],
+  "boundaries": [
+    "The portable method needs no Amplifier install. Executing examples or delegation needs a configured runtime.",
+    "Historical API and model examples are reference material; inspect installed versions before copying a signature.",
+    "Memory is an optional extension, never a prerequisite."
+  ],
+  "install_commands": [
+    "python3 scripts/capability.py doctor",
+    "python3 scripts/capability.py install --dest ~/.agents/skills"
+  ],
+  "runtime_install_commands": [
+    "amplifier --help",
+    "amplifier bundle list"
+  ],
+  "verification": [
+    {
+      "name": "Current public six-topic reconciliation",
+      "command": "python3 scripts/sync_upstream_suite.py --check; sh scripts/validate_suite.sh; sh tests/test_list_agents.sh; sh tests/test_session_context.sh; python3 -m unittest discover -s tests -v",
+      "expected": "All six original topic bodies retained with source/output hashes, canonical entry links, current-contract caveats and isolated helper behavior.",
+      "status": "passed",
+      "evidence": "Normal merge retains public4beb46c and previous/secondary ancestry. All six full source topics match generated source/output hashes;8 list-agent shell checks,11 session shell checks and2 discovery tests pass.31 portable files install byte-identically and reinstall idempotently. No provider/runtime activation or efficacy claim."
+    },
+    {
+      "name": "Isolated discovery regressions",
+      "command": "python3 -m unittest discover -s tests -v",
+      "status": "passed",
+      "evidence": "2 tests; opaque cache-folder bundle filtering and invalid limit handling; stub runtime and dedicated AMPLIFIER_HOME. No personal state or provider used.",
+      "expected": "The stated scope passes; no broader result inferred."
+    },
+    {
+      "name": "Portable packaging and install",
+      "command": "python3 scripts/capability.py build; python3 scripts/capability.py check; python3 scripts/capability.py doctor; python3 scripts/capability.py install --dest <temporary-parent> (twice)",
+      "status": "passed",
+      "expected": "Byte-identical canonical ZIP and isolated idempotent install.",
+      "evidence": "All operations passed. No runtime activation or effectiveness measured."
+    },
+    {
+      "name": "Skill discovery metadata",
+      "command": "<yaml-enabled-python> /path/to/skill-creator/scripts/quick_validate.py skills/build-amplifier",
+      "status": "passed",
+      "expected": "Valid required frontmatter, naming, and complete scaffold.",
+      "evidence": "Skill is valid. This is a structural check, not a behavioral benchmark."
+    }
+  ],
+  "sources": [
+    {
+      "repo": "amplifier-skill",
+      "commit": "4beb46c0937ec9806960b5425be9ccd3ddc47533",
+      "paths": [
+        "amplifier-skill",
+        "amplifier-core-concepts",
+        "amplifier-module-and-bundle-development",
+        "amplifier-foundation-reference",
+        "amplifier-app-integration",
+        "amplifier-cross-repo-workflows",
+        "scripts/validate_suite.sh",
+        "tests/test_list_agents.sh",
+        "tests/test_session_context.sh"
+      ],
+      "license": "No explicit LICENSE at this upstream commit; owner-authored source preserved under the owner consolidation request. Target LICENSE retained.",
+      "role": "Current public main merged normally; all six substantial topics, assets, native helper checks and history retained behind one portable entry."
+    },
+    {
+      "repo": "amplifier-skill",
+      "commit": "81dc45815b65ec9c2dcef7c89750acba5fb72119",
+      "paths": [
+        "SKILL.md"
+      ],
+      "license": "MIT License",
+      "role": "Earlier local extraction base retained in history and delegation reference; reconciled with current public source before publication."
+    },
+    {
+      "repo": "amplifier-cli-skill",
+      "commit": "6904eca0980767cff8d3c70033839f6c1535dffc",
+      "paths": [
+        "LICENSE",
+        "skills/amplifier-cli-skill/SKILL.md",
+        "skills/amplifier-cli-skill/references/ARCHITECTURE.md",
+        "skills/amplifier-cli-skill/references/ARCHITECTURE_FLOWS.md",
+        "skills/amplifier-cli-skill/references/BUILD_PATTERNS.md",
+        "skills/amplifier-cli-skill/references/CONTRIBUTING.md",
+        "skills/amplifier-cli-skill/references/CUSTOM_EXTENSIONS.md",
+        "skills/amplifier-cli-skill/references/EXAMPLES.md",
+        "skills/amplifier-cli-skill/references/HOOKS.md",
+        "skills/amplifier-cli-skill/references/MEMORY.md",
+        "skills/amplifier-cli-skill/references/README.md",
+        "skills/amplifier-cli-skill/references/REFERENCE_IMPLEMENTATION_HISTORY.md",
+        "skills/amplifier-cli-skill/references/TROUBLESHOOTING.md"
+      ],
+      "license": "MIT License",
+      "role": "Secondary method/reference consolidation. Original source identity and history retained."
+    },
+    {
+      "repo": "amplifier-skill-codex",
+      "commit": "8559d311e635c3d2f85b51862ce43575a5014a61",
+      "paths": [
+        "SKILL.md"
+      ],
+      "license": "No explicit LICENSE at source commit; author-owned source preserved with permission of owner request.",
+      "role": "Secondary method/reference consolidation. Original source identity and history retained."
+    }
+  ],
+  "consolidation": [
+    {
+      "source": "SKILL.md",
+      "destination": "skills/build-amplifier/references/delegation/METHOD.md",
+      "action": "Preserved as a rich mode reference; native consumers updated to canonical entry."
+    },
+    {
+      "source": "amplifier-cli-skill: LICENSE, skills/amplifier-cli-skill/SKILL.md, skills/amplifier-cli-skill/references/ARCHITECTURE.md, skills/amplifier-cli-skill/references/ARCHITECTURE_FLOWS.md, skills/amplifier-cli-skill/references/BUILD_PATTERNS.md, skills/amplifier-cli-skill/references/CONTRIBUTING.md, skills/amplifier-cli-skill/references/CUSTOM_EXTENSIONS.md, skills/amplifier-cli-skill/references/EXAMPLES.md, skills/amplifier-cli-skill/references/HOOKS.md, skills/amplifier-cli-skill/references/MEMORY.md, skills/amplifier-cli-skill/references/README.md, skills/amplifier-cli-skill/references/REFERENCE_IMPLEMENTATION_HISTORY.md, skills/amplifier-cli-skill/references/TROUBLESHOOTING.md",
+      "destination": [
+        "skills/build-amplifier/references/cli/LICENSE",
+        "skills/build-amplifier/references/cli/METHOD.md",
+        "skills/build-amplifier/references/cli/references/ARCHITECTURE.md",
+        "skills/build-amplifier/references/cli/references/ARCHITECTURE_FLOWS.md",
+        "skills/build-amplifier/references/cli/references/BUILD_PATTERNS.md",
+        "skills/build-amplifier/references/cli/references/CONTRIBUTING.md",
+        "skills/build-amplifier/references/cli/references/CUSTOM_EXTENSIONS.md",
+        "skills/build-amplifier/references/cli/references/EXAMPLES.md",
+        "skills/build-amplifier/references/cli/references/HOOKS.md",
+        "skills/build-amplifier/references/cli/references/MEMORY.md",
+        "skills/build-amplifier/references/cli/references/README.md",
+        "skills/build-amplifier/references/cli/references/REFERENCE_IMPLEMENTATION_HISTORY.md",
+        "skills/build-amplifier/references/cli/references/TROUBLESHOOTING.md"
+      ],
+      "action": "Preserved reference content and provenance; source repo retained until consumer migration validated."
+    },
+    {
+      "source": "amplifier-skill-codex: SKILL.md",
+      "destination": [
+        "skills/build-amplifier/references/sources/amplifier-skill-codex/METHOD.md"
+      ],
+      "action": "Preserved reference content and provenance; source repo retained until consumer migration validated."
+    }
+  ],
+  "docs": [
+    "docs/INSTALL.md",
+    "docs/MIGRATION.md",
+    "docs/VALIDATION.md",
+    "docs/NATIVE-README.md",
+    "docs/evaluations/2026-10-28/consolidation.json",
+    "docs/UPSTREAM-SUITE.md",
+    "docs/upstream-suite-manifest.json",
+    "docs/evaluations/2026-10-28/upstream-merge.json"
+  ],
+  "evidence_summary": "The six-topic reference mirror, isolated helper regressions and complete portable installation are checked. These checks establish retained content and software behavior; a new extension still needs validation in its actual host.",
+  "publication_status": "Installation and evidence scopes are documented below.",
+  "marketing": {
+    "headline": "Add the capability. Keep the architecture clear.",
+    "lead": "A working guide for people extending Amplifier. Find the right home for a feature, build one useful slice, and check that it behaves correctly inside the host you actually use.",
+    "benefits": [
+      {
+        "title": "Choose the right seam",
+        "body": "Separate application interaction, reusable bundle wiring, callable tools, hooks and providers before adding code."
+      },
+      {
+        "title": "Keep the useful context",
+        "body": "Six substantial reference topics cover Core, Foundation, module authoring, application integration, routing and work across repositories."
+      },
+      {
+        "title": "Hand over a working slice",
+        "body": "Make inputs, errors, cancellation and cleanup explicit, with commands someone else can repeat."
+      }
+    ],
+    "walkthrough": [
+      {
+        "title": "Inspect the host",
+        "detail": "Read its manifests, installed contracts and a neighboring implementation. Record what version the advice applies to."
+      },
+      {
+        "title": "Build the smallest slice",
+        "detail": "Agree the observable behavior and ownership, then implement through the seam that already owns it."
+      },
+      {
+        "title": "Prove and hand over",
+        "detail": "Check registration, success, invalid input, cancellation and cleanup; record installation and rollback."
+      }
+    ],
+    "use_when": [
+      "You need to add a tool, hook, provider or bundle.",
+      "A client feature is starting to duplicate the execution engine.",
+      "A change spans Core, Foundation and an application."
+    ],
+    "not_for": [
+      "A replacement Amplifier runtime or a new provider configuration.",
+      "Blindly copying historical API signatures into a different installed version."
+    ],
+    "quickstart_prompt": "Use Build with Amplifier to inspect this repository. I want a progress panel for a long-running tool. Decide where the feature belongs, identify the actual event contract, and propose one slice with cancellation and cleanup checks.",
+    "output_preview": "Fictional slice: import progress\nUI owns: display and user cancellation\nCore owns: tool execution\nContract: current host event schema, inspected revision recorded\nChecks: success, error, cancel, listener cleanup\nOpen evidence: real-host run pending",
+    "proof_summary": "The six-topic reference mirror, isolated helper regressions and complete portable installation are checked. These checks establish retained content and software behavior; a new extension still needs validation in its actual host.",
+    "next_step": "Bring one feature request and the repository where it should work.",
+    "example_note": "Fictional worked example. It illustrates the intended output; it is not a measured result or a real customer story.",
+    "install_notes": [
+      "Requires Git and Python 3.11+ for the repository installer. The portable method itself can be read by a compatible agent without a service or provider account.",
+      "The destination is a skills-parent folder. Use the discovery path supported by your agent; ~/.agents/skills is an example, not a universal host setting.",
+      "Keep the complete installed folder, references and license together. Identical reinstall is safe; conflicts are refused. A deliberate --replace keeps a dated backup."
+    ]
+  },
+  "repository_url": "https://github.com/michaeljabbour/amplifier-capability-build-amplifier",
+  "name": "amplifier-capability-build-amplifier",
+  "legacy_names": [
+    "amplifier-skill-build-amplifier",
+    "build-amplifier"
+  ],
+  "contract_version": "amplifier-capability/v1",
+  "version": null,
+  "version_basis": "No release version recorded; installer requires a full Git revision pin.",
+  "engine": "LLM",
+  "engine_components": {
+    "caller_method": "LLM"
+  },
+  "surfaces": [
+    "agent-skills"
+  ],
+  "portable_method": {
+    "name": "build-amplifier",
+    "path": "skills/build-amplifier",
+    "include": [
+      "."
+    ],
+    "contract": "Agent Skills directory; caller applies the method; no independent execution loop is installed."
+  },
+  "interfaces": {
+    "portable": {
+      "input": "Caller task and explicitly authorized context",
+      "output": "Build the extension in the right place, against the current contracts.",
+      "failure": "Report insufficient evidence, unsupported context or host limitation; never turn discovery into an execution claim."
+    },
+    "native": {
+      "distribution": null,
+      "entrypoints": {},
+      "docs": [
+        "docs/INSTALL.md",
+        "docs/MIGRATION.md",
+        "docs/VALIDATION.md",
+        "docs/NATIVE-README.md",
+        "docs/evaluations/2026-10-28/consolidation.json",
+        "docs/UPSTREAM-SUITE.md",
+        "docs/upstream-suite-manifest.json",
+        "docs/evaluations/2026-10-28/upstream-merge.json"
+      ],
+      "status": "Existing declared entrypoints preserved; runtime signatures, service access and installation tests remain separate evidence."
+    },
+    "host_adapters": {
+      "amplifier_bundle": null,
+      "grants_autonomy": false
+    }
+  },
+  "permissions": {
+    "installation": {
+      "network": false,
+      "executes_capability_code": false,
+      "writes": [
+        "Selected discovery folders",
+        ".capability-state transaction backups"
+      ],
+      "grants_runtime_permissions": false
+    },
+    "runtime": {
+      "status": "Host/caller authorizes each operation; installation is not a tool allowlist or standing approval.",
+      "declared_boundaries": [
+        "The portable method needs no Amplifier install. Executing examples or delegation needs a configured runtime.",
+        "Historical API and model examples are reference material; inspect installed versions before copying a signature.",
+        "Memory is an optional extension, never a prerequisite."
+      ]
+    },
+    "secret_names": {
+      "discovery_requires": [],
+      "native_runtime_inventory": "See native documentation; no credentials are bundled or inferred."
+    }
+  },
+  "dataflow": {
+    "installation": "Read pinned tracked portable source and copy locally with SHA-256 receipts. No source text is transmitted.",
+    "method": "Caller supplies authorized context; existing promise and boundaries govern output.",
+    "native_runtime": "Provider/network/storage flows are owned by native interfaces and host authorization; these files do not enable them."
+  },
+  "source_policy": {
+    "revision": "Explicit full40-character Git commit required at installation; never infer latest.",
+    "repository_rename": "Public identity may change; skill folder, imports, entrypoints, tool IDs and schemas remain stable.",
+    "research": ".research/market remains local and ignored; AGENTS governs refresh."
+  },
+  "film": {
+    "file": "build-amplifier-film",
+    "seconds": 70,
+    "heading": "Find the seam. Then build the slice.",
+    "blurb": "In 70 seconds, Tock the metronome copies the conductor into the lobby to show progress, so two loops keep time and Cancel stops only the copy. Build with Amplifier finds the right seam in the host you installed, hangs a hook so the lobby only listens, and proves the slice: success, bad input, cancel and cleanup. Captions are on the player; a transcript is below.",
+    "note": "The app and its music importer are a fictional example. The film shows how the skill behaves; it does not report results."
+  },
+  "repository_aliases": [
+    "https://github.com/michaeljabbour/amplifier-skill-build-amplifier"
+  ]
+}

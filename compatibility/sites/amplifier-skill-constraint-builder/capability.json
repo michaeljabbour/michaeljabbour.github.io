@@ -1,0 +1,223 @@
+{
+  "id": "constraint-builder",
+  "display_name": "Constraint Builder",
+  "kind": "skill",
+  "promise": "Turn an action boundary into a testable constraint harness, with legal actions still possible.",
+  "audience": "People building agent tools, action validators and bounded environments.",
+  "trigger": "Design, repair or evaluate constraints on agent actions.",
+  "skill_path": "skills/constraint-builder",
+  "modes": [
+    {
+      "name": "Explore",
+      "when": "The action boundary is unclear.",
+      "output": "An action/state model and explicit feasibility limits."
+    },
+    {
+      "name": "Build",
+      "when": "The boundary is agreed.",
+      "output": "A spec, validator and tests for legal and illegal actions."
+    },
+    {
+      "name": "Debug",
+      "when": "A harness blocks valid work or leaks illegal actions.",
+      "output": "A focused failure diagnosis and measured refinement."
+    }
+  ],
+  "examples": [
+    {
+      "title": "Keep a file reader inside its root",
+      "brief": "Use Constraint Builder to specify a file-reading tool that may read project files but may not escape its root. Show legal reads, traversal attempts, symlink cases and false rejections before proposing a checker. Do not execute the proposed actions.",
+      "before": "A broad deny rule blocks every file operation.",
+      "after": "A boundary specification and traversal/symlink cases distinguish allowed reads from escaped paths.",
+      "why": "A measured false-rejection check preserves useful actions while testing the boundary.",
+      "fictional": true
+    }
+  ],
+  "boundaries": [
+    "A skill alone does not enforce a sandbox or establish legal compliance."
+  ],
+  "install_commands": [
+    "python3 scripts/capability.py install --dest ~/.agents/skills"
+  ],
+  "runtime_install_commands": [],
+  "verification": [
+    {
+      "name": "Functional acceptance",
+      "command": "python3 scripts/functional_gate.py",
+      "expected": "Supplied fictional tasks exercise actual mechanisms and failure boundaries.",
+      "status": "passed",
+      "evidence": "72 native gate/scaffold checks passed; provider-backed loop needs optional litellm and was not accepted."
+    },
+    {
+      "name": "Native host acceptance",
+      "command": "See retained source integration guide",
+      "expected": "Actual provider/host/desktop/daemon/runner acceptance for the selected adapter.",
+      "status": "not-run",
+      "evidence": "No live model, real desktop transaction, invitation, deployment or production data migration was performed by this functional baseline."
+    }
+  ],
+  "sources": [
+    {
+      "repo": "amplifier-bundle-harness-machine",
+      "commit": "12c97b58149218fbcbec9c0a0bdd64bb9d5c965e",
+      "paths": [
+        "skills/constraint-design/SKILL.md",
+        "skills/convergence-debugging/SKILL.md",
+        "skills/harness-reference/SKILL.md",
+        "agents",
+        "modules",
+        "context"
+      ],
+      "license": "MIT",
+      "role": "Primary retained owner history, mechanisms and records; portable method consolidates the listed entry points."
+    }
+  ],
+  "consolidation": [
+    "One portable method entry with mode references; original native engines, agents and records retained as optional adapters."
+  ],
+  "docs": [
+    "docs/CONSOLIDATION.md",
+    "docs/RUNTIME-BOUNDARIES.md"
+  ],
+  "publication_status": "Installation and evidence scopes are documented below.",
+  "marketing": {
+    "headline": "Give your agent a boundary it can actually test.",
+    "lead": "For developers building agent tools. Turn \u201cthe agent may do this, but never that\u201d into an action specification, a checker and examples that show whether useful work is still possible.",
+    "benefits": [
+      {
+        "title": "Catch an escaped action",
+        "body": "Put the check at the dispatch boundary, where an action can be accepted or refused."
+      },
+      {
+        "title": "Keep valid work possible",
+        "body": "Test allowed actions alongside forbidden ones, so a boundary does not win by blocking everything."
+      },
+      {
+        "title": "Know what remains untested",
+        "body": "Keep unseen cases, enforcement limits and the next acceptance test visible."
+      }
+    ],
+    "walkthrough": [
+      {
+        "title": "Describe the boundary",
+        "detail": "Name the real state, allowed actions, irreversible costs and anything a checker cannot decide."
+      },
+      {
+        "title": "Build the smallest checker",
+        "detail": "Write legal and illegal examples before tuning a validator. Start with a local gate before adding an optional engine."
+      },
+      {
+        "title": "Challenge both sides",
+        "detail": "Test escapes and false rejections, then keep the measured result and the unresolved cases."
+      }
+    ],
+    "use_when": [
+      "You are adding an agent action that needs a testable boundary.",
+      "A guard blocks legitimate work or allows a forbidden action.",
+      "You need a held-out test set before refining a constraint."
+    ],
+    "not_for": [
+      "A prompt-only guarantee of containment.",
+      "A substitute for a real sandbox, dispatch integration or a legal review."
+    ],
+    "quickstart_prompt": "Use Constraint Builder to specify a file-reading tool that may read project files but may not escape its root. Show legal reads, traversal attempts, symlink cases and false rejections before proposing a checker. Do not execute the proposed actions.",
+    "output_preview": "Boundary: reads stay inside the selected project root\n\nAction                         Expected    Reason\nread docs/guide.md             allow       ordinary project read\nread ../outside.txt           refuse      escapes the root\nread linked-secret.txt        refuse      resolved target is outside\nread missing.txt              error       not an access-policy violation\n\nNext gate: exercise the checker at the real dispatch boundary.",
+    "example_note": "Fictional file-tool design. These are expected cases for a proposed checker, not a claim of sandbox enforcement.",
+    "install_notes": [
+      "Python 3.11 or later is required by the portable install/build helper. The installed method runs through your agent host.",
+      "The portable skill and local checker use Python 3. No model key is needed to install or inspect them.",
+      "The checker evaluates trusted candidate Python locally; it is not an isolation boundary for hostile code.",
+      "The original Pico, Nano, Micro and provider-backed refinement engines are optional."
+    ],
+    "proof_summary": "Local gate and scaffold tests exercise legal actions, illegal actions and failure paths. The provider-backed refinement loop and deployment into a real dispatch boundary require separate acceptance.",
+    "next_step": "Start with one action boundary and an explicit list of cases the checker must distinguish."
+  },
+  "repository_url": "https://github.com/michaeljabbour/amplifier-capability-constraint-builder",
+  "name": "amplifier-capability-constraint-builder",
+  "legacy_names": [
+    "amplifier-skill-constraint-builder",
+    "constraint-builder",
+    "constraint-design",
+    "convergence-debugging",
+    "harness-reference"
+  ],
+  "contract_version": "amplifier-capability/v1",
+  "version": null,
+  "version_basis": "No release version recorded; installer requires a full Git revision pin.",
+  "engine": "LLM",
+  "engine_components": {
+    "caller_method": "LLM"
+  },
+  "surfaces": [
+    "agent-skills",
+    "amplifier-bundle"
+  ],
+  "portable_method": {
+    "name": "constraint-builder",
+    "path": "skills/constraint-builder",
+    "include": [
+      "."
+    ],
+    "contract": "Agent Skills directory; caller applies the method; no independent execution loop is installed."
+  },
+  "interfaces": {
+    "portable": {
+      "input": "Caller task and explicitly authorized context",
+      "output": "Turn an action boundary into a testable constraint harness, with legal actions still possible.",
+      "failure": "Report insufficient evidence, unsupported context or host limitation; never turn discovery into an execution claim."
+    },
+    "native": {
+      "distribution": null,
+      "entrypoints": {},
+      "docs": [
+        "docs/CONSOLIDATION.md"
+      ],
+      "status": "Existing declared entrypoints preserved; runtime signatures, service access and installation tests remain separate evidence."
+    },
+    "host_adapters": {
+      "amplifier_bundle": "bundle.md",
+      "grants_autonomy": false
+    }
+  },
+  "permissions": {
+    "installation": {
+      "network": false,
+      "executes_capability_code": false,
+      "writes": [
+        "Selected discovery folders",
+        ".capability-state transaction backups"
+      ],
+      "grants_runtime_permissions": false
+    },
+    "runtime": {
+      "status": "Host/caller authorizes each operation; installation is not a tool allowlist or standing approval.",
+      "declared_boundaries": [
+        "A skill alone does not enforce a sandbox or establish legal compliance."
+      ]
+    },
+    "secret_names": {
+      "discovery_requires": [],
+      "native_runtime_inventory": "See native documentation; no credentials are bundled or inferred."
+    }
+  },
+  "dataflow": {
+    "installation": "Read pinned tracked portable source and copy locally with SHA-256 receipts. No source text is transmitted.",
+    "method": "Caller supplies authorized context; existing promise and boundaries govern output.",
+    "native_runtime": "Provider/network/storage flows are owned by native interfaces and host authorization; these files do not enable them."
+  },
+  "source_policy": {
+    "revision": "Explicit full40-character Git commit required at installation; never infer latest.",
+    "repository_rename": "Public identity may change; skill folder, imports, entrypoints, tool IDs and schemas remain stable.",
+    "research": ".research/market remains local and ignored; AGENTS governs refresh."
+  },
+  "film": {
+    "file": "constraint-builder-film",
+    "seconds": 71,
+    "heading": "The goose at the gate.",
+    "blurb": "In 71 seconds, a guard goose honks at every request: nothing escapes, and nothing gets done. Constraint Builder starts with cases before any checker: a plain read is allowed, a path that climbs out is refused, a link that looks local but leads outside is refused, and a missing file is an error, not an attack. The checker counts both mistakes, blocked work and escapes. Captions are on the player; a transcript is below.",
+    "note": "The file tool, the cases and the results are a fictional example. Passing supplied cases does not prove unseen safety; the film shows how the skill behaves and reports no results."
+  },
+  "repository_aliases": [
+    "https://github.com/michaeljabbour/amplifier-skill-constraint-builder"
+  ]
+}

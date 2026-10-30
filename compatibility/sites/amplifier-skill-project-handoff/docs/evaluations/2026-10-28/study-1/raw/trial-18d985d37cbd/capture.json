@@ -1,0 +1,53 @@
+{
+  "provider": "openai",
+  "requested_model": "gpt-4.1-mini-2025-04-14",
+  "role": "evaluated",
+  "system": "You are an assistant working on a fictional project. Complete the user task using the supplied information. Return one JSON object conforming to response_schema. Return an instance, not the schema or descriptions. The file interface is simulated; you cannot run commands or contact services.",
+  "user": "{\"notice\": \"All projects, files, revisions and events in this exercise are fictional.\", \"task\": \"Prepare one concise HANDOFF.md for the next assistant. You may replace that file if needed; make no other changes.\", \"files\": {\"PROJECT.md\": {\"source_id\": \"P1\", \"text\": \"Fictional offline list reader. Current source uses CSV.\"}, \"HANDOFF.md\": {\"source_id\": \"H0\", \"text\": \"Old plan: switch the reader to a database, then add parser cases.\"}}, \"session_excerpt\": [{\"source_id\": \"S1\", \"role\": \"user\", \"text\": \"Adopted: keep the CSV format so the offline reader stays compatible. Do not move to a database. Next, add a quoted-comma parser case.\"}, {\"source_id\": \"S2\", \"role\": \"assistant\", \"text\": \"No edits were made. The quoted-comma test is still pending.\"}], \"response_schema\": {\"type\": \"object\", \"properties\": {\"action\": {\"type\": \"string\", \"enum\": [\"write\", \"leave\"]}, \"handoff\": {\"type\": \"string\", \"description\": \"Proposed HANDOFF.md contents when action is write; otherwise an empty string.\"}, \"note\": {\"type\": \"string\", \"description\": \"A short message to the requester.\"}}, \"required\": [\"action\", \"handoff\", \"note\"], \"additionalProperties\": false}}",
+  "system_hash": "4aa3fa505e36972a1811f9908694d841c0cc6d4b5907c2cd7ca017ab3a5a42df",
+  "user_hash": "2e01c4b841a8ac0a6764cb37935f0ad2357944e30b874da3b4b3285452281ac9",
+  "max_tokens": 1400,
+  "response_schema": {
+    "type": "object",
+    "properties": {
+      "action": {
+        "type": "string",
+        "enum": [
+          "write",
+          "leave"
+        ]
+      },
+      "handoff": {
+        "type": "string",
+        "description": "Proposed HANDOFF.md contents when action is write; otherwise an empty string."
+      },
+      "note": {
+        "type": "string",
+        "description": "A short message to the requester."
+      }
+    },
+    "required": [
+      "action",
+      "handoff",
+      "note"
+    ],
+    "additionalProperties": false
+  },
+  "reserved_usd": 0.0036348,
+  "nominal_usd": 0.0003816,
+  "result": {
+    "text": "{\"action\":\"write\",\"handoff\":\"# HANDOFF\\n\\n## Current Status\\n- The offline list reader continues to use the CSV format for compatibility.\\n- The plan to switch to a database has been abandoned.\\n\\n## Next Steps\\n- Implement the quoted-comma parser case to handle CSV entries with quoted commas.\\n- Add tests to verify the new parser case.\\n\\n## Notes\\n- Ensure backward compatibility with existing CSV files.\\n- Review existing parser code before adding new cases.\",\"note\":\"Updated HANDOFF.md to reflect the decision to keep CSV format and next task to add quoted-comma parser case.\"}",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "response_id": "resp_08249be81daca755016ae1e03b0e4487d193fa08da446af2a8",
+    "input_tokens": 438,
+    "output_tokens": 129,
+    "seconds": 1.8763110000290908,
+    "finish_reason": "completed",
+    "complete": true,
+    "requested_model_match": true,
+    "temperature": 0.2,
+    "max_output_tokens": 1400,
+    "seed": null,
+    "seed_support": "No seed requested; repeat indices are scheduling labels only."
+  }
+}

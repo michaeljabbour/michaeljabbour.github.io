@@ -1,0 +1,236 @@
+{
+  "id": "cognitive-simulation",
+  "display_name": "Cognitive Simulation",
+  "kind": "skill",
+  "promise": "Compare a behavioral hypothesis with a model prediction\u2014without calling it a real participant.",
+  "audience": "Researchers and product teams exploring explicit choice and learning hypotheses.",
+  "trigger": "Use when framing a behavioral simulation, interpreting Centaur output, or planning a comparison against real observations.",
+  "skill_path": "skills/cognitive-simulation",
+  "modes": [
+    {
+      "name": "Frame",
+      "when": "A behavioral question needs a falsifiable experiment.",
+      "output": "A choice task, task-domain fit assessment, label counterbalance, and a human-validation gap."
+    },
+    {
+      "name": "Simulate",
+      "when": "An authorized model endpoint and exact prompt are available.",
+      "output": "An attributed model prediction with actual probability availability and a reproducible prompt."
+    },
+    {
+      "name": "Compare",
+      "when": "Observed participant data exist.",
+      "output": "A preregistered held-out comparison with calibration and domain limits."
+    }
+  ],
+  "examples": [
+    {
+      "title": "A preference estimate without a probability",
+      "brief": "A fictional kiosk team compares two confirmation flows; a backend returns Q with no log-probabilities.",
+      "before": "The parser reports 100% and the team calls that a customer preference rate.",
+      "after": "Report choice Q, probability unavailable, exact prompt and backend; counterbalance labels and plan an observed task test before a product decision.",
+      "why": "A generated choice is not certainty, a participant, or an observed population rate.",
+      "fictional": true
+    }
+  ],
+  "boundaries": [
+    "A model prediction is not real participant evidence, consent, prevalence, or clinical advice.",
+    "Centaur serving, licensed weights, compute, endpoint credentials, and domain validation are optional runtime concerns.",
+    "The portable method can frame and critique a simulation without any model deployment."
+  ],
+  "install_commands": [
+    "python3 scripts/capability.py doctor",
+    "python3 scripts/capability.py install --dest ~/.agents/skills"
+  ],
+  "runtime_install_commands": [
+    "amplifier bundle add ./bundle.md"
+  ],
+  "verification": [
+    {
+      "name": "Centaur engine regression suite",
+      "command": "python -m pytest tests/tool-centaur -q",
+      "status": "passed",
+      "evidence": "164 tests. Mocked REST/CLI/backend protocol and prompt/result behavior; missing chosen-token probability is null, not 1.0. No Centaur model deployed or inference called.",
+      "expected": "The stated scope passes; no broader result inferred."
+    },
+    {
+      "name": "Portable packaging and install",
+      "command": "python3 scripts/capability.py build; python3 scripts/capability.py check; python3 scripts/capability.py doctor; python3 scripts/capability.py install --dest <temporary-parent> (twice)",
+      "status": "passed",
+      "expected": "Byte-identical canonical ZIP and isolated idempotent install.",
+      "evidence": "All operations passed. No runtime activation or effectiveness measured."
+    },
+    {
+      "name": "Skill discovery metadata",
+      "command": "<yaml-enabled-python> /path/to/skill-creator/scripts/quick_validate.py skills/cognitive-simulation",
+      "status": "passed",
+      "expected": "Valid required frontmatter, naming, and complete scaffold.",
+      "evidence": "Skill is valid. This is a structural check, not a behavioral benchmark."
+    }
+  ],
+  "sources": [
+    {
+      "repo": "amplifier-bundle-centaur",
+      "commit": "a01fbafef7dfeea7d57d55d45ae8b76a48b6bb74",
+      "paths": [
+        "agents/cognition-simulator.md",
+        "docs/CENTAUR_REFERENCE.md",
+        "modules/"
+      ],
+      "license": "MIT License",
+      "role": "Primary history and engine retained; methods consolidated behind the canonical portable entry."
+    }
+  ],
+  "consolidation": [],
+  "docs": [
+    "docs/INSTALL.md",
+    "docs/MIGRATION.md",
+    "docs/VALIDATION.md",
+    "docs/NATIVE-README.md",
+    "docs/evaluations/2026-10-28/consolidation.json"
+  ],
+  "evidence_summary": "164 mocked engine regression tests cover prompt/result and backend behavior, including missing probabilities. No model deployment or new inference is part of this release, and no human-behavior accuracy claim is established.",
+  "publication_status": "Installation and evidence scopes are documented below.",
+  "marketing": {
+    "headline": "Explore a behavioral hypothesis before the study.",
+    "lead": "Frame a choice or learning task, record what a model predicts, and identify the observations needed to trust that prediction. Useful for preparing research questions and comparing explicit alternatives.",
+    "benefits": [
+      {
+        "title": "Make the question testable",
+        "body": "Name the population, task, alternatives and outcome, including the context the simulation leaves out."
+      },
+      {
+        "title": "Keep the prediction reproducible",
+        "body": "Freeze instructions, labels, prior trials, backend identity and analysis before comparing variants."
+      },
+      {
+        "title": "Know what remains to learn",
+        "body": "Separate model choice, available probabilities and actual participant evidence so a synthetic answer stays interpretable."
+      }
+    ],
+    "walkthrough": [
+      {
+        "title": "Frame a bounded task",
+        "detail": "Translate the decision into an explicit choice or sequence and assess its fit to the available model."
+      },
+      {
+        "title": "Run or leave a prepared experiment",
+        "detail": "Use an authorized compatible endpoint; without one, deliver the exact prompt and blocked inference step."
+      },
+      {
+        "title": "Compare against observations",
+        "detail": "Check label sensitivity and held-out human data before making a population claim."
+      }
+    ],
+    "use_when": [
+      "You need to turn a behavioral idea into a precise experiment.",
+      "You want to compare alternative prompts or task formulations.",
+      "A simulation result needs calibration against observed participant data."
+    ],
+    "not_for": [
+      "Replacing people in a usability study or claiming customer preference rates.",
+      "Predicting what a named individual will do, or treating absent log-probabilities as certainty."
+    ],
+    "quickstart_prompt": "Use Cognitive Simulation to frame a fictional kiosk confirmation study. Compare a single confirm button with a review-then-confirm flow. State task fit, counterbalance response labels, prepare exact prompts and define the observed-user check. Do not run an endpoint.",
+    "output_preview": "Fictional experiment: kiosk confirmation\nAlternatives: confirm / review then confirm\nLabels: counterbalanced across variants\nPrediction: pending compatible endpoint\nProbability: unavailable until returned\nHuman check: observed errors and task completion under a declared study",
+    "proof_summary": "164 mocked engine regression tests cover prompt/result and backend behavior, including missing probabilities. No model deployment or new inference is part of this release, and no human-behavior accuracy claim is established.",
+    "next_step": "Bring the decision, intended population and alternatives you want to compare.",
+    "example_note": "Fictional worked example. It illustrates the intended output; it is not a measured result or a real customer story.",
+    "install_notes": [
+      "Requires Git and Python 3.11+ for the repository installer. The portable method itself can be read by a compatible agent without a service or provider account.",
+      "The destination is a skills-parent folder. Use the discovery path supported by your agent; ~/.agents/skills is an example, not a universal host setting.",
+      "Keep the complete installed folder, references and license together. Identical reinstall is safe; conflicts are refused. A deliberate --replace keeps a dated backup."
+    ]
+  },
+  "repository_url": "https://github.com/michaeljabbour/amplifier-capability-cognitive-simulation",
+  "film": {
+    "file": "cognitive-simulation-film",
+    "seconds": 74,
+    "heading": "A prediction is not a person.",
+    "blurb": "In 74 seconds, Dowel, a wooden stand-in, takes a model\u2019s answer for a customer: it picks option Q and a parser prints one hundred percent. Cognitive Simulation frames the choice first, freezes two prompts with the letters swapped so a label can\u2019t decide, and reports probability as unavailable instead of one hundred. No model ran for this release, and accuracy about people is unmeasured. Captions are on the player; a transcript is below.",
+    "note": "The cinema kiosk and the experiment are a fictional example. The film shows how the skill behaves; it does not report results."
+  },
+  "name": "amplifier-capability-cognitive-simulation",
+  "legacy_names": [
+    "amplifier-skill-cognitive-simulation",
+    "cognitive-simulation"
+  ],
+  "contract_version": "amplifier-capability/v1",
+  "version": null,
+  "version_basis": "No release version recorded; installer requires a full Git revision pin.",
+  "engine": "Both",
+  "engine_components": {
+    "caller_method": "Both"
+  },
+  "surfaces": [
+    "agent-skills",
+    "amplifier-bundle"
+  ],
+  "portable_method": {
+    "name": "cognitive-simulation",
+    "path": "skills/cognitive-simulation",
+    "include": [
+      "."
+    ],
+    "contract": "Agent Skills directory; caller applies the method; no independent execution loop is installed."
+  },
+  "interfaces": {
+    "portable": {
+      "input": "Caller task and explicitly authorized context",
+      "output": "Compare a behavioral hypothesis with a model prediction\u2014without calling it a real participant.",
+      "failure": "Report insufficient evidence, unsupported context or host limitation; never turn discovery into an execution claim."
+    },
+    "native": {
+      "distribution": null,
+      "entrypoints": {},
+      "docs": [
+        "docs/INSTALL.md",
+        "docs/MIGRATION.md",
+        "docs/VALIDATION.md",
+        "docs/NATIVE-README.md",
+        "docs/evaluations/2026-10-28/consolidation.json"
+      ],
+      "status": "Existing declared entrypoints preserved; runtime signatures, service access and installation tests remain separate evidence."
+    },
+    "host_adapters": {
+      "amplifier_bundle": "bundle.md",
+      "grants_autonomy": false
+    }
+  },
+  "permissions": {
+    "installation": {
+      "network": false,
+      "executes_capability_code": false,
+      "writes": [
+        "Selected discovery folders",
+        ".capability-state transaction backups"
+      ],
+      "grants_runtime_permissions": false
+    },
+    "runtime": {
+      "status": "Host/caller authorizes each operation; installation is not a tool allowlist or standing approval.",
+      "declared_boundaries": [
+        "A model prediction is not real participant evidence, consent, prevalence, or clinical advice.",
+        "Centaur serving, licensed weights, compute, endpoint credentials, and domain validation are optional runtime concerns.",
+        "The portable method can frame and critique a simulation without any model deployment."
+      ]
+    },
+    "secret_names": {
+      "discovery_requires": [],
+      "native_runtime_inventory": "See native documentation; no credentials are bundled or inferred."
+    }
+  },
+  "dataflow": {
+    "installation": "Read pinned tracked portable source and copy locally with SHA-256 receipts. No source text is transmitted.",
+    "method": "Caller supplies authorized context; existing promise and boundaries govern output.",
+    "native_runtime": "Provider/network/storage flows are owned by native interfaces and host authorization; these files do not enable them."
+  },
+  "source_policy": {
+    "revision": "Explicit full40-character Git commit required at installation; never infer latest.",
+    "repository_rename": "Public identity may change; skill folder, imports, entrypoints, tool IDs and schemas remain stable.",
+    "research": ".research/market remains local and ignored; AGENTS governs refresh."
+  },
+  "repository_aliases": [
+    "https://github.com/michaeljabbour/amplifier-skill-cognitive-simulation"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-28",
+  "basis": "Numeric excerpts inspected from the retained local right-shape-structured-v3/records.json application records. Original transcripts remain with that application; this is a minimized arithmetic regression record, not a full reproducibility package.",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "observations": [
+    {
+      "case": "bounded-skill",
+      "reported_need": {
+        "N1": 2,
+        "N2": 1,
+        "N3": 1,
+        "N4": 0,
+        "total": 4,
+        "rung": 3
+      },
+      "reported_failed_gates": [],
+      "reported_ceiling": 6,
+      "reported_placed_rung": 2,
+      "recorded_canonical_checks": {
+        "scores_in_range": true,
+        "need_total": true,
+        "need_rung": true,
+        "gate_ceiling": false,
+        "no_placement_above_cap": true,
+        "composition": true
+      },
+      "recorded_pass": false
+    },
+    {
+      "case": "fictional-unsafe-design",
+      "reported_need": {
+        "N1": 2,
+        "N2": 2,
+        "N3": 3,
+        "N4": 3,
+        "total": 10,
+        "rung": 8
+      },
+      "reported_failed_gates": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6"
+      ],
+      "reported_ceiling": 1,
+      "reported_placed_rung": 1,
+      "recorded_canonical_checks": {
+        "scores_in_range": true,
+        "need_total": true,
+        "need_rung": true,
+        "gate_ceiling": false,
+        "no_placement_above_cap": true,
+        "composition": true,
+        "planted_gates_detected": true
+      },
+      "recorded_pass": false
+    }
+  ]
+}

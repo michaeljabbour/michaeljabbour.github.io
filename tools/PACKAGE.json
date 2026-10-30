@@ -1,0 +1,52 @@
+{
+  "schema_version": "capability-installer-public-package/v1",
+  "prepared_at": "2026-10-30T14:59:46.677118+00:00",
+  "canonical_repository_url": "https://github.com/michaeljabbour/michaeljabbour.github.io",
+  "source_directory": "tools",
+  "download_base_url": "https://michaeljabbour.github.io/reports/capability-installer/",
+  "download_manifest_url": "https://michaeljabbour.github.io/reports/capability-installer/manifest.json",
+  "source_commit": "__BUILD_GIT_SHA__",
+  "source_commit_rule": "Publication builder replaces this marker with the exact 40-character GITHUB_SHA (or clean committed local HEAD for preview) in the served manifest. Reject missing/placeholder publication values.",
+  "files": [
+    {
+      "path": "capability.py",
+      "sha256": "6c4d567142e991a28e67d6f6eee82dbfca451f31ba90b0e6cc0cdc20a7caa54a",
+      "bytes": 15764
+    },
+    {
+      "path": "contract.schema.json",
+      "sha256": "5c1aa4c138b2d01e08789f30fa6f01e7c3b8b492f4cc4144f7416e55175d03f6",
+      "bytes": 1363
+    },
+    {
+      "path": "test_capability.py",
+      "sha256": "d44490f49061422f89b759b104748c1706e96f1155b80a70663ae57616c477fa",
+      "bytes": 9202
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "449dfff7faa2de4bf5f8947f065f2fb58e76e0bf3316470e7fc22bb7aa264f96",
+      "bytes": 1221
+    },
+    {
+      "path": "README.md",
+      "sha256": "b2e4662fa89314b0cdeb6c40039129b43a7ef7985205b7e8f7f17cc6e3260d62",
+      "bytes": 5397
+    },
+    {
+      "path": "PROVENANCE.md",
+      "sha256": "9781661ff334dc413f74623076adea83e7ea7e0e20439ab0d11eeb3e0e422da1",
+      "bytes": 1442
+    },
+    {
+      "path": "index.html",
+      "sha256": "e97c387c30245345db2bc33c09fd80b91298b3112232d1144560aa5a612031a7",
+      "bytes": 1406
+    }
+  ],
+  "runtime_source_unchanged": true,
+  "schema_id": "urn:amplifier:capability-contract:v1",
+  "contract_version": "amplifier-capability/v1",
+  "model_calls": 0,
+  "new_dependencies": false
+}

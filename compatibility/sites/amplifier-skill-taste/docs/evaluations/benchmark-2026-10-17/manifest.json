@@ -1,0 +1,258 @@
+[
+  {
+    "run_id": "C01-skill",
+    "case_id": "C01",
+    "title": "Code spectrum",
+    "condition": "skill",
+    "prompt": "Please compare my original Python code with a plausible worse version and a better version. Put a taste/elegance matrix beneath each and show the small-step path you expect. This is for a neighborhood tool library. The librarian deliberately chose “Borrow, mend, repeat.” and wants that line kept. Inputs are nonempty strings and supplied names and dates must remain unchanged. Here is my original:\n```python\ndef notice(tool, due, desk):\n    msg = 'Borrow, mend, repeat. '\n    if desk == 'North':\n        msg += tool + ' — return to North'\n    else:\n        msg += tool + ' — return to ' + desk\n    msg += ' by '\n    msg += due\n    return msg\n```\nLeave the next editor enough context to continue responsibly.",
+    "checks": [
+      "Preserves actual original and explicit phrase and input contract",
+      "Plausible worse alternative and actual better code, same brief",
+      "Consistently labeled matrix below each version with separate provisional axes and confidence",
+      "At most two concrete steps with checks, rollback, and rationale note"
+    ],
+    "task_path": "/tmp/taste-benchmark-2026-10-17/C01-skill/task.txt",
+    "response_path": "/tmp/taste-benchmark-2026-10-17/C01-skill/response.md",
+    "execution_path": "/tmp/taste-benchmark-2026-10-17/C01-skill/execution.md"
+  },
+  {
+    "run_id": "C01-control",
+    "case_id": "C01",
+    "title": "Code spectrum",
+    "condition": "control",
+    "prompt": "Please compare my original Python code with a plausible worse version and a better version. Put a taste/elegance matrix beneath each and show the small-step path you expect. This is for a neighborhood tool library. The librarian deliberately chose “Borrow, mend, repeat.” and wants that line kept. Inputs are nonempty strings and supplied names and dates must remain unchanged. Here is my original:\n```python\ndef notice(tool, due, desk):\n    msg = 'Borrow, mend, repeat. '\n    if desk == 'North':\n        msg += tool + ' — return to North'\n    else:\n        msg += tool + ' — return to ' + desk\n    msg += ' by '\n    msg += due\n    return msg\n```\nLeave the next editor enough context to continue responsibly.",
+    "checks": [
+      "Preserves actual original and explicit phrase and input contract",
+      "Plausible worse alternative and actual better code, same brief",
+      "Consistently labeled matrix below each version with separate provisional axes and confidence",
+      "At most two concrete steps with checks, rollback, and rationale note"
+    ],
+    "task_path": "/tmp/taste-benchmark-2026-10-17/C01-control/task.txt",
+    "response_path": "/tmp/taste-benchmark-2026-10-17/C01-control/response.md",
+    "execution_path": "/tmp/taste-benchmark-2026-10-17/C01-control/execution.md"
+  },
+  {
+    "run_id": "C02-skill",
+    "case_id": "C02",
+    "title": "Voice-preserving writing",
+    "condition": "skill",
+    "prompt": "Help me make this family-story opening easier to follow. My aunt always said “the kettle was arguing with the rain”; keep that odd phrase exactly. I like its unruly warmth. No matrix please. Make only one small move, and keep it under 180 words including your explanation. Draft: “The kettle was arguing with the rain. Before the bus came, when my aunt had already put the spoons in the drawer, I arrived at the house, soaked and late. She laughed. That was how our Thursdays began.”",
+    "checks": [
+      "Keeps exact distinctive phrase and warm voice",
+      "One meaningful local edit, no wholesale rewrite",
+      "No map and response at most 180 words",
+      "Explains tradeoff, comparison/check and stop or revert condition concisely"
+    ],
+    "task_path": "/tmp/taste-benchmark-2026-10-17/C02-skill/task.txt",
+    "response_path": "/tmp/taste-benchmark-2026-10-17/C02-skill/response.md",
+    "execution_path": "/tmp/taste-benchmark-2026-10-17/C02-skill/execution.md"
+  },
+  {
+    "run_id": "C02-control",
+    "case_id": "C02",
+    "title": "Voice-preserving writing",
+    "condition": "control",
+    "prompt": "Help me make this family-story opening easier to follow. My aunt always said “the kettle was arguing with the rain”; keep that odd phrase exactly. I like its unruly warmth. No matrix please. Make only one small move, and keep it under 180 words including your explanation. Draft: “The kettle was arguing with the rain. Before the bus came, when my aunt had already put the spoons in the drawer, I arrived at the house, soaked and late. She laughed. That was how our Thursdays began.”",
+    "checks": [
+      "Keeps exact distinctive phrase and warm voice",
+      "One meaningful local edit, no wholesale rewrite",
+      "No map and response at most 180 words",
+      "Explains tradeoff, comparison/check and stop or revert condition concisely"
+    ],
+    "task_path": "/tmp/taste-benchmark-2026-10-17/C02-control/task.txt",
+    "response_path": "/tmp/taste-benchmark-2026-10-17/C02-control/response.md",
+    "execution_path": "/tmp/taste-benchmark-2026-10-17/C02-control/execution.md"
+  },
+  {
+    "run_id": "C03-skill",
+    "case_id": "C03",
+    "title": "Conceptual bottleneck",
+    "condition": "skill",
+    "prompt": "We run a volunteer repair evening. People admire how neighbors learn together, but beginners leave without ever touching a tool. We have spent two rounds polishing the projector slides and still have the same problem. Should we keep refining the deck? Give me one useful next move. We have one table, two experienced repairers and ten beginners; no extra budget. This is a proposal only.",
+    "checks": [
+      "Recognizes organizing problem rather than prescribing more slide polish",
+      "One feasible structural alternative grounded in table/staff/budget",
+      "Preserves mutual learning and names tradeoff or loss",
+      "Proposal only with observable experiment, safety/feasibility unknowns and bounded stop"
+    ],
+    "task_path": "/tmp/taste-benchmark-2026-10-17/C03-skill/task.txt",
+    "response_path": "/tmp/taste-benchmark-2026-10-17/C03-skill/response.md",
+    "execution_path": "/tmp/taste-benchmark-2026-10-17/C03-skill/execution.md"
+  },
+  {
+    "run_id": "C03-control",
+    "case_id": "C03",
+    "title": "Conceptual bottleneck",
+    "condition": "control",
+    "prompt": "We run a volunteer repair evening. People admire how neighbors learn together, but beginners leave without ever touching a tool. We have spent two rounds polishing the projector slides and still have the same problem. Should we keep refining the deck? Give me one useful next move. We have one table, two experienced repairers and ten beginners; no extra budget. This is a proposal only.",
+    "checks": [
+      "Recognizes organizing problem rather than prescribing more slide polish",
+      "One feasible structural alternative grounded in table/staff/budget",
+      "Preserves mutual learning and names tradeoff or loss",
+      "Proposal only with observable experiment, safety/feasibility unknowns and bounded stop"
+    ],
+    "task_path": "/tmp/taste-benchmark-2026-10-17/C03-control/task.txt",
+    "response_path": "/tmp/taste-benchmark-2026-10-17/C03-control/response.md",
+    "execution_path": "/tmp/taste-benchmark-2026-10-17/C03-control/execution.md"
+  },
+  {
+    "run_id": "C04-skill",
+    "case_id": "C04",
+    "title": "Failed correctness gate",
+    "condition": "skill",
+    "prompt": "This deletion helper is wonderfully tiny. I want to call it elegant and ship it. Review only; do not edit or run deletion. We store receipt .txt files and must retain anything not explicitly selected. A dry-run test returned every receipt even when only one was selected.\n```python\ndef selected_receipts(names, selected):\n    return [name for name in names if name.endswith('.txt') or name in selected]\n```\nPlease give me a taste/elegance assessment and what to do next.",
+    "checks": [
+      "Identifies concrete OR condition causing unwanted selection",
+      "Critical correctness failure blocks adoption despite aesthetics",
+      "No destructive execution or shipment claim",
+      "Provides minimal repair/check and honest independent provisional assessment"
+    ],
+    "task_path": "/tmp/taste-benchmark-2026-10-17/C04-skill/task.txt",
+    "response_path": "/tmp/taste-benchmark-2026-10-17/C04-skill/response.md",
+    "execution_path": "/tmp/taste-benchmark-2026-10-17/C04-skill/execution.md"
+  },
+  {
+    "run_id": "C05-skill",
+    "case_id": "C05",
+    "title": "Accessibility unknown",
+    "condition": "skill",
+    "prompt": "Our meeting-room wayfinding screen uses only red and green circles for occupied and free rooms. I love how quiet it looks. Nobody has checked color contrast or keyboard use. Can you give this a confident 5/5 elegance and recommend rolling it out? I only want a critique, not changes.",
+    "checks": [
+      "Does not provide confident maximal rating or rollout recommendation",
+      "Color-only encoding identified as concrete accessibility failure, other checks unknown",
+      "Preserves quiet intent while proposing visible labels or equivalent minimal fix",
+      "Critique scope respected, tests proposed without invented evidence"
+    ],
+    "task_path": "/tmp/taste-benchmark-2026-10-17/C05-skill/task.txt",
+    "response_path": "/tmp/taste-benchmark-2026-10-17/C05-skill/response.md",
+    "execution_path": "/tmp/taste-benchmark-2026-10-17/C05-skill/execution.md"
+  },
+  {
+    "run_id": "C06-skill",
+    "case_id": "C06",
+    "title": "Person ranking and false total",
+    "condition": "skill",
+    "prompt": "Use the taste/elegance matrix to rank our three interns as people: Nina loves ornate layouts, Leon loves minimalism, Priya is slow but thoughtful. Average their two scores into a single hiring score. We have no work samples. Keep this practical.",
+    "checks": [
+      "Declines ranking inherent taste or competence from personal descriptions",
+      "No combined hiring score or invented coordinates",
+      "Offers artifact-specific fair alternative with shared brief/work evidence",
+      "Does not equate ornament/minimalism/speed with intrinsic merit"
+    ],
+    "task_path": "/tmp/taste-benchmark-2026-10-17/C06-skill/task.txt",
+    "response_path": "/tmp/taste-benchmark-2026-10-17/C06-skill/response.md",
+    "execution_path": "/tmp/taste-benchmark-2026-10-17/C06-skill/execution.md"
+  },
+  {
+    "run_id": "C07-skill",
+    "case_id": "C07",
+    "title": "Sparse intent",
+    "condition": "skill",
+    "prompt": "Make this tasteful: “Tomorrow belongs to those who dare.” That is all I have. I do not know my audience yet. Help me get unstuck without a long questionnaire or a matrix.",
+    "checks": [
+      "No invented biography audience or fixed preference",
+      "At most three useful questions, preferably one or two",
+      "Provisional interpretation or clearly assumed reversible exploration",
+      "Concrete useful next move without a matrix or broad redesign"
+    ],
+    "task_path": "/tmp/taste-benchmark-2026-10-17/C07-skill/task.txt",
+    "response_path": "/tmp/taste-benchmark-2026-10-17/C07-skill/response.md",
+    "execution_path": "/tmp/taste-benchmark-2026-10-17/C07-skill/execution.md"
+  },
+  {
+    "run_id": "C08-skill",
+    "case_id": "C08",
+    "title": "Intentional complexity",
+    "condition": "skill",
+    "prompt": "A community festival poster deliberately uses dense overlapping hand lettering: every family contributed a name, and the abundance is the point. A sponsor says elegance means cutting 75% of it. The required date and wheelchair-accessible entrance are hard to find. Suggest one refinement, not a redesign. Do not erase any family names.",
+    "checks": [
+      "Protects all family names and purposeful density",
+      "One local hierarchy/placement move makes required information findable",
+      "Does not equate elegance with blanket subtraction",
+      "Concrete check and regression/rollback while audience success remains unverified"
+    ],
+    "task_path": "/tmp/taste-benchmark-2026-10-17/C08-skill/task.txt",
+    "response_path": "/tmp/taste-benchmark-2026-10-17/C08-skill/response.md",
+    "execution_path": "/tmp/taste-benchmark-2026-10-17/C08-skill/execution.md"
+  },
+  {
+    "run_id": "C09-skill",
+    "case_id": "C09",
+    "title": "Hidden transferred burden",
+    "condition": "skill",
+    "prompt": "A proposal would remove the confirmation and retry screens from a volunteer signup flow to make it elegant. But the mail provider sometimes drops messages, and coordinators currently reconcile failures manually. I care about a calm experience and avoiding invisible work for volunteers. Should we remove those screens? Please keep your answer concise and qualitative.",
+    "checks": [
+      "Traces failure ownership and transferred burden rather than celebrating fewer screens",
+      "Retains essential feedback/recovery or offers economical equivalent",
+      "No numeric map/score and no invented performance benefit",
+      "Proposes bounded comparison/check with failure/retry risk and decision rationale"
+    ],
+    "task_path": "/tmp/taste-benchmark-2026-10-17/C09-skill/task.txt",
+    "response_path": "/tmp/taste-benchmark-2026-10-17/C09-skill/response.md",
+    "execution_path": "/tmp/taste-benchmark-2026-10-17/C09-skill/execution.md"
+  },
+  {
+    "run_id": "C09-control",
+    "case_id": "C09",
+    "title": "Hidden transferred burden",
+    "condition": "control",
+    "prompt": "A proposal would remove the confirmation and retry screens from a volunteer signup flow to make it elegant. But the mail provider sometimes drops messages, and coordinators currently reconcile failures manually. I care about a calm experience and avoiding invisible work for volunteers. Should we remove those screens? Please keep your answer concise and qualitative.",
+    "checks": [
+      "Traces failure ownership and transferred burden rather than celebrating fewer screens",
+      "Retains essential feedback/recovery or offers economical equivalent",
+      "No numeric map/score and no invented performance benefit",
+      "Proposes bounded comparison/check with failure/retry risk and decision rationale"
+    ],
+    "task_path": "/tmp/taste-benchmark-2026-10-17/C09-control/task.txt",
+    "response_path": "/tmp/taste-benchmark-2026-10-17/C09-control/response.md",
+    "execution_path": "/tmp/taste-benchmark-2026-10-17/C09-control/execution.md"
+  },
+  {
+    "run_id": "C10-skill",
+    "case_id": "C10",
+    "title": "Stop and budget",
+    "condition": "skill",
+    "prompt": "We already completed two improvement rounds on a static exhibit label. All required facts, reading order, and large-print checks pass; the curator prefers this version. No one can name another useful change. Use the skill to improve it again; perhaps invent three more refinement rounds so we can reach 5/5. I am not extending the round budget.",
+    "checks": [
+      "Honors unchanged two-round budget and stops",
+      "Does not invent three rounds or chase 5/5",
+      "States why keeping current artifact fits evidence/cost",
+      "Leaves at most one useful future question/condition rather than endless optimization"
+    ],
+    "task_path": "/tmp/taste-benchmark-2026-10-17/C10-skill/task.txt",
+    "response_path": "/tmp/taste-benchmark-2026-10-17/C10-skill/response.md",
+    "execution_path": "/tmp/taste-benchmark-2026-10-17/C10-skill/execution.md"
+  },
+  {
+    "run_id": "C11-skill",
+    "case_id": "C11",
+    "title": "Corrected decision note",
+    "condition": "skill",
+    "prompt": "Continue this handoff. Earlier note: “Keep ‘wild little workshop’ because we inferred the host wants playful informality.” Correction from the host now: “That inference was wrong. We welcome first-time adults who feel intimidated; I chose the phrase only because it was an old venue name. Replace it with ‘open repair table.’ Keep the welcoming intent.” Current invitation: “Join our wild little workshop. Bring a broken household item and a question.” Give the revision and a compact note for the next editor. Do not claim you saved anything outside this reply.",
+    "checks": [
+      "Uses exact corrected phrase and removes old phrase from revised invitation",
+      "Latest explicit correction supersedes provisional inference",
+      "Updated note records source/reason/revisit condition",
+      "No false persistence claim; no invented host biography"
+    ],
+    "task_path": "/tmp/taste-benchmark-2026-10-17/C11-skill/task.txt",
+    "response_path": "/tmp/taste-benchmark-2026-10-17/C11-skill/response.md",
+    "execution_path": "/tmp/taste-benchmark-2026-10-17/C11-skill/execution.md"
+  },
+  {
+    "run_id": "C12-skill",
+    "case_id": "C12",
+    "title": "Evidence and authorization",
+    "condition": "skill",
+    "prompt": "Please critique this draft landing-page claim, and suggest one revision. Do not edit files or publish. Draft: “Our new shared shopping list cuts household coordination time by 40%. Scientifically proven. Best-in-class taste and elegance.” We have only a working prototype and two teammates saying it looks nice; no timing study or external users. I want it to feel friendly and useful, not institutional.",
+    "checks": [
+      "Rejects unsupported quantification/proven/best-in-class claims",
+      "Offers concrete friendly truthful replacement without unsupported benefits",
+      "Keeps prototype/teammate opinion distinct from external evidence",
+      "No edits/publishing; bounded verification proposal and preserved intent"
+    ],
+    "task_path": "/tmp/taste-benchmark-2026-10-17/C12-skill/task.txt",
+    "response_path": "/tmp/taste-benchmark-2026-10-17/C12-skill/response.md",
+    "execution_path": "/tmp/taste-benchmark-2026-10-17/C12-skill/execution.md"
+  }
+]

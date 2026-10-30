@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "identity": "50cc512952571dfceffbcd2afb44fb2199ba476003d18f4c886b7f7a4dcfb77b",
+  "created_at": "2026-10-28T07:42:17.131279-04:00",
+  "source_commit": "00fd8b6c76cd03c992552c34e3c7a1e9c717990a",
+  "configuration": {
+    "mode": "study",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "judge": "claude-sonnet-4-6",
+    "model_family": "gpt-4.1",
+    "judge_family": "claude-sonnet-4.6",
+    "conditions": [
+      "skill",
+      "baseline",
+      "placebo"
+    ],
+    "fixture_ids": [
+      "f01",
+      "f02",
+      "f03",
+      "f04",
+      "f05",
+      "f06",
+      "f07",
+      "f08",
+      "f09",
+      "f10"
+    ],
+    "repeats": 2,
+    "max_tokens": 1400,
+    "judge_max_tokens": 1100,
+    "budget_usd": 5.0,
+    "max_calls": 180,
+    "max_seconds": 900,
+    "max_generated_tokens": 300000,
+    "rates": {
+      "evaluated": [
+        0.4,
+        1.6
+      ],
+      "judge": [
+        3,
+        15
+      ]
+    },
+    "price_basis": "Nominal uncached USD per million input/output tokens, verified official pricing on 2026-10-28; not a provider invoice.",
+    "price_sources": [
+      "https://developers.openai.com/api/docs/pricing",
+      "https://platform.claude.com/docs/en/about-claude/pricing"
+    ],
+    "seed": "20261028 controls order/bootstrap only; provider generation is not seeded",
+    "source_hashes": {
+      "docs/BENCHMARK.md": "ec2370e510123862a8dde3310142c56f2ec85e350d154913b2ab3e710614f3cc",
+      "evals/__init__.py": "8a9ba95a84e2cac231f64f5c312327686081b1a9894c3dcfdcff37afa8fd28e1",
+      "evals/fixtures.json": "c0c9a0cf648b46b7e604b6103e791604de1c324257f7d41ea0cf713d4cd9b977",
+      "evals/key.json": "1c9aecad8d6d1becb24cf1bf32fb5592ce68600ce418b920fefe7ea0aa022931",
+      "evals/make_fixtures.py": "ee8f740547002e8e9d76c2809e04796834dedc4d576c97d1e873ae03cd4a5039",
+      "evals/metrics.py": "85619413a3d8d0a2d9466ad72d08f30dc2ad55486e3bc3250dbe88454bc0a6a8",
+      "evals/placebo.txt": "88fa5855a56204da55d8b563e26d05c205ca581adb4a2186c8f0c0b153256579",
+      "evals/prompts.py": "e5591c90f92f881ff5e5c9a8235cd0e0f4ab0c0cc28a0a1f35853683abd0f96c",
+      "evals/providers.py": "b636a9684c3e4d208bd67875ffdcb28c0aa17a80afefc08d302c120038a9d0e4",
+      "evals/run.py": "f84872c02c72b6d24e3a74b4874afd0147b2af52459d2a30462389cdf7270397",
+      "skills/project-handoff/LICENSE.md": "27bc84e5910a99ace8a43ecd7b9cf8391b1b82cfe27fe60d23394220b0a8360b",
+      "skills/project-handoff/SKILL.md": "be800a4242fe14b5aed5257fe767f77eabf1173613a097a2a4d3499aaaf5c568",
+      "skills/project-handoff/references/handoff-contract.md": "289081447ff1a576f1b4e70e0a86a66721987134357cd64951d328c19b917d02",
+      "skills/project-handoff/references/method.md": "c1b829e12813fc07bf79ddb8e358a59e75e8cc6d28b5cc0840b2ee08b931f14a"
+    },
+    "treatment_hash": "98cb4d902bc4d3446cc063eaaa3190645929d89c159790875bda31ed87ffc3ec",
+    "placebo_hash": "bffcb2b7195dbe3ad43cbeebd36fdae7dfd8258b2dc94a8d710304db87fe5747"
+  },
+  "scope": "Fictional virtual-file capture-to-fresh-resumer study; not a complete host/tool or direct Resume/Check evaluation."
+}

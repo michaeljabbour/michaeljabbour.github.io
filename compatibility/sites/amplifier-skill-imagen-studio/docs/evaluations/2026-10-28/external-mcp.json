@@ -1,0 +1,9 @@
+{
+  "result": "passed",
+  "scope": "independent executable MCP initialize, reviewed tool discovery, schema checks and owned cleanup",
+  "tool_count": 8,
+  "client_tool_calls": 0,
+  "provider_keys_supplied": false,
+  "provider_package_imported": false,
+  "effectiveness": "not measured"
+}

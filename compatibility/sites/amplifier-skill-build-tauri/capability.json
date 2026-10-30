@@ -1,0 +1,249 @@
+{
+  "id": "build-tauri",
+  "display_name": "Build with Tauri",
+  "kind": "skill",
+  "promise": "Build a desktop app whose frontend and sidecar agree.",
+  "audience": "Developers working across a Tauri webview, Rust shell, and optional companion process.",
+  "trigger": "Use when creating or repairing Tauri 2 project structure, IPC, permissions, or sidecar lifecycle.",
+  "skill_path": "skills/build-tauri",
+  "modes": [
+    {
+      "name": "Structure",
+      "when": "The app layout, target platforms, or build boundary is unclear.",
+      "output": "A versioned map of frontend, Rust shell, capabilities, and packaged binaries."
+    },
+    {
+      "name": "IPC",
+      "when": "A frontend action needs Rust data, progress, or an error.",
+      "output": "A typed command/channel/event contract with lifecycle and permission checks."
+    },
+    {
+      "name": "Sidecar",
+      "when": "A companion process must start, serve, recover, and stop.",
+      "output": "An explicit readiness, ownership, failure, and cleanup contract."
+    }
+  ],
+  "examples": [
+    {
+      "title": "The window opens before the engine is ready",
+      "brief": "A fictional desktop import tool starts a local sidecar and immediately sends requests.",
+      "before": "A fixed sleep and a successful spawn are treated as readiness.",
+      "after": "Keep a child handle, wait for the expected versioned health response with a deadline, show retry/cancel, and clean up on every app exit path.",
+      "why": "A running process, a ready service, and a successful user task are distinct observations.",
+      "fictional": true
+    }
+  ],
+  "boundaries": [
+    "Scope is Tauri 2 guidance; inspect the project lockfiles before applying any example.",
+    "Source checks and mocked IPC cannot establish desktop packaging or OS lifecycle behavior.",
+    "No sidecar, network service, or permission broadening is required to install the method."
+  ],
+  "install_commands": [
+    "python3 scripts/capability.py doctor",
+    "python3 scripts/capability.py install --dest ~/.agents/skills"
+  ],
+  "runtime_install_commands": [],
+  "verification": [
+    {
+      "name": "Source-specific Tauri contract review",
+      "command": "Review references/current-contracts.md against the three linked official Tauri v2 pages",
+      "status": "reviewed",
+      "evidence": "Confirmed distinctions for application vs plugin ACL, async vs blocking work, channels vs broadcast events, and target-triple sidecars. No Tauri desktop executable is part of this source repository; OS runtime and packaging acceptance not measured.",
+      "expected": "The stated scope passes; no broader result inferred."
+    },
+    {
+      "name": "Portable packaging and install",
+      "command": "python3 scripts/capability.py build; python3 scripts/capability.py check; python3 scripts/capability.py doctor; python3 scripts/capability.py install --dest <temporary-parent> (twice)",
+      "status": "passed",
+      "expected": "Byte-identical canonical ZIP and isolated idempotent install.",
+      "evidence": "All operations passed. No runtime activation or effectiveness measured."
+    },
+    {
+      "name": "Skill discovery metadata",
+      "command": "<yaml-enabled-python> /path/to/skill-creator/scripts/quick_validate.py skills/build-tauri",
+      "status": "passed",
+      "expected": "Valid required frontmatter, naming, and complete scaffold.",
+      "evidence": "Skill is valid. This is a structural check, not a behavioral benchmark."
+    }
+  ],
+  "sources": [
+    {
+      "repo": "amplifier-tauri-skill",
+      "commit": "622249013ca64c725a79542184aec02b70f85c2b",
+      "paths": [
+        "tauri2-project-structure/SKILL.md",
+        "tauri2-sidecar-integration/SKILL.md",
+        "tauri2-ipc-patterns/SKILL.md"
+      ],
+      "license": "MIT License",
+      "role": "Primary history and engine retained; methods consolidated behind the canonical portable entry."
+    }
+  ],
+  "consolidation": [
+    {
+      "source": "tauri2-project-structure/SKILL.md",
+      "destination": "skills/build-tauri/references/tauri2-project-structure/METHOD.md",
+      "action": "Preserved as a rich mode reference; native consumers updated to canonical entry."
+    },
+    {
+      "source": "tauri2-sidecar-integration/SKILL.md",
+      "destination": "skills/build-tauri/references/tauri2-sidecar-integration/METHOD.md",
+      "action": "Preserved as a rich mode reference; native consumers updated to canonical entry."
+    },
+    {
+      "source": "tauri2-ipc-patterns/SKILL.md",
+      "destination": "skills/build-tauri/references/tauri2-ipc-patterns/METHOD.md",
+      "action": "Preserved as a rich mode reference; native consumers updated to canonical entry."
+    }
+  ],
+  "docs": [
+    "docs/INSTALL.md",
+    "docs/MIGRATION.md",
+    "docs/VALIDATION.md",
+    "docs/NATIVE-README.md",
+    "docs/evaluations/2026-10-28/consolidation.json"
+  ],
+  "evidence_summary": "The retained references were reviewed against the linked official Tauri 2 contracts, and the portable package is checked. No desktop executable is supplied; operating-system lifecycle and release packaging must be tested in your app.",
+  "publication_status": "Installation and evidence scopes are documented below.",
+  "marketing": {
+    "headline": "Make the desktop app work beyond the dev server.",
+    "lead": "A Tauri 2 development skill for the boundary between webview, Rust and companion processes. Turn \u201cit opens\u201d into clear contracts for requests, streaming, permissions and shutdown.",
+    "benefits": [
+      {
+        "title": "Make frontend and Rust agree",
+        "body": "Specify command names, argument casing, serialized results and error handling before debugging both sides at once."
+      },
+      {
+        "title": "Know when a sidecar is ready",
+        "body": "Use a bounded readiness check, an owned child handle and explicit failure recovery."
+      },
+      {
+        "title": "Check the app people install",
+        "body": "Separate source checks, mocked IPC, the running desktop app and the packaged release."
+      }
+    ],
+    "walkthrough": [
+      {
+        "title": "Map the app",
+        "detail": "Inspect lockfiles, configuration, capabilities, Rust entrypoints and target operating system."
+      },
+      {
+        "title": "Define the boundary",
+        "detail": "Choose request/response, channel or event behavior; declare permissions and lifecycle ownership."
+      },
+      {
+        "title": "Exercise the failure paths",
+        "detail": "Test wrong fields, startup failure, repeated launch, cancellation and app exit before checking release packaging."
+      }
+    ],
+    "use_when": [
+      "A frontend command reaches Rust with the wrong arguments.",
+      "A companion process starts but is not ready for requests.",
+      "The dev app works while the packaged desktop build fails."
+    ],
+    "not_for": [
+      "A bundled desktop executable or cross-platform acceptance certificate.",
+      "A reason to broaden permissions before inspecting the relevant application or plugin rules."
+    ],
+    "quickstart_prompt": "Use Build with Tauri on this Tauri 2 app. Its import sidecar starts slowly and the first request fails. Trace startup, define readiness and shutdown ownership, and propose the smallest fix with target-OS checks.",
+    "output_preview": "Fictional contract: import sidecar\nReady: expected versioned health response before deadline\nStartup failure: show reason, retry and cancel\nOwner: application retains child handle\nExit: graceful stop, then bounded kill fallback\nRelease check: correct target-triple binary included",
+    "proof_summary": "The retained references were reviewed against the linked official Tauri 2 contracts, and the portable package is checked. No desktop executable is supplied; operating-system lifecycle and release packaging must be tested in your app.",
+    "next_step": "Bring the app, target operating system and one failure you can reproduce.",
+    "example_note": "Fictional worked example. It illustrates the intended output; it is not a measured result or a real customer story.",
+    "install_notes": [
+      "Requires Git and Python 3.11+ for the repository installer. The portable method itself can be read by a compatible agent without a service or provider account.",
+      "The destination is a skills-parent folder. Use the discovery path supported by your agent; ~/.agents/skills is an example, not a universal host setting.",
+      "Keep the complete installed folder, references and license together. Identical reinstall is safe; conflicts are refused. A deliberate --replace keeps a dated backup."
+    ]
+  },
+  "repository_url": "https://github.com/michaeljabbour/amplifier-capability-build-tauri",
+  "name": "amplifier-capability-build-tauri",
+  "legacy_names": [
+    "amplifier-skill-build-tauri",
+    "build-tauri"
+  ],
+  "contract_version": "amplifier-capability/v1",
+  "version": null,
+  "version_basis": "No release version recorded; installer requires a full Git revision pin.",
+  "engine": "LLM",
+  "engine_components": {
+    "caller_method": "LLM"
+  },
+  "surfaces": [
+    "agent-skills"
+  ],
+  "portable_method": {
+    "name": "build-tauri",
+    "path": "skills/build-tauri",
+    "include": [
+      "."
+    ],
+    "contract": "Agent Skills directory; caller applies the method; no independent execution loop is installed."
+  },
+  "interfaces": {
+    "portable": {
+      "input": "Caller task and explicitly authorized context",
+      "output": "Build a desktop app whose frontend and sidecar agree.",
+      "failure": "Report insufficient evidence, unsupported context or host limitation; never turn discovery into an execution claim."
+    },
+    "native": {
+      "distribution": null,
+      "entrypoints": {},
+      "docs": [
+        "docs/INSTALL.md",
+        "docs/MIGRATION.md",
+        "docs/VALIDATION.md",
+        "docs/NATIVE-README.md",
+        "docs/evaluations/2026-10-28/consolidation.json"
+      ],
+      "status": "Existing declared entrypoints preserved; runtime signatures, service access and installation tests remain separate evidence."
+    },
+    "host_adapters": {
+      "amplifier_bundle": null,
+      "grants_autonomy": false
+    }
+  },
+  "permissions": {
+    "installation": {
+      "network": false,
+      "executes_capability_code": false,
+      "writes": [
+        "Selected discovery folders",
+        ".capability-state transaction backups"
+      ],
+      "grants_runtime_permissions": false
+    },
+    "runtime": {
+      "status": "Host/caller authorizes each operation; installation is not a tool allowlist or standing approval.",
+      "declared_boundaries": [
+        "Scope is Tauri 2 guidance; inspect the project lockfiles before applying any example.",
+        "Source checks and mocked IPC cannot establish desktop packaging or OS lifecycle behavior.",
+        "No sidecar, network service, or permission broadening is required to install the method."
+      ]
+    },
+    "secret_names": {
+      "discovery_requires": [],
+      "native_runtime_inventory": "See native documentation; no credentials are bundled or inferred."
+    }
+  },
+  "dataflow": {
+    "installation": "Read pinned tracked portable source and copy locally with SHA-256 receipts. No source text is transmitted.",
+    "method": "Caller supplies authorized context; existing promise and boundaries govern output.",
+    "native_runtime": "Provider/network/storage flows are owned by native interfaces and host authorization; these files do not enable them."
+  },
+  "source_policy": {
+    "revision": "Explicit full40-character Git commit required at installation; never infer latest.",
+    "repository_rename": "Public identity may change; skill folder, imports, entrypoints, tool IDs and schemas remain stable.",
+    "research": ".research/market remains local and ignored; AGENTS governs refresh."
+  },
+  "film": {
+    "file": "build-tauri-film",
+    "seconds": 71,
+    "heading": "Running is not ready.",
+    "blurb": "In 71 seconds, Duffel the hound sleeps in the sidecar while the app waits three seconds, hopes, and sends the first import to nobody. Build with Tauri treats running and ready as two different things: the app holds the sidecar, waits for a ready signal with a deadline, and writes down what ready means, what failure shows and how it stops. Then you break it on purpose. Captions are on the player; a transcript is below.",
+    "note": "The photo importer and its sidecar contract are a fictional example. The film shows how the skill behaves; it does not report results."
+  },
+  "repository_aliases": [
+    "https://github.com/michaeljabbour/amplifier-skill-build-tauri"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-28T12:24:32.506465+00:00",
+  "kind": "single stateless Audit application; no controlled efficacy claim",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "provider": "openai",
+  "source_sha256": {
+    "skills/right-shape/SKILL.md": "1bda267e769f672972428faf129b908af00bdff2eb10e64e60c35c2c2d0525af",
+    "skills/right-shape/references/rubric.md": "b670da2b8834136511d167bd1492385543d151e4a049c1f297ec95dfa1dc2465",
+    "skills/right-shape/references/audit.md": "7698856c40671b0a125a4b439e26979bf1fbe8e37405fde02f16ee10e7902dd0"
+  },
+  "packet_sha256": "6e5939c19e1c3ec43fcfa1715e8943a048fb99a7a8abd432dc67b2dd8b886360",
+  "nominal_uncached_usd": 0.0058368000000000005,
+  "reserved_upper_bound_usd": 0.0227632,
+  "actual_tools_available": false,
+  "limitations": "No baseline or placebo. Source claims are not independently executed. Root review has campaign context; not blinded human validation."
+}

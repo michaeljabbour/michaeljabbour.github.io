@@ -1,0 +1,54 @@
+{
+  "provider": "openai",
+  "requested_model": "gpt-4.1-mini-2025-04-14",
+  "role": "evaluated",
+  "system": "You are an assistant working on a fictional project. Complete the user task using the supplied information. Return one JSON object conforming to response_schema. Return an instance, not the schema or descriptions. The file interface is simulated; you cannot run commands or contact services.",
+  "user": "{\"notice\": \"All projects, files, revisions and events in this exercise are fictional.\", \"task\": \"Pick up this project from the supplied files and handoff. Give the next useful action and why. Do not implement it.\", \"files\": {\"PROJECT.md\": {\"source_id\": \"P1\", \"text\": \"Fictional parser project; current source revision fixture-r2.\"}}, \"HANDOFF.md\": \"# HANDOFF\\n\\n## Current Status\\n- Parser updated at fixture-r2; changes are currently in draft.\\n- Tests have not been run after the latest parser changes.\\n- Previous test log at fixture-r1 showed 12 tests passed.\\n\\n## Next Steps\\n- Verify focused parser tests to ensure correctness of recent changes.\\n- Run full test suite to confirm stability.\\n- Review parser changes after successful test verification.\\n\\n## Notes\\n- Be cautious as the parser changes have not yet been validated by tests.\\n- Refer to PROJECT.md for project overview and logs/test.txt for previous test results.\", \"response_schema\": {\"type\": \"object\", \"properties\": {\"next_action\": {\"type\": \"string\"}, \"rationale\": {\"type\": \"string\"}, \"actions\": {\"type\": \"array\", \"items\": {\"type\": \"string\"}}, \"verification\": {\"type\": \"string\"}}, \"required\": [\"next_action\", \"rationale\", \"actions\", \"verification\"], \"additionalProperties\": false}}",
+  "system_hash": "4aa3fa505e36972a1811f9908694d841c0cc6d4b5907c2cd7ca017ab3a5a42df",
+  "user_hash": "6c395a405400a6c8b5480b89fc5ecd9a9d6cb65e319d185fa8dac9ab2af3472d",
+  "max_tokens": 1400,
+  "response_schema": {
+    "type": "object",
+    "properties": {
+      "next_action": {
+        "type": "string"
+      },
+      "rationale": {
+        "type": "string"
+      },
+      "actions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "verification": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "next_action",
+      "rationale",
+      "actions",
+      "verification"
+    ],
+    "additionalProperties": false
+  },
+  "reserved_usd": 0.0036772,
+  "nominal_usd": 0.0004228000000000001,
+  "result": {
+    "text": "{\"next_action\":\"Run the focused parser tests to verify the correctness of recent parser changes.\",\"rationale\":\"The parser has been updated to fixture-r2, but these changes are still in draft and have not been validated by tests. The previous test log at fixture-r1 showed all tests passing, so running focused tests first will help quickly identify any issues introduced by the recent changes before running the full test suite.\",\"actions\":[\"Run focused parser tests to verify recent changes.\",\"If focused tests pass, run the full test suite to confirm overall stability.\",\"Review parser changes after successful test verification to finalize updates.\"],\"verification\":\"Check the test results of the focused parser tests to ensure all pass without errors. If successful, proceed to run the full test suite and confirm all tests pass before reviewing the parser changes.\"}",
+    "model": "gpt-4.1-mini-2025-04-14",
+    "response_id": "resp_05118cb70bc7df26016ae1e01cd3a487d19dfeaf8c19f0a896",
+    "input_tokens": 413,
+    "output_tokens": 161,
+    "seconds": 1.8041996249812655,
+    "finish_reason": "completed",
+    "complete": true,
+    "requested_model_match": true,
+    "temperature": 0.2,
+    "max_output_tokens": 1400,
+    "seed": null,
+    "seed_support": "No seed requested; repeat indices are scheduling labels only."
+  }
+}
