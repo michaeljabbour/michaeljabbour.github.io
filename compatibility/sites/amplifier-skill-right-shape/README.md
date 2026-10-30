@@ -167,3 +167,7 @@ This is a structured judgment aid, not a security review, a compliance process o
 ## License and provenance
 
 MIT; see [LICENSE](LICENSE). The family theme snapshot keeps its own [MIT notice](site/theme/LICENSE). The page follows the Amplifier Smart Tools family site as a design and implementation reference.
+
+## Repository migration
+
+This repository was renamed from `amplifier-skill-right-shape` to `amplifier-capability-right-shape`. Existing installed method names, bundle aliases and native interfaces stay the same. See the [migration guide](https://michaeljabbour.github.io/migration/) and [repository map](https://michaeljabbour.github.io/migration/mapping.json) for source URL updates.

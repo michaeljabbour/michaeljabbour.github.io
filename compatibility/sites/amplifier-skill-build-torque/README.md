@@ -371,3 +371,7 @@ bash ~/torque-dev/torque/install-dev.sh ~/torque-dev
 MIT — see [LICENSE](./LICENSE)
 
 </details>
+
+## Repository migration
+
+This repository was renamed from `amplifier-skill-build-torque` to `amplifier-capability-build-with-torque`. Existing installed method names, bundle aliases and native interfaces stay the same. See the [migration guide](https://michaeljabbour.github.io/migration/) and [repository map](https://michaeljabbour.github.io/migration/mapping.json) for source URL updates.

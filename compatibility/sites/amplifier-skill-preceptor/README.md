@@ -338,3 +338,7 @@ tests the thesis in the direction arXiv:2601.20404 says it may fail.
 <div align="center">
 <sub>Diagrams are generated: <code>dot -Tsvg docs/diagrams/&lt;name&gt;.dot -o docs/diagrams/&lt;name&gt;.svg</code></sub>
 </div>
+
+## Repository migration
+
+This repository was renamed from `amplifier-skill-preceptor` to `amplifier-capability-preceptor`. Existing installed method names, bundle aliases and native interfaces stay the same. See the [migration guide](https://michaeljabbour.github.io/migration/) and [repository map](https://michaeljabbour.github.io/migration/mapping.json) for source URL updates.

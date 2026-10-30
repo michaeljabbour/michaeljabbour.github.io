@@ -529,3 +529,7 @@ pillow>=11.0.0
 - [Gemini CLI MCP Documentation](https://geminicli.com/docs/tools/mcp-server/)
 - [Codex MCP Documentation](https://developers.openai.com/codex/mcp/)
 - [Model Context Protocol](https://modelcontextprotocol.io/)
+
+## Repository migration
+
+This repository was renamed from `amplifier-tool-imagen-provider` to `amplifier-capability-imagen-provider`. Existing installed method names, bundle aliases and native interfaces stay the same. See the [migration guide](https://michaeljabbour.github.io/migration/) and [repository map](https://michaeljabbour.github.io/migration/mapping.json) for source URL updates.

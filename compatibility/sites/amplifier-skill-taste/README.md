@@ -123,3 +123,7 @@ configuration, and institutional attribution are not part of this project.
 Make it more intentional and simpler while keeping it yours.
 
 Read the [installation guide](docs/INSTALL.md) for the supported local path and [consolidation record](docs/CONSOLIDATION.md) for ownership and evidence limits. Canonical catalog name: **Taste × Elegance**; repository: `amplifier-skill-taste`.
+
+## Repository migration
+
+This repository was renamed from `amplifier-skill-taste` to `amplifier-capability-taste-elegance`. Existing installed method names, bundle aliases and native interfaces stay the same. See the [migration guide](https://michaeljabbour.github.io/migration/) and [repository map](https://michaeljabbour.github.io/migration/mapping.json) for source URL updates.

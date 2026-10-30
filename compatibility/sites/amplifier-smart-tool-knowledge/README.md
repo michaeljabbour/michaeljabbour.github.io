@@ -221,3 +221,7 @@ envelope and the graph document; [site/](site/README.md) builds the product page
 ## License
 
 MIT. Vendored and adapted third-party material, all MIT, is credited in [NOTICE](NOTICE).
+
+## Repository migration
+
+This repository was renamed from `amplifier-smart-tool-knowledge` to `amplifier-capability-knowledge`. Existing installed method names, bundle aliases and native interfaces stay the same. See the [migration guide](https://michaeljabbour.github.io/migration/) and [repository map](https://michaeljabbour.github.io/migration/mapping.json) for source URL updates.

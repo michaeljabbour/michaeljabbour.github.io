@@ -103,3 +103,7 @@ Read the [installation guide](docs/INSTALL.md) for the supported local path and 
 ## Optional coordination templates
 
 Larger projects can use the [retained coordination reference](docs/OPTIONAL-COORDINATION.md): the original setup prompt, nine templates and license are preserved exactly. The portable Handoff package stays four files and works without this optional reference or Memory.
+
+## Repository migration
+
+This repository was renamed from `amplifier-skill-project-handoff` to `amplifier-capability-project-handoff`. Existing installed method names, bundle aliases and native interfaces stay the same. See the [migration guide](https://michaeljabbour.github.io/migration/) and [repository map](https://michaeljabbour.github.io/migration/mapping.json) for source URL updates.

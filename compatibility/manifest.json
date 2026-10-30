@@ -5,7 +5,7 @@
       "id": "decisioncraft",
       "prefix": "amplifier-smart-tool-decisioncraft",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-decisioncraft",
-      "release_source_commit": "7c8c47e22064e23db8afa4c2543a19135d2afad1",
+      "release_source_commit": "fccd12ea27715809418541b00a697102823a8a07",
       "workflow": ".github/workflows/pages.yml",
       "workflow_sha256": "ab991753347e3f25b7febf080260cefacb97af1c5dbbe5e84f07d6d73302420a",
       "artifact_root": "_site",
@@ -699,13 +699,19 @@
       "id": "market-fit",
       "prefix": "amplifier-skill-market-fit",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-market-fit",
-      "release_source_commit": "194cad6f2b7419113ea76fdcd6e269a4b3594208",
+      "release_source_commit": "275b5652d6e78f5be4130813200c6b5fb05d9f8f",
       "workflow": ".github/workflows/pages.yml",
       "workflow_sha256": "5630d53030b8bc468a1c63a3d2e3e875f9845feea279c483f1cd02d87bd39ec7",
       "artifact_root": "_site",
       "purpose": "Retain legacy Pages routes with verified repaired release content across the capability repository rename.",
       "legacy_route_inventory_public_commit": "1a16404f20babb1832cda117e162ebe6020b7e6d",
-      "updated_unversioned_resources": [],
+      "updated_unversioned_resources": [
+        {
+          "path": "README.md",
+          "old_sha256": "4e36f5822fe2b6f0d5983a264c924193e5fa4c4c43705ac60a7f9a08eb20f39f",
+          "sha256": "1697527722a895c47afe28ceaad792be5de8cb9352af96c277689781106a43bc"
+        }
+      ],
       "new_resources": [],
       "unchanged_existing_media_files": 6,
       "build_controls": [
@@ -763,14 +769,14 @@
         },
         {
           "path": "README.md",
-          "bytes": 8680,
-          "sha256": "4e36f5822fe2b6f0d5983a264c924193e5fa4c4c43705ac60a7f9a08eb20f39f",
+          "bytes": 9064,
+          "sha256": "1697527722a895c47afe28ceaad792be5de8cb9352af96c277689781106a43bc",
           "role": "servable",
           "reviewed_public_examples": [
             {
               "literal": "file:///<path-to-checkout>/behaviors/market-fit.yaml",
-              "reason": "Exact generic file-URI placeholder, scheme token or relative local-module example in public usage documentation/diagram. Independently reviewed; no personal file location or host read. Apply only to these literals at this exact file/hash, then scan remaining text.",
-              "reviewed_file_sha256": "4e36f5822fe2b6f0d5983a264c924193e5fa4c4c43705ac60a7f9a08eb20f39f"
+              "reason": "Exact generic file-URI placeholder, scheme token or relative local-module example in public usage documentation/diagram. Independently reviewed; no personal file location or host read. Apply only to these literals at this exact file/hash, then scan remaining text. Existing generic literals are unchanged; filehash rebound after the reviewed four-line public migration-link addition.",
+              "reviewed_file_sha256": "1697527722a895c47afe28ceaad792be5de8cb9352af96c277689781106a43bc"
             }
           ]
         },
@@ -918,7 +924,7 @@
       "id": "right-shape",
       "prefix": "amplifier-skill-right-shape",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-right-shape",
-      "release_source_commit": "437fcaffb7a0cdc59aa8184672f6c06eae1d014f",
+      "release_source_commit": "52eaf4047efbc66733dea8b28de3749c82fbe157",
       "workflow": ".github/workflows/pages.yml",
       "workflow_sha256": "5630d53030b8bc468a1c63a3d2e3e875f9845feea279c483f1cd02d87bd39ec7",
       "artifact_root": "_site",
@@ -929,6 +935,11 @@
           "path": "CHANGELOG.md",
           "old_sha256": "78cdf82385e1d2eb733f1051fa88045ce8ab8aa8bceecc35cb3f97f3bed94edc",
           "sha256": "e9ebf0a61bd036097d3ebbb33e23b18e6c7a1106a79e938c54c66764cd67b17a"
+        },
+        {
+          "path": "README.md",
+          "old_sha256": "cf0fa8f46f89ece3d810f1e85164c694537f8e03251f050c6ef1b9bac90fe442",
+          "sha256": "ded7756825313a1eea28213ab71827a41d51760c85011515857f9c55d17803d5"
         },
         {
           "path": "index.html",
@@ -1017,14 +1028,14 @@
         },
         {
           "path": "README.md",
-          "bytes": 14427,
-          "sha256": "cf0fa8f46f89ece3d810f1e85164c694537f8e03251f050c6ef1b9bac90fe442",
+          "bytes": 14813,
+          "sha256": "ded7756825313a1eea28213ab71827a41d51760c85011515857f9c55d17803d5",
           "role": "servable",
           "reviewed_public_examples": [
             {
               "literal": "file:///<path-to-checkout>/behaviors/right-shape.yaml",
-              "reason": "Exact generic file-URI placeholder, scheme token or relative local-module example in public usage documentation/diagram. Independently reviewed; no personal file location or host read. Apply only to these literals at this exact file/hash, then scan remaining text.",
-              "reviewed_file_sha256": "cf0fa8f46f89ece3d810f1e85164c694537f8e03251f050c6ef1b9bac90fe442"
+              "reason": "Exact generic file-URI placeholder, scheme token or relative local-module example in public usage documentation/diagram. Independently reviewed; no personal file location or host read. Apply only to these literals at this exact file/hash, then scan remaining text. Existing generic literals are unchanged; filehash rebound after the reviewed four-line public migration-link addition.",
+              "reviewed_file_sha256": "ded7756825313a1eea28213ab71827a41d51760c85011515857f9c55d17803d5"
             }
           ]
         },
@@ -1286,7 +1297,7 @@
       "id": "sizzle",
       "prefix": "amplifier-skill-sizzle",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-sizzle",
-      "release_source_commit": "01652b4b8747b55cc74974d13ca4dadce9d5ec6b",
+      "release_source_commit": "a52b09e598908f76e4c7084bb2859f3b3bd2127c",
       "workflow": ".github/workflows/pages.yml",
       "workflow_sha256": "7e128917477cd44570dc98cd9e2f5ffc4dc7f70ab244cf5cb26e7a625c9d4d32",
       "artifact_root": "_site",
@@ -1296,7 +1307,7 @@
         {
           "path": "README.md",
           "old_sha256": "dbf9fb9c24c1534d8b1e61403e3f0965cb21cdf2e97692ecd452bfc16af662a8",
-          "sha256": "25bb92e44c83617af5a8e4ddf8c3b86172b800684133a9d8a0eda04c26b343b8"
+          "sha256": "a01d9d389479f6ef94099df7324f4720345a90fb52dfbff9db6d260ec4ba169f"
         },
         {
           "path": "SKILL.md",
@@ -1455,8 +1466,8 @@
         },
         {
           "path": "README.md",
-          "bytes": 9379,
-          "sha256": "25bb92e44c83617af5a8e4ddf8c3b86172b800684133a9d8a0eda04c26b343b8",
+          "bytes": 9755,
+          "sha256": "a01d9d389479f6ef94099df7324f4720345a90fb52dfbff9db6d260ec4ba169f",
           "role": "servable"
         },
         {
@@ -1736,13 +1747,18 @@
       "id": "taste-elegance",
       "prefix": "amplifier-skill-taste",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-taste-elegance",
-      "release_source_commit": "051d1d233dd4d4b670e86e2bccb07d34e93eb8a7",
+      "release_source_commit": "712d9c6c6692809cf555dcf9eb61af10f193c739",
       "workflow": ".github/workflows/pages.yml",
       "workflow_sha256": "5630d53030b8bc468a1c63a3d2e3e875f9845feea279c483f1cd02d87bd39ec7",
       "artifact_root": "_site",
       "purpose": "Retain legacy Pages routes with verified repaired release content across the capability repository rename.",
       "legacy_route_inventory_public_commit": "e13b717541a813a7e05fd2eb6868da1d66b6591a",
       "updated_unversioned_resources": [
+        {
+          "path": "README.md",
+          "old_sha256": "42056111d6c4cb79a85690386515396e8bf78bd6525f2b536ace8bec786dd9f7",
+          "sha256": "ceb5b64c4d598ddc3a0dc76702ba2cef09ee6103bf6da0a0c04f66007a976f01"
+        },
         {
           "path": "docs/evaluations/benchmark-2026-10-17/REPLAY.md",
           "old_sha256": "2dc4289ff6ed9641af7929cfd265994b87e1983ae0b3c0492302ff10b5329293",
@@ -1981,14 +1997,14 @@
         },
         {
           "path": "README.md",
-          "bytes": 13008,
-          "sha256": "42056111d6c4cb79a85690386515396e8bf78bd6525f2b536ace8bec786dd9f7",
+          "bytes": 13391,
+          "sha256": "ceb5b64c4d598ddc3a0dc76702ba2cef09ee6103bf6da0a0c04f66007a976f01",
           "role": "servable",
           "reviewed_public_examples": [
             {
               "literal": "file:///<path-to-checkout>/behaviors/taste-elegance.yaml",
-              "reason": "Exact generic file-URI placeholder, scheme token or relative local-module example in public usage documentation/diagram. Independently reviewed; no personal file location or host read. Apply only to these literals at this exact file/hash, then scan remaining text.",
-              "reviewed_file_sha256": "42056111d6c4cb79a85690386515396e8bf78bd6525f2b536ace8bec786dd9f7"
+              "reason": "Exact generic file-URI placeholder, scheme token or relative local-module example in public usage documentation/diagram. Independently reviewed; no personal file location or host read. Apply only to these literals at this exact file/hash, then scan remaining text. Existing generic literals are unchanged; filehash rebound after the reviewed four-line public migration-link addition.",
+              "reviewed_file_sha256": "ceb5b64c4d598ddc3a0dc76702ba2cef09ee6103bf6da0a0c04f66007a976f01"
             }
           ]
         },
@@ -3145,13 +3161,19 @@
       "id": "worth-using",
       "prefix": "amplifier-skill-worth-using",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-worth-using",
-      "release_source_commit": "5d6865465cccf148d78a362384aa573c4540b35e",
+      "release_source_commit": "1fde6dd980712686cec16261647bd3ad779b8446",
       "workflow": ".github/workflows/pages.yml",
       "workflow_sha256": "5630d53030b8bc468a1c63a3d2e3e875f9845feea279c483f1cd02d87bd39ec7",
       "artifact_root": "_site",
       "purpose": "Retain legacy Pages routes with verified repaired release content across the capability repository rename.",
       "legacy_route_inventory_public_commit": "15760599596a5ceffb998a119174cd2ce84e42b6",
-      "updated_unversioned_resources": [],
+      "updated_unversioned_resources": [
+        {
+          "path": "README.md",
+          "old_sha256": "ce989378d5afdf9fc973952ffb33c8844f9f7ed0a3283d329c9c4e1e10d03a23",
+          "sha256": "48650d225e439a48d8467d36d56896b8a0f796e127c13fc6ef9cdbd7654aa00d"
+        }
+      ],
       "new_resources": [],
       "unchanged_existing_media_files": 6,
       "build_controls": [
@@ -3209,14 +3231,14 @@
         },
         {
           "path": "README.md",
-          "bytes": 9380,
-          "sha256": "ce989378d5afdf9fc973952ffb33c8844f9f7ed0a3283d329c9c4e1e10d03a23",
+          "bytes": 9766,
+          "sha256": "48650d225e439a48d8467d36d56896b8a0f796e127c13fc6ef9cdbd7654aa00d",
           "role": "servable",
           "reviewed_public_examples": [
             {
               "literal": "file:///<path-to-checkout>/behaviors/worth-using.yaml",
-              "reason": "Exact generic file-URI placeholder, scheme token or relative local-module example in public usage documentation/diagram. Independently reviewed; no personal file location or host read. Apply only to these literals at this exact file/hash, then scan remaining text.",
-              "reviewed_file_sha256": "ce989378d5afdf9fc973952ffb33c8844f9f7ed0a3283d329c9c4e1e10d03a23"
+              "reason": "Exact generic file-URI placeholder, scheme token or relative local-module example in public usage documentation/diagram. Independently reviewed; no personal file location or host read. Apply only to these literals at this exact file/hash, then scan remaining text. Existing generic literals are unchanged; filehash rebound after the reviewed four-line public migration-link addition.",
+              "reviewed_file_sha256": "48650d225e439a48d8467d36d56896b8a0f796e127c13fc6ef9cdbd7654aa00d"
             }
           ]
         },
@@ -3364,7 +3386,7 @@
       "id": "build-amplifier",
       "prefix": "amplifier-skill-build-amplifier",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-build-amplifier",
-      "release_source_commit": "9abe0155ec9f74e235e77a47f1415e826715dfa5",
+      "release_source_commit": "e707fc62634d7ec9cd7eaed090785e79a735f8b9",
       "workflow": ".github/workflows/pages.yml",
       "workflow_sha256": "76a4e105fa397c1e1e208c2e2067f2cde00896daf9231dc81f835d92127aade9",
       "artifact_root": "_site",
@@ -3377,9 +3399,14 @@
           "sha256": "e554a229dd180024ffa07f3b27b5f3e104864b8632a0c2c861374a8a8bbf65c4"
         },
         {
+          "path": "README.md",
+          "old_sha256": "54e7f9d159af659e49d832195e79ce648d813fa9f84598256c3f3b3499ca11c3",
+          "sha256": "a282fba66c9c82b192b77549e42e0bfba4b58d8f2b2fb231855faa24e394ec21"
+        },
+        {
           "path": "build-record.json",
           "old_sha256": "fe1dca2144769fd9192bde41741f278594cd3b90280b81279cb8a5b916f9162c",
-          "sha256": "840a0e0859063235644869ffb43e8f9d940006209507c86bdf7dd5362620ddd8"
+          "sha256": "4d60360a8e1e7113332bb6ff7ae924961376ec190715ddc529a5537a2ce479b1"
         },
         {
           "path": "capability.json",
@@ -3585,14 +3612,14 @@
         },
         {
           "path": "README.md",
-          "bytes": 5159,
-          "sha256": "54e7f9d159af659e49d832195e79ce648d813fa9f84598256c3f3b3499ca11c3",
+          "bytes": 5553,
+          "sha256": "a282fba66c9c82b192b77549e42e0bfba4b58d8f2b2fb231855faa24e394ec21",
           "role": "servable"
         },
         {
           "path": "build-record.json",
           "bytes": 270,
-          "sha256": "840a0e0859063235644869ffb43e8f9d940006209507c86bdf7dd5362620ddd8",
+          "sha256": "4d60360a8e1e7113332bb6ff7ae924961376ec190715ddc529a5537a2ce479b1",
           "role": "servable"
         },
         {
@@ -3962,7 +3989,7 @@
       "id": "build-tauri",
       "prefix": "amplifier-skill-build-tauri",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-build-tauri",
-      "release_source_commit": "e593fb540ec71c0dfde675c4cabfd084df7bfb66",
+      "release_source_commit": "e98c2244c110603e4fc08e8379b24432a3e48906",
       "workflow": ".github/workflows/pages.yml",
       "workflow_sha256": "76a4e105fa397c1e1e208c2e2067f2cde00896daf9231dc81f835d92127aade9",
       "artifact_root": "_site",
@@ -3975,9 +4002,14 @@
           "sha256": "dcf48418ed18bb6c8ce497b2b2b5b554e55f81755b380fe70ec105a7552edde4"
         },
         {
+          "path": "README.md",
+          "old_sha256": "a2ad3b78137bf4ce7d79275339b5a856d2225d66faec736974c8c49f5fc892e3",
+          "sha256": "b51af8c821d3a787c035ee6562096e9a19b703270b89926dc19fe5f5e68f072a"
+        },
+        {
           "path": "build-record.json",
           "old_sha256": "5264e2d68f230c8b658f6b7e5d25894382584362da37b1a8cf9b65b1d47aff57",
-          "sha256": "68e006362915fbf7f41d94bd9bf2c5b97a31ff5114fb031cd433441aa8eadec4"
+          "sha256": "d9591dd0ee078312867708bfae8c022df97204df13ce5ee5cff77206f9939840"
         },
         {
           "path": "capability.json",
@@ -4048,14 +4080,14 @@
         },
         {
           "path": "README.md",
-          "bytes": 4031,
-          "sha256": "a2ad3b78137bf4ce7d79275339b5a856d2225d66faec736974c8c49f5fc892e3",
+          "bytes": 4417,
+          "sha256": "b51af8c821d3a787c035ee6562096e9a19b703270b89926dc19fe5f5e68f072a",
           "role": "servable"
         },
         {
           "path": "build-record.json",
           "bytes": 269,
-          "sha256": "68e006362915fbf7f41d94bd9bf2c5b97a31ff5114fb031cd433441aa8eadec4",
+          "sha256": "d9591dd0ee078312867708bfae8c022df97204df13ce5ee5cff77206f9939840",
           "role": "servable"
         },
         {
@@ -4202,7 +4234,7 @@
       "id": "build-with-torque",
       "prefix": "amplifier-skill-build-torque",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-build-with-torque",
-      "release_source_commit": "ac28119e89c6243ca05d76cd17f6a6b5ef585d94",
+      "release_source_commit": "45345d2f78c5c7c98b35f8757d8afa4112045d2b",
       "workflow": ".github/workflows/pages.yml",
       "workflow_sha256": "76a4e105fa397c1e1e208c2e2067f2cde00896daf9231dc81f835d92127aade9",
       "artifact_root": "_site",
@@ -4210,9 +4242,14 @@
       "legacy_route_inventory_public_commit": "fa9438343db27b3756bc937017651a6502483833",
       "updated_unversioned_resources": [
         {
+          "path": "README.md",
+          "old_sha256": "9b88cccbcb82570fceb48892747e1507515adc26f679e10ed8fd7c3b9cc8a142",
+          "sha256": "7cdb8d5eff81736fd71fb5af66c94f27df219fc0adc3e433dcaad0a9272fa2e7"
+        },
+        {
           "path": "build-record.json",
           "old_sha256": "a95be45da6a7ecab9ebeff58ec56aaf700bb1d990d6c370e6c483f50a9960c28",
-          "sha256": "c11c057db0403ded87d597fa6cdf1a008760ecb3543cc953589930f4fe1488a2"
+          "sha256": "bfbb1f051dd6b5fcf09fff502c0f5ab9cd5cf21f2109d8271f8981f5fed87a53"
         },
         {
           "path": "capability.json",
@@ -4283,14 +4320,14 @@
         },
         {
           "path": "README.md",
-          "bytes": 16746,
-          "sha256": "9b88cccbcb82570fceb48892747e1507515adc26f679e10ed8fd7c3b9cc8a142",
+          "bytes": 17139,
+          "sha256": "7cdb8d5eff81736fd71fb5af66c94f27df219fc0adc3e433dcaad0a9272fa2e7",
           "role": "servable"
         },
         {
           "path": "build-record.json",
           "bytes": 269,
-          "sha256": "c11c057db0403ded87d597fa6cdf1a008760ecb3543cc953589930f4fe1488a2",
+          "sha256": "bfbb1f051dd6b5fcf09fff502c0f5ab9cd5cf21f2109d8271f8981f5fed87a53",
           "role": "servable"
         },
         {
@@ -4437,7 +4474,7 @@
       "id": "cognitive-simulation",
       "prefix": "amplifier-skill-cognitive-simulation",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-cognitive-simulation",
-      "release_source_commit": "a8435e5937831fe39037676be51446f60dbb4a8f",
+      "release_source_commit": "49093daa9ef71eed234426fac5a4422172909d1b",
       "workflow": ".github/workflows/pages.yml",
       "workflow_sha256": "76a4e105fa397c1e1e208c2e2067f2cde00896daf9231dc81f835d92127aade9",
       "artifact_root": "_site",
@@ -4450,9 +4487,14 @@
           "sha256": "da54b1b97a748f8bf6a6af9a327d7499da7b720d2e1e0244424682e73acea7bd"
         },
         {
+          "path": "README.md",
+          "old_sha256": "06c67451c3a3cf531c86ebb16155e797ac05792d90466721c768eecfd69456d0",
+          "sha256": "07137ad7450b4d2a491e4ac35341e99f394dcfd3793362fed3427196f86c89f7"
+        },
+        {
           "path": "build-record.json",
           "old_sha256": "4fa39d0eb213d33b2a1bd3e96a333c845179670bc11666c0262175f2486c4384",
-          "sha256": "81363e14587525342cd8414ece83948f56284c0593dbd2d28d8ce515ee33e8f2"
+          "sha256": "9fb2d76b84e41be454be4018257a50282e2a33780e89d780ccace0e2e87a1ea3"
         },
         {
           "path": "capability.json",
@@ -4518,14 +4560,14 @@
         },
         {
           "path": "README.md",
-          "bytes": 4199,
-          "sha256": "06c67451c3a3cf531c86ebb16155e797ac05792d90466721c768eecfd69456d0",
+          "bytes": 4603,
+          "sha256": "07137ad7450b4d2a491e4ac35341e99f394dcfd3793362fed3427196f86c89f7",
           "role": "servable"
         },
         {
           "path": "build-record.json",
           "bytes": 269,
-          "sha256": "81363e14587525342cd8414ece83948f56284c0593dbd2d28d8ce515ee33e8f2",
+          "sha256": "9fb2d76b84e41be454be4018257a50282e2a33780e89d780ccace0e2e87a1ea3",
           "role": "servable"
         },
         {
@@ -4666,7 +4708,7 @@
       "id": "constraint-builder",
       "prefix": "amplifier-skill-constraint-builder",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-constraint-builder",
-      "release_source_commit": "703aeab72d9c419c6103b48db4a435317ea78e19",
+      "release_source_commit": "6ca7e4ac913d5f408d487f577c0a745bc67b1a25",
       "workflow": ".github/workflows/capability-pages.yml",
       "workflow_sha256": "76a4e105fa397c1e1e208c2e2067f2cde00896daf9231dc81f835d92127aade9",
       "artifact_root": "_site",
@@ -4681,12 +4723,12 @@
         {
           "path": "README.md",
           "old_sha256": "2e4bd6a60010d0863d4f32d1a0974b5dd7f18eb13e01a0cab0189d6b8e922266",
-          "sha256": "7161eea7d81d2f8baa36791ffe44f1384d58422b5856f6652bc5c9271be19693"
+          "sha256": "82d52fe14826bb31895f9a6cdfaf641daba86b68479e719db0dac0ecf704dbd2"
         },
         {
           "path": "build-record.json",
           "old_sha256": "513087ff1d694c51862be464600907c4e1f51638ca25c18a25b3465adbae5ceb",
-          "sha256": "2028038245b33a0869fca009c5711c180ed99d34c852320535dc76742320c51b"
+          "sha256": "9ee65dfcde50befb5b05797ae1c849a3b69a93ac9caf06eb11ead517561ee860"
         },
         {
           "path": "capability.json",
@@ -4774,14 +4816,14 @@
         },
         {
           "path": "README.md",
-          "bytes": 13272,
-          "sha256": "7161eea7d81d2f8baa36791ffe44f1384d58422b5856f6652bc5c9271be19693",
+          "bytes": 13672,
+          "sha256": "82d52fe14826bb31895f9a6cdfaf641daba86b68479e719db0dac0ecf704dbd2",
           "role": "servable"
         },
         {
           "path": "build-record.json",
           "bytes": 269,
-          "sha256": "2028038245b33a0869fca009c5711c180ed99d34c852320535dc76742320c51b",
+          "sha256": "9ee65dfcde50befb5b05797ae1c849a3b69a93ac9caf06eb11ead517561ee860",
           "role": "servable"
         },
         {
@@ -4916,7 +4958,7 @@
       "id": "desktop-tasks",
       "prefix": "amplifier-skill-desktop-tasks",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-desktop-tasks",
-      "release_source_commit": "fbcb2f7e0361fb98ee9d561685cb577a5a5574ca",
+      "release_source_commit": "cb40b890a5ac82535d83e60d2c900f81893a75c1",
       "workflow": ".github/workflows/capability-pages.yml",
       "workflow_sha256": "76a4e105fa397c1e1e208c2e2067f2cde00896daf9231dc81f835d92127aade9",
       "artifact_root": "_site",
@@ -4924,9 +4966,14 @@
       "legacy_route_inventory_public_commit": "b8b4bb733c6969a3e6dd84c107398be3a71e5588",
       "updated_unversioned_resources": [
         {
+          "path": "README.md",
+          "old_sha256": "7de3e72b5ed14596c9fdf630a0643cabf05b6d4ff9e6c6aeb4da40220393c6a8",
+          "sha256": "295b340a82e533c2806fafebf39ca23daf5d19098d82a3b37676ce30d5f4431c"
+        },
+        {
           "path": "build-record.json",
           "old_sha256": "92db464d4ee969d0a1dccc143d86b598f9d5eb84a8914e90cbd1a2dfb3eae269",
-          "sha256": "c92e1e20eac0fe0d4a2e091c81d630cd4261b4abeae73bc6e788808863e5bebd"
+          "sha256": "51dbf61d2281e6856e6772f57e0f0a789545d66289715c49bec81a6af3cf8fc1"
         },
         {
           "path": "capability.json",
@@ -4997,14 +5044,14 @@
         },
         {
           "path": "README.md",
-          "bytes": 3359,
-          "sha256": "7de3e72b5ed14596c9fdf630a0643cabf05b6d4ff9e6c6aeb4da40220393c6a8",
+          "bytes": 3749,
+          "sha256": "295b340a82e533c2806fafebf39ca23daf5d19098d82a3b37676ce30d5f4431c",
           "role": "servable"
         },
         {
           "path": "build-record.json",
           "bytes": 269,
-          "sha256": "c92e1e20eac0fe0d4a2e091c81d630cd4261b4abeae73bc6e788808863e5bebd",
+          "sha256": "51dbf61d2281e6856e6772f57e0f0a789545d66289715c49bec81a6af3cf8fc1",
           "role": "servable"
         },
         {
@@ -5154,7 +5201,7 @@
       "id": "fast-decisions",
       "prefix": "amplifier-smart-tool-fast-decisions",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-fast-decisions",
-      "release_source_commit": "552f84a13b4ea7d780dfac32245e532470f7b4aa",
+      "release_source_commit": "39f1a0df51376edc4b0af1b2ed0fb03ab230daad",
       "workflow": ".github/workflows/capability-pages.yml",
       "workflow_sha256": "76a4e105fa397c1e1e208c2e2067f2cde00896daf9231dc81f835d92127aade9",
       "artifact_root": "_site",
@@ -5167,9 +5214,14 @@
           "sha256": "86d7cef392e7df008bc2487cbcbd32cd6594abd3e18c50e17347c3abbe5b8d47"
         },
         {
+          "path": "README.md",
+          "old_sha256": "487c9ab9cc0a63da5500273c5621b6b44de45c362f4de844e98ef097a7dde5f9",
+          "sha256": "a26e09b28b6c041945f6c038d74c555306b712f0c8856465bff27b83753b2b9a"
+        },
+        {
           "path": "build-record.json",
           "old_sha256": "7080af61a5077c694eed8ff5bd2e4a580d02fb3e0dfbff673059609c5a55164d",
-          "sha256": "b8a5338c0087cc65e04d8da1f45b1fcda999f8d6fe00b95b3688ae7547447940"
+          "sha256": "e5a6dce5b5d7764c5e08a1b80b95f38e75906b4e8cb88979eb7e1a596052eadd"
         },
         {
           "path": "capability.json",
@@ -5240,14 +5292,14 @@
         },
         {
           "path": "README.md",
-          "bytes": 22950,
-          "sha256": "487c9ab9cc0a63da5500273c5621b6b44de45c362f4de844e98ef097a7dde5f9",
+          "bytes": 23347,
+          "sha256": "a26e09b28b6c041945f6c038d74c555306b712f0c8856465bff27b83753b2b9a",
           "role": "servable"
         },
         {
           "path": "build-record.json",
           "bytes": 269,
-          "sha256": "b8a5338c0087cc65e04d8da1f45b1fcda999f8d6fe00b95b3688ae7547447940",
+          "sha256": "e5a6dce5b5d7764c5e08a1b80b95f38e75906b4e8cb88979eb7e1a596052eadd",
           "role": "servable"
         },
         {
@@ -5370,7 +5422,7 @@
       "id": "forge",
       "prefix": "amplifier-skill-forge",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-forge",
-      "release_source_commit": "55e4da30b44db555c27b912f340779cdc599c5f6",
+      "release_source_commit": "8daab54ae7a88346ea6f8076d344e3312998ebf4",
       "workflow": ".github/workflows/capability-pages.yml",
       "workflow_sha256": "76a4e105fa397c1e1e208c2e2067f2cde00896daf9231dc81f835d92127aade9",
       "artifact_root": "_site",
@@ -5383,9 +5435,14 @@
           "sha256": "b957d97fd6f906781b06b8640109fd46315d909ae4ecd22f9c2d4d638aa32f76"
         },
         {
+          "path": "README.md",
+          "old_sha256": "794e9208d6199a40585db88841d0d9f65383928c85c0ed35bd4204315aa5e907",
+          "sha256": "167be10d621fc3af7804cf1690bf61405ec925c81d5068e1f6cb744055358064"
+        },
+        {
           "path": "build-record.json",
           "old_sha256": "93d45e1b0f687d2f4f657c7b214ce4cb032a96675f66e66c744049aaebd43fc7",
-          "sha256": "3b64bfaa3f55a6cd031c9b331b3321cc1dae702502afc42a06efcac830622eb5"
+          "sha256": "290cf70929d4c442ecfb2714bb71b237e9e53b813ed258e6482c4c042c27660f"
         },
         {
           "path": "capability.json",
@@ -5491,8 +5548,8 @@
         },
         {
           "path": "README.md",
-          "bytes": 17538,
-          "sha256": "794e9208d6199a40585db88841d0d9f65383928c85c0ed35bd4204315aa5e907",
+          "bytes": 17912,
+          "sha256": "167be10d621fc3af7804cf1690bf61405ec925c81d5068e1f6cb744055358064",
           "role": "servable"
         },
         {
@@ -5504,7 +5561,7 @@
         {
           "path": "build-record.json",
           "bytes": 270,
-          "sha256": "3b64bfaa3f55a6cd031c9b331b3321cc1dae702502afc42a06efcac830622eb5",
+          "sha256": "290cf70929d4c442ecfb2714bb71b237e9e53b813ed258e6482c4c042c27660f",
           "role": "servable"
         },
         {
@@ -5678,7 +5735,7 @@
       "id": "good-teammate",
       "prefix": "amplifier-skill-good-teammate",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-good-teammate",
-      "release_source_commit": "7be747ba8c731bdb07ee1d44ff63fccf31c38a48",
+      "release_source_commit": "0757a060e56b226df1bef8367723589d5572ad0c",
       "workflow": ".github/workflows/pages.yml",
       "workflow_sha256": "76a4e105fa397c1e1e208c2e2067f2cde00896daf9231dc81f835d92127aade9",
       "artifact_root": "_site",
@@ -5691,9 +5748,14 @@
           "sha256": "d90184737af2c5ef09de23027385ac60f685e97372d74f50527666ff082f7a13"
         },
         {
+          "path": "README.md",
+          "old_sha256": "849c98680f2fe94b05bf15ae00752b8f336b866d25497875ab12c394aee33845",
+          "sha256": "e2f780b0c641a4c198a2931b5e1715550b53d79126497a27970e8f72bcc6c969"
+        },
+        {
           "path": "build-record.json",
           "old_sha256": "427bc12dd7eb3d06319ca2dc6f56bdf3f5c7dcf23fdce6e54b4f4da21741a742",
-          "sha256": "3af4e8239999447d519487f40b632aa979ea917aef3d6f61309a5c5095587d4d"
+          "sha256": "ee5b1846caccfd6a9e9948126864ecede8947786af4f3b66314b1df9c089919c"
         },
         {
           "path": "capability.json",
@@ -5779,14 +5841,14 @@
         },
         {
           "path": "README.md",
-          "bytes": 4463,
-          "sha256": "849c98680f2fe94b05bf15ae00752b8f336b866d25497875ab12c394aee33845",
+          "bytes": 4853,
+          "sha256": "e2f780b0c641a4c198a2931b5e1715550b53d79126497a27970e8f72bcc6c969",
           "role": "servable"
         },
         {
           "path": "build-record.json",
           "bytes": 269,
-          "sha256": "3af4e8239999447d519487f40b632aa979ea917aef3d6f61309a5c5095587d4d",
+          "sha256": "ee5b1846caccfd6a9e9948126864ecede8947786af4f3b66314b1df9c089919c",
           "role": "servable"
         },
         {
@@ -5970,7 +6032,7 @@
       "id": "image-provider",
       "prefix": "amplifier-tool-imagen-provider",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-imagen-provider",
-      "release_source_commit": "b80e0166202a5030689bf743cd417cabc30cf6b4",
+      "release_source_commit": "7ce001843a815ee0e184352e00089eb276ba2c2e",
       "workflow": ".github/workflows/capability-pages.yml",
       "workflow_sha256": "76a4e105fa397c1e1e208c2e2067f2cde00896daf9231dc81f835d92127aade9",
       "artifact_root": "_site",
@@ -5978,9 +6040,14 @@
       "legacy_route_inventory_public_commit": "aa1ba12bc4104130dfbe6f2c5ae771d2de262d18",
       "updated_unversioned_resources": [
         {
+          "path": "README.md",
+          "old_sha256": "e43561944fa66bbd64ee0288c7f3750780c5b5034342d7f5fa563d50fa3abd5c",
+          "sha256": "2516330d4299e55fee2e87c9e4e48dc4f998c4695595e08c2b0d7330b112491f"
+        },
+        {
           "path": "build-record.json",
           "old_sha256": "a18057196bee7078f988b18866444e575f3b68ab700420c53c043e66ec28d5a7",
-          "sha256": "ea0ffbf8047eca3e7e026796bc28f07fd2db72ebd5bca68916867ea84dbe071e"
+          "sha256": "5d777e4cccd5f2e38ba0b8cdcd62c924169969fdafb6b930ed7d9e33c6d317c5"
         },
         {
           "path": "capability.json",
@@ -6013,14 +6080,14 @@
         },
         {
           "path": "README.md",
-          "bytes": 19260,
-          "sha256": "e43561944fa66bbd64ee0288c7f3750780c5b5034342d7f5fa563d50fa3abd5c",
+          "bytes": 19653,
+          "sha256": "2516330d4299e55fee2e87c9e4e48dc4f998c4695595e08c2b0d7330b112491f",
           "role": "servable"
         },
         {
           "path": "build-record.json",
           "bytes": 269,
-          "sha256": "ea0ffbf8047eca3e7e026796bc28f07fd2db72ebd5bca68916867ea84dbe071e",
+          "sha256": "5d777e4cccd5f2e38ba0b8cdcd62c924169969fdafb6b930ed7d9e33c6d317c5",
           "role": "servable"
         },
         {
@@ -6113,7 +6180,7 @@
       "id": "imagen-studio",
       "prefix": "amplifier-skill-imagen-studio",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-imagen-studio",
-      "release_source_commit": "18a16158d8307bd3d6cd8cf1447288bfe0f6322e",
+      "release_source_commit": "b684e19c1bd78d4a92ed3f34b777dd56f0576023",
       "workflow": ".github/workflows/pages.yml",
       "workflow_sha256": "76a4e105fa397c1e1e208c2e2067f2cde00896daf9231dc81f835d92127aade9",
       "artifact_root": "_site",
@@ -6121,9 +6188,14 @@
       "legacy_route_inventory_public_commit": "968d965fdc7248fd5e75a6d146081d3ce2f0f4df",
       "updated_unversioned_resources": [
         {
+          "path": "README.md",
+          "old_sha256": "2d7661112b078c3a115c40dde22cc39b9ad5c02a0f3c5f80651b8eee76dc4a7f",
+          "sha256": "89fe1b028edf115c57570c95e4bed3c87f19bf81b07c00e6b3bf0213a608f38a"
+        },
+        {
           "path": "build-record.json",
           "old_sha256": "aa198f66234bb24df246345051360bb5f455aebb014c64280de37cbc95e8187d",
-          "sha256": "c5cc2339e030c5e64eb55a3fc257af6fc418ad4133d5b94f106b41e596df003b"
+          "sha256": "7ea20626f36b73c1590e11fe121f39615b5c54bedc371ab812db217eeb7f5cb7"
         },
         {
           "path": "capability.json",
@@ -6219,14 +6291,14 @@
         },
         {
           "path": "README.md",
-          "bytes": 3994,
-          "sha256": "2d7661112b078c3a115c40dde22cc39b9ad5c02a0f3c5f80651b8eee76dc4a7f",
+          "bytes": 4384,
+          "sha256": "89fe1b028edf115c57570c95e4bed3c87f19bf81b07c00e6b3bf0213a608f38a",
           "role": "servable"
         },
         {
           "path": "build-record.json",
           "bytes": 270,
-          "sha256": "c5cc2339e030c5e64eb55a3fc257af6fc418ad4133d5b94f106b41e596df003b",
+          "sha256": "7ea20626f36b73c1590e11fe121f39615b5c54bedc371ab812db217eeb7f5cb7",
           "role": "servable"
         },
         {
@@ -6416,7 +6488,7 @@
       "id": "intent-to-plan",
       "prefix": "amplifier-skill-intent-to-plan",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-intent-to-plan",
-      "release_source_commit": "a372ab6f62dc28efc2f300e4e748a28fa70287aa",
+      "release_source_commit": "a803287d222177dbfe6459f76c8c3d4da3c1b36f",
       "workflow": ".github/workflows/pages.yml",
       "workflow_sha256": "76a4e105fa397c1e1e208c2e2067f2cde00896daf9231dc81f835d92127aade9",
       "artifact_root": "_site",
@@ -6429,9 +6501,14 @@
           "sha256": "da295503f9f5577689253dbb948cce3930e5e81504dd22689a248f61ae3c19d6"
         },
         {
+          "path": "README.md",
+          "old_sha256": "f89aa5a714c4e73e76fa7430464de3594a349a55a734506d9aac05fba44f607d",
+          "sha256": "516050e664264ac5fec30a1b14ceb04b5c951f1c13b5cc46a27272d7de14338a"
+        },
+        {
           "path": "build-record.json",
           "old_sha256": "7fac5aafe1d6ca967f77e87a4eb1924a864236a6f1476f665b7ce2fd8e04fcc8",
-          "sha256": "69ad7744b8896bf16717950a6afb2dbccf66522687d01ddb8417348b5f9f35da"
+          "sha256": "41ee02695984a4e92ddaca2faf2088a54e906db8fc1a7ff01c81128484ee2e18"
         },
         {
           "path": "capability.json",
@@ -6522,14 +6599,14 @@
         },
         {
           "path": "README.md",
-          "bytes": 4527,
-          "sha256": "f89aa5a714c4e73e76fa7430464de3594a349a55a734506d9aac05fba44f607d",
+          "bytes": 4919,
+          "sha256": "516050e664264ac5fec30a1b14ceb04b5c951f1c13b5cc46a27272d7de14338a",
           "role": "servable"
         },
         {
           "path": "build-record.json",
           "bytes": 270,
-          "sha256": "69ad7744b8896bf16717950a6afb2dbccf66522687d01ddb8417348b5f9f35da",
+          "sha256": "41ee02695984a4e92ddaca2faf2088a54e906db8fc1a7ff01c81128484ee2e18",
           "role": "servable"
         },
         {
@@ -6718,7 +6795,7 @@
       "id": "knowledge",
       "prefix": "amplifier-smart-tool-knowledge",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-knowledge",
-      "release_source_commit": "e173e2d7d482b3820f85969c97d0090a315e7025",
+      "release_source_commit": "33d92f4764f3d8459722a3c90ca384aa59dc6e5e",
       "workflow": ".github/workflows/capability-pages.yml",
       "workflow_sha256": "76a4e105fa397c1e1e208c2e2067f2cde00896daf9231dc81f835d92127aade9",
       "artifact_root": "_site",
@@ -6726,9 +6803,14 @@
       "legacy_route_inventory_public_commit": "5a6fa019a47fa9036b4efae6c09b827931b38f9f",
       "updated_unversioned_resources": [
         {
+          "path": "README.md",
+          "old_sha256": "eefc6a71a7813cf0c552ec3b61279f81028d36bf1ace009a2f029876b8229f25",
+          "sha256": "0510622e859fb0d23375214668b75dcd4a152c5d4bc2646bca4f3b3221575c47"
+        },
+        {
           "path": "build-record.json",
           "old_sha256": "df9ce823eb016a0ceb826ac83db9038e3fa517ce39d28d3ae68ad867dbfd9ba4",
-          "sha256": "f90f9ddf3a16c87ab9886d267eb109d668ba99fa03201442e0eb5b01ab7bb5a3"
+          "sha256": "90a3bbae9eeef36d57f09c9cf5563512cbfe2207bd95ddb0794f8453cfac5615"
         },
         {
           "path": "capability.json",
@@ -6794,14 +6876,14 @@
         },
         {
           "path": "README.md",
-          "bytes": 14469,
-          "sha256": "eefc6a71a7813cf0c552ec3b61279f81028d36bf1ace009a2f029876b8229f25",
+          "bytes": 14856,
+          "sha256": "0510622e859fb0d23375214668b75dcd4a152c5d4bc2646bca4f3b3221575c47",
           "role": "servable"
         },
         {
           "path": "build-record.json",
           "bytes": 269,
-          "sha256": "f90f9ddf3a16c87ab9886d267eb109d668ba99fa03201442e0eb5b01ab7bb5a3",
+          "sha256": "90a3bbae9eeef36d57f09c9cf5563512cbfe2207bd95ddb0794f8453cfac5615",
           "role": "servable"
         },
         {
@@ -6918,7 +7000,7 @@
       "id": "long-read",
       "prefix": "amplifier-skill-long-read",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-long-read",
-      "release_source_commit": "c22afda70dce72c4773d7532cb2c1aae650643b8",
+      "release_source_commit": "7323c78a5789b726a62f7782f2f754106a6246ae",
       "workflow": ".github/workflows/capability-pages.yml",
       "workflow_sha256": "76a4e105fa397c1e1e208c2e2067f2cde00896daf9231dc81f835d92127aade9",
       "artifact_root": "_site",
@@ -6926,9 +7008,14 @@
       "legacy_route_inventory_public_commit": "3d70b57462352b6c6072c1618bf8423878ebf1f7",
       "updated_unversioned_resources": [
         {
+          "path": "README.md",
+          "old_sha256": "c0eb7fa8889305c7ed22d1cab6ac69ab23947671bcfe96e9d4c3f20eba5834a7",
+          "sha256": "bd7bf15bde360d00d661805d15f30418f217fa9cc130abdac5dafe863a3d3350"
+        },
+        {
           "path": "build-record.json",
           "old_sha256": "80b31e7aa3d428625888b7fe8bec9102093ff5ac971e299f67762923e3237191",
-          "sha256": "8543eb4535e2ed64938a5735119525cd460dcf609b6f99f0b4d5b2e600a8b34a"
+          "sha256": "a1526ed03d1bcfe140e985fddd3ae34e6f435582f877fd3a3a3067ff41fe2b40"
         },
         {
           "path": "capability.json",
@@ -6989,14 +7076,14 @@
         },
         {
           "path": "README.md",
-          "bytes": 12839,
-          "sha256": "c0eb7fa8889305c7ed22d1cab6ac69ab23947671bcfe96e9d4c3f20eba5834a7",
+          "bytes": 13221,
+          "sha256": "bd7bf15bde360d00d661805d15f30418f217fa9cc130abdac5dafe863a3d3350",
           "role": "servable"
         },
         {
           "path": "build-record.json",
           "bytes": 269,
-          "sha256": "8543eb4535e2ed64938a5735119525cd460dcf609b6f99f0b4d5b2e600a8b34a",
+          "sha256": "a1526ed03d1bcfe140e985fddd3ae34e6f435582f877fd3a3a3067ff41fe2b40",
           "role": "servable"
         },
         {
@@ -7107,7 +7194,7 @@
       "id": "memory",
       "prefix": "amplifier-skill-memory",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-memory",
-      "release_source_commit": "07e3f8b2dd33a25ac8c21a866b6073d01b1fbf1a",
+      "release_source_commit": "c52cabd4066484e6246eea3d467e1a50e9064f0e",
       "workflow": ".github/workflows/capability-pages.yml",
       "workflow_sha256": "76a4e105fa397c1e1e208c2e2067f2cde00896daf9231dc81f835d92127aade9",
       "artifact_root": "_site",
@@ -7115,9 +7202,14 @@
       "legacy_route_inventory_public_commit": "36e0b608fb5847753b400f7a0fa13d4b87307ab8",
       "updated_unversioned_resources": [
         {
+          "path": "README.md",
+          "old_sha256": "8fa22bfb38523392bb7d541502fc902ad86b79aec36efef7a04873764bdce0ae",
+          "sha256": "9781698f45e686bb28df29f62a9cdc883c6ced44406dd00fc555e9b4f498ebfe"
+        },
+        {
           "path": "build-record.json",
           "old_sha256": "f3f28b35dd62c783261779bf68af46e045e6d7fef7ad7567a0d5d911d319bb88",
-          "sha256": "db0615c1e6e7fb4ddaf49e8b87b9605f921e01b16a5a8857bb4a2f47bf43a47d"
+          "sha256": "76c38db77a6a28a1c8e61bfd058297a62bb9e0bfd16f36b77fece76a3c9cc214"
         },
         {
           "path": "capability.json",
@@ -7193,14 +7285,14 @@
         },
         {
           "path": "README.md",
-          "bytes": 21409,
-          "sha256": "8fa22bfb38523392bb7d541502fc902ad86b79aec36efef7a04873764bdce0ae",
+          "bytes": 21785,
+          "sha256": "9781698f45e686bb28df29f62a9cdc883c6ced44406dd00fc555e9b4f498ebfe",
           "role": "servable"
         },
         {
           "path": "build-record.json",
           "bytes": 269,
-          "sha256": "db0615c1e6e7fb4ddaf49e8b87b9605f921e01b16a5a8857bb4a2f47bf43a47d",
+          "sha256": "76c38db77a6a28a1c8e61bfd058297a62bb9e0bfd16f36b77fece76a3c9cc214",
           "role": "servable"
         },
         {
@@ -7341,7 +7433,7 @@
       "id": "migrate",
       "prefix": "amplifier-skill-migrate",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-migrate",
-      "release_source_commit": "dccb86232bad9899f3c442a027620853ca7acd90",
+      "release_source_commit": "ec42e8281a668e2f91f2de4c25eb18b81de56df9",
       "workflow": ".github/workflows/pages.yml",
       "workflow_sha256": "76a4e105fa397c1e1e208c2e2067f2cde00896daf9231dc81f835d92127aade9",
       "artifact_root": "_site",
@@ -7354,9 +7446,14 @@
           "sha256": "48c3293e7e13e1ebf6378d451a557ed3ca5a9774002b0bf2fc26bb7a35d274ab"
         },
         {
+          "path": "README.md",
+          "old_sha256": "4dc29f465d1aad978d1b6ca3d8f77ee26916f35ef685365672a565fbf94dfb00",
+          "sha256": "6cdb0e9dfbb92fe6b2bfd9ca50acb3cb4d9a3e2689479f8cb44632ca7ceee580"
+        },
+        {
           "path": "build-record.json",
           "old_sha256": "23d8809c79cf549e2fa014713e52ebeed76b807f831edc38bc4074b538588bb7",
-          "sha256": "aeb657dd673eeb567c48543bf5399ce2a2474dd28c138e2f7e1167d72d208bd7"
+          "sha256": "2a04c70720c587cf411e27b246f6ef0dc209500fb3c18e4d17406f8dfecf4352"
         },
         {
           "path": "capability.json",
@@ -7422,14 +7519,14 @@
         },
         {
           "path": "README.md",
-          "bytes": 4051,
-          "sha256": "4dc29f465d1aad978d1b6ca3d8f77ee26916f35ef685365672a565fbf94dfb00",
+          "bytes": 4429,
+          "sha256": "6cdb0e9dfbb92fe6b2bfd9ca50acb3cb4d9a3e2689479f8cb44632ca7ceee580",
           "role": "servable"
         },
         {
           "path": "build-record.json",
           "bytes": 269,
-          "sha256": "aeb657dd673eeb567c48543bf5399ce2a2474dd28c138e2f7e1167d72d208bd7",
+          "sha256": "2a04c70720c587cf411e27b246f6ef0dc209500fb3c18e4d17406f8dfecf4352",
           "role": "servable"
         },
         {
@@ -7570,7 +7667,7 @@
       "id": "pipeline",
       "prefix": "amplifier-skill-pipeline",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-pipeline",
-      "release_source_commit": "262c914939216a15ecfdaf594b926d93a75e9629",
+      "release_source_commit": "c59e58d5817ef5d09b21ea7d73fbf54738e1845e",
       "workflow": ".github/workflows/capability-pages.yml",
       "workflow_sha256": "76a4e105fa397c1e1e208c2e2067f2cde00896daf9231dc81f835d92127aade9",
       "artifact_root": "_site",
@@ -7578,9 +7675,14 @@
       "legacy_route_inventory_public_commit": "b1dd621c6cefb41229a83a1a10a865be3a8524f7",
       "updated_unversioned_resources": [
         {
+          "path": "README.md",
+          "old_sha256": "9539ff22d29f5a7c7fab69378500f35001e8874183853765e966a009ef079703",
+          "sha256": "1ad191ff0ce4c320a9506a0a0407fb9f78db329ddae2a98452904d762a107acf"
+        },
+        {
           "path": "build-record.json",
           "old_sha256": "3aee64b96602ce186c5a4f807ab53152670e889b57b6255e75a79522a6ca3aa6",
-          "sha256": "254c73df422711c31064a3be60cacece6ee1b693243fac25fdc134011f35ef30"
+          "sha256": "37e9eee54079d4cf0898f7921ec98b52b64f85a4a9eb64ef1c0c5fb5494c3068"
         },
         {
           "path": "capability.json",
@@ -7711,14 +7813,14 @@
         },
         {
           "path": "README.md",
-          "bytes": 5682,
-          "sha256": "9539ff22d29f5a7c7fab69378500f35001e8874183853765e966a009ef079703",
+          "bytes": 6062,
+          "sha256": "1ad191ff0ce4c320a9506a0a0407fb9f78db329ddae2a98452904d762a107acf",
           "role": "servable"
         },
         {
           "path": "build-record.json",
           "bytes": 270,
-          "sha256": "254c73df422711c31064a3be60cacece6ee1b693243fac25fdc134011f35ef30",
+          "sha256": "37e9eee54079d4cf0898f7921ec98b52b64f85a4a9eb64ef1c0c5fb5494c3068",
           "role": "servable"
         },
         {
@@ -7913,7 +8015,7 @@
       "id": "preceptor",
       "prefix": "amplifier-skill-preceptor",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-preceptor",
-      "release_source_commit": "f7cfb79b6789bf3726f589c78742e1105605adda",
+      "release_source_commit": "ba16f0ee28eed6c8db59f695fe0ebcb2a54c9d1d",
       "workflow": ".github/workflows/capability-pages.yml",
       "workflow_sha256": "76a4e105fa397c1e1e208c2e2067f2cde00896daf9231dc81f835d92127aade9",
       "artifact_root": "_site",
@@ -7921,9 +8023,14 @@
       "legacy_route_inventory_public_commit": "959a60fb5a761be91ca9da410babaca2b62cc2f3",
       "updated_unversioned_resources": [
         {
+          "path": "README.md",
+          "old_sha256": "608293dc0500e063533250fcb9e867fd85fe112e8fdbf58c2267db5d4f687092",
+          "sha256": "32b609f0034bf615d0fe2d522721bdeb104d7952cb782a7b0a27e158203ce770"
+        },
+        {
           "path": "build-record.json",
           "old_sha256": "2b69a673f2c1e150b6e255f4bf36080d01cd671c4839c822bc523b3baeeee300",
-          "sha256": "d8d27aea48bf6e2156fab994c1fb7093cafb8d4e7e35032faa135273ba28fa45"
+          "sha256": "1802feec685b78cc128aeafc4ab0ce003a28c2b83069cb6605d073a18ec945b4"
         },
         {
           "path": "capability.json",
@@ -7994,14 +8101,14 @@
         },
         {
           "path": "README.md",
-          "bytes": 17264,
-          "sha256": "608293dc0500e063533250fcb9e867fd85fe112e8fdbf58c2267db5d4f687092",
+          "bytes": 17646,
+          "sha256": "32b609f0034bf615d0fe2d522721bdeb104d7952cb782a7b0a27e158203ce770",
           "role": "servable"
         },
         {
           "path": "build-record.json",
           "bytes": 269,
-          "sha256": "d8d27aea48bf6e2156fab994c1fb7093cafb8d4e7e35032faa135273ba28fa45",
+          "sha256": "1802feec685b78cc128aeafc4ab0ce003a28c2b83069cb6605d073a18ec945b4",
           "role": "servable"
         },
         {
@@ -8124,13 +8231,19 @@
       "id": "project-handoff",
       "prefix": "amplifier-skill-project-handoff",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-project-handoff",
-      "release_source_commit": "71437d90b162ac856ef6b5feb50eb5ed53446ae8",
+      "release_source_commit": "13aa8fbdf9a1926b929680721edfdfd68a2e67a4",
       "workflow": ".github/workflows/pages.yml",
       "workflow_sha256": "5630d53030b8bc468a1c63a3d2e3e875f9845feea279c483f1cd02d87bd39ec7",
       "artifact_root": "_site",
       "purpose": "Retain legacy Pages routes with verified repaired release content across the capability repository rename.",
       "legacy_route_inventory_public_commit": "c30b267e0536904d715194cf6928f04b1bab7cda",
-      "updated_unversioned_resources": [],
+      "updated_unversioned_resources": [
+        {
+          "path": "README.md",
+          "old_sha256": "4fab54b6b8a76b5058c8a67e2a9dc50a1a83582242cbc8309be590abcdc6f3e8",
+          "sha256": "56345a556052e8100af5db55b84ef38c2b982060878bbacb4e7fcb70811c3291"
+        }
+      ],
       "new_resources": [],
       "unchanged_existing_media_files": 6,
       "build_controls": [],
@@ -8179,8 +8292,8 @@
         },
         {
           "path": "README.md",
-          "bytes": 8557,
-          "sha256": "4fab54b6b8a76b5058c8a67e2a9dc50a1a83582242cbc8309be590abcdc6f3e8",
+          "bytes": 8951,
+          "sha256": "56345a556052e8100af5db55b84ef38c2b982060878bbacb4e7fcb70811c3291",
           "role": "servable"
         },
         {
@@ -10320,7 +10433,7 @@
       "id": "research",
       "prefix": "amplifier-skill-research",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-research",
-      "release_source_commit": "fd325286763db2610742bf85b2453d11686df9e8",
+      "release_source_commit": "deaf886623144c79821d6006d5f6fdcdfa1c52f4",
       "workflow": ".github/workflows/pages.yml",
       "workflow_sha256": "76a4e105fa397c1e1e208c2e2067f2cde00896daf9231dc81f835d92127aade9",
       "artifact_root": "_site",
@@ -10333,9 +10446,14 @@
           "sha256": "1f03931665376e8a62d282c03a859a504b52e57b9312e572048635541096a2cb"
         },
         {
+          "path": "README.md",
+          "old_sha256": "332e207f7cae3d6c5a220dd57b5e827dfcc7c74c7ce84ec2d77af20969841474",
+          "sha256": "36a1b38259fd3d7faabcaa806fc0295ef8e1aca31631fea6f5b9e54abc0a8081"
+        },
+        {
           "path": "build-record.json",
           "old_sha256": "38a0debfdb56333515f4979b1a299bee1f3db1b2b38e9770a003efe8f4c8c024",
-          "sha256": "8bd26aabbc14ee1ba8d0873756f8c9ad1d8afb8ca7fd13c79144680923aa2bbe"
+          "sha256": "023dcf1b688f1ca738cc25148ee66ceee67b725dd549287117f6ca5f5936650f"
         },
         {
           "path": "capability.json",
@@ -10546,14 +10664,14 @@
         },
         {
           "path": "README.md",
-          "bytes": 4017,
-          "sha256": "332e207f7cae3d6c5a220dd57b5e827dfcc7c74c7ce84ec2d77af20969841474",
+          "bytes": 4397,
+          "sha256": "36a1b38259fd3d7faabcaa806fc0295ef8e1aca31631fea6f5b9e54abc0a8081",
           "role": "servable"
         },
         {
           "path": "build-record.json",
           "bytes": 270,
-          "sha256": "8bd26aabbc14ee1ba8d0873756f8c9ad1d8afb8ca7fd13c79144680923aa2bbe",
+          "sha256": "023dcf1b688f1ca738cc25148ee66ceee67b725dd549287117f6ca5f5936650f",
           "role": "servable"
         },
         {
@@ -10885,7 +11003,7 @@
       "id": "session-doctor",
       "prefix": "amplifier-skill-session-doctor",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-session-doctor",
-      "release_source_commit": "071fbaf6bfba68340234fe0ddb52ab8b917d3411",
+      "release_source_commit": "e1e80dfb357d808191e9c66ac7c674b2e6d8caea",
       "workflow": ".github/workflows/capability-pages.yml",
       "workflow_sha256": "76a4e105fa397c1e1e208c2e2067f2cde00896daf9231dc81f835d92127aade9",
       "artifact_root": "_site",
@@ -10895,12 +11013,12 @@
         {
           "path": "README.md",
           "old_sha256": "14844e645207a469b27a5b09578a8e3c50856237c836764ae180f513efe72ce1",
-          "sha256": "e9f016d9334475e70d51d28aec47540d54a0c4d5356d87bab238252bcd59b558"
+          "sha256": "616c48b8f774bca83343b9d263a5dc5ad8a37875218d7478a4a6409aea267f39"
         },
         {
           "path": "build-record.json",
           "old_sha256": "a7c0fe7b9842cc366365df957ae1f2ef37c5e90538965d3113c57d302ff7d658",
-          "sha256": "53694402923985e56bf3824ed79117417c4e61a79ecf85e47090dba8015f1b33"
+          "sha256": "8ffd9a52ee88036cbe51b97063dd71ceb076b2435aa7327214065a448a814a7f"
         },
         {
           "path": "capability.json",
@@ -10956,21 +11074,21 @@
         },
         {
           "path": "README.md",
-          "bytes": 17544,
-          "sha256": "e9f016d9334475e70d51d28aec47540d54a0c4d5356d87bab238252bcd59b558",
+          "bytes": 17936,
+          "sha256": "616c48b8f774bca83343b9d263a5dc5ad8a37875218d7478a4a6409aea267f39",
           "role": "servable",
           "reviewed_public_examples": [
             {
               "literal": "file:///path/to/amplifier-bundle-provider-doctor",
-              "reason": "Documented generic local-module URI example; no actual person or device location.",
-              "reviewed_file_sha256": "e9f016d9334475e70d51d28aec47540d54a0c4d5356d87bab238252bcd59b558"
+              "reason": "Documented generic local-module URI example; no actual person or device location. Existing generic literals are unchanged; filehash rebound after the reviewed four-line public migration-link addition.",
+              "reviewed_file_sha256": "616c48b8f774bca83343b9d263a5dc5ad8a37875218d7478a4a6409aea267f39"
             }
           ]
         },
         {
           "path": "build-record.json",
           "bytes": 269,
-          "sha256": "53694402923985e56bf3824ed79117417c4e61a79ecf85e47090dba8015f1b33",
+          "sha256": "8ffd9a52ee88036cbe51b97063dd71ceb076b2435aa7327214065a448a814a7f",
           "role": "servable"
         },
         {
@@ -11081,7 +11199,7 @@
       "id": "team-access",
       "prefix": "amplifier-tool-team-access",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-team-access",
-      "release_source_commit": "2f76e2084a7c1225cea00f2bb4ed1c19ff8d34bc",
+      "release_source_commit": "7a6545178bc89b20e71a3b40a5d27c82c1e87deb",
       "workflow": ".github/workflows/capability-pages.yml",
       "workflow_sha256": "76a4e105fa397c1e1e208c2e2067f2cde00896daf9231dc81f835d92127aade9",
       "artifact_root": "_site",
@@ -11096,12 +11214,12 @@
         {
           "path": "README.md",
           "old_sha256": "74d1fed88ca690f575e57e98f0368df24fefb9415930c3cd2486657834a79540",
-          "sha256": "3501bd5807252226ceda21192335fa20022c3961bde6f261b83ba683919f3bdd"
+          "sha256": "40dd934dc14720389d5e388e15859302b211173d91e8832535e63e6468b557a3"
         },
         {
           "path": "build-record.json",
           "old_sha256": "bfbd423e6854c4012963cbc5773b3f567625c09fb5aa7e323768b847988a3de8",
-          "sha256": "d764d758fa35ff3b6a4f024652d8878717056636c91f519d723551df7452d323"
+          "sha256": "80f4cfd1652513a70076c655521d9d8c1fd03efcac818cd16bbbc3b19e8617ab"
         },
         {
           "path": "capability.json",
@@ -11134,14 +11252,14 @@
         },
         {
           "path": "README.md",
-          "bytes": 15522,
-          "sha256": "3501bd5807252226ceda21192335fa20022c3961bde6f261b83ba683919f3bdd",
+          "bytes": 15907,
+          "sha256": "40dd934dc14720389d5e388e15859302b211173d91e8832535e63e6468b557a3",
           "role": "servable"
         },
         {
           "path": "build-record.json",
           "bytes": 269,
-          "sha256": "d764d758fa35ff3b6a4f024652d8878717056636c91f519d723551df7452d323",
+          "sha256": "80f4cfd1652513a70076c655521d9d8c1fd03efcac818cd16bbbc3b19e8617ab",
           "role": "servable"
         },
         {
@@ -11222,7 +11340,7 @@
       "id": "teaserkit",
       "prefix": "amplifier-smart-tool-teaserkit",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-teaserkit",
-      "release_source_commit": "01411e1eec778312f609ae73a6d2baac790a0f0a",
+      "release_source_commit": "f757dbc569de1d9253e2a5dc5f59023602bfd2e4",
       "workflow": ".github/workflows/capability-pages.yml",
       "workflow_sha256": "76a4e105fa397c1e1e208c2e2067f2cde00896daf9231dc81f835d92127aade9",
       "artifact_root": "_site",
@@ -11235,9 +11353,14 @@
           "sha256": "7b4bd5b69da17c6cb6a4856a9c187d5e08791c3b96bb0e167d3fbd9e242297d4"
         },
         {
+          "path": "README.md",
+          "old_sha256": "1761e593c41df8a2e4e34c55f510b12101b32ba79c689079724e388bb52b5259",
+          "sha256": "2ef3c35f2216c910adc1b8441f10b4e7fdcbfe21120b54e5df3247d6927f86e8"
+        },
+        {
           "path": "build-record.json",
           "old_sha256": "d18eb2a57de81ff030d7ccdfe50295dc2825bb57b6fe5139ba422928de02b49e",
-          "sha256": "0d68eb4531ac8122036dbe08721e9c79a90c1442be7b49f0f71215480e8139f2"
+          "sha256": "4aef563750d6123e0d44d8a349f7513a977531326667e9464a5ec616ddc77daa"
         },
         {
           "path": "capability.json",
@@ -11270,14 +11393,14 @@
         },
         {
           "path": "README.md",
-          "bytes": 10350,
-          "sha256": "1761e593c41df8a2e4e34c55f510b12101b32ba79c689079724e388bb52b5259",
+          "bytes": 10737,
+          "sha256": "2ef3c35f2216c910adc1b8441f10b4e7fdcbfe21120b54e5df3247d6927f86e8",
           "role": "servable"
         },
         {
           "path": "build-record.json",
           "bytes": 269,
-          "sha256": "0d68eb4531ac8122036dbe08721e9c79a90c1442be7b49f0f71215480e8139f2",
+          "sha256": "4aef563750d6123e0d44d8a349f7513a977531326667e9464a5ec616ddc77daa",
           "role": "servable"
         },
         {
@@ -11370,7 +11493,7 @@
       "id": "transfer",
       "prefix": "amplifier-skill-transfer",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-transfer",
-      "release_source_commit": "e02bc8ddfb19f68466429cae6977e2769838837a",
+      "release_source_commit": "434cfe34755c6669beb2c2c45396951309c7bbad",
       "workflow": ".github/workflows/pages.yml",
       "workflow_sha256": "76a4e105fa397c1e1e208c2e2067f2cde00896daf9231dc81f835d92127aade9",
       "artifact_root": "_site",
@@ -11383,9 +11506,14 @@
           "sha256": "9b0a2934f8fd75c0bf5d8f6d9c6922df769e58976a6b9595271043310558de09"
         },
         {
+          "path": "README.md",
+          "old_sha256": "1d601b553a7c6a14ea33b807f0d1207f12671b061f2e79bce9b22494cc1f1e86",
+          "sha256": "4a4120b0d7e72cf681ee3286dab8540d0fa7adf729ae8cb8cd036612261b5693"
+        },
+        {
           "path": "build-record.json",
           "old_sha256": "5edfbda98f202e8c26b4a81dc9040fa6d07b17274a2cc189530672f118021a02",
-          "sha256": "0e0093eaf930c564182d294a998eb309b91308579d0196eed2cbb20a3936a434"
+          "sha256": "23b9245040068b3be99ef2322e5a5d5a7656ef0debe9af2d8b149404492690ad"
         },
         {
           "path": "capability.json",
@@ -11446,14 +11574,14 @@
         },
         {
           "path": "README.md",
-          "bytes": 4054,
-          "sha256": "1d601b553a7c6a14ea33b807f0d1207f12671b061f2e79bce9b22494cc1f1e86",
+          "bytes": 4434,
+          "sha256": "4a4120b0d7e72cf681ee3286dab8540d0fa7adf729ae8cb8cd036612261b5693",
           "role": "servable"
         },
         {
           "path": "build-record.json",
           "bytes": 269,
-          "sha256": "0e0093eaf930c564182d294a998eb309b91308579d0196eed2cbb20a3936a434",
+          "sha256": "23b9245040068b3be99ef2322e5a5d5a7656ef0debe9af2d8b149404492690ad",
           "role": "servable"
         },
         {
@@ -11588,7 +11716,7 @@
       "id": "ux-ergonomics",
       "prefix": "amplifier-skill-ux-ergonomics",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-ux-ergonomics",
-      "release_source_commit": "e9549309d99f5982096d78d2994a9c45c8016508",
+      "release_source_commit": "342778f4e8f51fe692fc26cdab00f0ce95fc1e6d",
       "workflow": ".github/workflows/pages.yml",
       "workflow_sha256": "76a4e105fa397c1e1e208c2e2067f2cde00896daf9231dc81f835d92127aade9",
       "artifact_root": "_site",
@@ -11601,9 +11729,14 @@
           "sha256": "6fb03aa65f78960c79f5c582437bacdf22f31a4491e6456eabc3f731e735118d"
         },
         {
+          "path": "README.md",
+          "old_sha256": "b143520f6f441ff55999568d5a930ec36ce674e3be05458cd797649105a10de2",
+          "sha256": "b86e8d76caab9b2fc6312257fe4aa65394bfb9a1af6b45b62f5cd7c0b213ed40"
+        },
+        {
           "path": "build-record.json",
           "old_sha256": "d68b4f3d02b410199dcf0a9ab4fa8a6324c20c75089f5ba7c277f863afad41eb",
-          "sha256": "58833734a276537386b83d141d346562a61cfd56c4458d0aba244c4f7db2b66d"
+          "sha256": "483a57fa0911a4469bae10558c00bab022f0be4e6cfa2e9ea97afe296ad6e5f8"
         },
         {
           "path": "capability.json",
@@ -11779,14 +11912,14 @@
         },
         {
           "path": "README.md",
-          "bytes": 4460,
-          "sha256": "b143520f6f441ff55999568d5a930ec36ce674e3be05458cd797649105a10de2",
+          "bytes": 4850,
+          "sha256": "b86e8d76caab9b2fc6312257fe4aa65394bfb9a1af6b45b62f5cd7c0b213ed40",
           "role": "servable"
         },
         {
           "path": "build-record.json",
           "bytes": 270,
-          "sha256": "58833734a276537386b83d141d346562a61cfd56c4458d0aba244c4f7db2b66d",
+          "sha256": "483a57fa0911a4469bae10558c00bab022f0be4e6cfa2e9ea97afe296ad6e5f8",
           "role": "servable"
         },
         {
@@ -12071,7 +12204,7 @@
       "id": "unknowns",
       "prefix": "amplifier-skill-unknowns",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-unknowns",
-      "release_source_commit": "ea0b8ccec92f423c5831fa9834af074a1db4a0df",
+      "release_source_commit": "29571f50bffcca75f2887e5263654c4f23fff529",
       "workflow": ".github/workflows/capability-pages.yml",
       "workflow_sha256": "76a4e105fa397c1e1e208c2e2067f2cde00896daf9231dc81f835d92127aade9",
       "artifact_root": "_site",
@@ -12079,9 +12212,14 @@
       "legacy_route_inventory_public_commit": "300f70890a7824a0f5bd84b337b5a875f200242f",
       "updated_unversioned_resources": [
         {
+          "path": "README.md",
+          "old_sha256": "27c73258f02bb17a24a4af96e6c11c3c250e9bfb982dafd33cf5b9107e8aac9b",
+          "sha256": "37f8b7692d12f1cbed862736b0c506ffdea24cd06db012821a6b26585b62166f"
+        },
+        {
           "path": "build-record.json",
           "old_sha256": "5f20e147ff029bf0edb16078814e37ce44c5b7cd84d7ef583be5ae0ac7ea9b0c",
-          "sha256": "2a242d30a2696d6f64160229951df7d0122cc94d5b3b11a7cc945384a9a11b78"
+          "sha256": "27a52088e7e53ed30689be4c0496efa2b417be0a53a571539ae38ae846b07d0e"
         },
         {
           "path": "capability.json",
@@ -12147,14 +12285,14 @@
         },
         {
           "path": "README.md",
-          "bytes": 9369,
-          "sha256": "27c73258f02bb17a24a4af96e6c11c3c250e9bfb982dafd33cf5b9107e8aac9b",
+          "bytes": 9749,
+          "sha256": "37f8b7692d12f1cbed862736b0c506ffdea24cd06db012821a6b26585b62166f",
           "role": "servable"
         },
         {
           "path": "build-record.json",
           "bytes": 269,
-          "sha256": "2a242d30a2696d6f64160229951df7d0122cc94d5b3b11a7cc945384a9a11b78",
+          "sha256": "27a52088e7e53ed30689be4c0496efa2b417be0a53a571539ae38ae846b07d0e",
           "role": "servable"
         },
         {
@@ -12271,7 +12409,7 @@
       "id": "data-substrate",
       "prefix": "amplifier-tool-data",
       "source_repository": "https://github.com/michaeljabbour/amplifier-capability-data",
-      "release_source_commit": "225242915d40c1d0411d4e0619b338c5b2de7a83",
+      "release_source_commit": "310cec6913e4697f04a26ff3a0b1fbd0859a6771",
       "workflow": ".github/workflows/capability-pages.yml",
       "workflow_sha256": "76a4e105fa397c1e1e208c2e2067f2cde00896daf9231dc81f835d92127aade9",
       "artifact_root": "_site",
@@ -12279,9 +12417,14 @@
       "legacy_route_inventory_public_commit": "02427fd458c7fa4353b3a6384f51df919e8a4b72",
       "updated_unversioned_resources": [
         {
+          "path": "README.md",
+          "old_sha256": "0b5895d39c6cb5a3dec03639825bbe31ca825abeb319e54e8bf66b12e0eab7b3",
+          "sha256": "ce977e842a1e77d91d4a33503913543504742d59bc2d8d4483b12a9a004a24b9"
+        },
+        {
           "path": "build-record.json",
           "old_sha256": "33ec256d5b037e3047fe79e768cdaae842067edb0b7a48644274687736d72ed4",
-          "sha256": "93183efae7046f7fd39fabeb6a53e7ccd579a85a05914f8742e135f73213a24a"
+          "sha256": "7fc67b6c99645a82a388242dfea2fa5d7a26940f17afb33c4a88bb5e9983b225"
         },
         {
           "path": "capability.json",
@@ -12314,8 +12457,8 @@
         },
         {
           "path": "README.md",
-          "bytes": 4548,
-          "sha256": "0b5895d39c6cb5a3dec03639825bbe31ca825abeb319e54e8bf66b12e0eab7b3",
+          "bytes": 4919,
+          "sha256": "ce977e842a1e77d91d4a33503913543504742d59bc2d8d4483b12a9a004a24b9",
           "role": "servable"
         },
         {
@@ -12327,7 +12470,7 @@
         {
           "path": "build-record.json",
           "bytes": 269,
-          "sha256": "93183efae7046f7fd39fabeb6a53e7ccd579a85a05914f8742e135f73213a24a",
+          "sha256": "7fc67b6c99645a82a388242dfea2fa5d7a26940f17afb33c4a88bb5e9983b225",
           "role": "servable"
         },
         {

@@ -177,3 +177,7 @@ published July 3, 2026.
 A reference copy of the article and its images is kept locally in `docs/`
 (gitignored -- the original content is Thariq's and is not redistributed with
 this repo; follow the link above for the published version).
+
+## Repository migration
+
+This repository was renamed from `amplifier-skill-unknowns` to `amplifier-capability-unknowns`. Existing installed method names, bundle aliases and native interfaces stay the same. See the [migration guide](https://michaeljabbour.github.io/migration/) and [repository map](https://michaeljabbour.github.io/migration/mapping.json) for source URL updates.

@@ -129,3 +129,7 @@ amplifier-bundle-cicd/
 ## License
 
 MIT
+
+## Repository migration
+
+This repository was renamed from `amplifier-skill-pipeline` to `amplifier-capability-pipeline`. Existing installed method names, bundle aliases and native interfaces stay the same. See the [migration guide](https://michaeljabbour.github.io/migration/) and [repository map](https://michaeljabbour.github.io/migration/mapping.json) for source URL updates.
