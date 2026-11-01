@@ -144,6 +144,51 @@ class JourneyMarkup(HTMLParser):
         ]
 
 
+def canonical_navigation_errors(catalogue, media, migration):
+    """Reject legacy or off-repository navigation without rewriting asset URLs."""
+    errors = []
+    projects = catalogue.get("projects", [])
+    rows = migration.get("repositories", [])
+    ids = [project.get("id") for project in projects]
+    row_ids = [row.get("id") for row in rows]
+    if (
+        migration.get("schema_version") != "amplifier-repository-migration/v1"
+        or len(row_ids) != len(set(row_ids))
+        or set(row_ids) != set(ids)
+    ):
+        errors.append("Canonical migration map must cover each public capability exactly once")
+    by_id = {row.get("id"): row for row in rows}
+    films = media.get("films", {})
+    for project in projects:
+        ident = project.get("id", "<missing>")
+        row = by_id.get(ident)
+        if row is None:
+            continue
+        repository = row.get("new_repository", "")
+        repo_url = "https://github.com/michaeljabbour/" + repository
+        site_url = ORIGIN + "/" + repository + "/"
+        if (
+            not re.fullmatch(r"amplifier-capability-[a-z0-9]+(?:-[a-z0-9]+)*", repository)
+            or row.get("new_url") != repo_url
+            or row.get("new_pages_url") != site_url
+        ):
+            errors.append(f"{ident}: canonical migration destination is invalid")
+            continue
+        for field, expected in (("repo_url", repo_url), ("site_url", site_url)):
+            if project.get(field) != expected:
+                errors.append(f"{ident}: {field} must use its canonical migration destination")
+        install = urlsplit(project.get("install_url", ""))
+        if (
+            install.fragment not in {"install", "use-skill"}
+            or install._replace(fragment="").geturl() != site_url
+        ):
+            errors.append(f"{ident}: install_url must use its canonical guide and documented fragment")
+        film = urlsplit(films.get(ident, {}).get("film_url", ""))
+        if not film.fragment or film._replace(fragment="").geturl() != site_url:
+            errors.append(f"{ident}: film_url must use its canonical guide and film fragment")
+    return errors
+
+
 def main() -> int:
     errors: list[str] = []
     checked_links: set[tuple[str, str]] = set()
@@ -164,6 +209,8 @@ def main() -> int:
     catalogue = load_json(ROOT / "content/portfolio.json")
     media = load_json(ROOT / "content/media.json")
     journey = load_json(ROOT / "content/journey.json")
+    migration_source = load_json(ROOT / "content/migration/mapping.json")
+    errors.extend(canonical_navigation_errors(catalogue, media, migration_source))
     projects = catalogue.get("projects", [])
     categories = catalogue.get("categories", [])
     ids = [p.get("id") for p in projects]
