@@ -6,7 +6,7 @@ from urllib.parse import urlsplit
 E=lambda value:escape(str(value),quote=True)
 
 def category_body(projects,stages):
-    parts=['<section class="page-intro wrap"><a class="back-link" href="/capabilities/">All capabilities</a><h1>Find the part<br>you need.</h1><p>Thirty-three distinct capabilities, organized around seven moments in the work. Start anywhere; the guide and source stay with each one.</p><div class="button-row"><a class="text-link" href="/#journey">Follow the build journey</a><a class="text-link" href="/journey/knowledge/">Explore the proposed knowledge journey</a></div></section>']
+    parts=['<section class="page-intro wrap"><a class="back-link" href="/capabilities/">All capabilities</a><h1>Browse seven<br>capability categories.</h1><p>Find 33 capabilities across research, planning, software, review, creative production, migration and project continuity. Each capability page explains input, output, setup and a first task.</p><div class="button-row"><a class="text-link" href="/#journey">Open the category guide</a><a class="text-link" href="/journey/knowledge/">Explore the proposed knowledge journey</a></div></section>']
     for stage in stages:
         members=[p for p in projects if p['category']==stage['id']]
         parts.append('<section class="category-group wrap" id="category-'+E(stage['id'])+'"><div class="section-heading"><div><h2>'+E(stage['title'])+'</h2><p>'+E(stage['question'])+'</p></div><a class="text-link" href="/#stage-'+E(stage['id'])+'">See this moment</a></div><div class="category-members">')
@@ -15,7 +15,7 @@ def category_body(projects,stages):
     return ''.join(parts)
 
 def knowledge_body(data,by_id):
-    parts=['<section class="page-intro wrap"><a class="back-link" href="/#journey">The build journey</a><p class="publication-label">Proposed journey</p><h1>From a question<br>to something worth sharing.</h1><p>A way through knowledge curation and creation: explore, collect, connect, test, make, refine and share. This is a proposed way to navigate the existing capabilities, not a claim of an automated end-to-end pipeline.</p></section><nav class="wrap knowledge-links" aria-label="Proposed knowledge journey"><ol class="category-links">']
+    parts=['<section class="page-intro wrap"><a class="back-link" href="/#journey">The build journey</a><p class="publication-label">Proposed journey</p><h1>From knowledge curation<br>to creation.</h1><p>A way through knowledge curation and creation: explore, collect, connect, test, make, refine and share. This is a proposed way to navigate the existing capabilities, not a claim of an automated end-to-end pipeline.</p></section><nav class="wrap knowledge-links" aria-label="Proposed knowledge journey"><ol class="category-links">']
     for n,stage in enumerate(data['stages']):parts.append('<li><a href="#knowledge-'+E(stage['id'])+'"><span aria-hidden="true">'+str(n+1)+'</span>'+E(stage['title'])+'</a></li>')
     parts.append('</ol></nav>')
     for stage in data['stages']:

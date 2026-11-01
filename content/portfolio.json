@@ -2,704 +2,968 @@
   "owner": {
     "name": "Michael Jabbour",
     "github": "https://github.com/michaeljabbour",
-    "intro": "Skills and tools for thinking things through, making things, and picking up where you left off."
+    "intro": "AI tools for research, software, and creative work."
   },
   "categories": [
     {
       "id": "understand",
-      "title": "Figure it out",
-      "description": "Find the question, read the sources and see what’s missing."
+      "title": "Research & evidence",
+      "description": "Investigate a question, trace sources and keep claims tied to evidence."
     },
     {
       "id": "choose",
-      "title": "Make a call",
-      "description": "Put the options on the table. Work out what to make and who it’s for."
+      "title": "Decisions & planning",
+      "description": "Compare options, define an offer and plan work with explicit decisions."
     },
     {
       "id": "build",
-      "title": "Build something",
-      "description": "Turn a plan into parts that work together."
+      "title": "Software & automation",
+      "description": "Build applications and agent extensions with clear interfaces and checks."
     },
     {
       "id": "improve",
-      "title": "Make it better",
-      "description": "Get another look at the experience, the design or the thing that broke."
+      "title": "Review & testing",
+      "description": "Review an interface, artifact or agent behavior and test a justified change."
     },
     {
       "id": "create",
-      "title": "Make it visible",
-      "description": "Find the image. Tell the story. Show the product."
+      "title": "Images, videos & demos",
+      "description": "Direct images, films and product demonstrations from a clear brief."
     },
     {
       "id": "adapt",
-      "title": "Take it somewhere new",
-      "description": "A different language, another host, a release that needs a plan."
+      "title": "Migration & deployment",
+      "description": "Move behavior to another language or host and plan its release."
     },
     {
       "id": "continue",
-      "title": "Pick it up again",
-      "description": "Keep the thread, bring someone in and leave a useful next step."
+      "title": "Memory & handoff",
+      "description": "Preserve evidence, explain project state and coordinate the next step."
     }
   ],
   "projects": [
     {
       "id": "unknowns",
       "title": "Unknowns",
-      "summary": "Find the question that could change your plan.",
+      "summary": "Identify the unanswered question most likely to change a project plan.",
       "description": "Make facts, assumptions and unanswered questions visible before committing to a plan. Choose a consequential next inquiry and keep the evidence behind its classification.",
-      "audience": "People planning work in uncertain or unfamiliar territory.",
+      "audience": "Project leads and researchers planning work with uncertain requirements.",
       "category": "understand",
       "format": "Skill",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-unknowns",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-unknowns/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-unknowns/#install",
-      "first_prompt": "Use Unknowns to review a fictional export migration plan. Separate established requirements from compatibility assumptions, attach an evidence basis and choose the one unanswered question most likely to change the plan. Keep possible blind spots labeled as hypotheses.",
+      "first_prompt": "Use Unknowns on the project plan I provide. Separate facts, assumptions and unanswered questions. Keep the source for each classification and choose the one inquiry most likely to change the plan. Return the map and next inquiry; do not execute the project.",
       "output": "A fictional project’s question map, with evidence, open assumptions and one next inquiry.",
       "limitations": "A proposed blind spot is a hypothesis to investigate, not proof that the problem exists.",
       "related": [
         "research",
         "right-shape",
         "intent-to-plan"
+      ],
+      "input": "A project plan or question, known facts, assumptions and the evidence already available.",
+      "action": "Separates evidence from assumptions, maps unanswered questions and prioritizes one next inquiry.",
+      "result": "A question map with evidence notes, unresolved assumptions and a prioritized next inquiry.",
+      "runtime": "The Agent Skill runs in your existing AI agent. Optional map operations use the Python unknowns CLI without a model key.",
+      "prerequisites": [
+        "For the method, use an agent that can read the complete skill folder and selected source material.",
+        "The repository installer and optional CLI require Python 3.11+. Graphviz is only needed for image export."
       ]
     },
     {
       "id": "research",
       "title": "Research",
-      "summary": "Build the answer from evidence you can inspect.",
+      "summary": "Turn a research question and sources into an evidence-linked brief or study plan.",
       "description": "Connect a focused question to sources, methods and the claims they can support. Keep contradictions, uncertainty and the next useful check alongside the conclusion.",
-      "audience": "People and agents doing evidence synthesis, experiments, or scientific writing.",
+      "audience": "Researchers, analysts and project teams preparing a brief, experiment or scientific paper.",
       "category": "understand",
       "format": "Skill",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-research",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-research/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-research/#install",
-      "first_prompt": "Use Research to assess whether the fictional document-retrieval change improves source coverage. First propose a bounded question, treatment and baseline, coverage measure, error handling, budget and stop rule. Prepare a protocol; do not run paid calls.",
+      "first_prompt": "Use Research with the question and sources I provide. Build a claim-to-source table, include conflicting evidence and explain what the sources cannot establish. Return a short brief and the smallest useful next check. Do not run new experiments or paid calls.",
       "output": "A fictional research brief with a claim-to-source table, competing explanations and a bounded study protocol.",
       "limitations": "A literature review or model judgment does not establish a measured treatment effect or an outside-user outcome.",
       "related": [
         "long-read",
         "knowledge",
         "cognitive-simulation"
+      ],
+      "input": "One focused question, the decision it affects and the sources or observations you authorize.",
+      "action": "Connects claims to evidence, keeps contradictions visible and designs a bounded study when new measurement is needed.",
+      "result": "An evidence-linked brief, claim/source table or study protocol with open questions and limits.",
+      "runtime": "The research method runs in your existing AI agent. Optional experiment and publication tools have their own setup.",
+      "prerequisites": [
+        "Provide the complete skill folder and access to the selected sources.",
+        "Git and Python 3.11+ are needed for the repository installer. Model or service calls require the caller’s configured tools and an explicit budget."
       ]
     },
     {
       "id": "long-read",
       "title": "Long Read",
-      "summary": "Read toward a question without losing the source.",
+      "summary": "Find source passages in a long document and retain the inspected coverage.",
       "description": "Find exact passages across long documents or collections and retain their locations. Record what was inspected so an unfinished job can resume against the same source revision.",
-      "audience": "People and agents examining long documents or collections.",
+      "audience": "Researchers and developers answering a specific question across long documents or collections.",
       "category": "understand",
       "format": "Skill",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-long-read",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-long-read/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-long-read/#install",
-      "first_prompt": "Use Long Read on a fictional long specification to find where an export format is defined. Set an explicit chunk budget, keep exact passages and locations, and report the inspected coverage. If the budget ends, save the job rather than claiming the full document was reviewed.",
+      "first_prompt": "Use Long Read on the specification I attach. Find where the export format is defined. Keep exact excerpts and source locations, state the inspected coverage and stop at the reading budget we agree. If the passage is missing or coverage is incomplete, say so.",
       "output": "A fictional specification answer with exact excerpts, source locations and an explicit coverage record.",
       "limitations": "The independent helper is extractive and lexical; retrieved passages do not establish semantic completeness.",
       "related": [
         "research",
         "knowledge",
         "memory"
+      ],
+      "input": "A document or selected collection, one question and a reading or chunk budget.",
+      "action": "Finds exact passages with source locations, records inspected coverage and saves bounded work for continuation against the same source.",
+      "result": "Quoted passages with locations, a coverage record and an answer or a resumable job.",
+      "runtime": "The method runs in your AI agent. A local Python helper performs lexical extraction without Docker or a model key.",
+      "prerequisites": [
+        "Provide selected UTF-8 material within the helper’s documented size bound and a specific question.",
+        "The installer/helper requires Python 3.11+. The optional recursive engine needs separate provider, isolation and budget setup."
       ]
     },
     {
       "id": "knowledge",
       "title": "Knowledge",
-      "summary": "Follow a claim back to its evidence.",
+      "summary": "Connect claims and sources in a graph that can be inspected and queried.",
       "description": "Connect claims, sources and relationships in an inspectable graph. Trace an apparent contradiction or a changing account without discarding where each assertion came from.",
-      "audience": "Researchers and agents connecting evidence across documents.",
+      "audience": "Researchers and teams connecting claims across documents, notes or observations.",
       "category": "understand",
       "format": "Smart tool",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-knowledge",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-knowledge/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-knowledge/#install",
-      "first_prompt": "Use Knowledge to show how two fictional project notes support or challenge the same claim. Start with deterministic ingestion or structured additions. Trace each relationship to its source and distinguish an asserted fact from a candidate contradiction. Do not configure an external provider.",
+      "first_prompt": "Use Knowledge with two notes I select about the same project claim. Create a new graph, retain each source and date, and show where the notes support or challenge the claim. Keep candidate contradictions distinct from established facts. Do not configure an external provider.",
       "output": "A fictional project graph linking two conflicting notes to the claim they support or challenge.",
       "limitations": "Cooccurrence, centrality and candidate contradictions do not prove that a claim is true.",
       "related": [
         "research",
         "long-read",
         "memory"
+      ],
+      "input": "Selected notes or structured claims, source references, dates and the graph location to use.",
+      "action": "Adds claims and relationships to a graph and traces a query or possible contradiction back to the recorded evidence.",
+      "result": "An inspectable claim graph and query results with source and time references.",
+      "runtime": "The knowledge Python library and CLI use SQLite for deterministic operations without a model key. Optional model-backed operations need a configured route.",
+      "prerequisites": [
+        "Install the native knowledge package with Python 3.10+ for CLI/library use; the portable installer requires Python 3.11+.",
+        "Choose the graph location explicitly, such as KNOWLEDGE_HOME for a disposable graph. Do not point a first experiment at an existing store."
       ]
     },
     {
       "id": "cognitive-simulation",
       "title": "Cognitive Simulation",
-      "summary": "Explore a behavioral hypothesis before the study.",
+      "summary": "Plan a behavioral simulation and distinguish model predictions from participant evidence.",
       "description": "Define an explicit choice or learning task and examine what a configured model predicts. Use the comparison to sharpen the observations a real study would need.",
-      "audience": "Researchers and product teams exploring explicit choice and learning hypotheses.",
+      "audience": "Researchers and product teams examining a specific choice or learning hypothesis.",
       "category": "understand",
       "format": "Skill",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-cognitive-simulation",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-cognitive-simulation/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-cognitive-simulation/#install",
-      "first_prompt": "Use Cognitive Simulation to frame a fictional kiosk confirmation study. Compare a single confirm button with a review-then-confirm flow. State task fit, counterbalance response labels, prepare exact prompts and define the observed-user check. Do not run an endpoint.",
+      "first_prompt": "Use Cognitive Simulation to plan a study of a single confirmation button versus a review-then-confirm flow. State the hypothesis, control response-label order and specify the real-user observation needed to test the prediction. Prepare the protocol only; do not call an endpoint.",
       "output": "A fictional choice-task plan separating a model prediction from the observations needed to test it.",
       "limitations": "Model predictions are not participant evidence, population percentages, consent or clinical advice.",
       "related": [
         "research",
         "unknowns",
         "ux-ergonomics"
+      ],
+      "input": "A hypothesis, explicit task, competing conditions and the observations a real study would collect.",
+      "action": "Frames a model simulation, controls response labels and identifies how observed behavior could support or refute the prediction.",
+      "result": "A simulation protocol, model-output interpretation and a separate real-observation plan.",
+      "runtime": "Protocol planning runs in your AI agent. Generating predictions requires the selected compatible model backend and an explicit run budget.",
+      "prerequisites": [
+        "Provide the task and conditions rather than asking the model to impersonate an unspecified population.",
+        "Use the complete skill folder. Configure any prediction endpoint separately before an actual run."
       ]
     },
     {
       "id": "market-fit",
       "title": "Market Fit",
-      "summary": "Shape one clear offer for one customer.",
+      "summary": "Define one customer, problem and offer from the project evidence available.",
       "description": "Work from the evidence you have toward an offer a specific customer can understand. Practice naming, explaining and defending the choices so the judgment remains yours.",
-      "audience": "Builders working toward one clear offer for one customer.",
+      "audience": "Builders preparing an offer for a specific customer or audience.",
       "category": "choose",
       "format": "Skill",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-market-fit",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-market-fit/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-market-fit/#use-skill",
-      "first_prompt": "Use Market Fit to help me turn this fictional project into one clear offer for one customer. Ask me to make and defend the choices, and separate what I know from what still needs customer evidence.",
+      "first_prompt": "Use Market Fit with my project description. Help me name one customer, the recurring problem and one clear offer. Ask the most consequential missing question, keep assumptions visible and propose one way to test the offer. Do not invent customer demand or launch the project.",
       "output": "A fictional offer brief naming one customer, one problem, a clear promise and the evidence still needed.",
       "limitations": "Coaching and a launch checklist do not establish customer demand, adoption or revenue.",
       "related": [
         "worth-using",
         "decisioncraft",
         "right-shape"
+      ],
+      "input": "A project description, intended customer and any customer or usage evidence already available.",
+      "action": "Guides the builder through naming and defending an offer while separating assumptions from customer evidence.",
+      "result": "An offer brief with a named customer, problem, promise and next validation step.",
+      "runtime": "Instructions followed by your existing AI agent; no separate service or customer-data integration is installed.",
+      "prerequisites": [
+        "Bring a project description and a person who can make the product choices.",
+        "Use the complete skill folder; Git and Python 3.11+ are required only for the repository installer."
       ]
     },
     {
       "id": "decisioncraft",
       "title": "Decisioncraft",
-      "summary": "See the choices and the reasoning on one map.",
+      "summary": "Map a decision, its alternatives and the evidence behind each option.",
       "description": "Point at a codebase, notes, a process or a question to map the current and proposed state. Keep gaps, options and role perspectives visible while you decide.",
-      "audience": "People comparing options or mapping how work happens.",
+      "audience": "Project teams comparing options, reviewing a process or explaining a technical decision.",
       "category": "choose",
       "format": "Smart tool",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-decisioncraft",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-decisioncraft/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-decisioncraft/#install",
-      "first_prompt": "Use Decisioncraft to map this fictional workshop’s current booking process and one proposed change. Keep the source for each claim, show the gaps and compare the perspectives of the visitor and the person doing the work.",
+      "first_prompt": "Create a canvas for one decision I describe. Use decisioncraft new --help to choose a starter, add source-backed claims and alternatives, then validate and render a new local HTML file. Leave unsupported claims and missing evidence visible.",
       "output": "A fictional decision map connecting source evidence, alternatives, gaps and qualified role notes.",
       "limitations": "A map clarifies the supplied material; it does not turn unsupported assumptions into facts.",
       "related": [
         "market-fit",
         "right-shape",
         "intent-to-plan"
+      ],
+      "input": "Selected project notes, process descriptions or code, plus the decision and relevant constraints.",
+      "action": "Organizes claims, alternatives, gaps and role perspectives into a decision canvas that can be validated and rendered locally.",
+      "result": "An inspectable decision canvas with source-linked claims, alternatives and unresolved gaps.",
+      "runtime": "The native Decisioncraft CLI/library requires Python 3.11+. New, validate and render operations do not call a model; optional AI analysis needs its configured provider.",
+      "prerequisites": [
+        "Install the native tool using the guide, or keep the complete supplied skill archive with its bundled library and references.",
+        "Bring evidence for the canvas. Structural validation does not verify the truth of claims or option scores."
       ]
     },
     {
       "id": "right-shape",
       "title": "Right Shape",
-      "summary": "Choose the smallest AI shape that fits the job.",
+      "summary": "Choose the smallest AI component that fits a clearly described job.",
       "description": "Compare a skill, tool, agent, service or other extension against the work it must do. Name the boundaries and the test that would justify the chosen shape.",
-      "audience": "People and agents choosing how to extend AI capabilities.",
+      "audience": "Developers and teams deciding whether to build a skill, tool, workflow or agent.",
       "category": "choose",
       "format": "Skill",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-right-shape",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-right-shape/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-right-shape/#use-skill",
-      "first_prompt": "Use Right Shape to assess this proposed AI capability. Compare the smallest sufficient shapes, explain any limiting gate and name the next test before recommending an implementation.",
+      "first_prompt": "Use Right Shape to assess a caller-invoked CSV deduplicator with a fixed rule, no network and no background work. Compare the smallest sufficient shapes, state the autonomy gates and give a trap, a valid unchanged case and a stopping test. Recommend an implementation only to the extent the evidence supports it.",
       "output": "A fictional capability placement with its rationale, limiting gate and next acceptance check.",
       "limitations": "Placement depends on the available evidence and failed gates; a recommendation is not proof of deployed behavior.",
       "related": [
         "market-fit",
         "worth-using",
         "build-amplifier"
+      ],
+      "input": "A job description, expected inputs and outputs, operating constraints and evidence about available interfaces.",
+      "action": "Assesses needed autonomy, limiting gates and replaceability, then proposes a shape and an acceptance test.",
+      "result": "A placement card naming the shape, engine, autonomy ceiling and next test.",
+      "runtime": "Instructions followed by your existing AI agent; it does not provision an agent or runtime.",
+      "prerequisites": [
+        "Describe the smallest useful version of the job and its actual permissions.",
+        "Use the complete skill folder; the repository installer needs Git and Python 3.11+."
       ]
     },
     {
       "id": "intent-to-plan",
       "title": "Intent to Plan",
-      "summary": "Turn the request into work someone can follow.",
+      "summary": "Turn a complex request into a plan with dependencies and acceptance checks.",
       "description": "Separate the goal, people, inputs, working rules and timing of a complex request. Connect them into a plan with explicit dependencies and acceptance checks.",
-      "audience": "People and agents coordinating work whose goal, inputs, responsibilities, and timing can drift apart.",
+      "audience": "Project leads and agents coordinating goals, inputs, responsibilities and timing.",
       "category": "choose",
       "format": "Skill",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-intent-to-plan",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-intent-to-plan/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-intent-to-plan/#install",
-      "first_prompt": "Use Intent to Plan on this request: improve our fictional onboarding flow and prepare a release. Separate explicit requirements from assumptions, identify missing baseline evidence, order design before implementation and make the release authority visible. Produce a plan only.",
+      "first_prompt": "Use Intent to Plan on my request to improve an onboarding flow and prepare a release. Separate requirements from assumptions, identify missing baseline evidence, order design before implementation and name the release decision owner. Return the plan only.",
       "output": "A fictional project plan with responsibilities, dependencies, decisions and completion criteria.",
       "limitations": "The planning grammar is a design aid; generated dependencies and host-specific recipes still need review.",
       "related": [
         "unknowns",
         "decisioncraft",
         "project-handoff"
+      ],
+      "input": "A request, known requirements, available project context and the people or systems involved.",
+      "action": "Separates requirements from assumptions and orders work around dependencies, decisions and completion checks.",
+      "result": "A reviewable plan with responsibilities, dependencies, open decisions and acceptance criteria.",
+      "runtime": "The planning method runs in your AI agent. Optional Amplifier recipes need the matching host setup.",
+      "prerequisites": [
+        "Provide the request and identify any constraints, deadlines or existing work that must be preserved.",
+        "The portable method needs no separate planning service; the installer requires Git and Python 3.11+."
       ]
     },
     {
       "id": "build-amplifier",
       "title": "Build with Amplifier",
-      "summary": "Extend Amplifier in the right place.",
+      "summary": "Plan and build an Amplifier extension against the project’s actual contracts.",
       "description": "Find the right home for a feature in an Amplifier application, bundle, tool, hook or provider. Build one useful slice against the contracts of the host you actually use.",
-      "audience": "People building Amplifier applications, bundles, tools, hooks, and providers.",
+      "audience": "Developers adding modules, bundles, skills or other extensions to Amplifier.",
       "category": "build",
       "format": "Skill",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-build-amplifier",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-build-amplifier/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-build-amplifier/#install",
-      "first_prompt": "Use Build with Amplifier to inspect this repository. I want a progress panel for a long-running tool. Decide where the feature belongs, identify the actual event contract, and propose one slice with cancellation and cleanup checks.",
+      "first_prompt": "Use Build Amplifier with the project and version I identify. Plan an extension that redacts a selected sensitive field from an event. Choose the extension boundary, identify current API evidence and define tests for redaction and an unchanged harmless event before implementation.",
       "output": "A fictional extension plan showing the host seam, interface contract and first real-host acceptance check.",
       "limitations": "The portable guide installs without Amplifier; executing an extension requires a configured runtime and current contracts.",
       "related": [
         "right-shape",
         "constraint-builder",
         "forge"
+      ],
+      "input": "The target Amplifier project and version, the extension’s job and the current interface documentation.",
+      "action": "Places the behavior at the appropriate extension boundary and guides implementation and contract checks.",
+      "result": "An extension plan or implementation with explicit interfaces and relevant tests.",
+      "runtime": "The method runs in your coding agent. Live extension checks require the target Amplifier installation and its configured runtime.",
+      "prerequisites": [
+        "Provide the project source and current Amplifier contracts before using framework-specific APIs.",
+        "Install the complete method; Git and Python 3.11+ are needed for its installer. Amplifier setup is separate."
       ]
     },
     {
       "id": "build-tauri",
       "title": "Build with Tauri",
-      "summary": "Make the desktop app work beyond the dev server.",
+      "summary": "Keep a desktop app’s frontend and sidecar behavior consistent.",
       "description": "Define how a Tauri 2 webview, Rust shell and optional companion process communicate. Make readiness, permissions, failure and shutdown behavior explicit.",
-      "audience": "Developers working across a Tauri webview, Rust shell, and optional companion process.",
+      "audience": "Developers building or reviewing a Tauri desktop application.",
       "category": "build",
       "format": "Skill",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-build-tauri",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-build-tauri/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-build-tauri/#install",
-      "first_prompt": "Use Build with Tauri on this Tauri 2 app. Its import sidecar starts slowly and the first request fails. Trace startup, define readiness and shutdown ownership, and propose the smallest fix with target-OS checks.",
+      "first_prompt": "Use Build Tauri with my app source. Review a frontend request that asks the sidecar to read a selected UTF-8 file. Define matching success, cancellation and unavailable-sidecar responses, then name the checks needed in a packaged app. Do not claim a build passed unless the command is run.",
       "output": "A fictional desktop import contract covering sidecar readiness, retry, cancellation and cleanup.",
       "limitations": "No desktop application ships with this skill; source or mocked IPC checks do not establish OS packaging behavior.",
       "related": [
         "constraint-builder",
         "desktop-tasks",
         "session-doctor"
+      ],
+      "input": "The application source, frontend/sidecar contract and target desktop platform.",
+      "action": "Guides the frontend/sidecar boundary, lifecycle, errors and packaging checks for the target app.",
+      "result": "A desktop implementation or review plan with shared contracts and platform checks.",
+      "runtime": "The method runs in your coding agent. Actual builds require the app’s JavaScript frontend, Rust/Tauri and target-platform toolchains.",
+      "prerequisites": [
+        "Provide the project and its supported build commands; platform setup belongs to that application.",
+        "The skill installer needs Git and Python 3.11+. A running dev server alone is not a packaged-app check."
       ]
     },
     {
       "id": "build-with-torque",
       "title": "Build with Torque",
-      "summary": "Add a domain without tangling the application.",
+      "summary": "Add a domain while preserving an application’s existing boundaries.",
       "description": "Give a Torque bundle a clear responsibility and declared interfaces and events. Plan integration and data changes before they reach an existing application.",
-      "audience": "Developers composing domain bundles into a Torque application.",
+      "audience": "Developers extending a Torque application with a new domain.",
       "category": "build",
       "format": "Skill",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-build-with-torque",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-build-with-torque/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-build-with-torque/#install",
-      "first_prompt": "Use Build with Torque to design a maintenance-task bundle. It should react to asset changes without reading another bundle’s private tables. Inspect this host first, then propose its manifest, public interfaces, events and migration checks.",
+      "first_prompt": "Use Build with Torque to plan a reservations domain in my application. Keep invoices owned by the existing billing domain, define the reservation boundary and identify validation and migration checks against the project’s actual Torque version. Return a reviewable plan first.",
       "output": "A fictional task-domain bundle plan with interfaces, events, migration steps and rollback checks.",
       "limitations": "Installing the guide installs no Torque runtime; framework contracts and registry versions must be checked in the target project.",
       "related": [
         "intent-to-plan",
         "constraint-builder",
         "pipeline"
+      ],
+      "input": "The existing application, proposed domain responsibilities and neighboring domain contracts.",
+      "action": "Guides domain ownership and integration, reusing existing responsibilities and defining validation checks.",
+      "result": "A domain plan or implementation with clear boundaries and integration checks.",
+      "runtime": "The method runs in your coding agent. Native validation requires the project’s supported Torque CLI and environment.",
+      "prerequisites": [
+        "Provide the existing application and the Torque version/contracts it uses.",
+        "Use the full method folder; the installer requires Git and Python 3.11+."
       ]
     },
     {
       "id": "constraint-builder",
       "title": "Constraint Builder",
-      "summary": "Turn a task rule into a checkable boundary.",
+      "summary": "Turn an action rule into checks that still allow valid work.",
       "description": "Translate permitted and forbidden actions into an action specification and checker. Test both rejected actions and useful paths through the allowed space.",
-      "audience": "People building agent tools, action validators and bounded environments.",
+      "audience": "Developers designing a testable boundary around an agent or tool action.",
       "category": "build",
       "format": "Skill",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-constraint-builder",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-constraint-builder/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-constraint-builder/#install",
-      "first_prompt": "Use Constraint Builder to specify a file-reading tool that may read project files but may not escape its root. Show legal reads, traversal attempts, symlink cases and false rejections before proposing a checker. Do not execute the proposed actions.",
+      "first_prompt": "Use Constraint Builder to define a selected-directory read boundary. Include path traversal and symlink escape as forbidden cases and one permitted read as a positive control. Prepare a harness for trusted candidate code; do not test against my home directory.",
       "output": "A fictional file-action specification with allowed examples, rejected examples and a checker contract.",
       "limitations": "A written skill does not enforce a sandbox or establish legal compliance; enforcement belongs in the runtime.",
       "related": [
         "right-shape",
         "build-amplifier",
         "desktop-tasks"
+      ],
+      "input": "An allowed-action rule, examples of permitted and forbidden actions, and trusted candidate code.",
+      "action": "Turns the rule into a constraint harness and checks both forbidden actions and valid controls.",
+      "result": "A boundary definition, trusted local harness and positive/negative test results.",
+      "runtime": "The method uses your agent; the local checker uses Python. No model key is needed for installation or deterministic checking.",
+      "prerequisites": [
+        "The installer/checker requires Python 3.11+. Only run candidate code you trust.",
+        "Optional refinement engines have their own provider setup; the checker is not a sandbox for hostile code."
       ]
     },
     {
       "id": "forge",
       "title": "Forge",
-      "summary": "Keep terminal work visible and testable.",
+      "summary": "Run terminal commands and inspect their actual output and exit status.",
       "description": "Give persistent terminal sessions a name and inspect their rendered state and output. Use explicit acceptance checks and cleanup when driving CLIs, TUIs or coordinated workers.",
-      "audience": "People and agents operating CLIs and TUIs.",
+      "audience": "Developers and agents coordinating terminal work through Forge.",
       "category": "build",
       "format": "Skill",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-forge",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-forge/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-forge/#install",
-      "first_prompt": "Use Forge to plan a disposable TUI smoke test. Check daemon availability first, create one named session, wait for the ready screen, capture the observed state and close only the session created for this test. Do not change permissions or launch additional agents.",
+      "first_prompt": "Use Forge to run printf \"forge-ready\\n\" in a new disposable terminal in the working directory I select. Report the observed output and exit code, then close only that test terminal. Stop and report the setup issue if the configured daemon is unavailable.",
       "output": "A fictional TUI smoke-test record with a named session, observed ready screen, assertion and cleanup.",
       "limitations": "Real operations require a reachable Forge daemon; fixture checks are not daemon acceptance.",
       "related": [
         "desktop-tasks",
         "build-amplifier",
         "project-handoff"
+      ],
+      "input": "A command, selected working directory, timeout and the result that would count as success.",
+      "action": "Uses the configured Forge interface to run and inspect terminal work while preserving observed failures.",
+      "result": "Command output, exit status and terminal/session references for the selected work.",
+      "runtime": "Terminal execution needs a running Forge daemon and a client compatible with its API. The supplied Python HTTP helper is stdlib-only.",
+      "prerequisites": [
+        "Configure the external Forge daemon and client using the native guide; daemon installation uses Node/Bun.",
+        "Check client/daemon compatibility before execution. Doctor may start or repair the daemon, so inspect its behavior before using it on a shared machine."
       ]
     },
     {
       "id": "desktop-tasks",
       "title": "Desktop Tasks",
-      "summary": "Finish the desktop step and verify the result.",
+      "summary": "Complete a selected desktop task from current observed controls.",
       "description": "Work from observed application controls within a clear task and action budget. Inspect the resulting screen before recording the task as complete.",
-      "audience": "People and agents operating desktop applications.",
+      "audience": "People and agents working with a browser or desktop app through computer-use tools.",
       "category": "build",
       "format": "Skill",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-desktop-tasks",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-desktop-tasks/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-desktop-tasks/#install",
-      "first_prompt": "Use Desktop Tasks to change the sort order in a fictional task app to newest first. First name the visible success condition. Use fresh observed controls, verify the resulting order and report any step you cannot confirm.",
+      "first_prompt": "Use Desktop Tasks to inspect the app window I select. Find the export control and report its visible label and options. Do not send, publish or confirm an export. Use the current screen and stop if the surface is unavailable.",
       "output": "A fictional desktop task record linking the requested action to the observed final state.",
       "limitations": "Real execution needs a host desktop tool and platform permissions; pretend-desktop tests do not prove real app behavior.",
       "related": [
         "forge",
         "ux-ergonomics",
         "good-teammate"
+      ],
+      "input": "A specific app or browser surface, a bounded task and the actions the user authorizes.",
+      "action": "Inspects the current interface, uses observed controls and verifies the resulting state.",
+      "result": "A completed authorized step or a precise blocked state with current evidence.",
+      "runtime": "The method requires an agent host with computer-use tools and the needed OS/app permissions. Optional tool-cua backends are platform-specific.",
+      "prerequisites": [
+        "Select the app/window or browser surface explicitly and authorize the task.",
+        "Installing the method does not provide desktop access or grant OS permissions. The optional Python package needs its documented platform setup."
       ]
     },
     {
       "id": "ux-ergonomics",
       "title": "UX Ergonomics",
-      "summary": "Make the next step easier to understand and do.",
+      "summary": "Review a task flow and propose a specific usability change with a test.",
       "description": "Trace the task people are trying to complete and locate points of confusion or repeated effort. Turn findings into specific changes and evidence that could show whether they helped.",
-      "audience": "Teams designing or reviewing digital workflows and human-agent experiences.",
+      "audience": "Product designers, developers and teams reviewing an interface or workflow.",
       "category": "improve",
       "format": "Skill",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-ux-ergonomics",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-ux-ergonomics/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-ux-ergonomics/#install",
-      "first_prompt": "Use UX Ergonomics to review this fictional batch-import failure flow. The analyst loses entered mappings after an error. Separate observation, inference and recommendation; propose recovery behavior and keyboard/task checks without claiming a measured improvement.",
+      "first_prompt": "Use UX Ergonomics to review my booking flow. Identify where the same category choice is repeated, propose a direct route that preserves deep links and define a check for the revised task path. Keep observed evidence separate from predicted benefit.",
       "output": "A fictional task review with friction points, proposed changes and a user-check plan.",
       "limitations": "Expert inspection is not observed-user evidence; accessibility and prevalence claims need appropriate verification.",
       "related": [
         "taste-elegance",
         "worth-using",
         "cognitive-simulation"
+      ],
+      "input": "A task, intended user, current interface or flow and any observed usability evidence.",
+      "action": "Finds task friction, proposes a bounded change and defines how to check whether the change helps.",
+      "result": "A usability review, prioritized revision and an observation or test plan.",
+      "runtime": "Instructions followed by your existing AI agent. Live interface checks need the selected browser/app tools; user research remains separate.",
+      "prerequisites": [
+        "Provide the interface or workflow and the task a person is trying to complete.",
+        "Use the full skill folder; the installer needs Git and Python 3.11+. No analytics account is required for a critique."
       ]
     },
     {
       "id": "taste-elegance",
       "title": "Taste × Elegance",
-      "summary": "Make it more intentional while keeping it yours.",
+      "summary": "Refine a draft or design while preserving the author’s intent and judgment.",
       "description": "Refine writing, design or code through concrete comparisons and small deliberate changes. Preserve the purpose and voice while removing what gets in their way.",
-      "audience": "Authors and builders refining work while preserving intent.",
+      "audience": "Writers, designers and developers comparing or refining an artifact.",
       "category": "improve",
       "format": "Skill",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-taste-elegance",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-taste-elegance/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-taste-elegance/#use-skill",
-      "first_prompt": "Use Taste × Elegance to refine this fictional project page. Show the original, a worse version and a better version against the same brief, and explain the changes while preserving its voice.",
+      "first_prompt": "Use Taste × Elegance with the draft I provide. Preserve my tone and the opening if they serve the audience. Reflect the criteria you infer, check critical gates and propose one refinement or reframe with a tradeoff and stopping condition. Keep this a critique; do not edit the draft.",
       "output": "A fictional before-and-after refinement with the intended effect, tradeoff and check for each change.",
       "limitations": "Taste is a craft lens; it does not outrank the user’s intent, task evidence or observed usability.",
       "related": [
         "ux-ergonomics",
         "worth-using",
         "imagen-studio"
+      ],
+      "input": "A draft, design or set of options, the audience and constraints, and what the author wants to preserve.",
+      "action": "Elicits the author’s criteria, checks critical gates and compares a bounded refinement or reframe.",
+      "result": "A reasoned critique or proposal with tradeoffs, evidence gaps and one next check.",
+      "runtime": "Instructions followed by your existing AI agent; the Amplifier bundle is an optional host surface.",
+      "prerequisites": [
+        "Provide the artifact and explain what matters about it.",
+        "Keep SKILL.md and the calibration reference together. The repository installer needs Git and Python 3.11+."
       ]
     },
     {
       "id": "worth-using",
       "title": "Worth Using",
-      "summary": "Find what helps someone who did not build it.",
+      "summary": "Review whether a tool serves a named outside user, with evidence for each rating.",
       "description": "Assess a tool against a specific outside user’s job and first useful outcome. Put evidence behind each rating and choose which gap to close next.",
-      "audience": "Builders checking whether a tool helps someone outside its team.",
+      "audience": "Builders and teams reviewing a tool, feature or capability for people outside its development team.",
       "category": "improve",
       "format": "Skill",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-worth-using",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-worth-using/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-worth-using/#use-skill",
-      "first_prompt": "Use Worth Using to assess this fictional tool for a person who did not build it. Keep evidence behind each rating and identify the smallest useful next improvement.",
+      "first_prompt": "Use Worth Using to score the tool and README I provide for its named user and recurring job. Keep all six criteria separate, attach the evidence for each rating and identify where a first-time user would stall. Treat a walkthrough as Claimed unless an authentic outside-use record supports a stronger grade.",
       "output": "A fictional usefulness review showing the evidence behind each rating and one next improvement.",
       "limitations": "A rubric score or passing component check does not establish adoption, repeat use or customer benefit.",
       "related": [
         "market-fit",
         "ux-ergonomics",
         "preceptor"
+      ],
+      "input": "The tool, README or demo, a named user and job, and any authentic records of outside use.",
+      "action": "Rates six criteria separately, keeps evidence grades attached and identifies a practical gap or coaching step.",
+      "result": "A usefulness card with separate ratings and evidence, plus a next validation or improvement step.",
+      "runtime": "Instructions followed by your existing AI agent. Score, Coach and Team modes do not install a service.",
+      "prerequisites": [
+        "Provide a concrete tool and intended user/job; missing outside-use evidence can remain missing.",
+        "Keep SKILL.md and its rubric together. The repository installer needs Git and Python 3.11+."
       ]
     },
     {
       "id": "preceptor",
       "title": "Preceptor",
-      "summary": "Keep agent guidance that earns its place.",
+      "summary": "Test whether a small agent cue addresses a recurring observed mistake.",
       "description": "Turn recurring corrections into small cues and compare the same task with and without them. Keep inconclusive results visible and make removal reversible.",
-      "audience": "People evaluating and improving recurring agent behavior.",
+      "audience": "Developers and teams reviewing repeated agent errors and instruction quality.",
       "category": "improve",
       "format": "Skill",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-preceptor",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-preceptor/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-preceptor/#install",
-      "first_prompt": "Use Preceptor to assess a proposed cue for a fictional agent that repeatedly omits a requested source reference. Define the opportunity and violation, a cue/no-cue probe and a task-quality check. Keep it a candidate until the native evidence gate is satisfied.",
+      "first_prompt": "Use Preceptor with the trace excerpts I select. Decide whether the same mistake recurs, propose the smallest justified cue and include a case the cue should leave alone. Prepare a baseline/control/ablation plan; do not install a persistent instruction.",
       "output": "A fictional cue comparison recording treatment, baseline, errors and a reversible keep-or-remove decision.",
       "limitations": "A minimum sample count or passing gate is not independent proof of efficacy or generalization.",
       "related": [
         "worth-using",
         "research",
         "session-doctor"
+      ],
+      "input": "A selected trace or mistake ledger, the target behavior and a valid case that should stay unchanged.",
+      "action": "Assesses recurring error evidence, proposes a scoped cue and defines a comparison and ablation before retaining the cue.",
+      "result": "An error analysis, candidate cue and bounded evaluation or removal decision.",
+      "runtime": "The method is independent of an observation service. Optional native ledger inspection uses the project-preceptor package.",
+      "prerequisites": [
+        "Select the records to inspect rather than granting broad access to session history.",
+        "Python 3.11+ is used by the installer/native tools. Live observation and cue injection need the optional host setup and consent controls."
       ]
     },
     {
       "id": "session-doctor",
       "title": "Session Doctor",
-      "summary": "Understand a broken session before repairing it.",
+      "summary": "Diagnose an agent-session failure and prepare a reversible repair.",
       "description": "Inspect supported transcript structure and identify the smallest justified repair. Keep the original and prepare a separate repair copy with a rollback path.",
-      "audience": "People repairing transcripts and provider/session integration.",
+      "audience": "People operating agent sessions that time out, lose state or fail to resume.",
       "category": "improve",
       "format": "Skill",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-session-doctor",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-session-doctor/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-session-doctor/#install",
-      "first_prompt": "Use Session Doctor to inspect a disposable direct role/content JSONL transcript. Diagnose before changing anything. If a missing tool result is unambiguous, prepare a new repair copy that marks the result unavailable, preserve the original and explain the remaining host-resume check.",
+      "first_prompt": "Use Session Doctor with the timeout log I provide. Start with read-only checks, distinguish the observed failure from possible causes and prepare the smallest reversible repair. Preserve unrelated active sessions; do not clear caches, restart services or claim recovery without evidence.",
       "output": "A fictional transcript diagnosis with the fault, repair-copy path and remaining resume check.",
       "limitations": "The helper supports direct role/content JSONL; a repaired file does not establish live provider or resume acceptance.",
       "related": [
         "forge",
         "preceptor",
         "project-handoff"
+      ],
+      "input": "Selected session events or logs, the observed failure and the current host/runtime context.",
+      "action": "Separates observed symptoms from hypotheses and prepares scoped checks and a reversible repair plan.",
+      "result": "A diagnosis, evidence notes, proposed repair and rollback instructions.",
+      "runtime": "The portable log helper uses Python stdlib and no provider key. Optional host/failover/cache adapters have separate setup.",
+      "prerequisites": [
+        "Provide supported event/log files within the documented 16 MB helper limit.",
+        "Python 3.11+ is needed for the installer/helper. Preserve active work and inspect the proposed repair before applying it."
       ]
     },
     {
       "id": "fast-decisions",
       "title": "Fast Decisions",
-      "summary": "Measure which agent decisions are worth changing.",
+      "summary": "Inspect and test a small agent decision before using a fast path.",
       "description": "Inspect recorded agent traces and propose a narrow routing intervention. Compare the intervention with an unchanged baseline using both execution and task outcomes.",
-      "audience": "Developers measuring agent cost, latency and bounded routing.",
+      "audience": "Developers comparing agent decision routes and the conditions under which a fast path is acceptable.",
       "category": "improve",
       "format": "Smart tool",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-fast-decisions",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-fast-decisions/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-fast-decisions/#install",
-      "first_prompt": "Use Fast Decisions to inspect the installed CLI and run its deterministic doctor. Explain what is available without a scoring provider. Propose one bounded read/list choice and a matched comparison that would test whether it helps; do not enable a hook or start a model service.",
+      "first_prompt": "Use Fast Decisions with the saved decision trace I provide. Check the action set, leakage and malformed/out-of-distribution handling first. Prepare a baseline comparison with explicit fallback conditions; do not make model calls or enable a fast action yet.",
       "output": "A fictional routing comparison plan with one bounded choice, matched baseline and retained errors.",
       "limitations": "Offline replay and packaging checks do not establish speed, quality or cost savings; scoring may need a configured provider.",
       "related": [
         "research",
         "preceptor",
         "build-amplifier"
+      ],
+      "input": "A small decision trace or fixture set, candidate actions, a baseline and the required acceptance checks.",
+      "action": "Inspects decision data, checks leakage and eligibility, and supports a bounded comparison before enabling a fast route.",
+      "result": "A decision comparison protocol, inspection results and explicit fast-path or fallback conditions.",
+      "runtime": "The native amplifier-fast-decisions CLI uses Python 3.11+. Deterministic inspection needs no model key; learned scoring requires a configured supported backend.",
+      "prerequisites": [
+        "Install the native package for CLI use, or load the portable method for guidance.",
+        "Freeze the task/data split and budget before model scoring. Optional local/provider routes require their own setup and data-sharing decision."
       ]
     },
     {
       "id": "imagen-studio",
       "title": "Imagen Studio",
-      "summary": "Take the image from brief to chosen file.",
+      "summary": "Prepare an image brief, review drafts and refine the actual selected file.",
       "description": "Clarify the image brief, compare concrete drafts and refine the file you selected. Keep review, artifact checks and delivery details attached to the work.",
-      "audience": "People and agents creating or refining visual assets with explicit artifact review.",
+      "audience": "Designers, makers and teams directing image generation or editing.",
       "category": "create",
       "format": "Skill",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-imagen-studio",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-imagen-studio/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-imagen-studio/#install",
-      "first_prompt": "Use Imagen Studio in Guided mode to prepare a fictional product-card illustration. It needs a 4:3 composition, room for a heading and no text inside the image. Draft the brief and acceptance checks first; show the provider and cost before any generation.",
+      "first_prompt": "Use Imagen Studio to prepare a brief for the image I describe. Name the subject, layout, required features and review criteria. If an edit is requested, ask for the actual source file. Return the brief first; do not generate or publish an image.",
       "output": "A fictional image brief, draft-selection rationale and delivery checklist for the chosen asset.",
       "limitations": "Generation requires an available provider and applicable approval; installing the skill makes no paid call or upload.",
       "related": [
         "image-provider",
         "taste-elegance",
         "sizzle"
+      ],
+      "input": "An image brief or actual image file, required features, approved visual constraints and output destination.",
+      "action": "Clarifies image direction, reviews generated drafts and narrows edits to the selected artifact.",
+      "result": "An image brief and review decisions, or an actual generated/edited file when an approved tool is used.",
+      "runtime": "The method runs in your AI agent. Actual image generation/editing requires a compatible tool/provider configured by that host.",
+      "prerequisites": [
+        "Supply the actual file for image edits and identify what must stay unchanged.",
+        "Generation requires an approved tool/provider and may incur its charges; planning a brief does not generate an image."
       ]
     },
     {
       "id": "image-provider",
       "title": "Imagen Provider",
-      "summary": "Use one image interface across configured providers.",
+      "summary": "Generate an image through a provider interface that checks required features.",
       "description": "Expose image generation through a library, CLI or MCP interface. Match the request’s requirements to an available provider and return artifact paths and metadata.",
-      "audience": "Agents and people needing image generation from a stable CLI or MCP tool.",
+      "audience": "Developers connecting an application or agent to configured image-generation providers.",
       "category": "create",
       "format": "Tool",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-imagen-provider",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-imagen-provider/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-imagen-provider/#install",
-      "first_prompt": "Install in a virtual environment, inspect the library, CLI or MCP interface and check which configured provider meets a request’s requirements before making an approved generation call.",
+      "first_prompt": "After installing the native package, run imagen --help. Prepare one image request with an explicit provider and required features, then check feature support before authorizing generation. Do not treat a placeholder file as a generated image.",
       "output": "A fictional provider-qualification result for a reference-image request, including setup needs and output requirements.",
       "limitations": "Provider calls require approved credentials and can cost money; mock checks do not generate images.",
       "related": [
         "imagen-studio",
         "build-amplifier",
         "constraint-builder"
+      ],
+      "input": "A prompt, required features, selected provider/model and authorized output location.",
+      "action": "Validates explicit feature requirements and routes generation through the configured CLI, library or MCP interface.",
+      "result": "An actual generated image and provider metadata, or an explicit unsupported/configuration error.",
+      "runtime": "The imagen package uses Python 3.10+ and supplies the imagen CLI and imagen-mcp interface. Generation needs an approved OpenAI or Gemini credential.",
+      "prerequisites": [
+        "Install the native package and configure the selected provider through documented environment settings.",
+        "Provider generation may incur charges. Unsupported required features must be resolved before a request is sent."
       ]
     },
     {
       "id": "sizzle",
       "title": "Sizzle",
-      "summary": "Direct the film before generating it.",
+      "summary": "Plan a short film, then review the actual picture, sound and captions.",
       "description": "Turn a brief into a story, script and storyboard for a short film. After approval, produce and check the picture, narration, music and cut-downs.",
-      "audience": "People making a short brand film, opener or product reel.",
+      "audience": "Makers and teams producing a product film, explainer or demonstration.",
       "category": "create",
       "format": "Skill",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-sizzle",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-sizzle/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-sizzle/#use-skill",
-      "first_prompt": "Use Sizzle to develop a short film for this fictional workshop. Start with the audience, story, script and storyboard for my review before generating any media.",
+      "first_prompt": "Use Sizzle to plan a 25-second captioned introduction to the product I describe. Work from the screenshot and notes I select. Return a timed script, shot list, audio/caption plan and missing-asset list. Stop before generating, rendering or publishing media.",
       "output": "A fictional film treatment with a script, storyboard, sound direction and delivery checks.",
       "limitations": "A person approves the storyboard and script before generation; production requires the relevant media tools and providers.",
       "related": [
         "imagen-studio",
         "teaserkit",
         "taste-elegance"
+      ],
+      "input": "A purpose, audience, duration, approved source assets and the production budget.",
+      "action": "Develops the script and shot/sound plan before generation, then checks produced media against that plan.",
+      "result": "A reviewable film plan or produced media with picture, audio and caption checks.",
+      "runtime": "Planning runs in your AI agent. Production requires the selected media tools, approved assets and any configured generation/voice providers.",
+      "prerequisites": [
+        "Specify the duration, deliverables and which production operations are authorized.",
+        "Rendering and provider tools have separate prerequisites and possible charges; loading the method does not configure those services."
       ]
     },
     {
       "id": "teaserkit",
       "title": "TeaserKit",
-      "summary": "Re-shoot the product from the same storyboard.",
+      "summary": "Build repeatable product videos from one written storyboard.",
       "description": "Record a real web interface with clicks, framing, captions and timing defined in a shared storyboard. Build landscape, vertical and square versions from that source.",
-      "audience": "People and agents producing repeatable videos of real web interfaces.",
+      "audience": "People producing repeatable landscape, vertical and square videos of a web app.",
       "category": "create",
       "format": "Smart tool",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-teaserkit",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-teaserkit/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-teaserkit/#install",
-      "first_prompt": "Inspect the command help and validate the included fictional storyboard. Review browser and ffmpeg requirements before recording a real product or building a film.",
+      "first_prompt": "After installing TeaserKit, run teaserkit validate on one storyboard for the web app you select. Review the planned duration, captions and aspect targets. Correct validation issues before authorizing a capture or build.",
       "output": "A fictional web-product storyboard specifying shots, actions, timing, captions and three output formats.",
       "limitations": "Browser and ffmpeg prerequisites are explicit; optional AI planning or review can incur provider costs.",
       "related": [
         "sizzle",
         "desktop-tasks",
         "pipeline"
+      ],
+      "input": "A storyboard with clicks, framing, captions and timing, plus access to the selected web app.",
+      "action": "Validates a storyboard, captures scripted web-app actions and composes the requested aspect-ratio outputs.",
+      "result": "MP4 outputs, posters/contact sheets and build records from the shared storyboard.",
+      "runtime": "The native teaserkit CLI uses Python 3.11+. Full capture/render needs ffmpeg and Playwright Chromium; deterministic operations do not need an AI provider.",
+      "prerequisites": [
+        "Install the native package and inspect teaserkit doctor before a full build.",
+        "Use a web app and assets you are authorized to capture. Optional AI plan/explore/review operations need their separately configured extra."
       ]
     },
     {
       "id": "migrate",
       "title": "Migrate",
-      "summary": "Change the language and preserve the experience.",
+      "summary": "Move an application to another language while preserving specified behavior.",
       "description": "Observe an existing application and turn its behavior into sequenced stories and acceptance checks. Rebuild complete slices in the target language, including data, failures and recovery.",
-      "audience": "Developers rebuilding a whole application in another language or runtime.",
+      "audience": "Developers migrating an existing application or component to a new language.",
       "category": "adapt",
       "format": "Skill",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-migrate",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-migrate/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-migrate/#install",
-      "first_prompt": "Use Migrate to inventory this fictional terminal editor for a Rust rebuild. Keep the Python source read-only. Start with open, edit, save and failed-save recovery; write dependency-ordered story cards and acceptance probes before implementation.",
+      "first_prompt": "Use Migrate to plan translation of my parser to the target language I name. First characterize duplicate-key order, Unicode and error behavior. Define parity checks before changing code and keep a rollback path. Return the plan first.",
       "output": "A fictional application migration plan with source-derived stories, parity checks and a rollback boundary.",
       "limitations": "A completion ledger is not behavioral parity; data safety and real-surface acceptance require separate checks.",
       "related": [
         "transfer",
         "pipeline",
         "forge"
+      ],
+      "input": "The current application, source/target languages and baseline behavior or tests to preserve.",
+      "action": "Characterizes behavior, plans translation and compares the resulting implementation against the baseline.",
+      "result": "A migration plan or implementation with parity checks, known gaps and rollback steps.",
+      "runtime": "The method runs in your coding agent. Running parity checks requires the source and target application toolchains.",
+      "prerequisites": [
+        "Provide the application and a reproducible baseline before translation.",
+        "The portable installer requires Git and Python 3.11+; compilers and runtime dependencies belong to the application being migrated."
       ]
     },
     {
       "id": "transfer",
       "title": "Transfer",
-      "summary": "Bring useful behavior to the app you use.",
+      "summary": "Adapt a capability to a target host while preserving its useful behavior.",
       "description": "Understand an observed donor capability and check what the target host already provides. Re-express the missing behavior through the host’s own contracts and conventions.",
-      "audience": "Developers bringing an observed donor capability into one or more existing hosts.",
+      "audience": "Developers bringing an existing capability into another agent or application host.",
       "category": "adapt",
       "format": "Skill",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-transfer",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-transfer/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-transfer/#install",
-      "first_prompt": "Use Transfer to compare pause/resume behavior in this fictional donor with two host clients. Keep donor source read-only. Identify current host overlap and shared runtime prerequisites, then propose one donor-derived acceptance probe per slice.",
+      "first_prompt": "Use Transfer to assess the capability and target host I identify. Map required inputs, tools and outputs to the host’s actual interfaces. Name unsupported behavior and propose a compatibility test. Stop at a plan; do not install another capability or change host settings.",
       "output": "A fictional capability-transfer brief with donor behavior, host prerequisites and independent acceptance checks.",
       "limitations": "The donor stays read-only; declared completion does not establish that the transferred behavior works in the host.",
       "related": [
         "migrate",
         "build-amplifier",
         "constraint-builder"
+      ],
+      "input": "The source capability, target host, required behavior and the host tools actually available.",
+      "action": "Maps interfaces and host differences, identifies missing support and defines installation and behavior checks.",
+      "result": "A host-compatibility plan or adapter with explicit unsupported parts and acceptance checks.",
+      "runtime": "The method runs in your AI agent. Actual installation and execution depend on the selected host and its supported tools.",
+      "prerequisites": [
+        "Identify the source revision and target host before designing an adapter.",
+        "The portable installer needs Git and Python 3.11+. A copied file does not supply a missing host tool or grant permissions."
       ]
     },
     {
       "id": "pipeline",
       "title": "Pipeline",
-      "summary": "Build a pipeline you can explain and release deliberately.",
+      "summary": "Design a project’s build and release pipeline with explicit trust boundaries.",
       "description": "Start with the project’s real commands, dependencies and artifact consumers. Generate configuration for the selected platform and separate validation from release acceptance.",
-      "audience": "Developers creating or migrating CI/CD workflows.",
+      "audience": "Developers and teams preparing CI workflows or moving a pipeline between platforms.",
       "category": "adapt",
       "format": "Skill",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-pipeline",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-pipeline/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-pipeline/#install",
-      "first_prompt": "Use Pipeline to inspect a fictional Python project and propose a test-and-wheel pipeline for GitHub Actions. Name the real commands and artifact consumer. Include timeouts and minimal permissions. Do not add deployment, secrets or publishing.",
+      "first_prompt": "Use Pipeline to design CI for my documentation project. Fork pull requests may build; publishing is restricted to trusted main after checks. Show artifact flow, failure stops and secret boundaries. Return a workflow proposal and checks; do not deploy it.",
       "output": "A fictional CI plan connecting jobs, artifacts, checks and an explicit release boundary.",
       "limitations": "A generated file or structural validator pass is not a green native CI run or a deployed release.",
       "related": [
         "intent-to-plan",
         "migrate",
         "build-with-torque"
+      ],
+      "input": "The project’s build/test commands, target CI platform, release destinations and authorization rules.",
+      "action": "Orders pipeline stages, defines artifacts and failure handling, and checks which jobs may access secrets or publish.",
+      "result": "A reviewable pipeline definition, artifact flow and validation/release checks.",
+      "runtime": "The method and local APR checker can be used without a model key. Actual jobs run on the selected CI service and runner.",
+      "prerequisites": [
+        "Provide the project’s working build/test commands and supported runner environment.",
+        "The installer/checker requires Python 3.11+. Name secret requirements without supplying secret values in the design."
       ]
     },
     {
       "id": "data-substrate",
       "title": "Amplifier Data",
-      "summary": "Keep the evidence and change the view.",
+      "summary": "Store original evidence and rebuild derived views from the same records.",
       "description": "Store exact source bytes in an append-only log with content references and provenance. Let multiple capabilities derive their own views without making Memory the owner of the store.",
-      "audience": "Developers building evidence, memory or artifact tools that need a shared durable substrate.",
+      "audience": "Developers building capabilities that need durable evidence and replaceable projections.",
       "category": "continue",
       "format": "Library",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-data",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-data/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-data/#install",
-      "first_prompt": "Follow the native installation guide in a fresh environment, run the doctor against its temporary test store, then try the two-consumer example before connecting real data.",
+      "first_prompt": "Install the library with the release guide and run amplifier-data-doctor. In a new temporary store, add one record you choose, read the original back and rebuild one derived view. Check that the original evidence bytes remain unchanged.",
       "output": "A fictional two-consumer storage example linking a source note to a next-action artifact and retrieving the same bytes after restart.",
       "limitations": "Alpha library: durable storage needs the native Rust kernel, one writer owns a file, and invalidation does not physically erase log bytes.",
       "related": [
         "memory",
         "knowledge",
         "project-handoff"
+      ],
+      "input": "Original evidence records, source identifiers and the projection or view to derive.",
+      "action": "Writes original evidence once and builds derived views without replacing the source record.",
+      "result": "A durable evidence store and rebuildable projections with integrity checks.",
+      "runtime": "The Rust-backed amplifier_data Python library requires Python 3.11+ and no model/provider. The native diagnostic command is amplifier-data-doctor.",
+      "prerequisites": [
+        "Use the release guide’s supported wheel or a source build. Source installation needs Rust/Cargo and a native compiler.",
+        "Choose a temporary store for first use. Platform-specific installation and native acceptance are described in the release guide."
       ]
     },
     {
       "id": "memory",
       "title": "Memory",
-      "summary": "Pick up the evidence, not just the summary.",
+      "summary": "Save scoped evidence and retrieve the source behind a later answer.",
       "description": "Keep scoped project notes and retrieve the original record in a later session. Separate evidence from derived claims and review what may have changed before relying on it.",
-      "audience": "People and agents who need inspectable, durable project memory.",
+      "audience": "People and agents returning to project notes or evidence across sessions.",
       "category": "continue",
       "format": "Skill",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-memory",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-memory/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-memory/#install",
-      "first_prompt": "Use Memory to review this project note. Preserve the exact source, its project scope and the date. Separate observed evidence from any derived claim. Show what needs rechecking before we rely on it today.",
+      "first_prompt": "Use Memory with the note I select. Save the observation with its source and scope, then retrieve it using one question I provide. Keep derived inferences distinct from the original record and do not search or migrate an unselected store.",
       "output": "A fictional retrieved project note with its exact text, provenance, scope and current recheck.",
       "limitations": "The portable method installs independently; native persistence uses the separate Data library and supported adapters.",
       "related": [
         "data-substrate",
         "project-handoff",
         "knowledge"
+      ],
+      "input": "Selected notes or observations, provenance, a storage scope and a later retrieval question.",
+      "action": "Retains evidence and derived facts within a selected scope, then retrieves the supporting records.",
+      "result": "Stored evidence and source-linked retrieval results with explicit scope and uncertainty.",
+      "runtime": "The portable skill is guidance only. Native save/search requires the Memory module and the independent Data library.",
+      "prerequisites": [
+        "For native use, follow the native quickstart with Python 3.11+ and a supported Data install; source Data builds need Rust and a native compiler.",
+        "Choose the store and scope explicitly. Installation does not discover or migrate existing stores."
       ]
     },
     {
       "id": "project-handoff",
       "title": "Project Handoff",
-      "summary": "Pick up where the work left off.",
-      "description": "Capture the current state, adopted decisions, evidence and next useful action in a plain record. Resume from that record without treating a later suggestion as an approved decision.",
-      "audience": "People returning to a project or transferring it to another collaborator.",
+      "summary": "Give a teammate the decisions, files, and next steps they need to continue your project.",
+      "description": "Create a handoff from the selected project’s actual state. Link important decisions to files, preserve unfinished work and name the next action a teammate can take.",
+      "audience": "Project teams handing work to a teammate or returning after an interruption.",
       "category": "continue",
       "format": "Skill",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-project-handoff",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-project-handoff/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-project-handoff/#use-skill",
-      "first_prompt": "Use Project Handoff to capture this fictional project’s current state, adopted decisions, evidence and next safe action. Distinguish proposals from approvals and do not begin implementation.",
+      "first_prompt": "Use Project Handoff with the project I select. Record the current files and revision, decisions, verified checks, pending work and the next command a teammate should run. Keep a running test pending until its result is observed. Do not overwrite uncommitted work.",
       "output": "A fictional handoff separating the adopted local-file plan, a proposed cloud idea and an unrun export check.",
       "limitations": "Handoff installs without Memory, a database or a daemon; a record does not itself approve implementation or make old evidence current.",
       "related": [
         "memory",
         "intent-to-plan",
         "good-teammate"
+      ],
+      "input": "The selected project, current files and state, important decisions, known blockers and unfinished checks.",
+      "action": "Assembles a concise current-state handoff with evidence, open work and a concrete next action.",
+      "result": "A handoff note linking decisions and files, with completed, pending and blocked work distinguished.",
+      "runtime": "Instructions followed by your existing AI agent; repository inspection uses the host’s existing file/Git tools.",
+      "prerequisites": [
+        "Select the project and provide access only to the relevant files and records.",
+        "Keep the complete skill folder. The repository installer needs Git and Python 3.11+."
       ]
     },
     {
       "id": "good-teammate",
       "title": "Good Teammate",
-      "summary": "Get the right help and keep the meaning intact.",
+      "summary": "Find the right owner for a question and preserve the context of the reply.",
       "description": "Decide what to look up, whom to ask and what knowledge to leave behind. Preserve qualifications, attribution and authority as work moves between collaborators.",
-      "audience": "People and agents coordinating bounded work across a shared project.",
+      "audience": "Teams and agents coordinating work across people or specialist roles.",
       "category": "continue",
       "format": "Skill",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-good-teammate",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-good-teammate/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-good-teammate/#install",
-      "first_prompt": "Use Good Teammate to draft a local request for a specialist review. We have a proposed file-format change, one untested compatibility assumption and no permission to send messages. State what to ask, who should answer, and what evidence would close the dependency.",
+      "first_prompt": "Use Good Teammate with this question and the ownership notes I provide. Reuse any answer already in the selected context, identify the right owner for the remaining gap and draft one focused question. Do not send a message or contact an external agent.",
       "output": "A fictional coordination note keeping a specialist’s untested answer tentative and naming the next verification.",
       "limitations": "Installing the method enrolls no project and contacts no one; communication stays within the user’s existing authorization.",
       "related": [
         "project-handoff",
         "team-access",
         "memory"
+      ],
+      "input": "A specific question, available role/ownership information and any answer already present in the selected context.",
+      "action": "Decides whether another question is needed, identifies the relevant teammate and preserves the meaning of the answer.",
+      "result": "A routing decision, a focused question or a source-linked answer with unresolved ownership visible.",
+      "runtime": "The method runs in your existing AI agent. Contacting teammates or other agents requires an available communication tool and authorization.",
+      "prerequisites": [
+        "Provide role/ownership context and check whether the question is already answered.",
+        "The portable installer needs Git and Python 3.11+. Optional host routing has its own setup; loading the method sends no message."
       ]
     },
     {
       "id": "team-access",
       "title": "Team Access",
-      "summary": "See who has access before applying the roster.",
+      "summary": "Compare a GitHub roster with current access before authorizing changes.",
       "description": "Compare a declared YAML roster with repository collaborators and invitations. Preview the differences and apply only the exact changes the owner authorizes.",
-      "audience": "Repository owners administering collaborator access from a declared roster.",
+      "audience": "GitHub repository maintainers reviewing collaborators, invitations and permission drift.",
       "category": "continue",
       "format": "Tool",
       "repo_url": "https://github.com/michaeljabbour/amplifier-capability-team-access",
       "site_url": "https://michaeljabbour.github.io/amplifier-capability-team-access/",
       "install_url": "https://michaeljabbour.github.io/amplifier-capability-team-access/#install",
-      "first_prompt": "Install the addteam command in an isolated environment, inspect its help and prepare a dry-run against one explicitly selected repository. Review additions, permission changes and removals before authorizing any change.",
+      "first_prompt": "After installing addteam and configuring GitHub CLI access, run addteam --help. Audit one repository you maintain with its intended roster, then inspect a dry-run plan. Do not apply, sync, accept invitations or send new invitations.",
       "output": "A fictional roster review separating proposed additions, permission changes, removals and unresolved names.",
       "limitations": "The addteam tool can change real GitHub access; a dry-run or circuit breaker does not authorize those changes.",
       "related": [
         "good-teammate",
         "pipeline",
         "project-handoff"
+      ],
+      "input": "A selected repository, intended YAML roster and the exact audit or change the maintainer authorizes.",
+      "action": "Audits collaborators and invitations, previews drift and applies roster operations only when the chosen operation is authorized.",
+      "result": "An access-drift report or dry-run plan; authorized apply operations change GitHub access.",
+      "runtime": "The native addteam CLI uses Python 3.10+ and an installed, authenticated GitHub CLI with access to the selected repository.",
+      "prerequisites": [
+        "Install the native package and configure GitHub CLI access before a live audit.",
+        "Start with --help and --audit or --dry-run. Bare apply, sync and invitation acceptance are mutating operations, and some unattended paths do not prompt again."
       ]
     }
   ]

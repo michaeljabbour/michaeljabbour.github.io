@@ -455,8 +455,8 @@ def main() -> int:
     if home_navigation:
         require(not any('data-category-launcher' in attrs for _,attrs in home_navigation.elements),'Homepage must not duplicate its inline journey with a top category launcher')
         require('Where are you starting?' not in (OUT/'index.html').read_text(),'Removed homepage launcher must not return')
-        main_journey=home_navigation.select('a',**{'aria-label':'The journey'})
-        require(len(main_journey)==1 and main_journey[0].get('href')=='/#journey','Main Journey navigation must target the inline homepage content')
+        main_journey=home_navigation.select('a',**{'aria-label':'Categories'})
+        require(len(main_journey)==1 and main_journey[0].get('href')=='/#journey','Main Categories navigation must target the inline homepage content')
     library = documents.get(OUT / "capabilities/index.html")
     if library:
         rows = [

@@ -39,3 +39,25 @@
 
 /* Installation migration guide. */
 .migration-guide{max-width:1000px;padding-block:65px 100px}.migration-guide h1{font-size:clamp(38px,6vw,68px);margin:30px 0;max-width:22ch}.migration-guide h2{font-size:32px;margin:55px 0 20px}.migration-guide h3{font-size:23px;margin:35px 0 18px}.migration-guide p{max-width:76ch;margin:20px 0;line-height:1.7;color:var(--muted)}.migration-guide p a{text-decoration:underline;color:var(--ink)}.migration-guide code{font-size:.86em;overflow-wrap:anywhere}.migration-guide pre{max-width:100%;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;padding:22px;background:var(--white);border:1px solid var(--line);border-radius:8px;line-height:1.7}.migration-table{max-width:100%;overflow:auto;margin:25px 0}.migration-table table{width:100%;min-width:720px;border-collapse:collapse;font-size:14px}.migration-table th,.migration-table td{padding:15px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}.migration-table th{font-weight:650}.migration-table a{text-decoration:underline}@media(max-width:600px){.migration-guide{padding-block:40px 65px}.migration-guide h2{font-size:27px}.migration-guide p{font-size:16px}.migration-guide pre{padding:15px}}
+
+/* First-visitor essentials precede media; technical formats remain explicit. */
+.hero-copy h1{font-size:clamp(43px,5.2vw,72px);line-height:1.08;max-width:19ch;letter-spacing:-.045em}
+.capability-facts{margin:28px 0 0;display:grid;gap:0}
+.capability-facts>div{display:grid;grid-template-columns:75px minmax(0,1fr);gap:18px;padding:18px 0;border-top:1px solid var(--line)}
+.capability-facts dt{font-size:14px;font-weight:650;color:var(--ink)}
+.capability-facts dd{margin:0;font-size:16px;line-height:1.65;color:var(--muted);overflow-wrap:anywhere}
+.setup-note{margin-top:28px;padding-top:25px;border-top:2px solid var(--line)}
+.setup-note h3{font-size:25px;line-height:1.2;margin-bottom:16px}
+.setup-note p,.setup-note li{font-size:16px;line-height:1.65;color:var(--muted)}
+.setup-note ul{padding-left:21px;margin:17px 0 0}.setup-note li+li{margin-top:12px}
+.first-use{scroll-margin-top:28px}.first-use-prompt{overflow-wrap:anywhere}
+.media-heading{font-size:30px;margin:0 0 22px}
+.capability-scope{display:grid;grid-template-columns:1fr 1fr;gap:65px;padding-block:40px 55px}
+.capability-scope h2{font-size:29px;line-height:1.2;margin-bottom:20px}
+.capability-scope p{font-size:16px;line-height:1.65;color:var(--muted);max-width:66ch}
+.capability-scope .output-example,.capability-scope .scope-note{margin:0;padding:23px 0;border-top:1px solid var(--line)}
+.capability-scope .example-label{font-size:13px;margin-top:18px}
+@media(max-width:850px){.capability-scope{gap:35px}.hero-copy h1{font-size:clamp(43px,5.5vw,63px)}}
+@media(max-width:600px){.hero-copy h1{font-size:clamp(42px,10.3vw,59px);max-width:21ch}.capability-facts>div{grid-template-columns:1fr;gap:6px;padding-block:16px}.capability-facts dd{font-size:16px}.setup-note h3{font-size:25px}.media-heading{width:calc(100% - 40px);margin:0 auto 20px;font-size:28px}.capability-scope{display:block;padding-block:25px 35px}.capability-scope h2{font-size:27px}.capability-scope .scope-note{margin-top:20px}}
+.journey-thinking h2,.journey-thinking h3{font-size:clamp(27px,2.5vw,34px);max-width:25ch;line-height:1.2}
+@media(max-width:600px){.journey-thinking h2,.journey-thinking h3{font-size:29px}}
