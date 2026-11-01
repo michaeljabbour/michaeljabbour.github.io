@@ -48,7 +48,7 @@ def stage_tokens(project, data):
 
 
 def search_text(project, category_titles):
-    return ' '.join([project['title'], project['summary'], project['audience'], category_titles[project['category']], project['format']]).lower()
+    return ' '.join([project['title'], project['summary'], project['audience'], category_titles.get(project['category'], project['category']), project['format']]).lower()
 
 
 def flow_links(project, data):
