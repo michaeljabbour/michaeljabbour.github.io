@@ -80,8 +80,12 @@ def render_related_tools(ident, curated):
             f'<article><div class="community-meta"><span>{E(CATEGORIES[entry["category"]])}</span><span>{E(RELATIONSHIPS[entry["relationship"]])}</span></div><h3><a href="{E(entry["url"])}">{E(entry["title"])}</a></h3><p>{E(entry["relevance"])}</p><p><strong>Difference:</strong> {E(entry["difference"])}</p>{supporting(entry)}<p class="reviewed-date">Reviewed <time datetime="{E(entry["reviewed_date"])}">{E(entry["reviewed_date"])}</time></p></article>'
             for entry in items
             ) + '</div>'
-        content = ''.join(
-            f'<details class="community-group"><summary>{E(label)} <span>{len([entry for entry in entries if entry["category"] == category])} sources</span></summary>{render_entries([entry for entry in entries if entry["category"] == category])}</details>'
-            for category, label in CATEGORIES.items() if any(entry["category"] == category for entry in entries)
-        )
+        groups = []
+        for category, label in CATEGORIES.items():
+            items = [entry for entry in entries if entry["category"] == category]
+            if items:
+                count = len(items)
+                noun = "source" if count == 1 else "sources"
+                groups.append(f'<details class="community-group"><summary>{E(label)} <span>{count} {noun}</span></summary>{render_entries(items)}</details>')
+        content = ''.join(groups)
     return '<section class="community-research wrap" aria-labelledby="community-title"><h2 id="community-title">Related tools &amp; research</h2><p class="community-intro">Sources to compare or explore alongside this capability. A listing does not imply an integration, partnership or endorsement.</p>' + content + '</section>'

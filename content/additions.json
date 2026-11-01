@@ -1,30 +1,30 @@
 {
   "schema_version": "portfolio-additions/v1",
-  "publication_ready": false,
+  "publication_ready": true,
   "capabilities": [
     {
       "id": "articlecraft",
       "repository_url": "https://github.com/michaeljabbour/amplifier-capability-articlecraft",
-      "source_commit": null,
+      "source_commit": "af38ca14b459d22bdf13ba8c88241e53076c1fa7",
       "license": "MIT",
-      "repository_verified": false,
-      "verified_at": null
+      "repository_verified": true,
+      "verified_at": "2026-11-01T12:26:45+00:00"
     },
     {
       "id": "idea-talks",
       "repository_url": "https://github.com/michaeljabbour/amplifier-capability-idea-talks",
-      "source_commit": null,
+      "source_commit": "ee7b448d04c3dcff9c85ec1e0f31be2cb1996b3f",
       "license": "MIT",
-      "repository_verified": false,
-      "verified_at": null
+      "repository_verified": true,
+      "verified_at": "2026-11-01T12:26:45+00:00"
     },
     {
       "id": "stories",
       "repository_url": "https://github.com/michaeljabbour/amplifier-capability-stories",
-      "source_commit": null,
+      "source_commit": "1e44dee29ad6f736b83d8f19871ad8d8591bdec2",
       "license": "MIT",
-      "repository_verified": false,
-      "verified_at": null
+      "repository_verified": true,
+      "verified_at": "2026-11-01T12:26:45+00:00"
     }
   ]
 }

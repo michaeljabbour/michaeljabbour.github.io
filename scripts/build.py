@@ -117,7 +117,7 @@ def main():
         return f'<div class="poster-fallback {cls}"><span>{E(p["title"])}</span></div>'
 
     def shell(title, description, body, active="home", path="/", extra_head=""):
-        preview_label = '<p class="notice wrap" data-local-preview>Local preview: includes unpublished capabilities.</p>' if admission["preview_only"] else ""
+        preview_label = '<p class="notice wrap" data-local-preview>Local preview: this is not the published site.</p>' if admission["preview_only"] else ""
         nav = [
             ("journey", "/#journey", "Work flows"),
             ("capabilities", "/capabilities/", "All capabilities"),

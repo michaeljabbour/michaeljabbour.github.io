@@ -758,7 +758,7 @@
         "A skill-capable assistant and material you have permission to use; no runtime packages required."
       ],
       "first_prompt": "Use ArticleCraft with the author perspective, audience and source packet I provide. Plan a short article, ask about missing evidence before drafting, and return a sourced local draft with author review notes. Do not collect new material or publish.",
-      "output": "Fictional illustration: Markdown article draft and review notes.",
+      "output": "A fictional article draft with source checks and author review notes.",
       "limitations": "Does not verify source truth or measure author improvement. Repository scripts check packaging and authored evaluation records.",
       "related": [
         "research",
@@ -788,7 +788,7 @@
         "A skill-capable assistant for drafting; a modern browser for editing and export. No external fonts, accounts or runtime dependencies."
       ],
       "first_prompt": "Use Idea Talks with the idea, audience, speaker words and source packet I provide. Produce one nine-slide HTML draft and story-evidence.md, keeping claims tied to the notes. Save local files without publishing.",
-      "output": "Fictional illustration: Self-contained HTML, editable text and notes, source metadata and print layout.",
+      "output": "A fictional nine-slide HTML talk with editable text, speaker notes and source details.",
       "limitations": "No import, fullscreen, autonomous content generation or hosted publishing. Browser draft storage is local to its browser profile.",
       "related": [
         "taste-elegance",
@@ -820,7 +820,7 @@
         "A skill-capable assistant; Python3.11+ only for the optional read-only checker. No other capability is required."
       ],
       "first_prompt": "Use Stories with the project evidence and visibility I specify. Write one project-team case study and one adaptation for volunteer maintainers, preserving source references, counts and limits. Return local drafts, claims.json and review.md; do not publish.",
-      "output": "Fictional illustration: Markdown case-study/adaptation/review files and claims JSON.",
+      "output": "A fictional project case study, one audience adaptation and a shared claim ledger.",
       "limitations": "The checker validates structure and boundaries, not truth, prose quality or privacy. No session mining, renderer or publisher.",
       "related": [
         "research",

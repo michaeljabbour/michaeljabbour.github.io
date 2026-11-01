@@ -89,6 +89,12 @@ class PublicDataContracts(unittest.TestCase):
         self.assertEqual(18, html.count('<time datetime='))
         self.assertIn("not yet published", render_related_tools("not-curated", {}))
 
+    def test_single_source_group_uses_singular_label(self):
+        entry = self.related["capabilities"]["knowledge"][0]
+        html = render_related_tools("knowledge", {"knowledge": [entry]})
+        self.assertIn("1 source</span>", html)
+        self.assertNotIn("1 sources", html)
+
 
 if __name__ == "__main__":
     unittest.main()
