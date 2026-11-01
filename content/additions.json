@@ -1,5 +1,5 @@
 {
-  "schema_version": "portfolio-additions/v1",
+  "schema_version": "portfolio-additions/v2",
   "publication_ready": true,
   "capabilities": [
     {
@@ -25,6 +25,30 @@
       "license": "MIT",
       "repository_verified": true,
       "verified_at": "2026-11-01T12:26:45+00:00"
+    },
+    {
+      "id": "claim-review",
+      "repository_url": "https://github.com/michaeljabbour/amplifier-capability-claim-review",
+      "source_commit": "0869562cc149e9055eaddc3cd82bbefd71950252",
+      "license": "MIT",
+      "repository_verified": true,
+      "verified_at": "2026-11-01T13:44:52.715Z"
+    },
+    {
+      "id": "delivery-packager",
+      "repository_url": "https://github.com/michaeljabbour/amplifier-capability-delivery-packager",
+      "source_commit": "b8e3018820a72f5543643083ac62701f7b8ddf6c",
+      "license": "MIT",
+      "repository_verified": true,
+      "verified_at": "2026-11-01T13:44:52.715Z"
+    },
+    {
+      "id": "guided-practice",
+      "repository_url": "https://github.com/michaeljabbour/amplifier-capability-guided-practice",
+      "source_commit": "1418d440290f52097d737f5170dacb689d82d6b7",
+      "license": "MIT",
+      "repository_verified": true,
+      "verified_at": "2026-11-01T13:44:52.715Z"
     }
   ]
 }

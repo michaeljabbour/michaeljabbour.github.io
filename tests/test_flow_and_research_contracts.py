@@ -62,7 +62,7 @@ class PublicDataContracts(unittest.TestCase):
     def test_reviewed_stage_examples_have_exact_members(self):
         examples = {
             ("software", "build"): {"build-amplifier", "build-tauri", "build-with-torque", "forge", "desktop-tasks", "image-provider", "migrate", "transfer", "data-substrate"},
-            ("research", "explain"): {"research", "decisioncraft", "taste-elegance", "project-handoff", "articlecraft"},
+            ("research", "explain"): {"research", "decisioncraft", "taste-elegance", "project-handoff", "articlecraft", "delivery-packager"},
             ("creative", "share"): {"project-handoff", "good-teammate", "idea-talks", "stories"},
         }
         for (flow, stage), expected in examples.items():

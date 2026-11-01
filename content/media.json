@@ -1301,6 +1301,15 @@
     },
     "stories": {
       "available": false
+    },
+    "claim-review": {
+      "available": false
+    },
+    "delivery-packager": {
+      "available": false
+    },
+    "guided-practice": {
+      "available": false
     }
   }
 }

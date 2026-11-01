@@ -26,7 +26,7 @@ class CanonicalNavigation(unittest.TestCase):
 
     def test_all_current_canonical_destinations_are_accepted(self):
         self.assertEqual([], self.errors())
-        self.assertEqual(36, len(self.catalogue["projects"]))
+        self.assertEqual(39, len(self.catalogue["projects"]))
 
     def test_each_legacy_repository_guide_install_and_film_link_is_rejected(self):
         # HTTPS and working redirects are not enough: every active destination
@@ -57,7 +57,7 @@ class CanonicalNavigation(unittest.TestCase):
             self.assertTrue(self.errors(catalogue))
 
     def test_new_guides_use_the_main_site_and_actual_readme_setup(self):
-        additions = {"articlecraft", "idea-talks", "stories"}
+        additions = {"articlecraft", "idea-talks", "stories", "claim-review", "delivery-packager", "guided-practice"}
         for index, project in enumerate(self.catalogue["projects"]):
             if project["id"] not in additions:
                 continue

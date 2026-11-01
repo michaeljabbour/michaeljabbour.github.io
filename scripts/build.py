@@ -317,7 +317,7 @@ def main():
         watch = ""
         workflow = ""
         if p.get("workflow_image"):
-            paths = {"articlecraft": "docs/workflow.svg", "idea-talks": "docs/workflow.svg", "stories": "skills/stories/assets/workflow.svg"}
+            paths = {"articlecraft": "docs/workflow.svg", "idea-talks": "docs/workflow.svg", "stories": "skills/stories/assets/workflow.svg", "claim-review": "skills/claim-review/assets/workflow.svg"}
             if p["id"] not in admission["additions"] or p["workflow_image"] != "/assets/workflows/" + p["id"] + ".svg" or p.get("workflow_path") != paths.get(p["id"]):
                 raise ValueError("Workflow image must use its admitted local asset and source path")
             public_pin = admission["additions"][p["id"]]["source_commit"] or "main"
@@ -367,6 +367,8 @@ def main():
         else:
             first_intro = "Install and configure the native tool or library first. Follow the operating steps below with an input you select."
             copy_label = "Copy first step"
+        first_intro = p.get("first_use_intro", first_intro)
+        operating_notes = "".join(f'<p class="{key}-note"><strong>{label}</strong> {E(p[key])}</p>' for key,label in [("standalone","Works on its own:"),("natural_stop","Natural stop:")] if p.get(key))
         guide_link = "" if p["id"] in admission["additions"] else f'<a href="{E(p["site_url"])}">Full capability guide</a>'
         setup_link = f'<p><a href="{E(p["install_url"])}">Read the repository installation steps</a></p>' if p["id"] in admission["additions"] else ""
         requirements = "".join(f"<li>{E(item)}</li>" for item in p["prerequisites"])
@@ -383,7 +385,7 @@ def main():
 <div><dt>Action</dt><dd>{E(p["action"])}</dd></div>
 <div><dt>Output</dt><dd>{E(p["result"])}</dd></div></dl>
 <section class="setup-note" id="setup" aria-labelledby="setup-title"><h3 id="setup-title">Runtime and prerequisites</h3>
-<p>{E(p["runtime"])}</p><ul>{requirements}</ul>{setup_link}</section></div>
+<p>{E(p["runtime"])}</p><ul>{requirements}</ul>{operating_notes}{setup_link}</section></div>
 <aside class="first-use" id="first-task" aria-labelledby="first-task-title"><h2 id="first-task-title">Your first task</h2>
 <p class="first-use-intro">{E(first_intro)}</p><p class="first-use-prompt" id="first-prompt">{E(p["first_prompt"])}</p>
 <button class="copy-button" data-copy="first-prompt" type="button">Copy first task</button><p class="copy-status" role="status" aria-live="polite"></p>

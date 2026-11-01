@@ -547,6 +547,39 @@
       ]
     },
     {
+      "id": "claim-review",
+      "title": "Claim Review",
+      "summary": "Review a supplied claim, its scope and counterevidence before a person decides what to share.",
+      "description": "A focused evidence-ledger method with an optional structural validator and not-reviewed worksheet generator.",
+      "audience": "Researchers, authors and editors checking a claim before sharing.",
+      "input": "Permitted supplied claims, evidence excerpts and locators, context, intended reader and decision.",
+      "action": "Preserve original claims and context, inspect support/contradiction/unknowns, retain all supplied evidence references and propose scoped revisions.",
+      "result": "A human-owned claim ledger, uncertainty and a clear revise/defer/sharing decision point.",
+      "limitations": "Structure, reference coverage and exact input binding only. No source fetching, quote verification, truth certification, publication approval, independent human usefulness or measured coaching improvement.",
+      "category": "improve",
+      "format": "Skill",
+      "runtime": "The method runs in your existing AI agent. Its optional structural validator and not-reviewed worksheet generator use Python 3.11+ and the standard library; no source search or semantic classifier is bundled.",
+      "prerequisites": [
+        "An Agent Skills-capable assistant or direct use of the method; Python3.11+ only for the optional helper. No account, sibling capability or package installation."
+      ],
+      "first_prompt": "Use Claim Review with the claim, permitted source excerpts and context I provide. Preserve the original claim, keep scope and counterevidence visible, and return a source-linked ledger with a revise/defer decision for me. Do not fetch sources or publish.",
+      "output": "A fictional claim ledger preserving the original claim, source references, counterevidence and open questions.",
+      "related": [
+        "research",
+        "articlecraft",
+        "decisioncraft",
+        "stories"
+      ],
+      "standalone": "No other capability, account or package is required. The helper is optional; semantic review remains a human-owned decision.",
+      "natural_stop": "Return the ledger and scoped revise/defer decision, then hand control back. Any practice is opt-in and stops at user stop, agreed cap, missing input or a failed/unknown critical gate.",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-capability-claim-review",
+      "site_url": "https://michaeljabbour.github.io/capabilities/claim-review/",
+      "install_url": "https://github.com/michaeljabbour/amplifier-capability-claim-review#setup",
+      "workflow_image": "/assets/workflows/claim-review.svg",
+      "workflow_path": "skills/claim-review/assets/workflow.svg",
+      "workflow_alt": "Supplied claim and evidence to preserved context, review ledger, then human decision."
+    },
+    {
       "id": "preceptor",
       "title": "Preceptor",
       "summary": "Test whether a small agent cue addresses a recurring observed mistake.",
@@ -573,6 +606,36 @@
         "Select the records to inspect rather than granting broad access to session history.",
         "Python 3.11+ is used by the installer/native tools. Live observation and cue injection need the optional host setup and consent controls."
       ]
+    },
+    {
+      "id": "guided-practice",
+      "title": "Guided Practice",
+      "summary": "Practice one work judgment with bounded help, then return control to the person.",
+      "description": "For a person who explicitly wants to learn while working, elicit a small attempt and reason, give one diagnostic question or bounded contrast, and reduce help only when the actual attempt supports it. An unaided transfer attempt remains a separate observation.",
+      "audience": "People and teammates who explicitly choose practice while reviewing a work artifact.",
+      "category": "improve",
+      "format": "Skill",
+      "input": "An explicit practice request, one authorized artifact, an observable target, scope and round/time budgets.",
+      "action": "Starts with the person’s attempt, offers bounded feedback, checks their reasoning and returns a keep/revert/leave-unchanged decision.",
+      "result": "An actual attempt and reason, bounded feedback and a human decision; optional unaided practice is recorded separately.",
+      "runtime": "A portable method in your existing Agent Skills host. An optional Python 3.11+ helper checks declared stop facts from two records; it is not a coach runtime.",
+      "prerequisites": [
+        "Use an existing skill-capable assistant with authorized access to the chosen artifact. No other capability, new package or provider configuration is required.",
+        "Python 3.11+ is needed only for the optional read-only helper. Its file CLI uses POSIX no-follow reads; the dictionary API is independent."
+      ],
+      "first_prompt": "I want practice making one evidence-limited headline choice in the announcement I provide. Let me try first and explain my reason. Preserve the facts; two rounds or ten minutes, then stop. Save no notes.",
+      "output": "A fictional practice exchange with an initial attempt, one diagnostic question and an explicit human decision.",
+      "limitations": "Declared stop records do not prove consent, authority, actual attempts, learning or correct counters. The helper reads no artifact and launches no task. Human learning and outside-user usefulness have not been measured.",
+      "related": [
+        "market-fit",
+        "worth-using",
+        "taste-elegance"
+      ],
+      "standalone": "Practice is optional and self-contained. Direct execution remains the default when practice was not requested; existing coaching modes and budgets remain authoritative.",
+      "natural_stop": "Stop at user stop or “just finish”, target, agreed cap, stalled gain, missing input/authority or a failed/unknown critical gate. Return the current artifact for human decision. No standing memory, transcript or reminders are collected; notes require separate opt-in.",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-capability-guided-practice",
+      "site_url": "https://michaeljabbour.github.io/capabilities/guided-practice/",
+      "install_url": "https://github.com/michaeljabbour/amplifier-capability-guided-practice#setup"
     },
     {
       "id": "session-doctor",
@@ -913,6 +976,38 @@
         "Provide the project’s working build/test commands and supported runner environment.",
         "The installer/checker requires Python 3.11+. Name secret requirements without supplying secret values in the design."
       ]
+    },
+    {
+      "id": "delivery-packager",
+      "title": "Delivery Packager",
+      "summary": "Package approved local files with a byte-integrity manifest, without sending them.",
+      "description": "Create one ZIP from an explicitly approved allowlist of local files. Include selected editable/final assets, SHA-256 digests and declared credits, licenses, accessibility notes, owner, limits and next action.",
+      "audience": "People preparing a review, research handoff or creative/software delivery package.",
+      "category": "adapt",
+      "format": "Tool",
+      "input": "Selected local regular files, a versioned delivery plan, an existing destination outside the source tree and a new archive filename.",
+      "action": "Previews the exact plan, requires its approval fingerprint before writing, creates one new archive and verifies it without extraction.",
+      "result": "A new ZIP containing only approved files and a byte-integrity/declaration manifest.",
+      "runtime": "A standalone Python 3.11+ CLI/library on a POSIX host with descriptor-relative no-follow operations and same-filesystem hard links. No AI host, provider or extra package is needed.",
+      "prerequisites": [
+        "Use a reviewed full checkout, or keep delivery_packager.py and its MIT LICENSE together in a chosen tools directory.",
+        "Use Python 3.11+ on a supported POSIX host. Native Windows execution is unsupported; produced ZIP files are conventional.",
+        "Choose an explicit plan and an existing destination outside the selected source tree. Review the preview before approving any build."
+      ],
+      "first_use_intro": "Start from the reviewed checkout on a supported POSIX host. Preview is separate from approval to build or distribute.",
+      "first_prompt": "From the reviewed checkout, create an empty outputs directory outside examples/assets and inspect examples/plan.json. Run: python3 delivery_packager.py preview --root examples/assets --plan examples/plan.json --destination outputs --name repair-club.zip. Stop to review every listed file and the returned approval_sha256; do not build or send the archive.",
+      "output": "A fictional repair-club delivery ZIP with selected assets, checksums and explicit declarations.",
+      "limitations": "Default total payload is 64 MiB, with a 512 MiB hard maximum and at most 128 files. Metadata has a separate 256 KiB bound. Checksums establish byte integrity against a trusted digest, not rights, accessibility, authority or recipient receipt. This is not encryption, a digital signature, BagIt or RO-Crate.",
+      "related": [
+        "project-handoff",
+        "pipeline",
+        "stories"
+      ],
+      "standalone": "A native CLI/library with no synthetic SKILL wrapper, account, provider or required sibling capability. Nothing is uploaded, sent, extracted or executed.",
+      "natural_stop": "Stop after preview unless the current fingerprint is explicitly approved. Build and verify then stop; a changed plan/file/destination requires a fresh preview, and existing output is refused.",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-capability-delivery-packager",
+      "site_url": "https://michaeljabbour.github.io/capabilities/delivery-packager/",
+      "install_url": "https://github.com/michaeljabbour/amplifier-capability-delivery-packager#setup"
     },
     {
       "id": "data-substrate",

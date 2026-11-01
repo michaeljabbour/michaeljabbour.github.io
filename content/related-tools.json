@@ -1308,6 +1308,122 @@
         "difference": "A separate hosted generation/editing service with its own account, terms and data handling. The new Idea Talks editor operates locally without a provider, account or generation service. Commercial comparison only; no purchase, account creation, source upload, partnership, performance or interoperability claim.",
         "reviewed_date": "2026-11-01"
       }
+    ],
+    "claim-review": [
+      {
+        "title": "Cochrane Handbook: Collecting data",
+        "url": "https://www.cochrane.org/authors/handbooks-and-manuals/handbook/current/chapter-05",
+        "category": "research",
+        "relationship": "inspiration",
+        "relevance": "Primary data-extraction guidance makes participants, setting, outcomes, linked reports and discrepancies explicit.",
+        "difference": "Claim Review is a general supplied-packet review, not a systematic review or clinical assessment. No Cochrane text, form or code is copied.",
+        "source_urls": [
+          "https://www.cochrane.org/authors/handbooks-and-manuals/handbook/current/chapter-05"
+        ],
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "W3C PROV overview",
+        "url": "https://www.w3.org/TR/prov-overview/",
+        "category": "research",
+        "relationship": "inspiration",
+        "relevance": "Provenance concepts distinguish a reviewed claim, its source and the activity producing a review.",
+        "difference": "Local IDs and a canonical packet digest are used; no PROV serialization, ontology, implementation code or conformance claim. The linked PROV-DM 2013 Recommendation was checked as a related standard after implementation.",
+        "source_urls": [
+          "https://www.w3.org/TR/prov-overview/",
+          "https://www.w3.org/copyright/document-license-2023/",
+          "https://www.w3.org/TR/prov-dm/"
+        ],
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Scite",
+        "url": "https://scite.ai/",
+        "category": "commercial",
+        "relationship": "alternative",
+        "relevance": "A commercial research service offers support/contradiction signals from citation context.",
+        "difference": "Claim Review reviews supplied evidence locally; it implements no search, citation index, Scite API, classifier or account. Vendor outcome and coverage claims are not adopted.",
+        "source_urls": [
+          "https://scite.ai/"
+        ],
+        "reviewed_date": "2026-11-01"
+      }
+    ],
+    "delivery-packager": [
+      {
+        "title": "BagIt (RFC 8493)",
+        "url": "https://www.rfc-editor.org/rfc/rfc8493",
+        "category": "research",
+        "relationship": "inspiration",
+        "relevance": "Separates payload bytes and descriptive metadata with checksums. This package is a small ZIP delivery contract, not a BagIt implementation.",
+        "difference": "No specification text or implementation copied; no conformance claim.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Python zipfile",
+        "url": "https://docs.python.org/3/library/zipfile.html",
+        "category": "open-source",
+        "relationship": "actual-code-reuse",
+        "relevance": "The existing Python standard library writes and reads stored ZIP entries. Delivery Packager adds bounded allowlists, declarations and approval binding.",
+        "difference": "Uses the caller’s existing Python standard-library engine. Delivery Packager adds approval binding, bounded allowlists and declarations; no CPython implementation is vendored.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Library of Congress bagit-python",
+        "url": "https://github.com/LibraryOfCongress/bagit-python",
+        "category": "open-source",
+        "relationship": "alternative",
+        "relevance": "Choose this for creating or validating BagIt directory packages. No bagit-python dependency or interoperability is implemented here.",
+        "difference": "No code copied or installed; project metadata declares Public Domain, not an adoption or legal clearance claim.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "RO-Crate",
+        "url": "https://www.researchobject.org/ro-crate/",
+        "category": "research",
+        "relationship": "complement",
+        "relevance": "Research-data metadata interchange may be useful for a future explicit export. This archive does not implement the RO-Crate format.",
+        "difference": "Research only; no specification text or code copied.",
+        "reviewed_date": "2026-11-01"
+      }
+    ],
+    "guided-practice": [
+      {
+        "title": "Anki",
+        "url": "https://github.com/ankitects/anki",
+        "category": "open-source",
+        "relationship": "complement",
+        "relevance": "Spaced flashcard recall serves a different job from practicing a judgment in an existing work artifact. There is no Anki integration or scheduling here.",
+        "difference": "No code, content or assets copied. Anki is AGPL 3-or-later with component exceptions; see its LICENSE.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Khanmigo",
+        "url": "https://www.khanmigo.ai/",
+        "category": "commercial",
+        "relationship": "alternative",
+        "relevance": "A hosted educational tutor and teaching assistant. Guided Practice is a caller-applied work-practice procedure, without a hosted classroom service or curriculum.",
+        "difference": "Research only; no account, integration, copied prompts or proprietary content.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Roediger and Karpicke (2006), Test-enhanced learning",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/16507066/",
+        "category": "research",
+        "relationship": "inspiration",
+        "relevance": "The author abstract contrasts immediate and delayed prose recall. It motivates measuring unaided transfer separately; it does not validate this method or work-judgment coaching.",
+        "difference": "Abstract/bibliography reviewed; no full-text access or efficacy extrapolation. DOI 10.1111/j.1467-9280.2006.01693.x.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Buçinca, Malaya and Gajos (2021), To Trust or to Think",
+        "url": "https://arxiv.org/abs/2102.09692",
+        "category": "research",
+        "relationship": "inspiration",
+        "relevance": "An AI-assisted decision experiment reports a tradeoff between reduced overreliance and subjective burden. Opt-in, direct-execution and stop choices must remain available here.",
+        "difference": "Author abstract reviewed; no implementation copied or benefit claimed for this method.",
+        "reviewed_date": "2026-11-01"
+      }
     ]
   },
   "schema_version": "capability-related-tools/v1"

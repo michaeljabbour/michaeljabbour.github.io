@@ -40,7 +40,9 @@ HISTORICAL_RENAMES = {'build-amplifier': ['amplifier-skill-build-amplifier', 'am
  'ux-ergonomics': ['amplifier-skill-ux-ergonomics', 'amplifier-capability-ux-ergonomics'],
  'worth-using': ['amplifier-skill-worth-using', 'amplifier-capability-worth-using']}
 HISTORICAL_IDS = frozenset(HISTORICAL_RENAMES)
-ADDITIONAL_IDS = frozenset({"articlecraft", "idea-talks", "stories"})
+WRITING_IDS = frozenset({"articlecraft", "idea-talks", "stories"})
+SHARED_IDS = frozenset({"claim-review", "delivery-packager", "guided-practice"})
+ADDITIONAL_IDS = WRITING_IDS | SHARED_IDS
 
 
 def validate_historical_migration(mapping):
@@ -64,10 +66,11 @@ def load_publication(root):
 def validate_catalogue(catalogue, migration, publication, *, preview=False, ci=False):
     """Preview is explicit and local; it never grants publication readiness."""
     validate_historical_migration(migration)
-    if set(publication) != {"schema_version", "publication_ready", "capabilities"} or publication.get("schema_version") != "portfolio-additions/v1" or type(publication.get("publication_ready")) is not bool:
+    if set(publication) != {"schema_version", "publication_ready", "capabilities"} or publication.get("schema_version") not in {"portfolio-additions/v1", "portfolio-additions/v2"} or type(publication.get("publication_ready")) is not bool:
         raise ValueError("Invalid additions publication manifest")
     if ci and preview:
         raise ValueError("GitHub Actions must not accept the local preview override")
+    allowed_ids = WRITING_IDS if publication["schema_version"] == "portfolio-additions/v1" else ADDITIONAL_IDS
     entries = publication["capabilities"]
     if not isinstance(entries, list):
         raise ValueError("Additional capabilities must be a list")
@@ -77,7 +80,7 @@ def validate_catalogue(catalogue, migration, publication, *, preview=False, ci=F
         if not isinstance(entry, dict) or set(entry) != fields:
             raise ValueError("Invalid addition fields")
         ident = entry["id"]
-        if ident not in ADDITIONAL_IDS or ident in entries_by_id:
+        if ident not in allowed_ids or ident in entries_by_id:
             raise ValueError("Unknown or duplicate additional capability")
         if entry["repository_url"] != "https://github.com/michaeljabbour/amplifier-capability-" + ident or entry["license"] != "MIT":
             raise ValueError("Addition canonical identity or license differs")

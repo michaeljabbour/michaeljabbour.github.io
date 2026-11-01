@@ -232,6 +232,21 @@
     "stories": [
       "software",
       "creative"
+    ],
+    "claim-review": [
+      "software",
+      "research",
+      "creative"
+    ],
+    "delivery-packager": [
+      "software",
+      "research",
+      "creative"
+    ],
+    "guided-practice": [
+      "software",
+      "research",
+      "creative"
     ]
   },
   "stage_memberships": {
@@ -559,6 +574,39 @@
         "make",
         "review",
         "share"
+      ]
+    },
+    "claim-review": {
+      "software": [
+        "test"
+      ],
+      "research": [
+        "check"
+      ],
+      "creative": [
+        "review"
+      ]
+    },
+    "delivery-packager": {
+      "software": [
+        "release"
+      ],
+      "research": [
+        "explain"
+      ],
+      "creative": [
+        "package"
+      ]
+    },
+    "guided-practice": {
+      "software": [
+        "maintain"
+      ],
+      "research": [
+        "revisit"
+      ],
+      "creative": [
+        "review"
       ]
     }
   }

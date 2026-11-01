@@ -39,13 +39,25 @@ class AdditionAdmission(unittest.TestCase):
         self.assertTrue(result["publication_ready"])
         self.assertEqual(33, len(result["capability_ids"]))
 
-    def test_unverified_36_requires_explicit_local_preview(self):
+    def test_version_one_remains_valid_for_writing_only(self):
+        writing = {"articlecraft", "idea-talks", "stories"}
+        catalogue = copy.deepcopy(self.catalogue)
+        catalogue["projects"] = [project for project in catalogue["projects"] if project["id"] in HISTORICAL_IDS | writing]
+        publication = self.verified()
+        publication["schema_version"] = "portfolio-additions/v1"
+        publication["capabilities"] = [entry for entry in publication["capabilities"] if entry["id"] in writing]
+        self.assertEqual(36, len(validate_catalogue(catalogue, self.mapping, publication)["capability_ids"]))
+        publication["capabilities"] = self.verified()["capabilities"]
+        with self.assertRaises(ValueError):
+            validate_catalogue(self.catalogue, self.mapping, publication)
+
+    def test_unverified_39_requires_explicit_local_preview(self):
         with self.assertRaises(ValueError):
             self.validate()
         result = self.validate(preview=True)
         self.assertTrue(result["preview_only"])
         self.assertFalse(result["publication_ready"])
-        self.assertEqual(36, len(result["capability_ids"]))
+        self.assertEqual(39, len(result["capability_ids"]))
 
     def test_ci_rejects_even_verified_preview_override(self):
         with self.assertRaises(ValueError):

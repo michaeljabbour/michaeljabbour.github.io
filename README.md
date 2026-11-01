@@ -54,7 +54,7 @@ Run `python3 -m unittest discover -s tests -v` and `python3 -m unittest discover
 
 ## Additional capabilities and local preview
 
-`content/additions.json` admits only ArticleCraft, Idea Talks and Stories alongside the original catalogue. It records their canonical repositories, exact source commits and repository verification. The historical migration map continues to describe only the original 33 repository renames. New capabilities do not acquire invented legacy names.
+`content/additions.json` uses version 2 to admit the six owner-approved additions: ArticleCraft, Idea Talks, Stories, Claim Review, Delivery Packager and Guided Practice alongside the original catalogue. Version 1 remains valid for the first three writing additions only. The manifest records their canonical repositories, exact source commits and repository verification. The historical migration map continues to describe only the original 33 repository renames. New capabilities do not acquire invented legacy names.
 
 Until those repositories and pins have been verified, render a private local preview explicitly:
 
