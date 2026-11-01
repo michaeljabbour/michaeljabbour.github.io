@@ -1,0 +1,190 @@
+{
+  "capabilities": {
+    "knowledge": [
+      {
+        "title": "Microsoft GraphRAG",
+        "url": "https://github.com/microsoft/graphrag",
+        "category": "open-source",
+        "relationship": "alternative",
+        "relevance": "Builds graph-based indexes for questions across document collections, including community-level summaries.",
+        "difference": "A retrieval and generation framework to operate and configure. Knowledge provides a local graph CLI with source passages, changing relations and deterministic inspection routes.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "LightRAG",
+        "url": "https://github.com/HKUDS/LightRAG",
+        "category": "open-source",
+        "relationship": "alternative",
+        "relevance": "Combines graph structures and vector retrieval for questions about connected documents.",
+        "difference": "Its indexing and retrieval framework is a useful comparison for model-backed search. Knowledge also exposes a model-free graph workflow; no LightRAG integration or comparative performance result is claimed.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Graphiti and its MCP server",
+        "url": "https://github.com/getzep/graphiti",
+        "source_urls": [
+          "https://help.getzep.com/graphiti/getting-started/welcome",
+          "https://help.getzep.com/graphiti/getting-started/mcp-server"
+        ],
+        "category": "open-source",
+        "relationship": "alternative",
+        "relevance": "Maintains temporal graphs as new episodes arrive and offers an MCP interface for AI assistants.",
+        "difference": "Graphiti uses a separately configured graph backend and model routes. Knowledge's local SQLite graph and deterministic commands serve a smaller operational contract.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Obsidian Skills",
+        "url": "https://github.com/kepano/obsidian-skills",
+        "category": "open-source",
+        "relationship": "complement",
+        "relevance": "Agent skills for Obsidian Markdown, Bases, JSON Canvas and CLI operations.",
+        "difference": "Useful when editing a vault or Canvas after a Knowledge export. These skills work with note formats; they do not establish the truth of graph relations. They are not bundled or installed here.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Notion Research & Documentation skill",
+        "url": "https://github.com/openai/plugins/blob/0722921d5542fc593105c27bd52630babd8b8c2a/plugins/notion/skills/notion-research-documentation/SKILL.md",
+        "category": "open-source",
+        "relationship": "alternative",
+        "relevance": "A published skill for finding Notion sources and synthesizing cited briefs, comparisons and reports.",
+        "difference": "It depends on Notion access and document workflows. Knowledge instead exposes a local graph of claims and sources. This is a pinned reference to the method, not an installed connector or copied skill.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Microsoft Azure AI Search Python skill",
+        "url": "https://github.com/microsoft/skills/blob/61fe0305ea70389ed8705eec6026a786f57865cf/.github/plugins/azure-sdk-python/skills/azure-search-documents-py/SKILL.md",
+        "category": "open-source",
+        "relationship": "complement",
+        "relevance": "SDK guidance for full-text, vector and hybrid search, indexing and enrichment.",
+        "difference": "Relevant when a project needs a managed cloud retrieval index. It requires separately configured Azure services and authentication; Knowledge's local graph does not require that service. No integration is supplied.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Docling",
+        "url": "https://github.com/docling-project/docling",
+        "category": "open-source",
+        "relationship": "complement",
+        "relevance": "Parses documents into structured representations suitable for downstream text and AI workflows.",
+        "difference": "Document conversion can prepare input for a graph. Knowledge's source and relation inspection happens later; Docling is not an included dependency or a verified ingestion adapter.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Microsoft MarkItDown",
+        "url": "https://github.com/microsoft/markitdown",
+        "category": "open-source",
+        "relationship": "complement",
+        "relevance": "Converts supported file formats to Markdown for text analysis and language-model workflows.",
+        "difference": "It addresses conversion rather than temporal graph storage or claim evidence. A separately reviewed conversion step could supply readable input; no adapter or automatic integration is claimed.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Zotero",
+        "url": "https://www.zotero.org/",
+        "category": "open-source",
+        "relationship": "complement",
+        "relevance": "Collects, organizes, annotates and cites research sources, with optional synchronization and shared libraries.",
+        "difference": "Zotero manages publications and bibliographies. Knowledge follows claims and relationships through supplied material. A citation manager and a claim graph solve different parts of the research workflow; no connector is bundled.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "From Local to Global: A Graph RAG Approach to Query-Focused Summarization",
+        "url": "https://arxiv.org/abs/2404.16130",
+        "category": "research",
+        "relationship": "inspiration",
+        "relevance": "Research on graph indexes and community summaries for questions about an entire document collection.",
+        "difference": "Useful background for retrieval design. The paper's experiments concern its own systems and datasets; they do not benchmark or validate Knowledge.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "LightRAG: Simple and Fast Retrieval-Augmented Generation",
+        "url": "https://arxiv.org/abs/2410.05779",
+        "category": "research",
+        "relationship": "inspiration",
+        "relevance": "Studies graph and vector retrieval, including retrieval at different levels and incremental updates.",
+        "difference": "A research comparison for indexing and retrieval choices. Its reported results are not results for Knowledge, and listing it does not mean its implementation is reused.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory",
+        "url": "https://arxiv.org/abs/2410.10813",
+        "category": "research",
+        "relationship": "inspiration",
+        "relevance": "Separates extraction, reasoning across sessions, temporal reasoning, knowledge updates and abstention in memory evaluation.",
+        "difference": "These distinctions can inform future tests of changing knowledge. Knowledge has not been evaluated on LongMemEval; this is a benchmark reference, not a passed evaluation.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "W3C PROV Overview",
+        "url": "https://www.w3.org/TR/2013/NOTE-prov-overview-20130430/",
+        "category": "research",
+        "relationship": "inspiration",
+        "relevance": "A standards overview for describing where data came from through entities, activities and agents.",
+        "difference": "Background for thinking about provenance and interchange. Knowledge's source fields do not by themselves establish PROV serialization support or standards conformance.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Google Gemini Notebook",
+        "url": "https://notebook.google/",
+        "source_urls": [
+          "https://support.google.com/gemininotebook/answer/16215270?hl=en",
+          "https://support.google.com/gemininotebook/answer/16269187?hl=en"
+        ],
+        "pricing_url": "https://support.google.com/gemininotebook/answer/16213268?hl=en",
+        "pricing_model": "Free access and higher-capacity paid Google plans; eligibility varies.",
+        "category": "commercial",
+        "relationship": "alternative",
+        "relevance": "A hosted notebook for working with selected sources and generating source-grounded research outputs.",
+        "difference": "A managed research interface rather than a local SQLite graph and CLI. Review account terms and data handling before uploading material; this list does not configure or connect the service.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Readwise Reader",
+        "url": "https://readwise.io/read",
+        "pricing_url": "https://readwise.io/pricing",
+        "pricing_model": "Subscription with a trial; current plans are listed by Readwise.",
+        "category": "commercial",
+        "relationship": "complement",
+        "relevance": "Collects reading material and supports highlighting, annotation, search and note exports.",
+        "difference": "It organizes the reading and capture stage. Knowledge can inspect relationships in material supplied to it, but no Readwise connector, highlight sync or paid account is included.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Tana Outliner",
+        "url": "https://outliner.tana.inc/supertags",
+        "pricing_url": "https://outliner.tana.inc/pricing",
+        "pricing_model": "Free and paid plans, with plan-dependent AI credits.",
+        "category": "commercial",
+        "relationship": "alternative",
+        "relevance": "A structured note workspace using nodes, fields, Supertags and saved views.",
+        "difference": "A personal knowledge editor rather than Knowledge's source-linked claim CLI. This entry concerns Tana Outliner, which is distinct from Tana's meeting product; no import or integration is promised.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Neo4j Aura and graph platform",
+        "url": "https://neo4j.com/product/",
+        "pricing_url": "https://neo4j.com/pricing/",
+        "pricing_model": "Free and paid cloud options; self-managed and enterprise offerings have separate terms.",
+        "category": "commercial",
+        "relationship": "alternative",
+        "relevance": "Graph storage, querying, analytics and tooling for building connected-data applications.",
+        "difference": "A graph platform on which a larger application can be built. Knowledge is a smaller local application with its own SQLite storage and evidence-oriented commands; it does not use Neo4j as a backend.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Zep",
+        "url": "https://help.getzep.com/overview",
+        "source_urls": [
+          "https://help.getzep.com/zep-vs-graphiti"
+        ],
+        "pricing_url": "https://www.getzep.com/pricing/",
+        "pricing_model": "Credit-based self-service plans and negotiated enterprise plans.",
+        "category": "commercial",
+        "relationship": "alternative",
+        "relevance": "Managed context graphs and retrieval for enterprise information and agents, using Graphiti within its service.",
+        "difference": "It operates managed infrastructure and governance around graphs. Knowledge keeps a local application contract. No Zep account, integration, performance comparison or service endorsement is implied.",
+        "reviewed_date": "2026-11-01"
+      }
+    ]
+  },
+  "schema_version": "capability-related-tools/v1"
+}

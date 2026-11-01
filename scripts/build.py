@@ -11,6 +11,8 @@ from datetime import date
 from public_views import write_public_views
 from installer_download import write_installer
 from migration_view import write_migration
+from flow_views import load_flows, flow_links, flow_guide
+from related_tools import load_related_tools, render_related_tools
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "dist"
@@ -86,6 +88,8 @@ def main():
     groups = {c["id"]: c for c in data["categories"]}
     assert len(by_id) == len(projects) == 33
     assert "basic-learning" not in by_id
+    flow_data = load_flows(ROOT, projects)
+    curated_related = load_related_tools(ROOT, by_id)
     if OUT.exists():
         shutil.rmtree(OUT)
     OUT.mkdir()
@@ -110,7 +114,7 @@ def main():
 
     def shell(title, description, body, active="home", path="/", extra_head=""):
         nav = [
-            ("journey", "/#journey", "Categories"),
+            ("journey", "/#journey", "Work flows"),
             ("capabilities", "/capabilities/", "All capabilities"),
             ("films", "/films/", "Films & demos"),
             ("about", "/about/", "About"),
@@ -119,7 +123,7 @@ def main():
         nav_html = "".join(
             f'<a href="{url}" aria-label="{label}"'
             + (' aria-current="page"' if active == ident else "")
-            + f'> <span class="nav-full">{label}</span><span class="nav-short" aria-hidden="true">{ {"Categories": "Categories", "All capabilities": "Library", "Films & demos": "Watch", "About": "About"}.get(label, label) }</span></a>'
+            + f'> <span class="nav-full">{label}</span><span class="nav-short" aria-hidden="true">{ {"Work flows": "Flows", "All capabilities": "Library", "Films & demos": "Watch", "About": "About"}.get(label, label) }</span></a>'
             for ident, url, label in nav
         )
         return f'''<!doctype html>
@@ -132,7 +136,7 @@ def main():
 <header class="site-header wrap"><a class="identity" href="/" aria-label="Michael Jabbour home"><span class="monogram" aria-hidden="true">mj</span><span>michael jabbour</span></a>
 <nav aria-label="Main navigation">{nav_html}</nav><a class="source-link" href="https://github.com/michaeljabbour">GitHub <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M5 5h10v10"/></svg></a></header>
 <main id="main">{body}</main>
-<footer class="site-footer wrap"><div><h2 class="footer-name">AI capabilities for practical work.</h2><p>Explore source code, setup requirements and a concrete first task.</p></div><nav aria-label="Footer navigation"><a href="/#journey">Browse categories</a><a href="/capabilities/">All capabilities</a><a href="/films/">The films & demos</a><a href="https://www.michaeljabbour.com/">Blog</a><a href="/migration/">Update an installation</a><a href="https://github.com/michaeljabbour">GitHub</a></nav></footer>
+<footer class="site-footer wrap"><div><h2 class="footer-name">AI capabilities for practical work.</h2><p>Explore source code, setup requirements and a concrete first task.</p></div><nav aria-label="Footer navigation"><a href="/#journey">Browse work flows</a><a href="/capabilities/">All capabilities</a><a href="/films/">The films & demos</a><a href="https://www.michaeljabbour.com/">Blog</a><a href="/migration/">Update an installation</a><a href="https://github.com/michaeljabbour">GitHub</a></nav></footer>
 </body></html>'''
 
     def write(path, text):
@@ -165,7 +169,7 @@ def main():
                 if overview.get("transcript")
                 else ""
             )
-            hero_art = f'''<div class="hero-story" id="story"><h2>{E(overview.get("title", "Good Work Has a Next Day"))}</h2><video controls playsinline preload="none" crossorigin="anonymous" poster="{E(asset_url(overview["poster"]))}" aria-label="Portfolio overview film" data-overview-video><source src="{E(asset_url(overview["src"]))}" type="video/mp4"><track kind="captions" srclang="en" label="English" src="{E(asset_url(overview["caption"]))}"></video>{transcript_link}<a class="story-to-journey" href="#journey">Browse the capability categories</a></div>'''
+            hero_art = f'''<div class="hero-story" id="story"><h2>{E(overview.get("title", "Good Work Has a Next Day"))}</h2><video controls playsinline preload="none" crossorigin="anonymous" poster="{E(asset_url(overview["poster"]))}" aria-label="Portfolio overview film" data-overview-video><source src="{E(asset_url(overview["src"]))}" type="video/mp4"><track kind="captions" srclang="en" label="English" src="{E(asset_url(overview["caption"]))}"></video>{transcript_link}<a class="story-to-journey" href="#journey">Browse the work flows</a></div>'''
 
     def journey_guide(home=False):
         intro = (
@@ -207,9 +211,8 @@ def main():
         "project-handoff",
         "research",
     ]
-    home = f"""<section class="hero wrap"><div class="hero-copy"><p class="intro-line">A collection of 33 public capabilities.</p><h1>AI tools for research, software, and creative work.</h1><p class="hero-description">Choose a capability for a specific task. Read the required input, setup and output, then try the first task with your own material.</p><div class="button-row"><a class="button primary" href="#journey">Browse categories</a><a class="button secondary" href="/films/">Watch the films</a></div></div>{hero_art}</section>
-{journey_guide(home=True)}
-<section class="selected-section wrap section-space"><div class="section-heading"><div><h2>Start with one capability.</h2><p>Read a guide, check the setup and bring a project task.</p></div><a class="text-link" href="/capabilities/">See all 33</a></div><div class="feature-grid">{"".join(feature(by_id[i], n < 2) for n, i in enumerate(selected))}</div></section>
+    home = f"""<section class="hero wrap"><div class="hero-copy"><p class="intro-line">A collection of 33 public capabilities.</p><h1>AI tools for research, software, and creative work.</h1><p class="hero-description">Choose a capability for a specific task. Read the required input, setup and output, then try the first task with your own material.</p><div class="button-row"><a class="button primary" href="#journey">Browse work flows</a><a class="button secondary" href="/films/">Watch the films</a></div></div>{hero_art}</section>
+{flow_guide(flow_data, projects, poster, stages)}
 <section class="point-of-view wrap section-space"><div class="pov-title"><span class="thought-mark" aria-hidden="true">↳</span><h2>Bring your<br>own judgment.</h2></div><div class="pov-copy"><p>Follow the source. Look at the alternatives. Ask what would make the thing more useful.</p><p>Each capability has a defined job, guide and source repository. Compare that job with your task before installing or running the capability.</p><a class="text-link" href="/about/">About the capability collection</a></div></section>
 <section class="closing-section"><div class="wrap closing-content"><h2>Find a capability<br>for your next task.</h2><a class="button dark" href="/capabilities/">Browse all capabilities</a></div></section>"""
     write(
@@ -233,6 +236,7 @@ def main():
         ),
     )
 
+    flow_options = "".join(f'<option value="{E(f["id"])}">{E(f["title"])}</option>' for f in flow_data["flows"])
     options = "".join(
         f'<option value="{E(c["id"])}">{E(c["title"])}</option>'
         for c in data["categories"]
@@ -251,9 +255,9 @@ def main():
             ]
         )
         rows.append(
-            f'''<article class="project-row" data-project data-category="{E(p["category"])}" data-format="{E(p["format"])}" data-search="{E(search.lower())}"><a class="row-art" href="{project_url(p)}">{poster(p)}</a><div class="row-body"><div class="row-meta"><span>{E(groups[p["category"]]["title"])}</span><span>{E(p["format"])}</span></div><h2><a href="{project_url(p)}">{E(p["title"])}</a></h2><p>{E(p["summary"])}</p></div><a class="row-action" href="{project_url(p)}" aria-label="Explore {E(p["title"])}">Explore <span aria-hidden="true">↗</span></a></article>'''
+            f'''<article class="project-row" data-project data-category="{E(p["category"])}" data-flows="{E(" ".join(flow_data["memberships"][p["id"]]))}" data-format="{E(p["format"])}" data-search="{E(search.lower())}"><a class="row-art" href="{project_url(p)}">{poster(p)}</a><div class="row-body"><div class="row-meta"><span>{E(groups[p["category"]]["title"])}</span><span>{E(p["format"])}</span></div><h2><a href="{project_url(p)}">{E(p["title"])}</a></h2><p>{E(p["summary"])}</p>{flow_links(p, flow_data)}</div><a class="row-action" href="{project_url(p)}" aria-label="Explore {E(p["title"])}">Explore <span aria-hidden="true">↗</span></a></article>'''
         )
-    library = f"""<section class="page-intro wrap"><a class="back-link" href="/">Home</a><h1>Find an AI capability<br>for your task.</h1><p>Browse 33 capabilities by category or technical format. Each page states the intended user, input, action, output and prerequisites before a first task.</p><a class="library-journey-link" href="/#journey">Browse the category guide</a><div class="button-row"><a class="text-link" href="/capabilities/categories/">Browse all seven categories</a><a class="text-link" href="/journey/knowledge/">Proposed knowledge journey</a></div></section><section class="library-section wrap"><form id="project-filters" class="filters" role="search" action="/capabilities/"><div class="search-field"><label for="search">Find a capability</label><input id="search" type="search" name="q" placeholder="Try research, a film, a handoff…" autocomplete="off"></div><div><label for="category">What are you working on?</label><select id="category" name="category"><option value="all">All kinds of work</option>{options}</select></div><div><label for="format">Format</label><select id="format" name="format"><option value="all">All formats</option>{format_options}</select></div></form><noscript><p class="notice">All capabilities are listed below. Search and filters are available with JavaScript enabled.</p></noscript><div class="result-line"><p id="result-count" role="status" aria-live="polite">33 capabilities</p><button class="text-button" type="button" id="clear-filters" hidden>Clear filters</button></div><div class="project-list">{"".join(rows)}</div><div id="no-results" class="empty-state" hidden><h2>No match yet.</h2><p>Try a broader word, another kind of work, or reset the filters to see the whole collection.</p><button class="button primary" type="button" data-reset-filters>Show all capabilities</button></div></section><section class="format-guide wrap"><h2>Technical formats and setup.</h2><div><p><strong>A skill</strong> guides how an agent approaches a task. You bring the host and the tools it needs.</p><p><strong>A smart tool</strong> combines guidance with a specific interface or mechanism.</p><p><strong>A tool or library</strong> provides a mechanism that other capabilities can use. Its own guide explains the runtime and dependencies.</p></div></section>"""
+    library = f"""<section class="page-intro wrap"><a class="back-link" href="/">Home</a><h1>Find an AI capability<br>for your task.</h1><p>Browse 33 capabilities by kind of work or technical format. Each page states the intended user, input, action, output and prerequisites before a first task.</p><a class="library-journey-link" href="/#journey">Browse the three work flows</a></section><section class="library-section wrap"><form id="project-filters" class="filters" role="search" action="/capabilities/"><div class="search-field"><label for="search">Find a capability</label><input id="search" type="search" name="q" placeholder="Try research, a film, a handoff…" autocomplete="off"></div><div><label for="flow">Kind of work</label><select id="flow" name="flow"><option value="all">All work flows</option>{flow_options}</select></div><select id="category" name="category" aria-label="Legacy task category" hidden><option value="all">All task areas</option>{options}</select><div><label for="format">Technical format</label><select id="format" name="format"><option value="all">All formats</option>{format_options}</select></div></form><noscript><p class="notice">All capabilities are listed below. Search and filters are available with JavaScript enabled.</p></noscript><div class="result-line"><p id="result-count" role="status" aria-live="polite">33 capabilities</p><button class="text-button" type="button" id="clear-filters" hidden>Clear filters</button></div><div class="project-list">{"".join(rows)}</div><div id="no-results" class="empty-state" hidden><h2>No match yet.</h2><p>Try a broader word, another kind of work, or reset the filters to see the whole collection.</p><button class="button primary" type="button" data-reset-filters>Show all capabilities</button></div></section><section class="format-guide wrap"><h2>Technical formats and setup.</h2><div><p><strong>A skill</strong> guides how an agent approaches a task. You bring the host and the tools it needs.</p><p><strong>A smart tool</strong> combines guidance with a specific interface or mechanism.</p><p><strong>A tool or library</strong> provides a mechanism that other capabilities can use. Its own guide explains the runtime and dependencies.</p></div></section>"""
     write(
         "capabilities",
         shell(
@@ -348,7 +352,7 @@ def main():
         requirements = "".join(f"<li>{E(item)}</li>" for item in p["prerequisites"])
         detail = f'''<section class="detail-heading wrap">
 <a class="back-link" href="/#stage-{E(p["category"])}">{E(groups[p["category"]]["title"])}</a>
-<p class="format">Technical format: {E(p["format"])}</p><h1>{E(p["title"])}</h1>
+{flow_links(p, flow_data)}<p class="format">Technical format: {E(p["format"])}</p><h1>{E(p["title"])}</h1>
 <p class="detail-promise">{E(p["summary"])}</p>
 <div class="button-row"><a class="button primary" href="#first-task">Try the first task</a><a class="text-link" href="{E(p["repo_url"])}">View source on GitHub <span aria-hidden="true">↗</span></a></div></section>
 <section class="project-details wrap" aria-label="Purpose, input, output and setup">
@@ -367,21 +371,8 @@ def main():
 {watch}
 <section class="capability-scope wrap" aria-label="Example and limitations"><div class="output-example"><h2>Example output</h2><p>{E(p["output"])}</p><p class="example-label">Fictional illustration, not a result from your task or measured user evidence.</p></div>
 {('<div class="scope-note"><h2>Limitations</h2><p>' + E(limits) + "</p></div>") if limits else ""}</section>{related_html}'''
-        stage_n = stage_index[p["category"]]
-        stage = stages[stage_n]
-        before = stages[stage_n - 1] if stage_n else None
-        after = stages[(stage_n + 1) % len(stages)]
-        previous_link = (
-            f'<a href="/#stage-{before["id"]}">Before this: {E(before["title"])}</a>'
-            if before
-            else ""
-        )
-        next_label = (
-            "Start with a new question"
-            if stage_n == len(stages) - 1
-            else "Next: " + after["title"]
-        )
-        context = f"""<section class="journey-context wrap" aria-label="Continue the journey"><div><p>One part of the work</p><a href="/#stage-{E(stage["id"])}">{stage_n + 1} · {E(stage["title"])}</a></div><nav aria-label="Previous and next moment">{previous_link}<a href="/#stage-{after["id"]}">{E(next_label)}</a></nav></section>"""
+        context = f'<section class="journey-context wrap" aria-label="Explore related work"><div><h2>Explore by kind of work</h2>{flow_links(p, flow_data)}</div><a href="/capabilities/">Browse all capabilities</a></section>'
+        detail += render_related_tools(p["id"], curated_related)
         detail = (
             detail.replace(related_html, context + related_html)
             if related_html

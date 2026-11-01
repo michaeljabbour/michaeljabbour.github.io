@@ -1,0 +1,43 @@
+{
+  "schema_version": "capability-flows/v1",
+  "flows": [
+    {"id": "software", "title": "Build software", "description": "Plan, build, test and maintain software or agent tools."},
+    {"id": "research", "title": "Research & learn", "description": "Explore a question, examine evidence and keep what you learn."},
+    {"id": "creative", "title": "Create & communicate", "description": "Shape an idea, make creative work and explain it to an audience."}
+  ],
+  "memberships": {
+    "unknowns": ["software", "research", "creative"],
+    "research": ["research", "creative"],
+    "long-read": ["research", "creative"],
+    "knowledge": ["research"],
+    "cognitive-simulation": ["research"],
+    "market-fit": ["software", "creative"],
+    "decisioncraft": ["software", "research", "creative"],
+    "right-shape": ["software"],
+    "intent-to-plan": ["software", "research", "creative"],
+    "build-amplifier": ["software"],
+    "build-tauri": ["software"],
+    "build-with-torque": ["software"],
+    "constraint-builder": ["software"],
+    "forge": ["software"],
+    "desktop-tasks": ["software", "research", "creative"],
+    "ux-ergonomics": ["software", "creative"],
+    "taste-elegance": ["software", "research", "creative"],
+    "worth-using": ["software", "creative"],
+    "preceptor": ["software"],
+    "session-doctor": ["software"],
+    "fast-decisions": ["software"],
+    "imagen-studio": ["creative"],
+    "image-provider": ["software", "creative"],
+    "sizzle": ["creative"],
+    "teaserkit": ["software", "creative"],
+    "migrate": ["software"],
+    "transfer": ["software"],
+    "pipeline": ["software"],
+    "data-substrate": ["software", "research"],
+    "memory": ["software", "research", "creative"],
+    "project-handoff": ["software", "research", "creative"],
+    "good-teammate": ["software", "research", "creative"],
+    "team-access": ["software"]
+  }
+}

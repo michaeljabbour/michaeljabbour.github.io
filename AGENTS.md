@@ -1,6 +1,8 @@
 # Working on the portfolio
 
-- `content/journey.json` owns the journey order and narration timings. Match its stage IDs across navigation, chapters, catalogue categories and capability context. Do not invent a narrated adaptation timestamp.
+- `content/flows.json` owns the three overlapping public work filters. Each catalogue capability has one card and one detail route; membership can overlap. Preserve legacy category fragments in that shared view.
+- `content/related-tools.json` contains only reviewed, public source comparisons. Do not copy private `.research/market` notes. Keep direct sources, meaningful distinctions and review dates. Empty lists remain explicitly unpublished.
+- `content/journey.json` owns the legacy journey order and narration timings. Match its stage IDs across navigation, chapters, catalogue categories and capability context. Do not invent a narrated adaptation timestamp.
 - The public catalogue is `content/portfolio.json`; media destinations are `content/media.json`. Keep all 33 capabilities distinct unless the owner changes the scope.
 - Keep private audit records, local paths, credentials, customer claims and invented results out of the public source and `dist/`.
 - Preserve real film artwork and media. Do not revoice, crop, render or generate film assets as part of a site change.

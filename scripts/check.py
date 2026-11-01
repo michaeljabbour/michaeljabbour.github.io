@@ -15,6 +15,8 @@ from pathlib import Path
 from urllib.parse import parse_qs, unquote, urlsplit
 from build import checked_compatibility_sites
 from public_privacy import reviewed_example_text
+from flow_views import load_flows
+from related_tools import load_related_tools
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "dist"
@@ -455,8 +457,25 @@ def main() -> int:
     if home_navigation:
         require(not any('data-category-launcher' in attrs for _,attrs in home_navigation.elements),'Homepage must not duplicate its inline journey with a top category launcher')
         require('Where are you starting?' not in (OUT/'index.html').read_text(),'Removed homepage launcher must not return')
-        main_journey=home_navigation.select('a',**{'aria-label':'Categories'})
-        require(len(main_journey)==1 and main_journey[0].get('href')=='/#journey','Main Categories navigation must target the inline homepage content')
+        main_journey=home_navigation.select('a',**{'aria-label':'Work flows'})
+        require(len(main_journey)==1 and main_journey[0].get('href')=='/#journey','Main Work flows navigation must target the inline homepage content')
+    try:
+        flow_data = load_flows(ROOT, projects)
+        curated_related = load_related_tools(ROOT, ids)
+        require(home_navigation is not None, "Missing homepage flow guide")
+        if home_navigation:
+            flow_rows = [attrs for _,attrs in home_navigation.elements if "data-flow-project" in attrs]
+            require(len(flow_rows) == len(ids) and {row["data-flow-project"] for row in flow_rows} == set(ids), "Homepage must show one shared card per capability before JavaScript")
+            require([attrs["data-flow-filter"] for _,attrs in home_navigation.elements if "data-flow-filter" in attrs] == ["software","research","creative"], "Homepage must have three named work flow choices")
+            for row in flow_rows:
+                require(row.get("data-flows", "").split() == flow_data["memberships"].get(row["data-flow-project"]), "Homepage flow tags differ from reviewed membership")
+            require(set("stage-" + category for category in STAGE_ORDER) <= set(home_navigation.ids), "Legacy category anchors must remain available")
+            require(not any("data-journey" in attrs for _,attrs in home_navigation.elements), "Homepage must not duplicate the flow guide with the old sequential journey")
+        for ident in ids:
+            detail_doc = documents.get(OUT / "capabilities" / ident / "index.html")
+            require(detail_doc is not None and "community-title" in detail_doc.ids, f"{ident}: missing related tools and research section")
+    except (OSError,ValueError,KeyError,TypeError) as exc:
+        errors.append("Invalid work-flow or related-tools data: " + str(exc))
     library = documents.get(OUT / "capabilities/index.html")
     if library:
         rows = [
@@ -751,7 +770,7 @@ def main() -> int:
     )
     require(OUT / "journey/index.html" in documents, "Missing dedicated journey page")
     guides_checked = journey_tools_checked = chapter_links_checked = 0
-    for guide_path in (OUT / "index.html", OUT / "journey/index.html"):
+    for guide_path in (OUT / "journey/index.html",):
         if guide_path not in documents:
             continue
         markup = JourneyMarkup(guide_path.read_text())
