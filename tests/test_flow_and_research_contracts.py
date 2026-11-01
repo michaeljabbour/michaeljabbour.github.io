@@ -70,11 +70,11 @@ class PublicDataContracts(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.load("related-tools.json", data, load_related_tools)
 
-    def test_three_source_groups_escape_text_and_show_review_dates(self):
+    def test_four_source_groups_escape_text_and_show_review_dates(self):
         entries = load_related_tools(ROOT, [x["id"] for x in self.projects])
         entries["knowledge"][0]["title"] = '<script>alert("no")</script>'
         html = render_related_tools("knowledge", entries)
-        self.assertEqual(3, html.count('<details class="community-group">'))
+        self.assertEqual(4, html.count('<details class="community-group">'))
         self.assertNotIn("<script>", html)
         self.assertIn("&lt;script&gt;", html)
         self.assertEqual(18, html.count('<time datetime='))

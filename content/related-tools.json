@@ -35,7 +35,7 @@
       {
         "title": "Obsidian Skills",
         "url": "https://github.com/kepano/obsidian-skills",
-        "category": "open-source",
+        "category": "skill-or-plugin",
         "relationship": "complement",
         "relevance": "Agent skills for Obsidian Markdown, Bases, JSON Canvas and CLI operations.",
         "difference": "Useful when editing a vault or Canvas after a Knowledge export. These skills work with note formats; they do not establish the truth of graph relations. They are not bundled or installed here.",
@@ -44,7 +44,7 @@
       {
         "title": "Notion Research & Documentation skill",
         "url": "https://github.com/openai/plugins/blob/0722921d5542fc593105c27bd52630babd8b8c2a/plugins/notion/skills/notion-research-documentation/SKILL.md",
-        "category": "open-source",
+        "category": "skill-or-plugin",
         "relationship": "alternative",
         "relevance": "A published skill for finding Notion sources and synthesizing cited briefs, comparisons and reports.",
         "difference": "It depends on Notion access and document workflows. Knowledge instead exposes a local graph of claims and sources. This is a pinned reference to the method, not an installed connector or copied skill.",
@@ -53,7 +53,7 @@
       {
         "title": "Microsoft Azure AI Search Python skill",
         "url": "https://github.com/microsoft/skills/blob/61fe0305ea70389ed8705eec6026a786f57865cf/.github/plugins/azure-sdk-python/skills/azure-search-documents-py/SKILL.md",
-        "category": "open-source",
+        "category": "skill-or-plugin",
         "relationship": "complement",
         "relevance": "SDK guidance for full-text, vector and hybrid search, indexing and enrichment.",
         "difference": "Relevant when a project needs a managed cloud retrieval index. It requires separately configured Azure services and authentication; Knowledge's local graph does not require that service. No integration is supplied.",
