@@ -125,6 +125,7 @@
     }));
     addEventListener('popstate', restore);
     addEventListener('hashchange', restore);
+    addEventListener('resize', keepStageVisible);
     restore();
   });
   const reducedMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
