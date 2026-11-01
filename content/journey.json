@@ -60,10 +60,10 @@
     },
     {
       "id": "create",
-      "title": "Images, videos & demos",
-      "question": "What image, film or product demonstration should the audience receive?",
-      "description": "Define the visual brief, script or storyboard before producing media, then inspect the actual output.",
-      "output": "A production brief, selected image, film plan or repeatable product-video build.",
+      "title": "Writing & media",
+      "question": "What should your audience read, watch or explore?",
+      "description": "Choose the message, audience and evidence before drafting an article, talk, case study or media brief. Review the actual words, images or output.",
+      "output": "A sourced draft, HTML talk, case study, selected image, film plan or repeatable product-video build.",
       "reflection": "If the story is hard to tell, revisit who the work serves and the choice you made.",
       "lead_ids": [
         "imagen-studio",

@@ -95,6 +95,13 @@ def validate_catalogue(catalogue, migration, publication, *, preview=False, ci=F
                 raise ValueError("Repository verification timestamp must be timezone-aware and not future-dated")
         entries_by_id[ident] = entry
     projects = catalogue.get("projects", [])
+    for project in projects:
+        for key in ["audience", "input", "action", "result", "runtime", "first_prompt"]:
+            if not isinstance(project.get(key), str) or not project[key].strip():
+                raise ValueError("Every admitted capability needs explicit first-use facts")
+        requirements = project.get("prerequisites")
+        if not isinstance(requirements, list) or not requirements or not all(isinstance(item, str) and item.strip() for item in requirements):
+            raise ValueError("Capability prerequisites must be a nonempty text list")
     ids = [project.get("id") for project in projects]
     if len(ids) != len(set(ids)) or set(ids) != HISTORICAL_IDS | set(entries_by_id):
         raise ValueError("Catalogue must retain the historical 33 plus exactly its named admitted additions")

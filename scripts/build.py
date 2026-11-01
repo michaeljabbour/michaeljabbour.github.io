@@ -201,7 +201,8 @@ def main():
             chapter = ""
             if stage["film_start"] is not None:
                 moment = round(stage["film_start"])
-                chapter = f'''<a class="journey-film-link" href="/?moment={E(ident)}#story" data-story-moment="{E(ident)}" data-film-start="{stage["film_start"]}">Find this moment in the film <span>{moment // 60}:{moment % 60:02d}</span></a>'''
+                chapter_label = "Find the media examples in the film" if ident == "create" else "Find this moment in the film"
+                chapter = f'''<a class="journey-film-link" href="/?moment={E(ident)}#story" data-story-moment="{E(ident)}" data-film-start="{stage["film_start"]}">{E(chapter_label)} <span>{moment // 60}:{moment % 60:02d}</span></a>'''
             level = "h3" if home else "h2"
             panels.append(
                 f'''<section id="stage-{E(ident)}" class="journey-panel" data-stage-panel="{E(ident)}" aria-labelledby="question-{E(ident)}"><div class="journey-thinking"><p class="journey-moment">{n + 1} of 7 · {E(stage["title"])}</p><{level} id="question-{E(ident)}">{E(stage["question"])}</{level}><p class="journey-description">{E(stage["description"])}</p><div class="journey-output"><strong>Expected result</strong><p>{E(stage["output"])}</p></div><p class="journey-reflection">{E(stage["reflection"])}</p>{chapter}</div><div class="journey-tools"><h{int(level[1]) + 1}>Capabilities in this category</h{int(level[1]) + 1}>{tools}<a class="journey-browse" href="/capabilities/?category={E(ident)}">Browse this category</a></div></section>'''
@@ -316,9 +317,12 @@ def main():
         watch = ""
         workflow = ""
         if p.get("workflow_image"):
-            if p["id"] not in admission["additions"] or p["workflow_image"] != "/assets/workflows/" + p["id"] + ".svg" or not re.fullmatch(r"https://github\.com/michaeljabbour/amplifier-capability-[a-z-]+/blob/[0-9a-f]{40}/[A-Za-z0-9_./-]+\.svg", p.get("workflow_source_url", "")):
-                raise ValueError("Workflow image must use the admitted local asset and pinned public source")
-            workflow = f'<section class="capability-workflow wrap" aria-labelledby="workflow-title"><h2 id="workflow-title">How the work moves</h2><img src="{E(p["workflow_image"])}" alt="{E(p["workflow_alt"])}" loading="lazy"><p><a href="{E(p["workflow_source_url"])}">Workflow from the capability documentation</a> · MIT license</p></section>'
+            paths = {"articlecraft": "docs/workflow.svg", "idea-talks": "docs/workflow.svg", "stories": "skills/stories/assets/workflow.svg"}
+            if p["id"] not in admission["additions"] or p["workflow_image"] != "/assets/workflows/" + p["id"] + ".svg" or p.get("workflow_path") != paths.get(p["id"]):
+                raise ValueError("Workflow image must use its admitted local asset and source path")
+            public_pin = admission["additions"][p["id"]]["source_commit"] or "main"
+            workflow_source_url = p["repo_url"] + "/blob/" + public_pin + "/" + p["workflow_path"]
+            workflow = f'<section class="capability-workflow wrap" aria-labelledby="workflow-title"><h2 id="workflow-title">How the work moves</h2><img src="{E(p["workflow_image"])}" alt="{E(p["workflow_alt"])}" loading="lazy"><p><a href="{E(workflow_source_url)}">Workflow from the capability documentation</a> · <a href="/assets/workflows/{E(p["id"])}.LICENSE.txt">MIT license</a></p></section>'
         if m.get("available") and m.get("src"):
             poster_path = (
                 m.get("still") or m.get("local_poster") or m.get("poster") or ""
@@ -364,6 +368,7 @@ def main():
             first_intro = "Install and configure the native tool or library first. Follow the operating steps below with an input you select."
             copy_label = "Copy first step"
         guide_link = "" if p["id"] in admission["additions"] else f'<a href="{E(p["site_url"])}">Full capability guide</a>'
+        setup_link = f'<p><a href="{E(p["install_url"])}">Read the repository installation steps</a></p>' if p["id"] in admission["additions"] else ""
         requirements = "".join(f"<li>{E(item)}</li>" for item in p["prerequisites"])
         detail = f'''<section class="detail-heading wrap">
 <a class="back-link" href="/#stage-{E(p["category"])}">{E(groups[p["category"]]["title"])}</a>
@@ -378,7 +383,7 @@ def main():
 <div><dt>Action</dt><dd>{E(p["action"])}</dd></div>
 <div><dt>Output</dt><dd>{E(p["result"])}</dd></div></dl>
 <section class="setup-note" id="setup" aria-labelledby="setup-title"><h3 id="setup-title">Runtime and prerequisites</h3>
-<p>{E(p["runtime"])}</p><ul>{requirements}</ul></section></div>
+<p>{E(p["runtime"])}</p><ul>{requirements}</ul>{setup_link}</section></div>
 <aside class="first-use" id="first-task" aria-labelledby="first-task-title"><h2 id="first-task-title">Your first task</h2>
 <p class="first-use-intro">{E(first_intro)}</p><p class="first-use-prompt" id="first-prompt">{E(p["first_prompt"])}</p>
 <button class="copy-button" data-copy="first-prompt" type="button">Copy first task</button><p class="copy-status" role="status" aria-live="polite"></p>

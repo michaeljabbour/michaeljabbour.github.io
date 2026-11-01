@@ -279,9 +279,10 @@ def main() -> int:
         install = urlsplit(project.get("install_url", ""))
         site = urlsplit(project.get("site_url", ""))
         require(
-            install.fragment in {"install", "use-skill"}
-            and install._replace(fragment="") == site,
-            f"{ident}: installation destination must be the capability site's documented section",
+            (ident in ADDITIONAL_IDS and project.get("install_url") == project.get("repo_url", "") + "#setup")
+            or (ident not in ADDITIONAL_IDS and install.fragment in {"install", "use-skill"}
+            and install._replace(fragment="") == site),
+            f"{ident}: installation destination must use its actual documented setup section",
         )
         if project.get("format") in {"Library", "Tool"}:
             require(

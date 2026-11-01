@@ -1176,6 +1176,138 @@
         "pricing_url": "https://github.com/pricing",
         "pricing_model": "Free and paid GitHub plans with plan-dependent organization and enterprise features."
       }
+    ],
+    "articlecraft": [
+      {
+        "title": "Zotero notes",
+        "url": "https://www.zotero.org/support/notes",
+        "source_urls": [
+          "https://www.zotero.org/support/notes",
+          "https://github.com/zotero/zotero/blob/main/COPYING"
+        ],
+        "category": "open-source",
+        "relationship": "complement",
+        "relevance": "Attach research notes to source records before assembling an article evidence packet.",
+        "difference": "ArticleCraft guides argument, audience and revision; it does not manage a reference library or integrate with Zotero.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "FActScore (EMNLP 2023)",
+        "url": "https://aclanthology.org/2023.emnlp-main.741/",
+        "source_urls": [
+          "https://aclanthology.org/2023.emnlp-main.741/",
+          "https://aclanthology.org/faq/copyright/"
+        ],
+        "category": "research",
+        "relationship": "inspiration",
+        "relevance": "Atomic supported claims are a useful review lens for mixed factual and interpretive article prose.",
+        "difference": "This is a review pattern to consider; ArticleCraft does not implement FActScore, its retrieval pipeline or its reported evaluation.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Grammarly tone guidance",
+        "url": "https://www.grammarly.com/tone",
+        "source_urls": [
+          "https://www.grammarly.com/tone"
+        ],
+        "category": "commercial",
+        "relationship": "alternative",
+        "relevance": "A focused option for checking how wording may sound to an intended audience.",
+        "difference": "ArticleCraft uses supplied evidence and an author-reviewed drafting method; it has no Grammarly account, API or automated tone score.",
+        "reviewed_date": "2026-11-01"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Amplifier Stories",
+        "url": "https://github.com/ramparte/amplifier-stories",
+        "source_urls": [
+          "https://github.com/ramparte/amplifier-stories"
+        ],
+        "category": "skill-or-plugin",
+        "relationship": "inspiration",
+        "relevance": "The credited MIT upstream contributes evidence, narrative and audience-adaptation ideas.",
+        "difference": "This extraction produces one documented project case study plus one adaptation and a shared claims ledger. It omits autonomous session mining, publishing and renderer machinery.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Diátaxis",
+        "url": "https://diataxis.fr/",
+        "source_urls": [
+          "https://diataxis.fr/",
+          "https://diataxis.fr/colophon/",
+          "https://github.com/evildmp/diataxis-documentation-framework"
+        ],
+        "category": "research",
+        "relationship": "complement",
+        "relevance": "Its distinction between reader needs helps choose the purpose and audience of a project account.",
+        "difference": "A project case study is not automatically a tutorial, how-to guide, reference or explanation. No Diátaxis text, diagrams or code were copied.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "W3C PROV overview",
+        "url": "https://www.w3.org/TR/prov-overview/",
+        "source_urls": [
+          "https://www.w3.org/TR/prov-overview/",
+          "https://www.w3.org/copyright/document-license-2023/"
+        ],
+        "category": "research",
+        "relationship": "inspiration",
+        "relevance": "Provenance concepts offer a review lens for the link between a claim and the activity or source supporting it.",
+        "difference": "Stories has a simpler local claims ledger. It does not emit PROV, implement its ontology or claim standards conformance.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Storydoc case study creator",
+        "url": "https://www.storydoc.com/case-study-creator",
+        "source_urls": [
+          "https://www.storydoc.com/case-study-creator"
+        ],
+        "category": "commercial",
+        "relationship": "alternative",
+        "relevance": "A hosted option for interactive case studies, collaboration and audience personalization.",
+        "difference": "Stories produces a local text packet with explicit evidence boundaries; it has no hosted design, tracking, CRM or Storydoc integration.",
+        "reviewed_date": "2026-11-01"
+      }
+    ],
+    "idea-talks": [
+      {
+        "title": "reveal.js",
+        "url": "https://revealjs.com/",
+        "source_urls": [
+          "https://revealjs.com/",
+          "https://github.com/hakimel/reveal.js"
+        ],
+        "category": "open-source",
+        "relationship": "alternative",
+        "relevance": "An HTML presentation framework with slide navigation, overview, speaker notes and PDF export.",
+        "difference": "A general presentation framework; Idea Talks has a narrower evidence-grounded authoring procedure and an offline text editor/exporter. No reveal.js code is embedded in the new template. Related alternative only; no adoption, integration, comparative performance or historic design-lineage claim.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "W3C APG Carousel Pattern",
+        "url": "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/",
+        "source_urls": [
+          "https://www.w3.org/WAI/ARIA/apg/patterns/carousel/"
+        ],
+        "category": "research",
+        "relationship": "complement",
+        "relevance": "Primary guidance for slide controls, keyboard focus, hidden slide content and avoiding unintended automatic rotation.",
+        "difference": "A web interaction pattern, not a talk-writing or evidence method. Its full ARIA recommendations are not a claim that Idea Talks conforms; the current deck does not auto-rotate. Post-implementation related reference, not asserted original design source, complete accessibility conformance or actual code reuse.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Gamma presentations",
+        "url": "https://gamma.app/products/presentations",
+        "source_urls": [
+          "https://gamma.app/products/presentations"
+        ],
+        "category": "commercial",
+        "relationship": "alternative",
+        "relevance": "A hosted presentation product offering AI-assisted deck creation, manual editing, themes, sharing and export.",
+        "difference": "A separate hosted generation/editing service with its own account, terms and data handling. The new Idea Talks editor operates locally without a provider, account or generation service. Commercial comparison only; no purchase, account creation, source upload, partnership, performance or interoperability claim.",
+        "reviewed_date": "2026-11-01"
+      }
     ]
   },
   "schema_version": "capability-related-tools/v1"

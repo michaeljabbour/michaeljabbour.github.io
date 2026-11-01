@@ -91,6 +91,13 @@ class AdditionAdmission(unittest.TestCase):
             with self.subTest(change=change), self.assertRaises(ValueError):
                 validate_catalogue(self.catalogue, mapping, self.verified())
 
+    def test_missing_first_use_facts_or_character_list_requirements_rejected(self):
+        for field, value in [("runtime", ""), ("input", None), ("prerequisites", "Python is required"), ("prerequisites", [])]:
+            catalogue = copy.deepcopy(self.catalogue)
+            catalogue["projects"][0][field] = value
+            with self.subTest(field=field, value=value), self.assertRaises(ValueError):
+                validate_catalogue(catalogue, self.mapping, self.verified())
+
     @patch.dict("os.environ", {"PORTFOLIO_PREVIEW": "0"})
     def test_artifact_cannot_promote_unverified_source_or_other_commit(self):
         with tempfile.TemporaryDirectory() as directory:
