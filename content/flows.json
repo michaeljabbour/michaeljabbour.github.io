@@ -1,20 +1,98 @@
 {
-  "schema_version": "capability-flows/v1",
+  "schema_version": "capability-flows/v2",
   "flows": [
     {
       "id": "software",
       "title": "Build software",
-      "description": "Plan, build, test and maintain software or agent tools."
+      "description": "Plan, build, test and maintain software or agent tools.",
+      "stages": [
+        {
+          "id": "explore",
+          "title": "Explore"
+        },
+        {
+          "id": "plan",
+          "title": "Plan"
+        },
+        {
+          "id": "build",
+          "title": "Build"
+        },
+        {
+          "id": "test",
+          "title": "Test"
+        },
+        {
+          "id": "release",
+          "title": "Release"
+        },
+        {
+          "id": "maintain",
+          "title": "Maintain"
+        }
+      ]
     },
     {
       "id": "research",
       "title": "Research & learn",
-      "description": "Explore a question, examine evidence and keep what you learn."
+      "description": "Explore a question, examine evidence and keep what you learn.",
+      "stages": [
+        {
+          "id": "explore",
+          "title": "Explore"
+        },
+        {
+          "id": "gather",
+          "title": "Gather"
+        },
+        {
+          "id": "check",
+          "title": "Check"
+        },
+        {
+          "id": "connect",
+          "title": "Connect"
+        },
+        {
+          "id": "explain",
+          "title": "Explain"
+        },
+        {
+          "id": "revisit",
+          "title": "Revisit"
+        }
+      ]
     },
     {
       "id": "creative",
       "title": "Create & communicate",
-      "description": "Shape an idea, make creative work and explain it to an audience."
+      "description": "Shape an idea, make creative work and explain it to an audience.",
+      "stages": [
+        {
+          "id": "explore",
+          "title": "Explore"
+        },
+        {
+          "id": "shape",
+          "title": "Shape"
+        },
+        {
+          "id": "make",
+          "title": "Make"
+        },
+        {
+          "id": "review",
+          "title": "Review"
+        },
+        {
+          "id": "package",
+          "title": "Package"
+        },
+        {
+          "id": "share",
+          "title": "Share"
+        }
+      ]
     }
   ],
   "memberships": {
@@ -24,14 +102,17 @@
       "creative"
     ],
     "research": [
+      "software",
       "research",
       "creative"
     ],
     "long-read": [
+      "software",
       "research",
       "creative"
     ],
     "knowledge": [
+      "software",
       "research"
     ],
     "cognitive-simulation": [
@@ -152,5 +233,333 @@
       "software",
       "creative"
     ]
+  },
+  "stage_memberships": {
+    "unknowns": {
+      "software": [
+        "explore",
+        "plan"
+      ],
+      "research": [
+        "explore",
+        "revisit"
+      ],
+      "creative": [
+        "explore"
+      ]
+    },
+    "research": {
+      "software": [
+        "explore"
+      ],
+      "research": [
+        "gather",
+        "check",
+        "explain"
+      ],
+      "creative": [
+        "explore",
+        "review"
+      ]
+    },
+    "long-read": {
+      "software": [
+        "explore"
+      ],
+      "research": [
+        "gather",
+        "check"
+      ],
+      "creative": [
+        "explore",
+        "review"
+      ]
+    },
+    "knowledge": {
+      "software": [
+        "explore",
+        "maintain"
+      ],
+      "research": [
+        "check",
+        "connect",
+        "revisit"
+      ]
+    },
+    "cognitive-simulation": {
+      "research": [
+        "explore",
+        "check"
+      ]
+    },
+    "market-fit": {
+      "software": [
+        "explore",
+        "plan"
+      ],
+      "creative": [
+        "explore",
+        "shape"
+      ]
+    },
+    "decisioncraft": {
+      "software": [
+        "explore",
+        "plan"
+      ],
+      "research": [
+        "connect",
+        "explain"
+      ],
+      "creative": [
+        "shape"
+      ]
+    },
+    "right-shape": {
+      "software": [
+        "plan"
+      ]
+    },
+    "intent-to-plan": {
+      "software": [
+        "plan"
+      ],
+      "research": [
+        "explore"
+      ],
+      "creative": [
+        "shape"
+      ]
+    },
+    "build-amplifier": {
+      "software": [
+        "plan",
+        "build",
+        "test"
+      ]
+    },
+    "build-tauri": {
+      "software": [
+        "build",
+        "test"
+      ]
+    },
+    "build-with-torque": {
+      "software": [
+        "plan",
+        "build"
+      ]
+    },
+    "constraint-builder": {
+      "software": [
+        "plan",
+        "test"
+      ]
+    },
+    "forge": {
+      "software": [
+        "build",
+        "test"
+      ]
+    },
+    "desktop-tasks": {
+      "software": [
+        "build",
+        "test"
+      ],
+      "research": [
+        "gather"
+      ],
+      "creative": [
+        "make"
+      ]
+    },
+    "ux-ergonomics": {
+      "software": [
+        "test"
+      ],
+      "creative": [
+        "review"
+      ]
+    },
+    "taste-elegance": {
+      "software": [
+        "plan",
+        "test"
+      ],
+      "research": [
+        "explain"
+      ],
+      "creative": [
+        "shape",
+        "review"
+      ]
+    },
+    "worth-using": {
+      "software": [
+        "explore",
+        "test"
+      ],
+      "creative": [
+        "explore",
+        "review"
+      ]
+    },
+    "preceptor": {
+      "software": [
+        "test",
+        "maintain"
+      ]
+    },
+    "session-doctor": {
+      "software": [
+        "maintain"
+      ]
+    },
+    "fast-decisions": {
+      "software": [
+        "test",
+        "maintain"
+      ]
+    },
+    "imagen-studio": {
+      "creative": [
+        "shape",
+        "make",
+        "review"
+      ]
+    },
+    "image-provider": {
+      "software": [
+        "build",
+        "test"
+      ],
+      "creative": [
+        "make"
+      ]
+    },
+    "sizzle": {
+      "creative": [
+        "shape",
+        "make",
+        "review",
+        "package"
+      ]
+    },
+    "teaserkit": {
+      "software": [
+        "release"
+      ],
+      "creative": [
+        "make",
+        "package"
+      ]
+    },
+    "migrate": {
+      "software": [
+        "plan",
+        "build",
+        "test"
+      ]
+    },
+    "transfer": {
+      "software": [
+        "plan",
+        "build",
+        "test"
+      ]
+    },
+    "pipeline": {
+      "software": [
+        "plan",
+        "release"
+      ]
+    },
+    "data-substrate": {
+      "software": [
+        "build",
+        "maintain"
+      ],
+      "research": [
+        "gather",
+        "connect",
+        "revisit"
+      ]
+    },
+    "memory": {
+      "software": [
+        "maintain"
+      ],
+      "research": [
+        "gather",
+        "revisit"
+      ],
+      "creative": [
+        "explore",
+        "review"
+      ]
+    },
+    "project-handoff": {
+      "software": [
+        "release",
+        "maintain"
+      ],
+      "research": [
+        "explain",
+        "revisit"
+      ],
+      "creative": [
+        "package",
+        "share"
+      ]
+    },
+    "good-teammate": {
+      "software": [
+        "plan",
+        "maintain"
+      ],
+      "research": [
+        "connect",
+        "revisit"
+      ],
+      "creative": [
+        "review",
+        "share"
+      ]
+    },
+    "team-access": {
+      "software": [
+        "maintain"
+      ]
+    },
+    "articlecraft": {
+      "research": [
+        "explain"
+      ],
+      "creative": [
+        "shape",
+        "make",
+        "review"
+      ]
+    },
+    "idea-talks": {
+      "creative": [
+        "shape",
+        "make",
+        "package",
+        "share"
+      ]
+    },
+    "stories": {
+      "software": [
+        "release",
+        "maintain"
+      ],
+      "creative": [
+        "make",
+        "review",
+        "share"
+      ]
+    }
   }
 }

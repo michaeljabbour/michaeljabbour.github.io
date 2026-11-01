@@ -70,3 +70,9 @@ python3 scripts/check_release.py --for-publication
 ```
 
 The workflow checks that boundary before upload and binds deployment to the guard's source SHA and ready output. Review the actual public repository/head evidence before marking an addition verified; changing a flag is not evidence that a repository exists.
+
+## Flow and stage navigation
+
+`content/flows.json` uses `capability-flows/v2`: three work flows, their six optional browsing stages and explicit per-capability assignments. A capability can have several tags or stages while keeping one card and one detail route. Stages filter the same list; they do not execute a recipe or require an order.
+
+The homepage and library use the same flow/stage/search state. For example, `/?flow=software&stage=test#journey` and `/capabilities/?flow=creative&stage=make` can be bookmarked. “All stages” retains the current flow. Legacy category and film chapter URLs remain supported. `dist/flows.json` exports the reviewed navigation data.

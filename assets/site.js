@@ -1,108 +1,130 @@
 (() => {
-  const form = document.querySelector('#project-filters');
-  if (form) {
+  document.querySelectorAll('[data-capability-browser]').forEach(browser => {
+    const form = browser.querySelector('form');
     const search = form.querySelector('[name="q"]');
-    const flow = form.querySelector('[name="flow"]');
+    const flowSelect = form.querySelector('select[name="flow"]');
+    const flowValue = form.querySelector('input[name="flow"]');
     const category = form.querySelector('[name="category"]');
     const format = form.querySelector('[name="format"]');
-    const rows = [...document.querySelectorAll('[data-project]')];
-    const count = document.querySelector('#result-count');
-    const empty = document.querySelector('#no-results');
-    const clear = document.querySelector('#clear-filters');
-    function apply(updateURL = true) {
-      const q = search.value.trim().toLocaleLowerCase();
-      const terms = q.split(/\s+/).filter(Boolean);
+    const stageValue = form.querySelector('[name="stage"]');
+    const flowButtons = [...browser.querySelectorAll('[data-flow-filter]')];
+    const stageRows = [...browser.querySelectorAll('[data-stage-row]')];
+    const stageButtons = [...browser.querySelectorAll('[data-stage-filter]')];
+    const stageGroup = browser.querySelector('[data-stage-group]');
+    const rows = [...browser.querySelectorAll('[data-capability-id]')];
+    const status = browser.querySelector('[data-filter-status]');
+    const clear = browser.querySelector('[data-filter-clear]');
+    const empty = browser.querySelector('[data-filter-empty]');
+    const flowNames = new Map(flowButtons.map(button => [button.dataset.flowFilter, button.querySelector('strong').textContent]));
+    if (flowSelect) [...flowSelect.options].filter(option => option.value !== 'all').forEach(option => flowNames.set(option.value, option.textContent));
+    const categoryNames = new Map([...browser.querySelectorAll('[data-legacy-category]')].map(node => [node.dataset.legacyCategory, node.dataset.categoryTitle]));
+    if (category?.options) [...category.options].filter(option => option.value !== 'all').forEach(option => categoryNames.set(option.value, option.textContent));
+    const state = {flow: 'all', stage: 'all', category: 'all', format: 'all', q: ''};
+    const validStage = (flow, value) => value === 'all' || stageButtons.some(button => button.dataset.stageFlow === flow && button.dataset.stageFilter === value);
+    function keepStageVisible() {
+      const selected = stageButtons.find(button => button.dataset.stageFlow === state.flow && button.dataset.stageFilter === state.stage);
+      if (!selected) return;
+      const track = selected.closest('.stage-track');
+      const left = selected.getBoundingClientRect().left - track.getBoundingClientRect().left + track.scrollLeft;
+      const right = left + selected.offsetWidth;
+      if (left < track.scrollLeft) track.scrollLeft = Math.max(0, left - 4);
+      else if (right > track.scrollLeft + track.clientWidth) track.scrollLeft = right - track.clientWidth + 4;
+    }
+    function writeURL(mode) {
+      const url = new URL(location.href);
+      ['flow','stage','q','category','format','moment'].forEach(key => url.searchParams.delete(key));
+      if (state.flow !== 'all') url.searchParams.set('flow', state.flow);
+      if (state.flow !== 'all' && state.stage !== 'all') url.searchParams.set('stage', state.stage);
+      if (state.q.trim()) url.searchParams.set('q', state.q.trim());
+      if (state.category !== 'all') url.searchParams.set('category', state.category);
+      if (state.format !== 'all') url.searchParams.set('format', state.format);
+      url.hash = browser.hasAttribute('data-work-flows') ? 'journey' : '';
+      const target = url.pathname + url.search + url.hash;
+      if (target !== location.pathname + location.search + location.hash) history[mode === 'push' ? 'pushState' : 'replaceState'](null, '', target);
+    }
+    function apply(mode = null) {
+      if (flowSelect) flowSelect.value = state.flow;
+      if (flowValue) flowValue.value = state.flow;
+      if (category) category.value = state.category;
+      if (format) format.value = state.format;
+      if (stageValue) stageValue.value = state.stage;
+      if (search.value !== state.q) search.value = state.q;
+      flowButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.flowFilter === state.flow)));
+      stageGroup.hidden = state.flow === 'all';
+      stageRows.forEach(row => { row.hidden = row.dataset.stageRow !== state.flow; });
+      stageButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.stageFlow === state.flow && button.dataset.stageFilter === state.stage)));
+      const terms = state.q.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
+      const seen = new Set();
       let visible = 0;
       rows.forEach(row => {
-        const match = (category.value === 'all' || row.dataset.category === category.value)
-          && (flow.value === 'all' || row.dataset.flows.split(' ').includes(flow.value))
-          && (format.value === 'all' || row.dataset.format === format.value)
+        const id = row.dataset.capabilityId;
+        const match = !seen.has(id)
+          && (state.flow === 'all' || row.dataset.flows.split(' ').includes(state.flow))
+          && (state.stage === 'all' || row.dataset.stageMemberships.split(' ').includes(state.flow + ':' + state.stage))
+          && (state.category === 'all' || row.dataset.category === state.category)
+          && (state.format === 'all' || row.dataset.format === state.format)
           && terms.every(term => row.dataset.search.includes(term));
+        if (match) { seen.add(id); visible++; }
         row.hidden = !match;
-        if (match) visible++;
       });
-      count.textContent = `${visible} ${visible === 1 ? 'capability' : 'capabilities'}${visible !== rows.length ? ` of ${rows.length}` : ''}`;
+      const stageButton = stageButtons.find(button => button.dataset.stageFlow === state.flow && button.dataset.stageFilter === state.stage);
+      const title = [state.flow !== 'all' ? flowNames.get(state.flow) : categoryNames.get(state.category), state.stage !== 'all' ? stageButton?.textContent : null].filter(Boolean).join(' / ');
+      status.textContent = `${title || 'All workflows'}: ${visible} ${visible === 1 ? 'capability' : 'capabilities'}`;
+      clear.hidden = state.flow === 'all' && state.stage === 'all' && state.category === 'all' && state.format === 'all' && !state.q;
       empty.hidden = visible !== 0;
-      clear.hidden = !q && category.value === 'all' && flow.value === 'all' && format.value === 'all';
-      if (updateURL) {
-        const url = new URL(location.href);
-        url.search = '';
-        if (search.value.trim()) url.searchParams.set('q', search.value.trim());
-        if (category.value !== 'all') url.searchParams.set('category', category.value);
-        if (flow.value !== 'all') url.searchParams.set('flow', flow.value);
-        if (format.value !== 'all') url.searchParams.set('format', format.value);
-        history.replaceState(null, '', url.pathname + url.search + url.hash);
-      }
+      const resetScope = browser.querySelector('[data-reset-scope]');
+      if (resetScope) resetScope.textContent = state.flow === 'all' ? 'Show all capabilities' : 'Show all in this flow';
+      if (mode) writeURL(mode);
+      keepStageVisible();
     }
     function restore() {
       const params = new URLSearchParams(location.search);
-      search.value = params.get('q') || '';
-      flow.value = [...flow.options].some(x => x.value === params.get('flow')) ? params.get('flow') : 'all';
-      category.value = [...category.options].some(x => x.value === params.get('category')) ? params.get('category') : 'all';
-      format.value = [...format.options].some(x => x.value === params.get('format')) ? params.get('format') : 'all';
-      apply(false);
-    }
-    function reset() {
-      search.value = '';
-      category.value = 'all';
-      flow.value = 'all';
-      format.value = 'all';
+      const hashFlow = location.hash.startsWith('#flow-') ? location.hash.slice(6) : null;
+      const requestedFlow = params.get('flow') || hashFlow;
+      state.flow = flowNames.has(requestedFlow) ? requestedFlow : 'all';
+      state.stage = state.flow !== 'all' && validStage(state.flow, params.get('stage')) ? params.get('stage') : 'all';
+      const hashCategory = location.hash.startsWith('#stage-') ? location.hash.slice(7) : null;
+      const requestedCategory = params.get('category') || hashCategory;
+      state.category = state.flow === 'all' && categoryNames.has(requestedCategory) ? requestedCategory : 'all';
+      state.format = format && [...format.options].some(option => option.value === params.get('format')) ? params.get('format') : 'all';
+      state.q = params.get('q') || '';
       apply();
-      search.focus();
     }
-    form.addEventListener('submit', e => { e.preventDefault(); apply(); });
-    search.addEventListener('input', () => apply());
-    flow.addEventListener('change', () => { category.value = 'all'; apply(); });
-    category.addEventListener('change', () => apply());
-    format.addEventListener('change', () => apply());
-    clear.addEventListener('click', reset);
-    document.querySelectorAll('[data-reset-filters]').forEach(b => b.addEventListener('click', reset));
-    addEventListener('popstate', restore);
-    restore();
-  }
-  document.querySelectorAll('[data-work-flows]').forEach(guide => {
-    const choices = [...guide.querySelectorAll('[data-flow-filter]')];
-    const cards = [...guide.querySelectorAll('[data-flow-project]')];
-    const status = guide.querySelector('[data-flow-status]');
-    const all = guide.querySelector('[data-flow-all]');
-    const categories = [...guide.querySelectorAll('[data-legacy-category]')];
-    function apply(flow = 'all', category = null) {
-      let visible = 0;
-      cards.forEach(card => {
-        const match = category ? card.dataset.category === category
-          : flow === 'all' || card.dataset.flows.split(' ').includes(flow);
-        card.hidden = !match;
-        if (match) visible++;
+    function chooseFlow(flow) {
+      state.flow = flowNames.has(flow) ? flow : 'all';
+      state.stage = 'all'; state.category = 'all'; apply('push');
+    }
+    flowButtons.forEach(button => button.addEventListener('click', () => chooseFlow(button.dataset.flowFilter)));
+    flowSelect?.addEventListener('change', () => chooseFlow(flowSelect.value));
+    stageButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        if (button.dataset.stageFlow !== state.flow) return;
+        state.stage = button.dataset.stageFilter; apply('push');
       });
-      choices.forEach(button => button.setAttribute('aria-pressed', String(!category && button.dataset.flowFilter === flow)));
-      const name = category ? categories.find(x => x.dataset.legacyCategory === category)?.dataset.categoryTitle
-        : choices.find(x => x.dataset.flowFilter === flow)?.querySelector('strong').textContent;
-      status.textContent = name ? `${name}: ${visible} ${visible === 1 ? 'capability' : 'capabilities'}` : `All ${visible} capabilities`;
-      all.hidden = flow === 'all' && !category;
-    }
-    function restore() {
-      const hash = location.hash;
-      const flow = hash.startsWith('#flow-') ? hash.slice(6) : 'all';
-      const category = hash.startsWith('#stage-') ? hash.slice(7) : null;
-      const knownCategory = categories.some(x => x.dataset.legacyCategory === category);
-      const knownFlow = choices.some(x => x.dataset.flowFilter === flow);
-      apply(knownFlow ? flow : 'all', knownCategory ? category : null);
-    }
-    choices.forEach(button => button.addEventListener('click', () => {
-      const flow = button.dataset.flowFilter;
-      const url = new URL(location.href);
-      url.hash = 'flow-' + flow;
-      history.pushState(null, '', url.pathname + url.search + url.hash);
-      apply(flow);
-    }));
-    all.addEventListener('click', () => {
-      const url = new URL(location.href);
-      url.hash = 'journey';
-      history.pushState(null, '', url.pathname + url.search + url.hash);
-      apply();
+      button.addEventListener('keydown', event => {
+        const peers = stageButtons.filter(peer => peer.dataset.stageFlow === button.dataset.stageFlow);
+        let index = peers.indexOf(button);
+        if (event.key === 'ArrowRight') index = (index + 1) % peers.length;
+        else if (event.key === 'ArrowLeft') index = (index - 1 + peers.length) % peers.length;
+        else if (event.key === 'Home') index = 0;
+        else if (event.key === 'End') index = peers.length - 1;
+        else return;
+        event.preventDefault(); peers[index].focus({preventScroll: true});
+        const track = peers[index].closest('.stage-track');
+        track.scrollLeft += peers[index].getBoundingClientRect().left - track.getBoundingClientRect().left;
+      });
     });
-    addEventListener('hashchange', restore);
+    search.addEventListener('input', () => { state.q = search.value; apply('replace'); });
+    format?.addEventListener('change', () => { state.format = format.value; apply('push'); });
+    form.addEventListener('submit', event => { event.preventDefault(); state.q = search.value; apply('push'); });
+    clear.addEventListener('click', () => {
+      Object.assign(state, {flow:'all',stage:'all',category:'all',format:'all',q:''}); apply('push'); search.focus({preventScroll:true});
+    });
+    browser.querySelectorAll('[data-reset-scope]').forEach(button => button.addEventListener('click', () => {
+      Object.assign(state, {stage:'all',category:'all',format:'all',q:''}); apply('push'); search.focus({preventScroll:true});
+    }));
     addEventListener('popstate', restore);
+    addEventListener('hashchange', restore);
     restore();
   });
   const reducedMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches;

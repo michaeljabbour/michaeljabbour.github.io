@@ -475,6 +475,7 @@ def main() -> int:
         require(len(main_journey)==1 and main_journey[0].get('href')=='/#journey','Main Work flows navigation must target the inline homepage content')
     try:
         flow_data = load_flows(ROOT, projects)
+        require(load_json(OUT / "flows.json") == flow_data, "Served flow/stage data differs from the reviewed configuration")
         curated_related = load_related_tools(ROOT, ids)
         require(home_navigation is not None, "Missing homepage flow guide")
         if home_navigation:

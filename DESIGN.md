@@ -9,3 +9,5 @@ Use generous space, readable line lengths, direct labels and native media contro
 The proposed knowledge journey stays separate from the narrated build journey. Writing and notes link directly to the blog. Capability pages keep their own purpose, first step, prerequisites and source.
 
 Related tools and research appear after the capability’s first-use content. Group reviewed sources in native expandable sections; link commercial pricing models to current official pages without quoting volatile prices.
+
+When a flow is selected, reveal its one row of optional stage chevrons. The row filters the shared list in place, with “All stages” as a scoped reset. On small screens the row scrolls horizontally within its own bounds. Use native buttons and visible focus, preserve URL state, and keep the library’s controls in one form.

@@ -45,6 +45,31 @@ class PublicDataContracts(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     self.load("flows.json", data, load_flows)
 
+    def test_stage_assignments_cannot_drift_between_flows(self):
+        for mutate in [
+            lambda data: data.update({"private_notes": "Do not publish raw review notes"}),
+            lambda data: data["stage_memberships"].pop("knowledge"),
+            lambda data: data["stage_memberships"]["knowledge"].update({"creative": ["make"]}),
+            lambda data: data["stage_memberships"]["knowledge"].update({"research": ["build"]}),
+            lambda data: data["stage_memberships"]["knowledge"].update({"research": ["connect", "connect"]}),
+            lambda data: data["flows"][0]["stages"].reverse(),
+        ]:
+            data = copy.deepcopy(self.flows)
+            mutate(data)
+            with self.subTest(mutate=mutate), self.assertRaises(ValueError):
+                self.load("flows.json", data, load_flows)
+
+    def test_reviewed_stage_examples_have_exact_members(self):
+        examples = {
+            ("software", "build"): {"build-amplifier", "build-tauri", "build-with-torque", "forge", "desktop-tasks", "image-provider", "migrate", "transfer", "data-substrate"},
+            ("research", "explain"): {"research", "decisioncraft", "taste-elegance", "project-handoff", "articlecraft"},
+            ("creative", "share"): {"project-handoff", "good-teammate", "idea-talks", "stories"},
+        }
+        for (flow, stage), expected in examples.items():
+            actual = {ident for ident, assigned in self.flows["stage_memberships"].items() if stage in assigned.get(flow, [])}
+            with self.subTest(flow=flow, stage=stage):
+                self.assertEqual(expected, actual)
+
     def test_private_urls_future_reviews_and_unsupported_relationships_rejected(self):
         for changed in [
             {"url": "file:///private/notes.md"},
