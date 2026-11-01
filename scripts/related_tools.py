@@ -1,5 +1,6 @@
 """Render explicitly reviewed public comparisons, separate from private research."""
 import json
+import ipaddress
 from datetime import date
 from html import escape
 from urllib.parse import urlsplit
@@ -14,8 +15,21 @@ OPTIONAL = {"pricing_url", "pricing_model", "source_urls"}
 def public_https(value):
     if not isinstance(value, str):
         return False
-    url = urlsplit(value)
-    return url.scheme == "https" and bool(url.hostname) and not url.username and not url.password
+    try:
+        url = urlsplit(value)
+        host = (url.hostname or "").lower().rstrip(".")
+        url.port  # Reject malformed ports without resolving or connecting.
+    except ValueError:
+        return False
+    if url.scheme != "https" or not host or url.username or url.password:
+        return False
+    if host == "localhost" or host.endswith((".localhost", ".local")):
+        return False
+    try:
+        address = ipaddress.ip_address(host)
+    except ValueError:
+        return True  # Domain ownership/relevance is curated; no DNS lookup here.
+    return address.is_global and not address.is_multicast
 
 
 def load_related_tools(root, project_ids):
