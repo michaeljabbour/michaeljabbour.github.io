@@ -698,13 +698,18 @@
     ],
     "cognitive-simulation": [
       {
-        "title": "Centaur: model and experiment code",
+        "title": "Centaur experiment code",
         "url": "https://github.com/marcelbinz/Llama-3.1-Centaur-70B",
         "category": "open-source",
         "relationship": "complement",
-        "relevance": "Publishes the behavioral model adapter, prompt conventions and example usage associated with Centaur.",
-        "difference": "Cognitive Simulation frames experiments and interprets predictions. A configured model, suitable hardware and exact prompt protocol are separate requirements; this listing does not run or validate that model.",
-        "reviewed_date": "2026-11-01"
+        "relevance": "Experiment scripts, prompt conventions and model-loading examples for Centaur.",
+        "difference": "The repository code is Apache-2.0; Centaur adapter and base-model weights have separate Llama 3.1 terms. This is a code reference, not a claim that the weights are open source or that this wrapper is validated.",
+        "reviewed_date": "2026-11-01",
+        "source_urls": [
+          "https://github.com/marcelbinz/Llama-3.1-Centaur-70B/blob/main/LICENSE",
+          "https://huggingface.co/marcelbinz/Llama-3.1-Centaur-70B-adapter",
+          "https://huggingface.co/meta-llama/Llama-3.1-70B/blob/main/LICENSE"
+        ]
       },
       {
         "title": "A foundation model to predict and capture human cognition",
