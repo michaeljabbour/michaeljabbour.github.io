@@ -211,8 +211,12 @@ def main():
         "project-handoff",
         "research",
     ]
+    legacy_chapters = '<div hidden aria-hidden="true">' + ''.join(
+        f'<a href="/?moment={E(stage["id"])}#story" data-story-moment="{E(stage["id"])}" data-film-start="{stage["film_start"]}">{E(stage["title"])}</a>'
+        for stage in stages if stage["film_start"] is not None
+    ) + '</div>'
     home = f"""<section class="hero wrap"><div class="hero-copy"><p class="intro-line">A collection of 33 public capabilities.</p><h1>AI tools for research, software, and creative work.</h1><p class="hero-description">Choose a capability for a specific task. Read the required input, setup and output, then try the first task with your own material.</p><div class="button-row"><a class="button primary" href="#journey">Browse work flows</a><a class="button secondary" href="/films/">Watch the films</a></div></div>{hero_art}</section>
-{flow_guide(flow_data, projects, poster, stages)}
+{flow_guide(flow_data, projects, poster, stages)}{legacy_chapters}
 <section class="point-of-view wrap section-space"><div class="pov-title"><span class="thought-mark" aria-hidden="true">↳</span><h2>Bring your<br>own judgment.</h2></div><div class="pov-copy"><p>Follow the source. Look at the alternatives. Ask what would make the thing more useful.</p><p>Each capability has a defined job, guide and source repository. Compare that job with your task before installing or running the capability.</p><a class="text-link" href="/about/">About the capability collection</a></div></section>
 <section class="closing-section"><div class="wrap closing-content"><h2>Find a capability<br>for your next task.</h2><a class="button dark" href="/capabilities/">Browse all capabilities</a></div></section>"""
     write(
