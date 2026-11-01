@@ -26,12 +26,14 @@ class CanonicalNavigation(unittest.TestCase):
 
     def test_all_current_canonical_destinations_are_accepted(self):
         self.assertEqual([], self.errors())
-        self.assertEqual(33, len(self.catalogue["projects"]))
+        self.assertEqual(36, len(self.catalogue["projects"]))
 
     def test_each_legacy_repository_guide_install_and_film_link_is_rejected(self):
         # HTTPS and working redirects are not enough: every active destination
         # must use the canonical prefix from the independently maintained map.
         for index, project in enumerate(self.catalogue["projects"]):
+            if project["id"] not in self.by_id:
+                continue
             row = self.by_id[project["id"]]
             for field in ("repo_url", "site_url", "install_url", "film_url"):
                 with self.subTest(capability=project["id"], field=field):
@@ -53,6 +55,17 @@ class CanonicalNavigation(unittest.TestCase):
             catalogue = copy.deepcopy(self.catalogue)
             catalogue["projects"][0]["repo_url"] = changed
             self.assertTrue(self.errors(catalogue))
+
+    def test_new_guides_use_the_main_site_and_actual_readme_setup(self):
+        additions = {"articlecraft", "idea-talks", "stories"}
+        for index, project in enumerate(self.catalogue["projects"]):
+            if project["id"] not in additions:
+                continue
+            for field in ["repo_url", "site_url", "install_url"]:
+                with self.subTest(capability=project["id"], field=field):
+                    changed = copy.deepcopy(self.catalogue)
+                    changed["projects"][index][field] = "https://example.invalid/unverified/"
+                    self.assertTrue(any(project["id"] in error for error in self.errors(changed)))
 
     def test_missing_fragment_and_offsite_install_are_rejected(self):
         ident = self.catalogue["projects"][0]["id"]

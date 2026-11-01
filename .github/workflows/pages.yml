@@ -12,6 +12,9 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      publication_ready: ${{ steps.publication.outputs.publication_ready }}
+      source_sha: ${{ steps.publication.outputs.source_sha }}
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
       - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
@@ -27,13 +30,16 @@ jobs:
         run: python3 scripts/check.py
       - name: Check JavaScript syntax
         run: node --check assets/site.js
+      - name: Check artifact publication boundary
+        id: publication
+        run: python3 scripts/check_release.py --for-publication --github-output "$GITHUB_OUTPUT"
       - name: Upload site
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
         with:
           path: dist
   deploy:
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && needs.build.outputs.publication_ready == 'true' && needs.build.outputs.source_sha == github.sha
     needs: build
     runs-on: ubuntu-latest
     permissions:

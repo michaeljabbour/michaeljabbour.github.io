@@ -2,7 +2,7 @@
 
 A portfolio of AI skills, tools and libraries for work people can build on.
 
-The site introduces the work, groups 33 public capabilities by the task they support, and gives each its own page with media, a first step, installation and source. Films stay hosted on their capability sites; this repository keeps lightweight copies of the existing poster artwork.
+The site introduces the work, groups public capabilities by the task they support, and gives each its own page with media, a first step, installation and source. Films stay hosted on their capability sites; this repository keeps lightweight copies of the existing poster artwork.
 
 ## Build and preview
 
@@ -19,11 +19,11 @@ Open `http://127.0.0.1:8781/`. The read-only local preview server supports byte 
 
 ## Content
 
-- `content/portfolio.json`: owner introduction, seven task categories and 33 capability entries.
+- `content/portfolio.json`: owner introduction, seven task categories and capability entries.
 - `content/journey.json`: the seven human questions, their order, outcomes, tool selections and actual film chapter times.
 - `content/media.json`: verified media destinations, local poster paths and observation scope.
 - `assets/`: site styling, behavior and poster artwork.
-- `scripts/build.py`: generates the homepage, journey, library, films, About, 33 detail pages, 404 and sitemap.
+- `scripts/build.py`: generates the homepage, journey, library, films, About, capability detail pages, 404 and sitemap.
 - `scripts/check.py`: checks routes, metadata, assets, media consistency and public-only content.
 - `DESIGN.md`: design direction and rationale.
 
@@ -46,8 +46,27 @@ Films stay on their capability sites. Local posters and stills preserve the supp
 
 ## Navigation and shared installation
 
-The grouped catalogue keeps 33 capabilities distinct. The proposed knowledge journey is separate from the build journey. Writing and notes are on [Michael Jabbour’s blog](https://www.michaeljabbour.com/).
+The grouped catalogue keeps capabilities distinct. The proposed knowledge journey is separate from the build journey. Writing and notes are on [Michael Jabbour’s blog](https://www.michaeljabbour.com/).
 
 The shared installer lives in `tools/` and is served at `/reports/capability-installer/`. Its download manifest records the exact committed source revision and file hashes. For local editing, prefix build/check commands with `CAPABILITY_INSTALLER_PREVIEW=1`; commit before a production build.
 
 Run `python3 -m unittest discover -s tests -v` and `python3 -m unittest discover -s tools -p test_capability.py -v` before building.
+
+## Additional capabilities and local preview
+
+`content/additions.json` admits only ArticleCraft, Idea Talks and Stories alongside the original catalogue. It records their canonical repositories, exact source commits and repository verification. The historical migration map continues to describe only the original 33 repository renames. New capabilities do not acquire invented legacy names.
+
+Until those repositories and pins have been verified, render a private local preview explicitly:
+
+```sh
+PORTFOLIO_PREVIEW=1 CAPABILITY_INSTALLER_PREVIEW=1 python3 scripts/build.py
+PORTFOLIO_PREVIEW=1 CAPABILITY_INSTALLER_PREVIEW=1 python3 scripts/check.py
+```
+
+Preview flags cannot authorize a public build in GitHub Actions. Public publication requires committed source, verified addition records and a matching artifact receipt:
+
+```sh
+python3 scripts/check_release.py --for-publication
+```
+
+The workflow checks that boundary before upload and binds deployment to the guard's source SHA and ready output. Review the actual public repository/head evidence before marking an addition verified; changing a flag is not evidence that a repository exists.

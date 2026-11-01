@@ -2,6 +2,7 @@
 from html import escape
 import json,re,shutil
 from urllib.parse import urlsplit
+from catalogue_admission import validate_historical_migration
 
 def inline(text):
     pieces=re.split(r'(`[^`]+`|\[[^\]]+\]\([^)]+\))',text);out=[]
@@ -42,7 +43,7 @@ def markdown_body(source):
     return '<article class="wrap migration-guide"><a class="back-link" href="/capabilities/">All capabilities</a>'+''.join(out)+'</article>'
 
 def write_migration(root,out,write,shell,ids):
-    source=root/'content/migration';mapping=json.loads((source/'mapping.json').read_text());rows=mapping['repositories']
+    source=root/'content/migration';mapping=json.loads((source/'mapping.json').read_text());rows=validate_historical_migration(mapping)
     if mapping['owner']!='michaeljabbour' or len(rows)!=33 or {r['id'] for r in rows}!=ids:raise ValueError('Migration map must match33 capability identities')
     for row in rows:
         if row['portfolio_url']!='https://michaeljabbour.github.io/capabilities/'+row['id']+'/':raise ValueError('Migration guide destination differs')

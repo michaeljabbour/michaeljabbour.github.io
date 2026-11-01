@@ -6,7 +6,7 @@ from urllib.parse import urlsplit
 E=lambda value:escape(str(value),quote=True)
 
 def category_body(projects,stages):
-    parts=['<section class="page-intro wrap"><a class="back-link" href="/capabilities/">All capabilities</a><h1>Browse seven<br>capability categories.</h1><p>Find 33 capabilities across research, planning, software, review, creative production, migration and project continuity. Each capability page explains input, output, setup and a first task.</p><div class="button-row"><a class="text-link" href="/#journey">Open the category guide</a><a class="text-link" href="/journey/knowledge/">Explore the proposed knowledge journey</a></div></section>']
+    parts=['<section class="page-intro wrap"><a class="back-link" href="/capabilities/">All capabilities</a><h1>Browse seven<br>capability categories.</h1><p>Find the capabilities across research, planning, software, review, creative production, migration and project continuity. Each capability page explains input, output, setup and a first task.</p><div class="button-row"><a class="text-link" href="/#journey">Open the category guide</a><a class="text-link" href="/journey/knowledge/">Explore the proposed knowledge journey</a></div></section>']
     for stage in stages:
         members=[p for p in projects if p['category']==stage['id']]
         parts.append('<section class="category-group wrap" id="category-'+E(stage['id'])+'"><div class="section-heading"><div><h2>'+E(stage['title'])+'</h2><p>'+E(stage['question'])+'</p></div><a class="text-link" href="/#stage-'+E(stage['id'])+'">See this moment</a></div><div class="category-members">')
@@ -23,7 +23,7 @@ def knowledge_body(data,by_id):
         for ident in stage['capability_ids']:
             p=by_id[ident];parts.append('<li><a href="/capabilities/'+E(ident)+'/">'+E(p['title'])+'</a><p>'+E(p['summary'])+'</p></li>')
         parts.append('</ul></div></section>')
-    parts.append('<section class="journey-loop wrap"><p>Testing can send you back to a source. Refining can uncover a factual question. Keep the evidence with the work and choose deliberately what to share.</p><a class="text-link" href="/capabilities/categories/">Browse all 33 capabilities</a></section>')
+    parts.append('<section class="journey-loop wrap"><p>Testing can send you back to a source. Refining can uncover a factual question. Keep the evidence with the work and choose deliberately what to share.</p><a class="text-link" href="/capabilities/categories/">Browse all capabilities</a></section>')
     return ''.join(parts)
 
 def write_public_views(root,out,write,shell,projects,stages):
@@ -31,8 +31,8 @@ def write_public_views(root,out,write,shell,projects,stages):
     knowledge=json.loads((root/'content/knowledge-journey.json').read_text())
     for stage in knowledge['stages']:
         if not set(stage['capability_ids'])<=ids:raise ValueError('Knowledge journey contains an unapproved capability')
-    write('capabilities/categories',shell('Seven ways into the work','Browse 33 distinct public capabilities across seven moments.',category_body(projects,stages),'capabilities','/capabilities/categories/'))
+    write('capabilities/categories',shell('Seven ways into the work','Browse the distinct public capabilities across seven task areas.',category_body(projects,stages),'capabilities','/capabilities/categories/'))
     write('journey/knowledge',shell('From curation to creation','A proposed journey through existing research, knowledge and creative capabilities.',knowledge_body(knowledge,by_id),'journey','/journey/knowledge/'))
     redirect='<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Blog · Michael Jabbour</title><meta name="description" content="Writing and notes from Michael Jabbour."><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url=https://www.michaeljabbour.com/"><link rel="canonical" href="https://www.michaeljabbour.com/"></head><body><main id="main"><h1>Blog</h1><p><a href="https://www.michaeljabbour.com/">Read Michael Jabbour’s blog</a>.</p></main></body></html>'
     write('reports/capabilities',redirect)
-    (out/'repo-categories.html').write_text(shell('Seven ways into the work','Browse 33 public capabilities across seven moments.',category_body(projects,stages),'capabilities','/repo-categories.html',extra_head='<meta name="robots" content="noindex">'))
+    (out/'repo-categories.html').write_text(shell('Seven ways into the work','Browse the public capabilities across seven task areas.',category_body(projects,stages),'capabilities','/repo-categories.html',extra_head='<meta name="robots" content="noindex">'))

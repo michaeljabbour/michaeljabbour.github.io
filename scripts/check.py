@@ -17,6 +17,7 @@ from build import checked_compatibility_sites
 from public_privacy import reviewed_example_text
 from flow_views import load_flows
 from related_tools import load_related_tools
+from catalogue_admission import HISTORICAL_IDS, ADDITIONAL_IDS, current_admission
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "dist"
@@ -156,7 +157,9 @@ def canonical_navigation_errors(catalogue, media, migration):
     if (
         migration.get("schema_version") != "amplifier-repository-migration/v1"
         or len(row_ids) != len(set(row_ids))
-        or set(row_ids) != set(ids)
+        or set(row_ids) != HISTORICAL_IDS
+        or not HISTORICAL_IDS <= set(ids)
+        or not set(ids) <= HISTORICAL_IDS | ADDITIONAL_IDS
     ):
         errors.append("Canonical migration map must cover each public capability exactly once")
     by_id = {row.get("id"): row for row in rows}
@@ -165,6 +168,10 @@ def canonical_navigation_errors(catalogue, media, migration):
         ident = project.get("id", "<missing>")
         row = by_id.get(ident)
         if row is None:
+            if ident in ADDITIONAL_IDS:
+                expected_repo = "https://github.com/michaeljabbour/amplifier-capability-" + ident
+                if project.get("repo_url") != expected_repo or project.get("site_url") != ORIGIN + "/capabilities/" + ident + "/" or project.get("install_url") != expected_repo + "#setup":
+                    errors.append(f"{ident}: new capability must use its canonical repository, main-site guide and actual README setup anchor")
             continue
         repository = row.get("new_repository", "")
         repo_url = "https://github.com/michaeljabbour/" + repository
@@ -213,13 +220,19 @@ def main() -> int:
     journey = load_json(ROOT / "content/journey.json")
     migration_source = load_json(ROOT / "content/migration/mapping.json")
     errors.extend(canonical_navigation_errors(catalogue, media, migration_source))
+    try:
+        admission = current_admission(ROOT, catalogue, migration_source)
+        served_admission = load_json(OUT / "publication.json")
+        require(served_admission.get("preview_only") is admission["preview_only"] and served_admission.get("publication_ready") is admission["publication_ready"] and served_admission.get("additional_sources") == admission["additions"] and served_admission.get("capability_ids") == admission["capability_ids"], "Built publication admission differs from reviewed inputs")
+    except (OSError, ValueError, TypeError, KeyError) as exc:
+        errors.append("Invalid catalogue admission: " + str(exc))
     projects = catalogue.get("projects", [])
     categories = catalogue.get("categories", [])
     ids = [p.get("id") for p in projects]
     category_ids = [c.get("id") for c in categories]
     require(
-        len(ids) == len(set(ids)) == 33,
-        "Catalogue must contain exactly 33 unique public capability IDs",
+        len(ids) == len(set(ids)) and HISTORICAL_IDS <= set(ids) and set(ids) <= HISTORICAL_IDS | ADDITIONAL_IDS,
+        "Catalogue must retain the historical identities and only the named admitted additions",
     )
     require(
         "basic-learning" not in ids,
@@ -309,8 +322,8 @@ def main() -> int:
     documents = {path: Document(path.read_text()) for path in html_files}
     overview_pages = int((OUT / "assets/overview/transcript/index.html").exists())
     require(
-        len([p for p in html_files if p not in legacy_paths]) == 45 + overview_pages,
-        "Build must contain45 base HTML pages including33 capabilities, category/knowledge/installer routes and the legacy blog redirect, the category alias and404, plus the configured overview transcript",
+        len([p for p in html_files if p not in legacy_paths]) == len(ids) + 12 + overview_pages,
+        "Build page count must match the admitted capability routes, shared routes, compatibility pages and configured overview transcript",
     )
     expected_routes = {
         OUT / "capabilities" / ident / "index.html"
@@ -320,7 +333,7 @@ def main() -> int:
     actual_routes = set((OUT / "capabilities").glob("*/index.html"))
     require(
         actual_routes == expected_routes | {OUT / "capabilities/categories/index.html"},
-        "Built capability routes differ from the33 catalogue IDs plus the category index",
+        "Built capability routes differ from the admitted catalogue IDs plus the category index",
     )
 
     def target_for(reference: str, origin: Path):
@@ -482,8 +495,8 @@ def main() -> int:
             a for tag, a in library.elements if tag == "article" and "data-project" in a
         ]
         require(
-            len(rows) == 33,
-            "Library must expose all 33 project rows before JavaScript runs",
+            len(rows) == len(ids),
+            "Library must expose all catalogue project rows before JavaScript runs",
         )
         library_ids = set()
         for attributes in library.select("a"):
@@ -494,7 +507,7 @@ def main() -> int:
                 library_ids.add(match.group(1))
         require(
             library_ids == set(ids),
-            "Library links do not cover exactly the 33 capability routes",
+            "Library links do not cover exactly the catalogue capability routes",
         )
         for key in ("search", "category", "format", "result-count", "no-results"):
             require(
@@ -518,7 +531,7 @@ def main() -> int:
         links = {a.get("href") for a in doc.select("a")}
         require(
             project["repo_url"] in links
-            and project["site_url"] in links
+            and (ident in ADDITIONAL_IDS or project["site_url"] in links)
             and project["install_url"] in links,
             f"{ident}: source, guide and installation links are required",
         )
@@ -833,7 +846,7 @@ def main() -> int:
             require(
                 Counter(node["attrs"].get("data-journey-tool") for node in all_tools)
                 == Counter(ids),
-                f"{guide_path.relative_to(OUT)}: each of the 33 tools must appear exactly once in the guide",
+                f"{guide_path.relative_to(OUT)}: each catalogue capability must appear exactly once in the guide",
             )
             journey_tools_checked += len(all_tools)
             for panel in panels:
@@ -1002,7 +1015,7 @@ def main() -> int:
     require(category_doc is not None, "Missing category index")
     if category_doc:
         category_ids = [attrs.get("data-category-capability") for _, attrs in category_doc.elements if attrs.get("data-category-capability")]
-        require(len(category_ids) ==33 and set(category_ids) ==set(ids), "Category index must keep all33 capabilities distinct")
+        require(len(category_ids) ==len(ids) and set(category_ids) ==set(ids), "Category index must keep all catalogue capabilities distinct")
     knowledge_doc = documents.get(OUT / "journey/knowledge/index.html")
     require(knowledge_doc is not None, "Missing proposed knowledge journey")
     if knowledge_doc:
@@ -1024,7 +1037,7 @@ def main() -> int:
     require(old_status is not None and old_status.select('meta',**{'http-equiv':'refresh'})==[{'http-equiv':'refresh','content':'0; url=https://www.michaeljabbour.com/'}],'Old status HTML route must be only the blog redirect/fallback')
     migration=load_json(OUT/'migration/mapping.json')
     require(migration==load_json(ROOT/'content/migration/mapping.json'),'Served migration map must match reviewed source')
-    require(len(migration.get('repositories',[]))==33 and {row['id'] for row in migration.get('repositories',[])}==set(ids),'Migration map must retain33 approved identities')
+    require(len(migration.get('repositories',[]))==33 and {row['id'] for row in migration.get('repositories',[])}==HISTORICAL_IDS,'Migration map must retain33 approved identities')
     require(OUT/'migration/index.html' in documents,'Migration guide missing')
     # The download is the reviewed package, with an exact build-time commit pin.
     try:

@@ -1292,6 +1292,15 @@
       ],
       "page_sha256": "dad69d7505772489068f4083096a378df06f7937107073eda4b6b3ffe5bbf473",
       "still": "assets/stills/data-substrate.jpg"
+    },
+    "articlecraft": {
+      "available": false
+    },
+    "idea-talks": {
+      "available": false
+    },
+    "stories": {
+      "available": false
     }
   }
 }

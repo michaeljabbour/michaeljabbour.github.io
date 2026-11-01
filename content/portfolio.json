@@ -743,6 +743,91 @@
       ]
     },
     {
+      "category": "create",
+      "format": "Skill",
+      "id": "articlecraft",
+      "title": "ArticleCraft",
+      "summary": "Compose a readable sourced article while preserving the author's perspective.",
+      "description": "Turn an author's perspective and selected evidence into a readable article. Keep factual claims tied to sources, preserve the author's choices and return a local draft for review.",
+      "audience": "Authors, researchers and teams drafting an article from evidence they are authorized to use.",
+      "input": "An author perspective, intended audience, purpose and selected source packet.",
+      "action": "Develops an opening and argument, drafts with source traceability and returns author review choices.",
+      "result": "An article draft, a claim/source map and author review notes.",
+      "runtime": "The caller-applied method runs in your existing Agent Skills host. It adds no provider, background agent or publishing service.",
+      "prerequisites": [
+        "Use a supported Agent Skills host with the complete ArticleCraft folder.",
+        "Provide authorized evidence and the author perspective. The optional shared installer requires Git and Python 3.11+."
+      ],
+      "first_prompt": "Use ArticleCraft with the source packet and author perspective I provide. Write a short article for the audience I name, show the source and limitation of each factual claim, and return author review notes. Save local drafts; do not collect new material or publish.",
+      "output": "A fictional article draft with a claim/source map and explicit author review choices.",
+      "limitations": "The method does not invent lived experience, collect sources, generate images or publish. An article draft and its claim map require author review; package checks do not establish writing quality or outside-user benefit.",
+      "related": [
+        "research",
+        "long-read",
+        "taste-elegance"
+      ],
+      "repo_url": "https://github.com/michaeljabbour/amplifier-capability-articlecraft",
+      "site_url": "https://michaeljabbour.github.io/capabilities/articlecraft/",
+      "install_url": "https://github.com/michaeljabbour/amplifier-capability-articlecraft#setup"
+    },
+    {
+      "category": "create",
+      "format": "Skill",
+      "id": "idea-talks",
+      "title": "Idea Talks",
+      "summary": "Turn one idea and authorized evidence into a self-contained HTML talk.",
+      "description": "Shape one idea around a concrete example and an invitation for an audience. Write a self-contained HTML talk and a separate evidence record; use the included browser editor to review the local draft.",
+      "audience": "Speakers, educators and teams explaining one idea to a named audience.",
+      "input": "One idea, an audience, chosen speaker words, an authorized source packet and a new output path.",
+      "action": "Structures the idea, example and invitation, writes the talk and keeps evidence alongside the story.",
+      "result": "talk.html and story-evidence.md, with editable talk content and speaker notes.",
+      "runtime": "The method runs in your existing Agent Skills host. The included HTML editor uses a local browser, system fonts and no external packages or publishing service.",
+      "prerequisites": [
+        "Use the complete Idea Talks folder in a supported Agent Skills host.",
+        "Choose authorized evidence and speaker words. A browser is needed for interactive editing; the optional shared installer requires Git and Python 3.11+."
+      ],
+      "first_prompt": "Use Idea Talks with one idea, the audience, speaker words and source packet I provide. Make one concrete example and invitation, save a local HTML talk and story-evidence.md, and keep unsupported claims visible. Do not publish.",
+      "output": "A fictional local HTML talk and evidence record with one idea, example and invitation.",
+      "limitations": "The method does not publish or configure providers. Exported HTML includes notes and source details; review them before sharing. Packaging or browser checks do not establish audience understanding, comparative quality or outside-user outcomes.",
+      "related": [
+        "articlecraft",
+        "sizzle",
+        "taste-elegance"
+      ],
+      "repo_url": "https://github.com/michaeljabbour/amplifier-capability-idea-talks",
+      "site_url": "https://michaeljabbour.github.io/capabilities/idea-talks/",
+      "install_url": "https://github.com/michaeljabbour/amplifier-capability-idea-talks#setup"
+    },
+    {
+      "id": "stories",
+      "title": "Stories",
+      "summary": "Turn documented project work into a sourced case study and one audience adaptation.",
+      "description": "Use selected project evidence to draft one case study and adapt it for one other audience. Keep both drafts tied to a shared claim ledger, with the same facts, denominators and limits. You choose the purpose, audiences and visibility.",
+      "audience": "Project teams, project leads and community members explaining documented work.",
+      "category": "create",
+      "format": "Skill",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-capability-stories",
+      "site_url": "https://michaeljabbour.github.io/capabilities/stories/",
+      "install_url": "https://github.com/michaeljabbour/amplifier-capability-stories#setup",
+      "input": "Selected project evidence, a purpose, the primary and adaptation audiences, and the allowed visibility.",
+      "action": "Builds a claim ledger, drafts one case study, adapts it once for another audience and reviews the facts and limits.",
+      "result": "case-study.md, adaptation.md, claims.json and review.md.",
+      "runtime": "A caller-applied writing method in your existing Agent Skills host. An optional read-only checker uses Python 3.11+ and the standard library; it checks the packet/output contract, not factual truth or privacy.",
+      "prerequisites": [
+        "Use a supported Agent Skills host with the complete Stories folder.",
+        "Select an authorized evidence packet and specify the purpose, audiences and visibility. Python 3.11+ is needed only for the optional checker."
+      ],
+      "first_prompt": "Use Stories on the included fictional repair-club packet; write one project-team case study and one executive adaptation, preserving denominators and limits; save local drafts without publishing.",
+      "output": "A fictional repair-club case study and one executive adaptation with shared claims and explicit limits.",
+      "limitations": "This method covers documented project case studies and a selected audience adaptation. It does not mine sessions, invent general fiction, render or publish work, or run an autonomous provider loop. Contract checks do not establish independent usefulness, factual truth or privacy.",
+      "related": [
+        "research",
+        "articlecraft",
+        "idea-talks",
+        "taste-elegance"
+      ]
+    },
+    {
       "id": "migrate",
       "title": "Migrate",
       "summary": "Move an application to another language while preserving specified behavior.",
