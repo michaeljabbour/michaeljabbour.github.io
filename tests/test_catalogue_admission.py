@@ -91,6 +91,7 @@ class AdditionAdmission(unittest.TestCase):
             with self.subTest(change=change), self.assertRaises(ValueError):
                 validate_catalogue(self.catalogue, mapping, self.verified())
 
+    @patch.dict("os.environ", {"PORTFOLIO_PREVIEW": "0"})
     def test_artifact_cannot_promote_unverified_source_or_other_commit(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
@@ -111,6 +112,8 @@ class AdditionAdmission(unittest.TestCase):
             (root / "content/additions.json").write_text(json.dumps(verified))
             with patch("check_release.subprocess.check_output", side_effect=["b" * 40 + "\n", ""]):
                 self.assertTrue(validate_artifact(root, for_publication=True)["publication_ready"])
+            with patch.dict("os.environ", {"PORTFOLIO_PREVIEW": "1"}), self.assertRaises(ValueError):
+                validate_artifact(root, for_publication=True)
             for changes in [{"source_commit": "c" * 40}, {"preview_only": True}, {"additional_sources": {}}]:
                 changed = dict(artifact, **changes)
                 (root / "dist/publication.json").write_text(json.dumps(changed))
