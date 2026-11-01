@@ -87,7 +87,7 @@ class PublicDataContracts(unittest.TestCase):
         self.assertNotIn("<script>", html)
         self.assertIn("&lt;script&gt;", html)
         self.assertEqual(18, html.count('<time datetime='))
-        self.assertIn("not yet published", render_related_tools("research", entries))
+        self.assertIn("not yet published", render_related_tools("not-curated", {}))
 
 
 if __name__ == "__main__":

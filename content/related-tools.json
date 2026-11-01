@@ -184,6 +184,993 @@
         "difference": "It operates managed infrastructure and governance around graphs. Knowledge keeps a local application contract. No Zep account, integration, performance comparison or service endorsement is implied.",
         "reviewed_date": "2026-11-01"
       }
+    ],
+    "market-fit": [
+      {
+        "title": "Marketing Skills for AI Agents",
+        "url": "https://github.com/coreyhaines31/marketingskills",
+        "relevance": "Explore portable product-marketing and conversion skills.",
+        "difference": "Broader marketing execution; Market Fit focuses on the person's positioning judgment and actual customer evidence.",
+        "reviewed_date": "2026-11-01",
+        "category": "skill-or-plugin",
+        "relationship": "alternative"
+      },
+      {
+        "title": "Strategyzer Value Proposition Canvas",
+        "url": "https://www.strategyzer.com/library/the-value-proposition-canvas",
+        "relevance": "Use customer-job and offer maps as another way to inspect a fit hypothesis.",
+        "difference": "A canvas/playbook is a separate commercial framework, not proof that this capability's offer has market fit.",
+        "reviewed_date": "2026-11-01",
+        "category": "commercial",
+        "relationship": "complement"
+      },
+      {
+        "title": "To Trust or to Think",
+        "url": "https://www.iis.seas.harvard.edu/papers/2021/bucinca2021trust.shtml",
+        "relevance": "Read a human-AI study when designing attempt-first interactions.",
+        "difference": "Different task and intervention; it does not validate Market Fit or show every person benefits from more friction.",
+        "reviewed_date": "2026-11-01",
+        "category": "research",
+        "relationship": "inspiration"
+      }
+    ],
+    "unknowns": [
+      {
+        "title": "Excalidraw",
+        "url": "https://github.com/excalidraw/excalidraw",
+        "relevance": "Sketch assumptions and unanswered questions when a visual map helps.",
+        "difference": "Drawing surface, not uncertainty classification, triage or evidence verification.",
+        "reviewed_date": "2026-11-01",
+        "category": "open-source",
+        "relationship": "complement"
+      },
+      {
+        "title": "Strategyzer business-testing course",
+        "url": "https://www.strategyzer.com/training-programs/mastering-business-testing-how-to-design-and-assess-winning-business-models",
+        "relevance": "Study how risky assumptions become explicit business experiments.",
+        "difference": "Commercial business-testing instruction; Unknowns also covers nonbusiness code/records/tasks.",
+        "reviewed_date": "2026-11-01",
+        "category": "commercial",
+        "relationship": "complement"
+      }
+    ],
+    "research": [
+      {
+        "title": "GPT Researcher",
+        "url": "https://github.com/assafelovic/gpt-researcher",
+        "relevance": "Compare a dedicated web/local research agent and its report workflow.",
+        "difference": "Executable agent/service stack rather than a portable evidence/study-discipline method; citations still need checking.",
+        "reviewed_date": "2026-11-01",
+        "category": "open-source",
+        "relationship": "alternative"
+      },
+      {
+        "title": "Zotero",
+        "url": "https://github.com/zotero/zotero",
+        "relevance": "Keep source collections and citations in a dedicated reference manager.",
+        "difference": "Bibliographic/source management, not experiment validity or claim entailment.",
+        "reviewed_date": "2026-11-01",
+        "category": "open-source",
+        "relationship": "complement"
+      },
+      {
+        "title": "Elicit",
+        "url": "https://elicit.com/",
+        "relevance": "Explore a hosted scientific-literature research workflow.",
+        "difference": "Vendor-hosted product with separate terms/data handling; not the same local caller-applied method.",
+        "reviewed_date": "2026-11-01",
+        "category": "commercial",
+        "relationship": "alternative"
+      },
+      {
+        "title": "AI Agents That Matter",
+        "url": "https://arxiv.org/abs/2407.01502",
+        "relevance": "Use cost/holdout/reproducibility questions when planning agent experiments.",
+        "difference": "Research on agent evaluation, not proof that any local method or study is effective.",
+        "reviewed_date": "2026-11-01",
+        "category": "research",
+        "relationship": "inspiration"
+      }
+    ],
+    "long-read": [
+      {
+        "title": "Summarize",
+        "url": "https://github.com/steipete/summarize",
+        "relevance": "Compare a CLI/browser path for extracting and summarizing long sources.",
+        "difference": "Broad media summarization; Long Read's packaged path emphasizes bounded lexical evidence, offsets and explicit coverage.",
+        "reviewed_date": "2026-11-01",
+        "category": "open-source",
+        "relationship": "alternative"
+      },
+      {
+        "title": "Docling",
+        "url": "https://github.com/docling-project/docling",
+        "relevance": "Convert complex documents into inspectable structured text before evidence retrieval.",
+        "difference": "Parsing/OCR/layout processing, not the answer or its claim-to-source reasoning.",
+        "reviewed_date": "2026-11-01",
+        "category": "open-source",
+        "relationship": "complement"
+      },
+      {
+        "title": "Readwise Reader",
+        "url": "https://readwise.io/read",
+        "relevance": "Use an annotated reading library around long-source work.",
+        "difference": "Hosted reading/annotation product rather than deterministic source-hash/chunk coverage.",
+        "reviewed_date": "2026-11-01",
+        "category": "commercial",
+        "relationship": "complement"
+      },
+      {
+        "title": "Lost in the Middle: How Language Models Use Long Contexts",
+        "url": "https://arxiv.org/abs/2307.03172",
+        "relevance": "Consider source position and retrieval coverage when designing long-context checks.",
+        "difference": "Older model/task findings motivate tests; they do not establish a failure rate or improvement for this capability.",
+        "reviewed_date": "2026-11-01",
+        "category": "research",
+        "relationship": "inspiration"
+      }
+    ],
+    "decisioncraft": [
+      {
+        "title": "pymcdm",
+        "url": "https://github.com/kotbaton/pymcdm",
+        "relevance": "Inspect reusable multi-criteria scoring methods where a decision really has justified numeric inputs.",
+        "difference": "Algorithm library; it does not establish the user's objectives, weights or evidence.",
+        "reviewed_date": "2026-11-01",
+        "category": "open-source",
+        "relationship": "complement"
+      },
+      {
+        "title": "1000minds decision-making",
+        "url": "https://www.1000minds.com/decision-making",
+        "relevance": "Explore a hosted trade-off and group-prioritization workflow.",
+        "difference": "Commercial elicitation software with its own methodology, not a verified integration or comparative winner.",
+        "reviewed_date": "2026-11-01",
+        "category": "commercial",
+        "relationship": "alternative"
+      },
+      {
+        "title": "To Trust or to Think",
+        "url": "https://www.iis.seas.harvard.edu/papers/2021/bucinca2021trust.shtml",
+        "relevance": "Examine how asking people to think can affect reliance on AI suggestions.",
+        "difference": "Human study in a different decision task; tradeoffs and participant variation limit generalization.",
+        "reviewed_date": "2026-11-01",
+        "category": "research",
+        "relationship": "inspiration"
+      }
+    ],
+    "right-shape": [
+      {
+        "title": "Building effective AI agents",
+        "url": "https://www.anthropic.com/research/building-effective-agents",
+        "relevance": "Compare workflow/agent distinctions and the case for a simpler first design.",
+        "difference": "Historic engineering guidance, not the Right Shape scoring rubric or a current SDK contract.",
+        "reviewed_date": "2026-11-01",
+        "category": "research",
+        "relationship": "inspiration"
+      },
+      {
+        "title": "Agent Skills specification",
+        "url": "https://github.com/agentskills/agentskills",
+        "relevance": "Check the actual portable SKILL.md packaging format.",
+        "difference": "A delivery format, not proof that written instructions are the right shape or autonomous execution is warranted.",
+        "reviewed_date": "2026-11-01",
+        "category": "open-source",
+        "relationship": "complement"
+      },
+      {
+        "title": "LangGraph",
+        "url": "https://github.com/langchain-ai/langgraph",
+        "relevance": "Inspect a concrete stateful orchestration engine when the placement needs one.",
+        "difference": "Runtime infrastructure; selecting it does not establish an autonomy need or safety ceiling.",
+        "reviewed_date": "2026-11-01",
+        "category": "open-source",
+        "relationship": "complement"
+      },
+      {
+        "title": "AI Agents That Matter",
+        "url": "https://arxiv.org/abs/2407.01502",
+        "relevance": "Ground benchmark questions in cost, holdout and reproducibility concerns.",
+        "difference": "General agent-evaluation research, not evidence that a placement card works for users.",
+        "reviewed_date": "2026-11-01",
+        "category": "research",
+        "relationship": "inspiration"
+      }
+    ],
+    "intent-to-plan": [
+      {
+        "title": "GitHub Spec Kit",
+        "url": "https://github.com/github/spec-kit",
+        "relevance": "Compare spec-driven coding workflows, templates and assessment entry points.",
+        "difference": "Coding-oriented executable process toolkit; Intent to Plan keeps intent, authority and dependency grammar separate from execution.",
+        "reviewed_date": "2026-11-01",
+        "category": "open-source",
+        "relationship": "alternative"
+      },
+      {
+        "title": "Markdown Architectural Decision Records",
+        "url": "https://github.com/adr/madr",
+        "relevance": "Retain a consequential plan decision and its reasons in ordinary Markdown.",
+        "difference": "Decision record format, not an execution plan/compiler or approval grant.",
+        "reviewed_date": "2026-11-01",
+        "category": "open-source",
+        "relationship": "complement"
+      },
+      {
+        "title": "Linear",
+        "url": "https://linear.app/features",
+        "relevance": "Track approved project work and dependencies in a product-development system.",
+        "difference": "Hosted issue/project system; it does not supply missing intent or execution authority.",
+        "reviewed_date": "2026-11-01",
+        "category": "commercial",
+        "relationship": "complement"
+      }
+    ],
+    "ux-ergonomics": [
+      {
+        "title": "axe-core",
+        "url": "https://github.com/dequelabs/axe-core",
+        "relevance": "Add automated browser accessibility checks to a layered task review.",
+        "difference": "Partial rule checking; it cannot replace keyboard, assistive-technology or affected-user evaluation.",
+        "reviewed_date": "2026-11-01",
+        "category": "open-source",
+        "relationship": "complement"
+      },
+      {
+        "title": "W3C WAI: Evaluating Web Accessibility",
+        "url": "https://www.w3.org/WAI/test-evaluate/",
+        "relevance": "Use primary guidance on manual/tool accessibility evaluation and people.",
+        "difference": "Accessibility guidance is one lens within the broader task/authority/recovery assessment.",
+        "reviewed_date": "2026-11-01",
+        "category": "research",
+        "relationship": "complement"
+      },
+      {
+        "title": "HEART: User-Centered Metrics for Web Applications",
+        "url": "https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/",
+        "relevance": "Map product goals to observable user-centered measures.",
+        "difference": "Large-scale metrics framework, not a substitute for task evidence or proof of an individual design change.",
+        "reviewed_date": "2026-11-01",
+        "category": "research",
+        "relationship": "inspiration"
+      },
+      {
+        "title": "Maze",
+        "url": "https://maze.co/",
+        "relevance": "Explore prototype/live-site research and interview tooling.",
+        "difference": "Participant-study service, not the same portable method; appropriate sampling and analysis remain necessary.",
+        "reviewed_date": "2026-11-01",
+        "category": "commercial",
+        "relationship": "complement"
+      }
+    ],
+    "taste-elegance": [
+      {
+        "title": "Taste Skill",
+        "url": "https://github.com/Leonxlnx/taste-skill",
+        "relevance": "Compare agent skills for frontend typography, layout, motion and design direction.",
+        "difference": "More prescriptive frontend generation; Taste × Elegance foregrounds a person's own intent and bounded judgment. The other project labels its current default experimental.",
+        "reviewed_date": "2026-11-01",
+        "category": "skill-or-plugin",
+        "relationship": "alternative"
+      },
+      {
+        "title": "Self-Refine: Iterative Refinement with Self-Feedback",
+        "url": "https://arxiv.org/abs/2303.17651",
+        "relevance": "Read the model-feedback refinement pattern as a related optimization approach.",
+        "difference": "Self-feedback on model outputs is different from developing a human's taste or measuring audience benefit.",
+        "reviewed_date": "2026-11-01",
+        "category": "research",
+        "relationship": "inspiration"
+      },
+      {
+        "title": "Figma Design",
+        "url": "https://www.figma.com/design/",
+        "relevance": "Compare concrete visual candidates and preserve design artifacts with collaborators.",
+        "difference": "Design/prototyping environment, not a human-judgment rubric or permission to change someone's work.",
+        "reviewed_date": "2026-11-01",
+        "category": "commercial",
+        "relationship": "complement"
+      }
+    ],
+    "worth-using": [
+      {
+        "title": "Maze",
+        "url": "https://maze.co/",
+        "relevance": "Collect authentic task observations when an approved outside-user study is appropriate.",
+        "difference": "Research tooling cannot by itself establish unprompted return or satisfy the six criteria.",
+        "reviewed_date": "2026-11-01",
+        "category": "commercial",
+        "relationship": "complement"
+      },
+      {
+        "title": "PostHog",
+        "url": "https://github.com/PostHog/posthog",
+        "relevance": "Inspect product-use and return records where collection is authorized.",
+        "difference": "Analytics events require interpretation; agent runs and incentivized/repeated prompts do not become authentic unprompted use.",
+        "reviewed_date": "2026-11-01",
+        "category": "open-source",
+        "relationship": "complement"
+      },
+      {
+        "title": "HEART: User-Centered Metrics for Web Applications",
+        "url": "https://research.google/pubs/measuring-the-user-experience-on-a-large-scale-user-centered-metrics-for-web-applications/",
+        "relevance": "Compare a published goal-to-metric framework for user-centered product measurement.",
+        "difference": "Metrics framework differs from six separate usefulness/evidence ratings; no inherited effectiveness claim.",
+        "reviewed_date": "2026-11-01",
+        "category": "research",
+        "relationship": "inspiration"
+      }
+    ],
+    "project-handoff": [
+      {
+        "title": "Markdown Architectural Decision Records",
+        "url": "https://github.com/adr/madr",
+        "relevance": "Keep adopted decisions and reasons in a portable Markdown record.",
+        "difference": "One decision per record; a handoff also needs current state, conflicts and one next safe action.",
+        "reviewed_date": "2026-11-01",
+        "category": "open-source",
+        "relationship": "complement"
+      },
+      {
+        "title": "Confluence",
+        "url": "https://www.atlassian.com/software/confluence",
+        "relevance": "Explore an organizational home for shared project context and documentation.",
+        "difference": "Hosted workspace; Project Handoff also works as a small plain file without a service.",
+        "reviewed_date": "2026-11-01",
+        "category": "commercial",
+        "relationship": "alternative"
+      }
+    ],
+    "good-teammate": [
+      {
+        "title": "Zulip",
+        "url": "https://github.com/zulip/zulip",
+        "relevance": "Use topic-based conversation when an already authorized team transport is useful.",
+        "difference": "Communication platform, not evidence that someone accepted work or approved an action.",
+        "reviewed_date": "2026-11-01",
+        "category": "open-source",
+        "relationship": "complement"
+      },
+      {
+        "title": "Markdown Architectural Decision Records",
+        "url": "https://github.com/adr/madr",
+        "relevance": "Preserve a team's consequential decision with options and rationale.",
+        "difference": "Record format, not teammate selection, delivery or commitment verification.",
+        "reviewed_date": "2026-11-01",
+        "category": "open-source",
+        "relationship": "complement"
+      },
+      {
+        "title": "Confluence",
+        "url": "https://www.atlassian.com/software/confluence",
+        "relevance": "Maintain shared team documentation in an existing organizational workspace.",
+        "difference": "Storage/collaboration surface, not authority to contact people, copy transcripts or enroll a project.",
+        "reviewed_date": "2026-11-01",
+        "category": "commercial",
+        "relationship": "complement"
+      }
+    ],
+    "sizzle": [
+      {
+        "title": "Motion Canvas",
+        "url": "https://github.com/motion-canvas/motion-canvas",
+        "relevance": "Code-driven vector animation with voice-over synchronization is a relevant alternative rendering approach for short motion films.",
+        "difference": "A TypeScript animation library and preview editor; Sizzle supplies an agent-facing creative approval and audit workflow.",
+        "reviewed_date": "2026-11-01",
+        "category": "open-source",
+        "relationship": "alternative",
+        "source_urls": [
+          "https://github.com/motion-canvas/motion-canvas/blob/main/LICENSE"
+        ]
+      },
+      {
+        "title": "Audacity loudness normalization",
+        "url": "https://manual.audacityteam.org/man/loudness_normalization.html",
+        "relevance": "Audio editing and LUFS-oriented normalization can support a separate human sound-finishing pass.",
+        "difference": "An audio editor rather than a brand-film method or frame/layout audit.",
+        "reviewed_date": "2026-11-01",
+        "category": "open-source",
+        "relationship": "complement",
+        "source_urls": [
+          "https://www.audacityteam.org/faq/",
+          "https://github.com/audacity/audacity/blob/master/LICENSE.txt"
+        ]
+      },
+      {
+        "title": "DaVinci Resolve",
+        "url": "https://www.blackmagicdesign.com/products/davinciresolve",
+        "relevance": "Manual editing, motion graphics, color and audio post-production offer an alternative route for finishing a short film.",
+        "difference": "A desktop production suite; Sizzle makes storyboard approval, creative intent and measured checks explicit for an agent.",
+        "reviewed_date": "2026-11-01",
+        "category": "commercial",
+        "relationship": "alternative"
+      }
+    ],
+    "imagen-studio": [
+      {
+        "title": "Krita",
+        "url": "https://krita.org/en/features/",
+        "relevance": "Layered painting, selections and transforms can support deliberate edits to a chosen image.",
+        "difference": "A desktop image-creation editor; Imagen Studio is a portable brief, selection, revision and delivery method.",
+        "reviewed_date": "2026-11-01",
+        "category": "open-source",
+        "relationship": "complement",
+        "source_urls": [
+          "https://krita.org/en/about/license/"
+        ]
+      },
+      {
+        "title": "ComfyUI",
+        "url": "https://github.com/Comfy-Org/ComfyUI",
+        "relevance": "Reusable node-graph workflows and image editing provide an execution-engine comparison for controlled image production.",
+        "difference": "ComfyUI supplies models/workflow execution; Imagen Studio supplies creative direction and review of the selected artifact.",
+        "reviewed_date": "2026-11-01",
+        "category": "open-source",
+        "relationship": "complement",
+        "source_urls": [
+          "https://github.com/Comfy-Org/ComfyUI/blob/master/LICENSE"
+        ]
+      },
+      {
+        "title": "Adobe Firefly",
+        "url": "https://www.adobe.com/products/firefly.html",
+        "relevance": "The vendor offers image generation and image-editing workflows for exploring and refining visual drafts.",
+        "difference": "A hosted creative product; Imagen Studio is a host-portable method with explicit selection, lineage and delivery records.",
+        "reviewed_date": "2026-11-01",
+        "category": "commercial",
+        "relationship": "alternative"
+      }
+    ],
+    "image-provider": [
+      {
+        "title": "LiteLLM image generation",
+        "url": "https://docs.litellm.ai/docs/image_generation",
+        "relevance": "A common SDK/proxy image-generation API across documented providers is a relevant adapter-design comparison.",
+        "difference": "A broader gateway and SDK; Imagen Provider exposes its own library, CLI and MCP contract with requested-feature qualification.",
+        "reviewed_date": "2026-11-01",
+        "category": "open-source",
+        "relationship": "alternative",
+        "source_urls": [
+          "https://github.com/BerriAI/litellm/blob/main/LICENSE"
+        ]
+      },
+      {
+        "title": "Google Gen AI Python SDK",
+        "url": "https://github.com/googleapis/python-genai",
+        "relevance": "The official Python SDK documents image generation and other image operations for Google model services.",
+        "difference": "A provider-specific SDK rather than a cross-provider CLI/MCP interface.",
+        "reviewed_date": "2026-11-01",
+        "category": "open-source",
+        "relationship": "complement",
+        "source_urls": [
+          "https://github.com/googleapis/python-genai/blob/main/LICENSE"
+        ]
+      },
+      {
+        "title": "Hugging Face Diffusers",
+        "url": "https://github.com/huggingface/diffusers",
+        "relevance": "PyTorch image-generation, image-to-image and inpainting pipelines offer a possible backend-design study.",
+        "difference": "A model-execution library rather than a ready replacement for the current provider-selection and MCP interface.",
+        "reviewed_date": "2026-11-01",
+        "category": "open-source",
+        "relationship": "complement",
+        "source_urls": [
+          "https://github.com/huggingface/diffusers/blob/main/LICENSE"
+        ]
+      }
+    ],
+    "teaserkit": [
+      {
+        "title": "Playwright video recording",
+        "url": "https://playwright.dev/docs/videos",
+        "relevance": "Scripted browser video recording is directly relevant to reproducible web-app capture.",
+        "difference": "A capture/testing primitive; TeaserKit adds a storyboard, per-aspect framing, captions and final deliverables.",
+        "reviewed_date": "2026-11-01",
+        "category": "open-source",
+        "relationship": "complement",
+        "source_urls": [
+          "https://github.com/microsoft/playwright/blob/main/LICENSE"
+        ]
+      },
+      {
+        "title": "Screen Studio",
+        "url": "https://screen.studio/",
+        "relevance": "A macOS screen-recording product with zoom, motion and framing is a relevant option for human-operated product demos.",
+        "difference": "An interactive recorder/editor rather than a YAML-driven repeatable browser-capture pipeline.",
+        "reviewed_date": "2026-11-01",
+        "category": "commercial",
+        "relationship": "alternative"
+      },
+      {
+        "title": "Remotion",
+        "url": "https://www.remotion.dev/docs/idea",
+        "relevance": "Frame-based React compositions provide a code-driven alternative for parameterized video layouts and media composition.",
+        "difference": "A general video-composition framework rather than TeaserKit’s web-app actions and storyboard contract.",
+        "reviewed_date": "2026-11-01",
+        "category": "commercial",
+        "relationship": "alternative",
+        "source_urls": [
+          "https://www.remotion.dev/docs/license",
+          "https://www.remotion.dev/docs/license/pricing"
+        ]
+      }
+    ],
+    "cognitive-simulation": [
+      {
+        "title": "Centaur: model and experiment code",
+        "url": "https://github.com/marcelbinz/Llama-3.1-Centaur-70B",
+        "category": "open-source",
+        "relationship": "complement",
+        "relevance": "Publishes the behavioral model adapter, prompt conventions and example usage associated with Centaur.",
+        "difference": "Cognitive Simulation frames experiments and interprets predictions. A configured model, suitable hardware and exact prompt protocol are separate requirements; this listing does not run or validate that model.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "A foundation model to predict and capture human cognition",
+        "url": "https://www.nature.com/articles/s41586-025-09215-4",
+        "category": "research",
+        "relationship": "inspiration",
+        "relevance": "The Centaur paper describes training on behavioral experiments and evaluates prediction on held-out tasks and participants.",
+        "difference": "Its results concern the reported model, tasks and participants. They do not establish that this wrapper predicts a customer segment or replaces a study with real people.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "jsPsych",
+        "url": "https://www.jspsych.org/latest/",
+        "category": "open-source",
+        "relationship": "complement",
+        "relevance": "Creates browser-based behavioral experiments using timelines and task plugins.",
+        "difference": "It can collect actual participant observations under a separately designed study. Cognitive Simulation produces model predictions; no jsPsych adapter, recruitment or participant study is included.",
+        "reviewed_date": "2026-11-01"
+      }
+    ],
+    "build-amplifier": [
+      {
+        "title": "Microsoft Amplifier",
+        "url": "https://github.com/microsoft/amplifier",
+        "category": "open-source",
+        "relationship": "complement",
+        "relevance": "The modular agent platform and CLI that this authoring method is designed to extend.",
+        "difference": "The platform supplies runtime contracts and modules. Build with Amplifier guides seam selection, implementation and validation against the installed version; it does not replace the runtime.",
+        "reviewed_date": "2026-11-01",
+        "source_urls": [
+          "https://github.com/microsoft/amplifier-core"
+        ]
+      },
+      {
+        "title": "LangGraph",
+        "url": "https://github.com/langchain-ai/langgraph",
+        "category": "open-source",
+        "relationship": "alternative",
+        "relevance": "An orchestration framework for long-running stateful agents, including durable execution and human review points.",
+        "difference": "A different runtime to consider when selecting an agent architecture. Build with Amplifier addresses Amplifier-specific Foundation/Core boundaries; its examples are not LangGraph integrations.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "DSPy",
+        "url": "https://github.com/stanfordnlp/dspy",
+        "category": "open-source",
+        "relationship": "complement",
+        "relevance": "Composes language-model programs and optimizes them against explicit metrics and examples.",
+        "difference": "Useful background for an evaluation-driven component inside a larger agent. It does not supply Amplifier module mounting or host lifecycle contracts; no DSPy dependency is added.",
+        "reviewed_date": "2026-11-01",
+        "source_urls": [
+          "https://dspy.ai/current/"
+        ]
+      }
+    ],
+    "build-tauri": [
+      {
+        "title": "Tauri 2 documentation",
+        "url": "https://v2.tauri.app/start/",
+        "category": "open-source",
+        "relationship": "complement",
+        "relevance": "The native framework documentation for webview apps, Rust commands, IPC, permissions and packaged sidecars.",
+        "difference": "Build with Tauri organizes inspection and verification around those boundaries. Current framework documentation and the actual app configuration remain the authority for API and permission details.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Electron",
+        "url": "https://www.electronjs.org/docs/latest/",
+        "category": "open-source",
+        "relationship": "alternative",
+        "relevance": "Builds desktop applications with web technologies using bundled Chromium and Node.js.",
+        "difference": "A different desktop runtime and packaging model. The Tauri method targets its Rust/webview boundary; it does not convert an Electron app or establish a size or performance comparison.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Qt Framework",
+        "url": "https://www.qt.io/development/qt-framework/qt6",
+        "category": "commercial",
+        "relationship": "alternative",
+        "relevance": "A cross-platform application framework with C++ and QML interfaces and commercial development offerings.",
+        "difference": "An alternative runtime and UI toolchain rather than a Tauri plugin. Assess licensing, platform support and existing application requirements separately.",
+        "reviewed_date": "2026-11-01",
+        "pricing_url": "https://www.qt.io/pricing",
+        "pricing_model": "Commercial license subscriptions; applicable license and distribution terms depend on the selected Qt components."
+      }
+    ],
+    "build-with-torque": [
+      {
+        "title": "NestJS modules",
+        "url": "https://docs.nestjs.com/modules",
+        "category": "open-source",
+        "relationship": "alternative",
+        "relevance": "Groups application features into modules with explicit imports, providers and exports.",
+        "difference": "A comparison for domain ownership and public interfaces. NestJS has its own dependency injection and runtime contracts; its modules are not compatible Torque bundles.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Backstage plugin architecture",
+        "url": "https://backstage.io/docs/overview/architecture-overview/",
+        "category": "open-source",
+        "relationship": "inspiration",
+        "relevance": "Describes plugin boundaries, shared services and communication between backend features.",
+        "difference": "Relevant to avoiding cross-plugin source coupling. Backstage is a developer-platform framework; this is architectural background, not evidence that a Torque host or migration adapter is available.",
+        "reviewed_date": "2026-11-01"
+      }
+    ],
+    "constraint-builder": [
+      {
+        "title": "Open Policy Agent",
+        "url": "https://www.openpolicyagent.org/docs",
+        "category": "open-source",
+        "relationship": "complement",
+        "relevance": "Evaluates declarative policy against structured inputs and exposes a policy decision API.",
+        "difference": "A potential enforcement component at a real dispatch boundary. Constraint Builder defines legal and illegal examples and checks false rejection; a policy decision still needs the host to enforce it.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Guardrails AI",
+        "url": "https://github.com/guardrails-ai/guardrails",
+        "category": "open-source",
+        "relationship": "complement",
+        "relevance": "Combines validators for language-model inputs, outputs and structured results.",
+        "difference": "Validation can complement an action harness, but an output guard is not automatically an authorization check at tool dispatch. No validator or runtime integration is installed.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Constitutional AI: Harmlessness from AI Feedback",
+        "url": "https://arxiv.org/abs/2212.08073",
+        "category": "research",
+        "relationship": "inspiration",
+        "relevance": "Studies rule-guided critique and AI feedback for training assistant behavior.",
+        "difference": "Useful background for the distinction between learned guidance and mechanical enforcement. The paper does not prove that a prompt rule prevents an action or validate this constraint harness.",
+        "reviewed_date": "2026-11-01"
+      }
+    ],
+    "forge": [
+      {
+        "title": "tmux",
+        "url": "https://github.com/tmux/tmux",
+        "category": "open-source",
+        "relationship": "alternative",
+        "relevance": "Keeps terminal sessions running across detach and reattach, with multiple controllable terminals.",
+        "difference": "A terminal multiplexer rather than Forge's HTTP/MCP orchestration and observation helper. Existing tmux sessions are not adopted or managed merely by installing Forge.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Pexpect",
+        "url": "https://pexpect.readthedocs.io/en/stable/",
+        "category": "open-source",
+        "relationship": "complement",
+        "relevance": "Spawns interactive processes and responds to expected output patterns through Python.",
+        "difference": "A lower-level option for a bounded terminal test. Forge adds its own session management and observation interface; this listing does not claim a Pexpect backend or guarantee any TUI assertion.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Warp Terminal and agents",
+        "url": "https://www.warp.dev/pricing",
+        "category": "commercial",
+        "relationship": "alternative",
+        "relevance": "Offers an agent-oriented terminal, agent CLI and cloud-agent options.",
+        "difference": "A separate terminal and agent product. Forge focuses on driving and observing authorized terminal processes; no Warp account, cloud session or integration is supplied.",
+        "reviewed_date": "2026-11-01",
+        "pricing_url": "https://www.warp.dev/pricing",
+        "pricing_model": "Free access plus paid plans and metered agent usage; provider and cloud usage depend on configuration."
+      }
+    ],
+    "desktop-tasks": [
+      {
+        "title": "Playwright and Playwright MCP",
+        "url": "https://playwright.dev/",
+        "category": "skill-or-plugin",
+        "relationship": "complement",
+        "relevance": "Provides browser automation, assertions and an MCP interface using structured accessibility snapshots.",
+        "difference": "Useful for browser tasks with a suitable host integration. Desktop Tasks also addresses native apps and uncertain outcomes; browser automation does not establish whole-desktop access or OS permissions.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Cua Driver and SDK",
+        "url": "https://github.com/trycua/cua",
+        "category": "open-source",
+        "relationship": "alternative",
+        "relevance": "Provides desktop-automation drivers and an SDK for working with computer-use sandboxes.",
+        "difference": "These MIT-licensed components are distinct from Cua Spaces and Driver Bench, which have separate source-available terms. Desktop Tasks supplies a host operating method; it installs none of these runtimes.",
+        "reviewed_date": "2026-11-01",
+        "source_urls": [
+          "https://github.com/trycua/cua/blob/main/legal/LICENSING.md"
+        ]
+      },
+      {
+        "title": "Claude computer use tool",
+        "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool",
+        "category": "commercial",
+        "relationship": "complement",
+        "relevance": "A model tool interface for interpreting screenshots and requesting computer interactions.",
+        "difference": "The application must implement the tool loop and permissions. Desktop Tasks supplies bounded observation and recovery guidance; no API account, execution environment or tool adapter is configured.",
+        "reviewed_date": "2026-11-01",
+        "pricing_url": "https://platform.claude.com/docs/en/about-claude/pricing",
+        "pricing_model": "Usage-based API billing under the selected model and tool pricing."
+      }
+    ],
+    "preceptor": [
+      {
+        "title": "Reflexion: Language Agents with Verbal Reinforcement Learning",
+        "url": "https://arxiv.org/abs/2303.11366",
+        "category": "research",
+        "relationship": "inspiration",
+        "relevance": "Studies agents that retain verbal reflections on task feedback to guide later attempts.",
+        "difference": "Preceptor uses a consent-aware cue lifecycle with promotion and retirement gates. The paper's task results do not establish that any particular cue improves this host or user workflow.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "DSPy",
+        "url": "https://github.com/stanfordnlp/dspy",
+        "category": "open-source",
+        "relationship": "alternative",
+        "relevance": "Optimizes language-model programs using declared metrics and example sets.",
+        "difference": "A broader program-optimization framework. Preceptor manages small behavioral cues and their evidence lifecycle; it does not run DSPy optimizers or claim comparable gains.",
+        "reviewed_date": "2026-11-01",
+        "source_urls": [
+          "https://dspy.ai/current/"
+        ]
+      },
+      {
+        "title": "LangSmith evaluation and observability",
+        "url": "https://docs.langchain.com/langsmith/evaluation",
+        "category": "commercial",
+        "relationship": "complement",
+        "relevance": "Supports datasets, experiments, evaluators and annotation workflows for agent applications.",
+        "difference": "Can provide a separately configured measurement workspace. Preceptor's local cue ledger and promotion rule are distinct; sending traces to a service requires an explicit data-handling decision.",
+        "reviewed_date": "2026-11-01",
+        "source_urls": [
+          "https://www.langchain.com/langsmith/observability"
+        ],
+        "pricing_url": "https://www.langchain.com/pricing",
+        "pricing_model": "Developer access, paid team plans and usage-based charges; enterprise terms are available."
+      }
+    ],
+    "session-doctor": [
+      {
+        "title": "LiteLLM",
+        "url": "https://github.com/BerriAI/litellm",
+        "category": "open-source",
+        "relationship": "complement",
+        "relevance": "Normalizes access to model providers and supplies routing, fallbacks, retries and request logging.",
+        "difference": "Provider transport diagnosis can complement transcript diagnosis. Session Doctor checks direct-message structure and prepares labelled repair copies; LiteLLM does not establish that such a copy can resume.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Langfuse",
+        "url": "https://github.com/langfuse/langfuse",
+        "category": "open-source",
+        "relationship": "complement",
+        "relevance": "Captures agent traces and supports evaluation and prompt inspection, with self-hosted and managed deployment options.",
+        "difference": "Useful for observing where a request failed. Session Doctor operates on a narrowly supported local message format; it neither imports Langfuse traces automatically nor uploads private transcripts.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "ToolSandbox",
+        "url": "https://arxiv.org/abs/2408.04682",
+        "category": "research",
+        "relationship": "inspiration",
+        "relevance": "Evaluates tool use with state dependencies and intermediate and final execution milestones.",
+        "difference": "Background for separating structurally valid tool messages from successful tool behavior. Session Doctor has not passed ToolSandbox, and adding a synthetic missing-result marker is not tool execution.",
+        "reviewed_date": "2026-11-01"
+      }
+    ],
+    "fast-decisions": [
+      {
+        "title": "RouteLLM: Learning to Route LLMs with Preference Data",
+        "url": "https://arxiv.org/abs/2406.18665",
+        "category": "research",
+        "relationship": "inspiration",
+        "relevance": "Studies routers that select stronger or weaker models using preference-based training.",
+        "difference": "Fast Decisions also has deterministic startup and bounded candidate-selection routes. The paper's quality-cost trade-offs are not measured savings or accuracy results for this capability.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "LiteLLM Router",
+        "url": "https://docs.litellm.ai/docs/routing",
+        "category": "open-source",
+        "relationship": "alternative",
+        "relevance": "Provides model deployment routing, load balancing, retries and fallback policies.",
+        "difference": "An API gateway/router rather than the offered-ID validation and matched-run measurement contract of Fast Decisions. It is not an installed backend, and routing policy alone does not establish lower cost.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Portkey / Prisma AIRS AI Gateway",
+        "url": "https://portkey.ai/features/ai-gateway",
+        "category": "commercial",
+        "relationship": "alternative",
+        "relevance": "Centralizes model API access, routing and operational controls; the vendor now labels the gateway Prisma AIRS.",
+        "difference": "A separately operated gateway with its own data and access setup. Fast Decisions provides local advisory decisions and recorded comparisons; no gateway is connected.",
+        "reviewed_date": "2026-11-01",
+        "pricing_url": "https://portkey.ai/pricing",
+        "pricing_model": "The linked vendor page lists free developer and paid production/enterprise options; confirm current offering and terms following the branding change."
+      }
+    ],
+    "migrate": [
+      {
+        "title": "OpenRewrite",
+        "url": "https://docs.openrewrite.org/",
+        "category": "open-source",
+        "relationship": "complement",
+        "relevance": "Runs automated refactoring recipes for supported framework, API and source-code migrations.",
+        "difference": "Can address a known mechanical slice. Migrate additionally inventories whole-app behavior, data, error recovery and observable parity; a recipe pass is not acceptance of the rebuilt application.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "ast-grep",
+        "url": "https://ast-grep.github.io/",
+        "category": "open-source",
+        "relationship": "complement",
+        "relevance": "Performs syntax-aware search, linting and rewrites across supported languages.",
+        "difference": "Useful for repeatable source edits. Migrate's source-observation and independent behavior checks are wider than AST rewriting; no ast-grep rule set or integration is included.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "AWS Transform",
+        "url": "https://aws.amazon.com/transform/",
+        "category": "commercial",
+        "relationship": "alternative",
+        "relevance": "Offers agent-assisted modernization of supported enterprise workloads and custom code transformations.",
+        "difference": "A managed modernization service with its own supported workloads and review process. Migrate is a host-independent method; account setup, code upload and transformation acceptance remain separate.",
+        "reviewed_date": "2026-11-01",
+        "pricing_url": "https://aws.amazon.com/transform/pricing/",
+        "pricing_model": "Some workload services are offered without a service charge; custom transformations and continuous modernization have metered paid features, with separate infrastructure costs where applicable."
+      }
+    ],
+    "transfer": [
+      {
+        "title": "Comby",
+        "url": "https://comby.dev/",
+        "category": "open-source",
+        "relationship": "complement",
+        "relevance": "Uses language-aware templates for structural search and localized code changes.",
+        "difference": "A possible helper for mechanical host-side edits. Transfer starts from observed donor behavior and host seams; a template rewrite does not establish multi-host behavioral equivalence.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "OpenRewrite",
+        "url": "https://docs.openrewrite.org/",
+        "category": "open-source",
+        "relationship": "complement",
+        "relevance": "Applies reusable automated refactoring recipes for supported language and framework changes.",
+        "difference": "Useful when the host needs a known transformation prerequisite. Transfer's donor-contract extraction and independent real-surface verification remain separate, and no donor source is copied or recipe bundled here.",
+        "reviewed_date": "2026-11-01"
+      }
+    ],
+    "pipeline": [
+      {
+        "title": "Dagger",
+        "url": "https://github.com/dagger/dagger",
+        "category": "open-source",
+        "relationship": "alternative",
+        "relevance": "Defines programmable build, test and delivery workflows that can run locally or in CI using a container runtime.",
+        "difference": "An executable pipeline engine. Pipeline instead develops a reviewable representation and native platform configuration; it does not generate Dagger modules or provision its runtime.",
+        "reviewed_date": "2026-11-01",
+        "source_urls": [
+          "https://dagger.io/"
+        ]
+      },
+      {
+        "title": "act",
+        "url": "https://github.com/nektos/act",
+        "category": "open-source",
+        "relationship": "complement",
+        "relevance": "Runs compatible GitHub Actions jobs locally through Docker containers.",
+        "difference": "Can check a subset of a generated GitHub Actions workflow. Local success does not cover every hosted runner feature, secret permission, environment approval or deployment condition.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "GitHub Actions",
+        "url": "https://docs.github.com/en/actions",
+        "category": "commercial",
+        "relationship": "complement",
+        "relevance": "Hosts repository-triggered build, test and release workflows with native permissions, artifacts and environments.",
+        "difference": "One target platform for Pipeline's design and generation method. A native workflow needs an authorized repository run; listing it does not publish or deploy anything.",
+        "reviewed_date": "2026-11-01",
+        "pricing_url": "https://docs.github.com/en/billing/concepts/product-billing/github-actions",
+        "pricing_model": "Plan-dependent included compute and storage with additional usage billing; self-hosted and hosted runner costs differ."
+      }
+    ],
+    "data-substrate": [
+      {
+        "title": "IPFS content addressing",
+        "url": "https://docs.ipfs.tech/concepts/content-addressing/",
+        "category": "open-source",
+        "relationship": "inspiration",
+        "relevance": "Explains content identifiers built from block hashes, codecs and linked data structures.",
+        "difference": "Background for content identity and byte verification. Data uses its own local Cell/log contract; an IPFS CID is not simply a file checksum, and no IPFS network or storage integration is supplied.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "SQLite",
+        "url": "https://www.sqlite.org/whentouse.html",
+        "category": "open-source",
+        "relationship": "alternative",
+        "relevance": "An embedded SQL engine for local application storage, querying and portable data files.",
+        "difference": "A familiar alternative for relational storage and derived views. Data keeps original bytes in its own Cell/log format; this is an architectural comparison, not a SQLite backend or format-conversion promise.",
+        "reviewed_date": "2026-11-01",
+        "source_urls": [
+          "https://www.sqlite.org/copyright.html"
+        ]
+      }
+    ],
+    "memory": [
+      {
+        "title": "Mem0",
+        "url": "https://github.com/mem0ai/mem0",
+        "category": "open-source",
+        "relationship": "alternative",
+        "relevance": "Provides a persistent memory layer for AI applications, with APIs to add and search memories.",
+        "difference": "A separate memory implementation and model/storage setup. Memory retains scoped source evidence over amplifier-data; Mem0's reported benchmarks do not measure this capability.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "LongMemEval",
+        "url": "https://arxiv.org/abs/2410.10813",
+        "category": "research",
+        "relationship": "inspiration",
+        "relevance": "Tests extraction, reasoning across sessions, temporal reasoning, knowledge updates and abstention.",
+        "difference": "A useful set of distinctions for evaluating memory behavior. Memory has not been evaluated on this benchmark; storage or retrieval tests alone do not establish these abilities.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "Zep",
+        "url": "https://help.getzep.com/overview",
+        "category": "commercial",
+        "relationship": "alternative",
+        "relevance": "Provides managed temporal context graphs combining conversations, documents and other enterprise data.",
+        "difference": "A managed context service rather than Memory's local evidence and storage boundary. No account, plugin, sync or connector is configured, and data transfer requires a separate decision.",
+        "reviewed_date": "2026-11-01",
+        "pricing_url": "https://www.getzep.com/pricing/",
+        "pricing_model": "Credit-based self-service plans and negotiated enterprise plans."
+      }
+    ],
+    "team-access": [
+      {
+        "title": "Terraform GitHub provider",
+        "url": "https://github.com/integrations/terraform-provider-github",
+        "category": "open-source",
+        "relationship": "alternative",
+        "relevance": "Manages GitHub repositories, teams and organization settings through declarative resources.",
+        "difference": "A Terraform-state workflow rather than Team Access's YAML-roster audit and apply CLI. Both can change real access; preview changes and review resource semantics before any adoption.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "GitHub CLI API command",
+        "url": "https://cli.github.com/manual/gh_api",
+        "category": "open-source",
+        "relationship": "complement",
+        "relevance": "Makes authenticated REST or GraphQL requests to inspect or manage GitHub resources.",
+        "difference": "The lower-level interface used for focused GitHub operations. Team Access adds a roster and drift review; an authenticated API command does not by itself authorize permission changes.",
+        "reviewed_date": "2026-11-01"
+      },
+      {
+        "title": "GitHub organization teams",
+        "url": "https://docs.github.com/en/organizations/organizing-members-into-teams/about-teams",
+        "category": "commercial",
+        "relationship": "complement",
+        "relevance": "Groups organization members into teams with cascading access permissions.",
+        "difference": "The platform's own access-management model and user interface. Team Access reconciles a chosen roster against GitHub state; organization type and plan features still need review.",
+        "reviewed_date": "2026-11-01",
+        "pricing_url": "https://github.com/pricing",
+        "pricing_model": "Free and paid GitHub plans with plan-dependent organization and enterprise features."
+      }
     ]
   },
   "schema_version": "capability-related-tools/v1"

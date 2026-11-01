@@ -6,7 +6,7 @@ from html import escape
 from urllib.parse import urlsplit
 
 E = lambda value: escape(str(value), quote=True)
-CATEGORIES = {"skill-or-plugin": "Skills & plugins", "open-source": "Open source", "research": "Research", "commercial": "Commercial tools"}
+CATEGORIES = {"skill-or-plugin": "Skills & plugins", "open-source": "Open source", "research": "Research & guidance", "commercial": "Commercial tools"}
 RELATIONSHIPS = {"alternative": "Alternative", "complement": "Complement", "inspiration": "Inspiration", "actual-code-reuse": "Code reused"}
 FIELDS = {"title", "url", "relevance", "difference", "reviewed_date", "category", "relationship"}
 OPTIONAL = {"pricing_url", "pricing_model", "source_urls"}
