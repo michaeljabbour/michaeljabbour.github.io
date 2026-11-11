@@ -1310,6 +1310,9 @@
     },
     "guided-practice": {
       "available": false
+    },
+    "unslopper": {
+      "available": false
     }
   }
 }

@@ -1424,7 +1424,8 @@
         "difference": "Author abstract reviewed; no implementation copied or benefit claimed for this method.",
         "reviewed_date": "2026-11-01"
       }
-    ]
+    ],
+    "unslopper": []
   },
   "schema_version": "capability-related-tools/v1"
 }

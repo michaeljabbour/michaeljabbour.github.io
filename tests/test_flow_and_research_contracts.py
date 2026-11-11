@@ -61,7 +61,7 @@ class PublicDataContracts(unittest.TestCase):
 
     def test_reviewed_stage_examples_have_exact_members(self):
         examples = {
-            ("software", "build"): {"build-amplifier", "build-tauri", "build-with-torque", "forge", "desktop-tasks", "image-provider", "migrate", "transfer", "data-substrate"},
+            ("software", "build"): {"build-amplifier", "build-tauri", "build-with-torque", "forge", "desktop-tasks", "image-provider", "migrate", "transfer", "data-substrate", "unslopper"},
             ("research", "explain"): {"research", "decisioncraft", "taste-elegance", "project-handoff", "articlecraft", "delivery-packager"},
             ("creative", "share"): {"project-handoff", "good-teammate", "idea-talks", "stories"},
         }
@@ -69,6 +69,14 @@ class PublicDataContracts(unittest.TestCase):
             actual = {ident for ident, assigned in self.flows["stage_memberships"].items() if stage in assigned.get(flow, [])}
             with self.subTest(flow=flow, stage=stage):
                 self.assertEqual(expected, actual)
+
+    def test_unslopper_has_one_card_across_software_and_creative_stages(self):
+        self.assertEqual(["software", "creative"], self.flows["memberships"]["unslopper"])
+        self.assertEqual({"software": ["plan", "build", "test"], "creative": ["shape", "make", "review"]},
+                         self.flows["stage_memberships"]["unslopper"])
+        html = flow_guide(load_flows(ROOT, self.projects), self.projects, lambda project: "", [])
+        self.assertEqual(1, html.count('data-flow-project="unslopper"'))
+        self.assertEqual([], self.related["capabilities"]["unslopper"])
 
     def test_private_urls_future_reviews_and_unsupported_relationships_rejected(self):
         for changed in [

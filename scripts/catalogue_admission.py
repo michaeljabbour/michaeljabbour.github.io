@@ -42,7 +42,23 @@ HISTORICAL_RENAMES = {'build-amplifier': ['amplifier-skill-build-amplifier', 'am
 HISTORICAL_IDS = frozenset(HISTORICAL_RENAMES)
 WRITING_IDS = frozenset({"articlecraft", "idea-talks", "stories"})
 SHARED_IDS = frozenset({"claim-review", "delivery-packager", "guided-practice"})
-ADDITIONAL_IDS = WRITING_IDS | SHARED_IDS
+DESIGN_IDS = frozenset({"unslopper"})
+ADDITIONAL_IDS = WRITING_IDS | SHARED_IDS | DESIGN_IDS
+ADDITION_VERSIONS = {
+    "portfolio-additions/v1": WRITING_IDS,
+    "portfolio-additions/v2": WRITING_IDS | SHARED_IDS,
+    "portfolio-additions/v3": ADDITIONAL_IDS,
+}
+
+
+def addition_destinations(ident):
+    """Reviewed destinations for admitted additions, without legacy aliases."""
+    if ident not in ADDITIONAL_IDS:
+        raise ValueError("Unknown additional capability")
+    repository = "https://github.com/michaeljabbour/amplifier-capability-" + ident
+    if ident == "unslopper":
+        return repository, "https://michaeljabbour.github.io/amplifier-capability-unslopper/", repository + "#installation"
+    return repository, "https://michaeljabbour.github.io/capabilities/" + ident + "/", repository + "#setup"
 
 
 def validate_historical_migration(mapping):
@@ -66,11 +82,11 @@ def load_publication(root):
 def validate_catalogue(catalogue, migration, publication, *, preview=False, ci=False):
     """Preview is explicit and local; it never grants publication readiness."""
     validate_historical_migration(migration)
-    if set(publication) != {"schema_version", "publication_ready", "capabilities"} or publication.get("schema_version") not in {"portfolio-additions/v1", "portfolio-additions/v2"} or type(publication.get("publication_ready")) is not bool:
+    if set(publication) != {"schema_version", "publication_ready", "capabilities"} or publication.get("schema_version") not in ADDITION_VERSIONS or type(publication.get("publication_ready")) is not bool:
         raise ValueError("Invalid additions publication manifest")
     if ci and preview:
         raise ValueError("GitHub Actions must not accept the local preview override")
-    allowed_ids = WRITING_IDS if publication["schema_version"] == "portfolio-additions/v1" else ADDITIONAL_IDS
+    allowed_ids = ADDITION_VERSIONS[publication["schema_version"]]
     entries = publication["capabilities"]
     if not isinstance(entries, list):
         raise ValueError("Additional capabilities must be a list")

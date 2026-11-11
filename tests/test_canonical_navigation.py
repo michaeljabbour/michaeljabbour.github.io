@@ -26,7 +26,7 @@ class CanonicalNavigation(unittest.TestCase):
 
     def test_all_current_canonical_destinations_are_accepted(self):
         self.assertEqual([], self.errors())
-        self.assertEqual(39, len(self.catalogue["projects"]))
+        self.assertEqual(40, len(self.catalogue["projects"]))
 
     def test_each_legacy_repository_guide_install_and_film_link_is_rejected(self):
         # HTTPS and working redirects are not enough: every active destination
@@ -66,6 +66,19 @@ class CanonicalNavigation(unittest.TestCase):
                     changed = copy.deepcopy(self.catalogue)
                     changed["projects"][index][field] = "https://example.invalid/unverified/"
                     self.assertTrue(any(project["id"] in error for error in self.errors(changed)))
+
+    def test_unslopper_keeps_its_existing_guide_and_installation_anchor(self):
+        index = next(i for i, p in enumerate(self.catalogue["projects"]) if p["id"] == "unslopper")
+        project = self.catalogue["projects"][index]
+        self.assertEqual("https://michaeljabbour.github.io/amplifier-capability-unslopper/", project["site_url"])
+        self.assertEqual(project["repo_url"] + "#installation", project["install_url"])
+        for field, value in [("repo_url", "https://example.invalid/"),
+                             ("site_url", "https://michaeljabbour.github.io/capabilities/unslopper/"),
+                             ("install_url", project["repo_url"] + "#setup")]:
+            changed = copy.deepcopy(self.catalogue)
+            changed["projects"][index][field] = value
+            with self.subTest(field=field):
+                self.assertTrue(any("unslopper" in error for error in self.errors(changed)))
 
     def test_missing_fragment_and_offsite_install_are_rejected(self):
         ident = self.catalogue["projects"][0]["id"]
