@@ -369,8 +369,9 @@ def main():
             copy_label = "Copy first step"
         first_intro = p.get("first_use_intro", first_intro)
         operating_notes = "".join(f'<p class="{key}-note"><strong>{label}</strong> {E(p[key])}</p>' for key,label in [("standalone","Works on its own:"),("natural_stop","Natural stop:")] if p.get(key))
-        guide_link = "" if p["id"] in admission["additions"] else f'<a href="{E(p["site_url"])}">Full capability guide</a>'
+        guide_link = "" if p["site_url"] == "https://michaeljabbour.github.io" + project_url(p) else f'<a href="{E(p["site_url"])}">Full capability guide</a>'
         setup_link = f'<p><a href="{E(p["install_url"])}">Read the repository installation steps</a></p>' if p["id"] in admission["additions"] else ""
+        docs_link = f'<a href="{E(p["docs_url"])}">CLI reference</a>' if p.get("docs_url") else ""
         requirements = "".join(f"<li>{E(item)}</li>" for item in p["prerequisites"])
         detail = f'''<section class="detail-heading wrap">
 <a class="back-link" href="/#stage-{E(p["category"])}">{E(groups[p["category"]]["title"])}</a>
@@ -389,7 +390,7 @@ def main():
 <aside class="first-use" id="first-task" aria-labelledby="first-task-title"><h2 id="first-task-title">Your first task</h2>
 <p class="first-use-intro">{E(first_intro)}</p><p class="first-use-prompt" id="first-prompt">{E(p["first_prompt"])}</p>
 <button class="copy-button" data-copy="first-prompt" type="button">Copy first task</button><p class="copy-status" role="status" aria-live="polite"></p>
-<div class="start-links"><a href="{E(p["install_url"])}">Installation guide</a>{guide_link}<a href="{E(p["repo_url"])}">Repository and license</a></div></aside></section>
+<div class="start-links"><a href="{E(p["install_url"])}">Installation guide</a>{guide_link}{docs_link}<a href="{E(p["repo_url"])}">Repository and license</a></div></aside></section>
 {workflow}{watch}
 <section class="capability-scope wrap" aria-label="Example and limitations"><div class="output-example"><h2>Example output</h2><p>{E(p["output"])}</p><p class="example-label">Fictional illustration, not a result from your task or measured user evidence.</p></div>
 {('<div class="scope-note"><h2>Limitations</h2><p>' + E(limits) + "</p></div>") if limits else ""}</section>{related_html}'''

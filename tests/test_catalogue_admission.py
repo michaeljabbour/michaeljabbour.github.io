@@ -51,13 +51,24 @@ class AdditionAdmission(unittest.TestCase):
         with self.assertRaises(ValueError):
             validate_catalogue(self.catalogue, self.mapping, publication)
 
-    def test_unverified_39_requires_explicit_local_preview(self):
+    def test_version_two_remains_limited_to_original_six_additions(self):
+        catalogue = copy.deepcopy(self.catalogue)
+        catalogue["projects"] = [p for p in catalogue["projects"] if p["id"] != "unslopper"]
+        publication = self.verified()
+        publication["schema_version"] = "portfolio-additions/v2"
+        publication["capabilities"] = [e for e in publication["capabilities"] if e["id"] != "unslopper"]
+        self.assertEqual(39, len(validate_catalogue(catalogue, self.mapping, publication)["capability_ids"]))
+        publication["capabilities"] = self.verified()["capabilities"]
+        with self.assertRaises(ValueError):
+            validate_catalogue(self.catalogue, self.mapping, publication)
+
+    def test_unverified_40_requires_explicit_local_preview(self):
         with self.assertRaises(ValueError):
             self.validate()
         result = self.validate(preview=True)
         self.assertTrue(result["preview_only"])
         self.assertFalse(result["publication_ready"])
-        self.assertEqual(39, len(result["capability_ids"]))
+        self.assertEqual(40, len(result["capability_ids"]))
 
     def test_ci_rejects_even_verified_preview_override(self):
         with self.assertRaises(ValueError):

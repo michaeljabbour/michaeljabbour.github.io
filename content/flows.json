@@ -247,6 +247,10 @@
       "software",
       "research",
       "creative"
+    ],
+    "unslopper": [
+      "software",
+      "creative"
     ]
   },
   "stage_memberships": {
@@ -606,6 +610,18 @@
         "revisit"
       ],
       "creative": [
+        "review"
+      ]
+    },
+    "unslopper": {
+      "software": [
+        "plan",
+        "build",
+        "test"
+      ],
+      "creative": [
+        "shape",
+        "make",
         "review"
       ]
     }

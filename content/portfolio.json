@@ -519,6 +519,36 @@
       ]
     },
     {
+      "id": "unslopper",
+      "title": "Unslopper",
+      "summary": "Review generic AI design choices, refine a page and give visual work a deliberate direction.",
+      "description": "Audit HTML, CSS or a screenshot against twenty design indicators, review proposed fixes as a diff, and shape a three-color palette with CSS tokens. Companion skills teach design vocabulary and generate textured backgrounds.",
+      "audience": "Designers, developers and makers reviewing AI-generated visual work.",
+      "category": "improve",
+      "format": "Smart tool",
+      "repo_url": "https://github.com/michaeljabbour/amplifier-capability-unslopper",
+      "site_url": "https://michaeljabbour.github.io/amplifier-capability-unslopper/",
+      "install_url": "https://github.com/michaeljabbour/amplifier-capability-unslopper#installation",
+      "docs_url": "https://github.com/michaeljabbour/amplifier-capability-unslopper/blob/main/docs/02-cli.md",
+      "first_prompt": "After installing Unslopper, run unslopper manifest, then unslopper scan on an HTML or CSS file you select. Inspect the reported evidence and compare it with the rendered page. If visual judgment is needed, request an audit next. Keep this first pass read-only.",
+      "output": "A fictional design review identifying a generic headline treatment, explaining what to preserve and proposing a small CSS change for review.",
+      "limitations": "Static scans flag candidate patterns, not proof of AI authorship or a visual-quality grade. Model-backed judgments can miss context; review the rendered page, accessibility and functional controls before accepting changes. Provider-backed operations may incur charges.",
+      "related": [
+        "taste-elegance",
+        "ux-ergonomics",
+        "imagen-studio"
+      ],
+      "input": "An HTML or CSS file, a page URL or screenshot to review; a brief and constraints for palette or texture work.",
+      "action": "Scans for candidate design defaults, audits visual choices, proposes a diff, or develops a palette, texture or design lesson.",
+      "result": "Evidence-linked findings, a proposed patch, CSS tokens or texture code, or a design-vocabulary lesson, depending on the selected command.",
+      "runtime": "Agent Skills accompany a Python 3.13+ CLI and library. Manifest, reference, route, scan and contrast are deterministic; audit, unslop, direct, tutor, texture and antislop use Amplifier Agent or the Claude Agent SDK.",
+      "prerequisites": [
+        "Install the skill with npx skills add michaeljabbour/amplifier-capability-unslopper; install the CLI separately with uv using the repository instructions.",
+        "Deterministic commands need no provider credentials. Model-backed commands require the selected provider extra and authentication.",
+        "Supply a file or page you are authorized to inspect. Review a proposed diff before using --write."
+      ]
+    },
+    {
       "id": "worth-using",
       "title": "Worth Using",
       "summary": "Review whether a tool serves a named outside user, with evidence for each rating.",

@@ -17,7 +17,7 @@ from build import checked_compatibility_sites
 from public_privacy import reviewed_example_text
 from flow_views import load_flows
 from related_tools import load_related_tools
-from catalogue_admission import HISTORICAL_IDS, ADDITIONAL_IDS, current_admission
+from catalogue_admission import HISTORICAL_IDS, ADDITIONAL_IDS, addition_destinations, current_admission
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "dist"
@@ -169,9 +169,9 @@ def canonical_navigation_errors(catalogue, media, migration):
         row = by_id.get(ident)
         if row is None:
             if ident in ADDITIONAL_IDS:
-                expected_repo = "https://github.com/michaeljabbour/amplifier-capability-" + ident
-                if project.get("repo_url") != expected_repo or project.get("site_url") != ORIGIN + "/capabilities/" + ident + "/" or project.get("install_url") != expected_repo + "#setup":
-                    errors.append(f"{ident}: new capability must use its canonical repository, main-site guide and actual README setup anchor")
+                expected = addition_destinations(ident)
+                if tuple(project.get(key) for key in ("repo_url", "site_url", "install_url")) != expected:
+                    errors.append(f"{ident}: new capability must use its reviewed canonical repository, guide and actual README installation anchor")
             continue
         repository = row.get("new_repository", "")
         repo_url = "https://github.com/michaeljabbour/" + repository
@@ -276,10 +276,13 @@ def main() -> int:
                 url.scheme == "https" and bool(url.netloc),
                 f"{ident}: {key} must use an absolute HTTPS URL",
             )
+        if "docs_url" in project:
+            require(project["docs_url"] == project.get("repo_url", "") + "/blob/main/docs/02-cli.md",
+                    f"{ident}: documentation must use the canonical CLI reference")
         install = urlsplit(project.get("install_url", ""))
         site = urlsplit(project.get("site_url", ""))
         require(
-            (ident in ADDITIONAL_IDS and project.get("install_url") == project.get("repo_url", "") + "#setup")
+            (ident in ADDITIONAL_IDS and project.get("install_url") == addition_destinations(ident)[2])
             or (ident not in ADDITIONAL_IDS and install.fragment in {"install", "use-skill"}
             and install._replace(fragment="") == site),
             f"{ident}: installation destination must use its actual documented setup section",
