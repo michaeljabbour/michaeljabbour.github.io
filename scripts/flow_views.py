@@ -69,7 +69,8 @@ def stage_chooser(data, target):
 
 
 def flow_guide(data, projects, poster, stages):
-    buttons = ''.join(f'<button type="button" data-flow-filter="{E(flow["id"])}" aria-pressed="false" aria-controls="flow-results"><strong>{E(flow["title"])}</strong><span>{E(flow["description"])}</span></button>' for flow in data['flows'])
+    counts = {flow['id']: sum(flow['id'] in data['memberships'][project['id']] for project in projects) for flow in data['flows']}
+    buttons = ''.join(f'<button type="button" data-flow-filter="{E(flow["id"])}" aria-pressed="false" aria-controls="flow-results"><span class="flow-choice-meta"><span class="flow-choice-number" aria-hidden="true">{index:02d}</span>{counts[flow["id"]]} capabilities</span><strong>{E(flow["title"])}</strong><span class="flow-choice-description">{E(flow["description"])}</span></button>' for index, flow in enumerate(data['flows'], 1))
     categories = {stage['id']: stage['title'] for stage in stages}
     cards = ''.join(
         f'<article class="flow-capability" data-capability-id="{E(project["id"])}" data-flow-project="{E(project["id"])}" data-flows="{E(" ".join(data["memberships"][project["id"]]))}" data-stage-memberships="{E(stage_tokens(project,data))}" data-category="{E(project["category"])}" data-format="{E(project["format"])}" data-search="{E(search_text(project,categories))}"><a class="flow-art" href="/capabilities/{E(project["id"])}/">{poster(project)}</a><div><h3><a href="/capabilities/{E(project["id"])}/">{E(project["title"])}</a></h3><p>{E(project["summary"])}</p>{flow_links(project,data)}</div></article>'

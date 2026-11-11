@@ -134,7 +134,7 @@ def main():
         return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{E(title)} · Michael Jabbour</title><meta name="description" content="{E(description)}">
-<meta name="theme-color" content="#f5f7fa"><meta property="og:title" content="{E(title)} · Michael Jabbour"><meta property="og:description" content="{E(description)}"><meta property="og:type" content="website"><meta property="og:url" content="https://michaeljabbour.github.io{E(path)}">
+<meta name="theme-color" content="#f3ecdd"><meta property="og:title" content="{E(title)} · Michael Jabbour"><meta property="og:description" content="{E(description)}"><meta property="og:type" content="website"><meta property="og:url" content="https://michaeljabbour.github.io{E(path)}">
 <meta property="og:image" content="https://michaeljabbour.github.io/assets/social.png"><link rel="icon" type="image/svg+xml" href="/assets/favicon.svg"><link rel="canonical" href="https://michaeljabbour.github.io{E(path)}">
 <link rel="stylesheet" href="{style_url}"><script src="{behavior_url}" defer></script>{extra_head}</head>
 <body><a class="skip-link" href="#main">Skip to content</a>
@@ -174,7 +174,7 @@ def main():
                 if overview.get("transcript")
                 else ""
             )
-            hero_art = f'''<div class="hero-story" id="story"><h2>{E(overview.get("title", "Good Work Has a Next Day"))}</h2><video controls playsinline preload="none" crossorigin="anonymous" poster="{E(asset_url(overview["poster"]))}" aria-label="Portfolio overview film" data-overview-video><source src="{E(asset_url(overview["src"]))}" type="video/mp4"><track kind="captions" srclang="en" label="English" src="{E(asset_url(overview["caption"]))}"></video>{transcript_link}<a class="story-to-journey" href="#journey">Browse the work flows</a></div>'''
+            hero_art = f'''<div class="hero-story" id="story"><div class="story-kicker" aria-hidden="true"><span>From the workbench</span><span>Film / 01</span></div><h2>{E(overview.get("title", "Good Work Has a Next Day"))}</h2><video controls playsinline preload="none" crossorigin="anonymous" poster="{E(asset_url(overview["poster"]))}" aria-label="Portfolio overview film" data-overview-video><source src="{E(asset_url(overview["src"]))}" type="video/mp4"><track kind="captions" srclang="en" label="English" src="{E(asset_url(overview["caption"]))}"></video>{transcript_link}<a class="story-to-journey" href="#journey">Browse the work flows</a></div>'''
 
     def journey_guide(home=False):
         intro = (
@@ -221,10 +221,10 @@ def main():
         f'<a href="/?moment={E(stage["id"])}#story" data-story-moment="{E(stage["id"])}" data-film-start="{stage["film_start"]}">{E(stage["title"])}</a>'
         for stage in stages if stage["film_start"] is not None
     ) + '</div>'
-    home = f"""<section class="hero wrap"><div class="hero-copy"><p class="intro-line">A collection of {len(projects)} capabilities.</p><h1>AI tools for research, software, and creative work.</h1><p class="hero-description">Choose a capability for a specific task. Read the required input, setup and output, then try the first task with your own material.</p><div class="button-row"><a class="button primary" href="#journey">Browse work flows</a><a class="button secondary" href="/films/">Watch the films</a></div></div>{hero_art}</section>
+    home = f"""<section class="hero wrap"><div class="hero-copy"><p class="intro-line">A collection of {len(projects)} capabilities.</p><h1>AI tools for research, software, and <em>creative work.</em></h1><p class="hero-description">Find a tool for the work in front of you. Explore what it needs, what it does and what you can make with it. Then try it with your own material.</p><div class="button-row"><a class="button primary" href="#journey">Browse work flows</a><a class="button secondary" href="/films/">Watch the films</a></div></div>{hero_art}</section>
 {flow_guide(flow_data, projects, poster, stages)}{legacy_chapters}
 <section class="point-of-view wrap section-space"><div class="pov-title"><span class="thought-mark" aria-hidden="true">↳</span><h2>Bring your<br>own judgment.</h2></div><div class="pov-copy"><p>Follow the source. Look at the alternatives. Ask what would make the thing more useful.</p><p>Each capability has a defined job, guide and source repository. Compare that job with your task before installing or running the capability.</p><a class="text-link" href="/about/">About the capability collection</a></div></section>
-<section class="closing-section"><div class="wrap closing-content"><h2>Find a capability<br>for your next task.</h2><a class="button dark" href="/capabilities/">Browse all capabilities</a></div></section>"""
+<section class="closing-section"><div class="wrap closing-content"><h2>One task.<br>One useful place to start.</h2><a class="button dark" href="/capabilities/">Browse all capabilities</a></div></section>"""
     write(
         "",
         shell(

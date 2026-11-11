@@ -1,6 +1,8 @@
 # Design direction
 
-Use a light canvas, dark blue text and a clear blue action color, with yellow reserved for the selected journey moment. Use the existing system font stack and supplied artwork.
+Use an inventor's workbench: warm paper (#F3ECDD), forest ink (#22332F) and rust (#9F3D25) for actions. Keep secondary text legible (#545F57) and use a quiet sage selection color. Use the existing system fonts, with a system-serif accent on the homepage headline. Do not download fonts or change the supplied artwork.
+
+The fine grid belongs only behind the overview film, framing actual work rather than decorating the catalogue. Workflow choices have visible counts derived from the reviewed memberships, strong selected states and generous targets. Small card and subsection headings use approximately -0.01em tracking; reserve tighter tracking for display headlines. Keep the same catalogue, keyboard behavior and bookmarkable filter state.
 
 Keep one main navigation. The three work flows filter one shared capability catalogue inline: Build software; Research & learn; Create & communicate. Membership overlaps without imposing a sequence. Keep one detail page per capability and preserve legacy category deep links. The library provides search and filters across distinct public capabilities.
 
